@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "CloudNotes.Design", "CloudNotes.Design\CloudNotes.Design.modelproj", "{3364894A-8207-4077-96CD-77C6C3525A04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.Domain", "CloudNotes.Domain\CloudNotes.Domain.csproj", "{C3061622-28BA-4B25-B175-DE8DBF4B5E2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5492470E-7914-4B68-9F36-155E7F3600B7}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.Domain.Repositories", "CloudNotes.Domain.Repositories\CloudNotes.Domain.Repositories.csproj", "{9B1DF026-7809-4E81-AF2B-78AAB8FF2C03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.WebAPI", "CloudNotes.WebAPI\CloudNotes.WebAPI.csproj", "{92AF0069-27EA-4662-AA48-223CE160C157}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.ViewModels", "CloudNotes.ViewModels\CloudNotes.ViewModels.csproj", "{4A7CA0A9-0FDF-4208-8430-68340D6D2F7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.Infrastructure", "CloudNotes.Infrastructure\CloudNotes.Infrastructure.csproj", "{B2CE984B-141E-4C7A-AF2A-51A7AEDA8A00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.Tests", "CloudNotes.Tests\CloudNotes.Tests.csproj", "{6DD7451B-C253-445C-84E8-8775AC49AB7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DesktopClient", "CloudNotes.DesktopClient\CloudNotes.DesktopClient.csproj", "{E132859F-A45B-4386-B5AD-D6CF9DB46104}"
+	ProjectSection(ProjectDependencies) = postProject
+		{850D08A3-046B-4300-9F71-52FF86AE0800} = {850D08A3-046B-4300-9F71-52FF86AE0800}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{4F533DE9-CA4F-46E4-8DD0-181097803B4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YARTE", "YARTE\YARTE.csproj", "{DB5EE9C8-EACF-4231-877E-B9DFD7A714DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DesktopClient.Updater", "CloudNotes.DesktopClient.Updater\CloudNotes.DesktopClient.Updater.csproj", "{850D08A3-046B-4300-9F71-52FF86AE0800}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3364894A-8207-4077-96CD-77C6C3525A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3364894A-8207-4077-96CD-77C6C3525A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3364894A-8207-4077-96CD-77C6C3525A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3061622-28BA-4B25-B175-DE8DBF4B5E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3061622-28BA-4B25-B175-DE8DBF4B5E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3061622-28BA-4B25-B175-DE8DBF4B5E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3061622-28BA-4B25-B175-DE8DBF4B5E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1DF026-7809-4E81-AF2B-78AAB8FF2C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1DF026-7809-4E81-AF2B-78AAB8FF2C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1DF026-7809-4E81-AF2B-78AAB8FF2C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1DF026-7809-4E81-AF2B-78AAB8FF2C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92AF0069-27EA-4662-AA48-223CE160C157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92AF0069-27EA-4662-AA48-223CE160C157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92AF0069-27EA-4662-AA48-223CE160C157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92AF0069-27EA-4662-AA48-223CE160C157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A7CA0A9-0FDF-4208-8430-68340D6D2F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7CA0A9-0FDF-4208-8430-68340D6D2F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7CA0A9-0FDF-4208-8430-68340D6D2F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7CA0A9-0FDF-4208-8430-68340D6D2F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2CE984B-141E-4C7A-AF2A-51A7AEDA8A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2CE984B-141E-4C7A-AF2A-51A7AEDA8A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2CE984B-141E-4C7A-AF2A-51A7AEDA8A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2CE984B-141E-4C7A-AF2A-51A7AEDA8A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD7451B-C253-445C-84E8-8775AC49AB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD7451B-C253-445C-84E8-8775AC49AB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD7451B-C253-445C-84E8-8775AC49AB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD7451B-C253-445C-84E8-8775AC49AB7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E132859F-A45B-4386-B5AD-D6CF9DB46104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E132859F-A45B-4386-B5AD-D6CF9DB46104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E132859F-A45B-4386-B5AD-D6CF9DB46104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E132859F-A45B-4386-B5AD-D6CF9DB46104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5EE9C8-EACF-4231-877E-B9DFD7A714DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5EE9C8-EACF-4231-877E-B9DFD7A714DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5EE9C8-EACF-4231-877E-B9DFD7A714DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5EE9C8-EACF-4231-877E-B9DFD7A714DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{850D08A3-046B-4300-9F71-52FF86AE0800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{850D08A3-046B-4300-9F71-52FF86AE0800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{850D08A3-046B-4300-9F71-52FF86AE0800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{850D08A3-046B-4300-9F71-52FF86AE0800}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E132859F-A45B-4386-B5AD-D6CF9DB46104} = {4F533DE9-CA4F-46E4-8DD0-181097803B4E}
+		{850D08A3-046B-4300-9F71-52FF86AE0800} = {4F533DE9-CA4F-46E4-8DD0-181097803B4E}
+	EndGlobalSection
+EndGlobal

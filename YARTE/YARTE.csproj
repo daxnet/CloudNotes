@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB5EE9C8-EACF-4231-877E-B9DFD7A714DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YARTE</RootNamespace>
+    <AssemblyName>YARTE</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buttons\BoldButton.cs" />
+    <Compile Include="Buttons\ForecolorButton.cs" />
+    <Compile Include="Buttons\IHTMLEditorButton.cs" />
+    <Compile Include="Buttons\InsertLinkedImageButton.cs" />
+    <Compile Include="Buttons\ItalicButton.cs" />
+    <Compile Include="Buttons\JustifyCenterButton.cs" />
+    <Compile Include="Buttons\JustifyLeftButton.cs" />
+    <Compile Include="Buttons\JustifyRightButton.cs" />
+    <Compile Include="Buttons\LinkButton.cs" />
+    <Compile Include="Buttons\OrderedListButton.cs" />
+    <Compile Include="Buttons\PredefinedButtonSets.cs" />
+    <Compile Include="Buttons\PrintButton.cs" />
+    <Compile Include="Buttons\UnderlineButton.cs" />
+    <Compile Include="Buttons\UnlinkButton.cs" />
+    <Compile Include="Buttons\UnorderedListButton.cs" />
+    <Compile Include="Buttons\ViewHtmlButton.cs" />
+    <Compile Include="FrmViewHtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewHtml.Designer.cs">
+      <DependentUpon>FrmViewHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HTMLEditor.Designer.cs">
+      <DependentUpon>HtmlEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.zh-CN.Designer.cs">
+      <DependentUpon>Resources.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmViewHtml.resx">
+      <DependentUpon>FrmViewHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewHtml.zh-CN.resx">
+      <DependentUpon>FrmViewHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HTMLEditor.resx">
+      <DependentUpon>HtmlEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSHTML">
+      <Guid>{3050F1C5-98B5-11CF-BB82-00AA00BDCE0B}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bold.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulletedlist.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createlink.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletetablecolumn.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletetablerow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editstyle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edittable.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fontbackcolorpicker.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fontforecolorpicker.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iespellcheck.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indent.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertbutton.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertcheckbox.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertdate.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertdiv.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertdropdownlist.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertform.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertimage.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertimagefromgallery.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertradiobutton.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertrule.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttable.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttablecolumnafter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttablecolumnbefore.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttablerowafter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttablerowbefore.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttextarea.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttextbox.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttime.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\italic.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\justifycenter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\justifyfull.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\justifyleft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\justifyright.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netspell.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\numberedlist.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outdent.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removeformat.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectall.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\strikethrough.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subscript.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superscript.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\underline.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlink.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wordclean.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSProject_xml.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\world_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link_break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_list_numbers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_list_bullets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_align_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_align_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_align_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

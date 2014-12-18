@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="66793df9-3678-4ad5-bbd7-6d1a383d9bf9"
+  name="CloudNotes.Design" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <appliedStereotypesInternal>
+    <stereotypeInstance
+      Id="0970c554-1c65-403d-a0e4-95f475f7cd23"
+      name="namespace"
+      profile="CSharpProfile">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="8bde242c-93e5-45a6-9c83-ff11ae7ff7e3">
+          <propertyInstance
+            Id="5f8a868d-a9c2-4d0a-ba1d-463bcfb95c34"
+            name="BaseName" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="71776e89-a0db-4766-9881-174d2bf02340">
+          <propertyInstance
+            Id="1d4ddf82-1eba-45d8-8753-8a0e1dd5d2a4"
+            name="ClrAttributes" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="a44bde1a-e749-4fe5-b3bf-43cb511e27f1">
+          <propertyInstance
+            Id="0b83aecb-3f89-4d5a-baf6-1314cfe93b34"
+            name="Usings" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance
+      Id="3302452a-34f7-457e-a938-26957d9bc8f5"
+      name="TextTemplateBindings"
+      profile="TextTemplateBindings">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="ce80a1e6-4381-4628-8d27-32f3105db000">
+          <propertyInstance
+            Id="bd816523-212c-4009-8206-f383d583bdb6"
+            name="Alias"
+            value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="f2b57f3f-a787-4691-acd0-8bfe1ec7c681">
+          <propertyInstance
+            Id="bf0e7dbb-8b51-4dab-a85c-4b95cc51c867"
+            name="TemplateFilePath"
+            value="ClassTemplate=.\Templates\ClassTemplate.t4|EnumTemplate=.\Templates\EnumTemplate.t4|InterfaceTemplate=.\Templates\InterfaceTemplate.t4|StructTemplate=.\Templates\StructTemplate.t4" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="a8997bbd-f692-4179-898f-e81d274cb126">
+          <propertyInstance
+            Id="cda09e48-1882-42a2-8e0b-bab45d4850a3"
+            name="ProjectPath"
+            value="ClassTemplate=..\CloudNotes.Domain\CloudNotes.Domain.csproj|EnumTemplate=..\CloudNotes.Domain\CloudNotes.Domain.csproj|InterfaceTemplate=..\CloudNotes.Domain\CloudNotes.Domain.csproj|StructTemplate=..\CloudNotes.Domain\CloudNotes.Domain.csproj" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="6b9a81d9-174e-4d0a-85b3-f4282aaffbac">
+          <propertyInstance
+            Id="b625ff74-38d0-45ad-8fc6-199cfccb51d0"
+            name="TargetDirectory"
+            value="ClassTemplate=Model|EnumTemplate=Model|InterfaceTemplate=Model|StructTemplate=Model" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="0d896e24-3d40-4ce7-92b1-203154c43480">
+          <propertyInstance
+            Id="6a8defce-a1c6-4558-8ab9-7c8f809a7acf"
+            name="TargetName"
+            value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="6b859a4d-504d-4945-847c-ec55581eb4e1">
+          <propertyInstance
+            Id="79e52338-7b79-44c2-8ecc-d6d860ea1ebe"
+            name="Overwrite"
+            value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="f38783c0-9c69-4faf-8fb6-868e5bf7431f">
+          <propertyInstance
+            Id="dfdf7f96-3180-4f8a-8119-abc77b4fc118"
+            name="Parameters" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="358e4c05-0afe-46c8-af2a-b996677d703e">
+      <profileInstance
+        Id="60d0922c-3603-435e-8803-de45984bf0a9"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="9d337930-b49e-4a29-a75c-6469c269aace">
+      <profileInstance
+        Id="9cf778cb-ea3e-4fb2-9edf-0367ce5f57ec"
+        name="TextTemplateBindings" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="657f8f11-5ab6-40db-b6d2-0a53ef35d524">
+      <profileInstance
+        Id="16fd2bbd-5ef7-49cf-be8e-45c60fcc8df5"
+        name="ApworksEntityProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="199c02db-04ac-4d1c-9e85-04db7ed3b610"
+        LastKnownName="CloudNotes.Domain.Model"
+        LastKnownLocation="Package_1451.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

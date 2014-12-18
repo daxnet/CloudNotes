@@ -1,0 +1,1005 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CloudNotes.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:CloudNotes.WebAPI.AutoMapperConfig">
+            <summary>
+            Represents the configuration to the AutoMapper framework.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.AutoMapperConfig.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:CloudNotes.WebAPI.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,CloudNotes.WebAPI.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,CloudNotes.WebAPI.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},CloudNotes.WebAPI.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(CloudNotes.WebAPI.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,CloudNotes.WebAPI.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:CloudNotes.WebAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Controllers.HomeController">
+            <summary>
+            Represents the Home Controller
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.HomeController.Index">
+            <summary>
+            Indexes this instance.
+            </summary>
+            <returns>The <see cref="T:System.Web.Mvc.ActionResult"/> value.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.#ctor(Apworks.Repositories.IRepositoryContext,Apworks.Repositories.IRepository{CloudNotes.Domain.Model.Note})">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.NotesController"/> class.
+            </summary>
+            <param name="repositoryContext">The repository context.</param>
+            <param name="noteRepository">The note repository.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.DeleteNote(System.Guid)">
+            <summary>
+            Deletes the note by using the given note ID.
+            </summary>
+            <param name="id">The identifier of the note to be deleted.</param>
+            <returns></returns>
+            <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"></exception>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Controllers.PingController">
+            <summary>
+            Represents the Ping controller.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.PingController.#ctor(Apworks.Repositories.IRepositoryContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.PingController"/> class.
+            </summary>
+            <param name="repositoryContext">The repository context.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.PingController.Ping">
+            <summary>
+            Pings the server instance.
+            </summary>
+            <returns>A data structure that contains the server and user information.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.PingController.Echo(System.String)">
+            <summary>
+            Echoes the specified text.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Controllers.UsersController">
+            <summary>
+            Represents the API controller that manages CloudNotes users.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.UsersController.#ctor(Apworks.Repositories.IRepositoryContext,Apworks.Repositories.IRepository{CloudNotes.Domain.Model.User})">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.UsersController"/> class.
+            </summary>
+            <param name="repositoryContext">The repository context.</param>
+            <param name="userRepository">The user repository.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.UsersController.CreateUser(CloudNotes.ViewModels.CreateUserViewModel)">
+            <summary>
+            Creates the user.
+            </summary>
+            <param name="viewModel">The view model which contains the user information.</param>
+            <returns>The Http status with the created user ID.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.UsersController.Authenticate(CloudNotes.ViewModels.AuthenticationViewModel)">
+            <summary>
+            Authenticates the specified user.
+            </summary>
+            <param name="viewModel">The view model which contains the username and password to be authenticated.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">viewModel</exception>
+            <exception cref="T:System.ArgumentException">
+            </exception>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"></exception>
+            <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"></exception>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.UsersController.ChangePassword(CloudNotes.ViewModels.ChangePasswordViewModel)">
+            <summary>
+            Changes the password.
+            </summary>
+            <param name="viewModel">The view model.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">viewModel</exception>
+            <exception cref="T:System.ArgumentException">
+            </exception>
+            <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"></exception>
+            <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"></exception>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Controllers.WebApiController">
+            <summary>
+            Represents the base class for Web API controllers.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.#ctor(Apworks.Repositories.IRepositoryContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.WebApiController"/> class.
+            </summary>
+            <param name="repositoryContext">The repository context.</param>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Controllers.WebApiController.RepositoryContext">
+            <summary>
+            Gets the repository context.
+            </summary>
+            <value>
+            The repository context.
+            </value>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Controllers.WebApiController.CurrentLoginUser">
+            <summary>
+            Gets the current login user.
+            </summary>
+            <value>
+            The current login user.
+            </value>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.RequireExistance``1(``0,Apworks.Repositories.IRepository{``0},System.Boolean)">
+            <summary>
+            Checks if the given aggregate root is exist in the repository.
+            </summary>
+            <typeparam name="T">The type of the aggregate root to be checked.</typeparam>
+            <param name="against">The aggregate root object to be checked.</param>
+            <param name="repository">The repository for the aggregate root.</param>
+            <param name="requiresItExists">The checking logic switcher.</param>
+            <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException">
+            Throws when the <paramref name="requiresItExists"/> is set to <c>false</c> but the aggregate root exists.
+            </exception>
+            <exception>
+            Throws when the
+                <cref>CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException</cref>
+                <paramref name="requiresItExists"/> is set to <c>true</c> but the aggregate root does not exist.
+            </exception>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.RequireExistance``1(System.Guid,Apworks.Repositories.IRepository{``0},System.Boolean)">
+            <summary>
+            Checks if the given aggregate root is exist in the repository.
+            </summary>
+            <typeparam name="T">The type of the aggregate root.</typeparam>
+            <param name="id">The identifier of the aggregate root.</param>
+            <param name="repository">The repository for the aggregate root.</param>
+            <param name="requiresItExists">The checking logic switcher.</param>
+            <exception>
+            Throws when the
+                <cref>CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException</cref>
+                <paramref name="requiresItExists"/> is set to <c>false</c> but the aggregate root exists.
+            </exception>
+            <exception>
+            Throws when the
+                <cref>CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException</cref>
+                <paramref name="requiresItExists"/> is set to <c>true</c> but the aggregate root does not exist.
+            </exception>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.RequireExistance``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},Apworks.Repositories.IRepository{``0},System.Boolean)">
+            <summary>
+            Checks if the given aggregate root is exist in the repository.
+            </summary>
+            <typeparam name="T">The type of the aggregate root.</typeparam>
+            <param name="checking">The lambda expression which identifies the checking logic.</param>
+            <param name="repository">The repository for the aggregate root.</param>
+            <param name="requiresItExists">The checking logic switcher.</param>
+            <exception>
+            Throws when the
+                <cref>CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException</cref>
+                <paramref name="requiresItExists"/> is set to <c>false</c> but the aggregate root exists.
+            </exception>
+            <exception>
+            Throws when the
+                <cref>CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException</cref>
+                <paramref name="requiresItExists"/> is set to <c>true</c> but the aggregate root does not exist.
+            </exception>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.GetByCriteria``2(Apworks.Repositories.IRepository{``0},CloudNotes.ViewModels.QueryCriteria)">
+            <summary>
+            Gets the by criteria.
+            </summary>
+            <typeparam name="TAggregateRoot">The type of the aggregate root.</typeparam>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="repository">The repository.</param>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">repository</exception>
+            <exception cref="T:System.InvalidOperationException">Cannot perform a paging query: The paging query requires the sorting but neither SortPredicate nor SortOrder was specified.</exception>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.GetPagedResultByCriteria``2(Apworks.Repositories.IRepository{``0},System.Int32,System.Int32,System.String,Apworks.Storage.SortOrder,System.String,System.Object[])">
+            <summary>
+            Gets the paged result by criteria.
+            </summary>
+            <typeparam name="TAggregateRoot">The type of the aggregate root.</typeparam>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="repository">The repository.</param>
+            <param name="pageNumber">The page number.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="sortingField">The sorting field.</param>
+            <param name="sortingOrder">The sorting order.</param>
+            <param name="filterExpression">The filter expression.</param>
+            <param name="expressionArgs">The expression arguments.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            repository
+            or
+            sortingField
+            </exception>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException">
+            <summary>
+            Represents the error occurred when the application is going to add a new
+            entity to its repository but the entity has already been existed.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException">
+            <summary>
+            Represents the error occurred when the application is going to modify or delete an existing
+            entity from its repository but the entity doesn't exist.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+            </summary>
+            <param name="userName">Name of the user.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException" /> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute">
+            <summary>
+            Represents the authorization filter attribute used by current Web API application.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute"/> class.
+            </summary>
+            <param name="privilege">The privilege.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Calls when a process requests authorization.
+            </summary>
+            <param name="actionContext">The action context, which encapsulates information for using <see cref="T:System.Web.Http.Filters.AuthorizationFilterAttribute" />.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.TryAuthorizeUser(System.String,System.String,System.Web.Http.Controllers.HttpActionContext,CloudNotes.Domain.Model.User@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Tries the authorize user.
+            </summary>
+            <param name="username">The username.</param>
+            <param name="password">The password.</param>
+            <param name="actionContext">The action context.</param>
+            <param name="user">The user.</param>
+            <param name="roles">The roles.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Properties.Resources.InsufficientPriviledgeError">
+            <summary>
+              Looks up a localized string similar to Insufficient privilege to perform the action..
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Properties.Resources.InvalidPasswordError">
+            <summary>
+              Looks up a localized string similar to The provided password is invalid..
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Properties.Resources.InvalidValueFormat">
+            <summary>
+              Looks up a localized string similar to The value provided is not in a correct format..
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Properties.Resources.NullParameterPropertyError">
+            <summary>
+              Looks up a localized string similar to Property &apos;{0}&apos; of parameter &apos;{1}&apos; cannot be empty or null..
+            </summary>
+        </member>
+        <member name="P:CloudNotes.WebAPI.Properties.Resources.UserNameDoesNotExist">
+            <summary>
+              Looks up a localized string similar to &quot;User name &apos;{0}&apos; does not exist.&quot;.
+            </summary>
+        </member>
+    </members>
+</doc>
