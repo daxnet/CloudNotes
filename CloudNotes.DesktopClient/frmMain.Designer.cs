@@ -61,8 +61,10 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSourceCodeRepository = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCloudNotesTech = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuDonate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -338,11 +340,20 @@
             // mnuHelp
             // 
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSourceCodeRepository,
             this.mnuCloudNotesTech,
             this.toolStripMenuItem7,
+            this.mnuDonate,
             this.mnuAbout});
             this.mnuHelp.Name = "mnuHelp";
             resources.ApplyResources(this.mnuHelp, "mnuHelp");
+            // 
+            // mnuSourceCodeRepository
+            // 
+            this.mnuSourceCodeRepository.Image = global::CloudNotes.DesktopClient.Properties.Resources.page_white_csharp;
+            this.mnuSourceCodeRepository.Name = "mnuSourceCodeRepository";
+            resources.ApplyResources(this.mnuSourceCodeRepository, "mnuSourceCodeRepository");
+            this.mnuSourceCodeRepository.Click += new System.EventHandler(this.Action_SourceCodeRepository);
             // 
             // mnuCloudNotesTech
             // 
@@ -355,6 +366,12 @@
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+            // 
+            // mnuDonate
+            // 
+            this.mnuDonate.Image = global::CloudNotes.DesktopClient.Properties.Resources.money;
+            this.mnuDonate.Name = "mnuDonate";
+            resources.ApplyResources(this.mnuDonate, "mnuDonate");
             // 
             // mnuAbout
             // 
@@ -677,6 +694,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem mnuCloudNotesTech;
         private System.Windows.Forms.ToolStripStatusLabel slblUpdateAvailable;
+        private System.Windows.Forms.ToolStripMenuItem mnuDonate;
+        private System.Windows.Forms.ToolStripMenuItem mnuSourceCodeRepository;
     }
 }
 

@@ -292,6 +292,16 @@ namespace CloudNotes.DesktopClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap money {
+            get {
+                object obj = ResourceManager.GetObject("money", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap New {
             get {
                 object obj = ResourceManager.GetObject("New", resourceCulture);
@@ -362,6 +372,16 @@ namespace CloudNotes.DesktopClient.Properties {
         internal static string OriginalPasswordRequired {
             get {
                 return ResourceManager.GetString("OriginalPasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap page_white_csharp {
+            get {
+                object obj = ResourceManager.GetObject("page_white_csharp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

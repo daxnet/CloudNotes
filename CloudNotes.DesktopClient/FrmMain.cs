@@ -776,6 +776,11 @@ namespace CloudNotes.DesktopClient
             "http://daxnetsvr.cloudapp.net/schen/cloudnotes".Navigate();
         }
 
+        private void Action_SourceCodeRepository(object sender, EventArgs e)
+        {
+            "https://github.com/daxnet/CloudNotes".Navigate();
+        }
+
         private async void FrmMain_Load(object sender, EventArgs e)
         {
             try

@@ -41,6 +41,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CloudNotesKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Apworks">
       <HintPath>..\packages\Apworks.2.5.5164.37969\lib\net45\Apworks.dll</HintPath>
@@ -84,6 +90,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="ClientTests.cs" />
     <Compile Include="ControllerTests.cs" />
     <Compile Include="NotesControllerTests.cs" />
@@ -91,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="CloudNotesKey.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

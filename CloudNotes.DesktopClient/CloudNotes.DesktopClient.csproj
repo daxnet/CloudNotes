@@ -41,6 +41,12 @@
   <PropertyGroup>
     <ApplicationIcon>CloudNotes.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CloudNotesKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CloudNotes.DESecurity">
       <HintPath>..\References\CloudNotes.DESecurity.dll</HintPath>
@@ -68,6 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="ClientCredential.cs" />
     <Compile Include="ClientModel\DeleteFlagModel.cs" />
     <Compile Include="DesktopClientService.cs" />
@@ -212,6 +221,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="CloudNotesKey.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +238,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\page_white_csharp.png" />
+    <None Include="Resources\money.png" />
     <None Include="Resources\error.png" />
     <None Include="Resources\world.png" />
     <None Include="Resources\user_add.png" />
