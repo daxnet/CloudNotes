@@ -64,7 +64,6 @@
             this.mnuSourceCodeRepository = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCloudNotesTech = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuDonate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -343,7 +342,6 @@
             this.mnuSourceCodeRepository,
             this.mnuCloudNotesTech,
             this.toolStripMenuItem7,
-            this.mnuDonate,
             this.mnuAbout});
             this.mnuHelp.Name = "mnuHelp";
             resources.ApplyResources(this.mnuHelp, "mnuHelp");
@@ -366,12 +364,6 @@
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
-            // 
-            // mnuDonate
-            // 
-            this.mnuDonate.Image = global::CloudNotes.DesktopClient.Properties.Resources.money;
-            this.mnuDonate.Name = "mnuDonate";
-            resources.ApplyResources(this.mnuDonate, "mnuDonate");
             // 
             // mnuAbout
             // 
@@ -694,7 +686,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem mnuCloudNotesTech;
         private System.Windows.Forms.ToolStripStatusLabel slblUpdateAvailable;
-        private System.Windows.Forms.ToolStripMenuItem mnuDonate;
         private System.Windows.Forms.ToolStripMenuItem mnuSourceCodeRepository;
     }
 }

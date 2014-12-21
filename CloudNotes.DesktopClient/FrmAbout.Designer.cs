@@ -34,28 +34,34 @@
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpLicense = new System.Windows.Forms.TabPage();
             this.txtLicense = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpRefAssemblies = new System.Windows.Forms.TabPage();
             this.lstAssemblies = new System.Windows.Forms.ListView();
             this.colAssemblyName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAssemblyVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAssemblyFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tpDonate = new System.Windows.Forms.TabPage();
+            this.lblDonateLink = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tpAuthor = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAuthorName = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblBlog = new System.Windows.Forms.LinkLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tpLicense.SuspendLayout();
+            this.tpRefAssemblies.SuspendLayout();
+            this.tpDonate.SuspendLayout();
+            this.tpAuthor.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -80,18 +86,20 @@
             // tabControl
             // 
             resources.ApplyResources(this.tabControl, "tabControl");
-            this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tpLicense);
+            this.tabControl.Controls.Add(this.tpRefAssemblies);
+            this.tabControl.Controls.Add(this.tpDonate);
+            this.tabControl.Controls.Add(this.tpAuthor);
+            this.tabControl.ImageList = this.imageList;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             // 
-            // tabPage1
+            // tpLicense
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Controls.Add(this.txtLicense);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tpLicense, "tpLicense");
+            this.tpLicense.Controls.Add(this.txtLicense);
+            this.tpLicense.Name = "tpLicense";
+            this.tpLicense.UseVisualStyleBackColor = true;
             // 
             // txtLicense
             // 
@@ -99,12 +107,12 @@
             this.txtLicense.Name = "txtLicense";
             this.txtLicense.ReadOnly = true;
             // 
-            // tabPage2
+            // tpRefAssemblies
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Controls.Add(this.lstAssemblies);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tpRefAssemblies, "tpRefAssemblies");
+            this.tpRefAssemblies.Controls.Add(this.lstAssemblies);
+            this.tpRefAssemblies.Name = "tpRefAssemblies";
+            this.tpRefAssemblies.UseVisualStyleBackColor = true;
             // 
             // lstAssemblies
             // 
@@ -136,13 +144,36 @@
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "Assembly.png");
+            this.imageList.Images.SetKeyName(1, "License");
+            this.imageList.Images.SetKeyName(2, "Donate");
+            this.imageList.Images.SetKeyName(3, "Person");
             // 
-            // tabPage4
+            // tpDonate
             // 
-            resources.ApplyResources(this.tabPage4, "tabPage4");
-            this.tabPage4.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tpDonate, "tpDonate");
+            this.tpDonate.Controls.Add(this.lblDonateLink);
+            this.tpDonate.Controls.Add(this.label3);
+            this.tpDonate.Name = "tpDonate";
+            this.tpDonate.UseVisualStyleBackColor = true;
+            // 
+            // lblDonateLink
+            // 
+            resources.ApplyResources(this.lblDonateLink, "lblDonateLink");
+            this.lblDonateLink.Name = "lblDonateLink";
+            this.lblDonateLink.TabStop = true;
+            this.lblDonateLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDonateLink_LinkClicked);
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // tpAuthor
+            // 
+            resources.ApplyResources(this.tpAuthor, "tpAuthor");
+            this.tpAuthor.Controls.Add(this.tableLayoutPanel1);
+            this.tpAuthor.Name = "tpAuthor";
+            this.tpAuthor.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -151,6 +182,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblAuthorName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblBlog, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // label1
@@ -177,6 +209,13 @@
             this.lblBlog.TabStop = true;
             this.lblBlog.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBlog_LinkClicked);
             // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Image = global::CloudNotes.DesktopClient.Properties.Resources.MVP_Horizontal_FullColor;
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            // 
             // btnOK
             // 
             resources.ApplyResources(this.btnOK, "btnOK");
@@ -201,12 +240,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
+            this.tpLicense.ResumeLayout(false);
+            this.tpLicense.PerformLayout();
+            this.tpRefAssemblies.ResumeLayout(false);
+            this.tpDonate.ResumeLayout(false);
+            this.tpDonate.PerformLayout();
+            this.tpAuthor.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -218,9 +260,9 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tpLicense;
+        private System.Windows.Forms.TabPage tpRefAssemblies;
+        private System.Windows.Forms.TabPage tpAuthor;
         private System.Windows.Forms.TextBox txtLicense;
         private System.Windows.Forms.ListView lstAssemblies;
         private System.Windows.Forms.ColumnHeader colAssemblyName;
@@ -232,5 +274,9 @@
         private System.Windows.Forms.LinkLabel lblAuthorName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel lblBlog;
+        private System.Windows.Forms.TabPage tpDonate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel lblDonateLink;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

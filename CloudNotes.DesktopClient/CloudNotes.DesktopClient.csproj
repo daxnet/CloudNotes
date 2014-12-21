@@ -238,6 +238,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\MVP_Horizontal_FullColor.png" />
     <None Include="Resources\page_white_csharp.png" />
     <None Include="Resources\money.png" />
     <None Include="Resources\error.png" />

@@ -12,11 +12,25 @@ using System.Web.Http;
 
 namespace CloudNotes.WebAPI.Controllers
 {
+    /// <summary>
+    /// Represents the controller that provides the client package management APIs.
+    /// </summary>
     [RoutePrefix("api")]
     public class PackageController : WebApiController
     {
+        #region Private Fields
+
         private readonly IRepository<ClientPackage> repository;
 
+        #endregion
+
+        #region Ctor
+
+        /// <summary>
+        /// Initializes a new instance of <c>PackageController</c> class.
+        /// </summary>
+        /// <param name="repositoryContext">The instance of <see cref="IRepositoryContext"/></param>
+        /// <param name="repository">The instance of client package repository.</param>
         public PackageController(IRepositoryContext repositoryContext,
             IRepository<ClientPackage> repository)
             : base(repositoryContext)
@@ -24,18 +38,16 @@ namespace CloudNotes.WebAPI.Controllers
             this.repository = repository;
         }
 
-        [WebApiAuthorization(Privileges.ApiGetPackage)]
-        [HttpGet]
-        [Route("packages/exist/{clientType}")]
-        public IHttpActionResult PackageExists(string clientType)
-        {
-            return
-                this.Ok(
-                    this.repository.Exists(
-                        Specification<ClientPackage>.Eval(
-                            cp => cp.ClientType == clientType)));
-        }
+        #endregion
 
+        #region Public APIs
+
+        /// <summary>
+        /// Gets the latest package information based on the given client type.
+        /// </summary>
+        /// <param name="clientType">The type of the client application. Currently
+        /// it only supports DesktopClient.</param>
+        /// <returns>HTTP 200 with package information if success.</returns>
         [WebApiAuthorization(Privileges.ApiGetPackage)]
         [HttpGet]
         [Route("packages/latest/{clientType}")]
@@ -76,5 +88,7 @@ namespace CloudNotes.WebAPI.Controllers
                         PackageDownloadURL = packageDownloadUrl
                     });
         }
+
+        #endregion
     }
 }

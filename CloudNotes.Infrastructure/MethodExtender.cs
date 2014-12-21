@@ -1,14 +1,11 @@
 ﻿using Apworks;
 using System;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace CloudNotes.Infrastructure
 {
-    using System.Diagnostics;
-
     /// <summary>
     /// Represents the method extender.
     /// </summary>
@@ -50,13 +47,6 @@ namespace CloudNotes.Infrastructure
             {
                 Process.Start(s);
             }
-        }
-        #endregion
-
-        #region Version Extender
-        public static int CalculateValue(this Version version)
-        {
-            return 0;
         }
         #endregion
     }

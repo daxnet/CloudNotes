@@ -49,15 +49,15 @@ namespace CloudNotes.WebAPI.Controllers
         [HttpPut]
         public IHttpActionResult CreateUser([FromBody] CreateUserViewModel viewModel)
         {
-            if (userRepository.Exists(Specification<User>.Eval(u => u.UserName == viewModel.UserName)))
+            if (this.userRepository.Exists(Specification<User>.Eval(u => u.UserName == viewModel.UserName)))
                 throw new UserAlreadyExistsException(
                     string.Format("The user '{0}' already exists.", viewModel.UserName));
-            if (userRepository.Exists(Specification<User>.Eval(u => u.Email == viewModel.Email))) 
+            if (this.userRepository.Exists(Specification<User>.Eval(u => u.Email == viewModel.Email))) 
                 throw new EmailAlreadyExistsException(string.Format("The email '{0}' already exists.", viewModel.Email));
             var user = Mapper.Map<CreateUserViewModel, User>(viewModel);
-            userRepository.Add(user);
-            RepositoryContext.Commit();
-            return Ok(user.ID);
+            this.userRepository.Add(user);
+            this.RepositoryContext.Commit();
+            return this.Ok(user.ID);
         }
 
         /// <summary>
@@ -84,12 +84,12 @@ namespace CloudNotes.WebAPI.Controllers
             if (!viewModel.EncodedPassword.IsBase64String())
                 throw new FormatException(Resources.InvalidValueFormat);
 
-            if (!userRepository.Exists(Specification<User>.Eval(u => u.UserName == viewModel.UserName)))
+            if (!this.userRepository.Exists(Specification<User>.Eval(u => u.UserName == viewModel.UserName)))
             {
                 throw new UserDoesNotExistException(viewModel.UserName);
             }
 
-            var user = userRepository.Find(Specification<User>.Eval(u => u.UserName == viewModel.UserName));
+            var user = this.userRepository.Find(Specification<User>.Eval(u => u.UserName == viewModel.UserName));
             if (user.Locked)
             {
                 throw new UserLockedException("User has been locked.");
@@ -102,8 +102,8 @@ namespace CloudNotes.WebAPI.Controllers
             }
 
             user.DateLastAuthenticated = DateTime.UtcNow;
-            userRepository.Update(user);
-            RepositoryContext.Commit();
+            this.userRepository.Update(user);
+            this.RepositoryContext.Commit();
             return this.Ok(true);
         }
 
@@ -129,10 +129,10 @@ namespace CloudNotes.WebAPI.Controllers
                 throw new ArgumentException(string.Format(Resources.NullParameterPropertyError, "EncodedOldPassword", "viewModel"));
             if (string.IsNullOrEmpty(viewModel.EncodedNewPassword))
                 throw new ArgumentException(string.Format(Resources.NullParameterPropertyError, "EncodedNewPassword", "viewModel"));
-            if (!userRepository.Exists(Specification<User>.Eval(u => u.UserName == viewModel.UserName)))
+            if (!this.userRepository.Exists(Specification<User>.Eval(u => u.UserName == viewModel.UserName)))
                 throw new UserDoesNotExistException(viewModel.UserName);
 
-            var user = userRepository.Find(Specification<User>.Eval(u => u.UserName == viewModel.UserName));
+            var user = this.userRepository.Find(Specification<User>.Eval(u => u.UserName == viewModel.UserName));
             if (user.Locked)
             {
                 throw new UserLockedException("User has been locked.");
@@ -143,8 +143,8 @@ namespace CloudNotes.WebAPI.Controllers
                 throw new InvalidPasswordException(Resources.InvalidPasswordError);
             var encodedNewPassword = Encoding.ASCII.GetString(Convert.FromBase64String(viewModel.EncodedNewPassword));
             user.Password = encodedNewPassword;
-            userRepository.Update(user);
-            RepositoryContext.Commit();
+            this.userRepository.Update(user);
+            this.RepositoryContext.Commit();
             return this.Ok(true);
         }
     }

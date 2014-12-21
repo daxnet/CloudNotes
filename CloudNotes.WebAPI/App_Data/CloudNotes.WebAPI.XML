@@ -4,6 +4,11 @@
         <name>CloudNotes.WebAPI</name>
     </assembly>
     <members>
+        <member name="T:CloudNotes.WebAPI.ApworksConfig">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:CloudNotes.WebAPI.AutoMapperConfig">
             <summary>
             Represents the configuration to the AutoMapper framework.
@@ -502,6 +507,11 @@
             </summary>
             <returns>The <see cref="T:System.Web.Mvc.ActionResult"/> value.</returns>
         </member>
+        <member name="T:CloudNotes.WebAPI.Controllers.NotesController">
+            <summary>
+            Represents the controller that provides Notes APIs.
+            </summary>
+        </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.#ctor(Apworks.Repositories.IRepositoryContext,Apworks.Repositories.IRepository{CloudNotes.Domain.Model.Note})">
             <summary>
             Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.NotesController"/> class.
@@ -509,13 +519,91 @@
             <param name="repositoryContext">The repository context.</param>
             <param name="noteRepository">The note repository.</param>
         </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.CreateNote(CloudNotes.ViewModels.CreateNoteViewModel)">
+            <summary>
+            Creates a note based on the given model.
+            </summary>
+            <param name="viewModel">The model which contains the information of the note that is going
+            to be created.</param>
+            <returns>HTTP 200 with the newly created note ID.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.UpdateNote(CloudNotes.ViewModels.UpdateNoteViewModel)">
+            <summary>
+            Updates a note based on the given update model.
+            </summary>
+            <param name="viewModel">The model which contains the information of the note that is going
+            to be updated.</param>
+            <returns>HTTP 200.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.MarkDelete(System.Guid)">
+            <summary>
+            Marks the specified note as deleted, so that the note will be shown in
+            user's trash bin.
+            </summary>
+            <param name="id">The ID of the note that is going to be marked as deleted.</param>
+            <returns>HTTP 200.</returns>
+        </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.DeleteNote(System.Guid)">
             <summary>
             Deletes the note by using the given note ID.
             </summary>
             <param name="id">The identifier of the note to be deleted.</param>
-            <returns></returns>
+            <returns>HTTP 200.</returns>
             <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"></exception>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.EmptyTrash">
+            <summary>
+            Empties the trash bin for the currently login user.
+            </summary>
+            <returns>HTTP 200.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.RestoreNote(System.Guid)">
+            <summary>
+            Restores a note from the trash bin.
+            </summary>
+            <param name="id">The ID of the note to be restored.</param>
+            <returns>HTTP 200.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.GetNoteList(System.Int32,System.Int32)">
+            <summary>
+            Gets a list of notes for currently login user with pagination enabled.
+            </summary>
+            <param name="pageNumber">The page number.</param>
+            <param name="pageSize">The number of notes per page.</param>
+            <returns>HTTP 200, with the note list.</returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.GetNoteByID(System.Guid)">
+            <summary>
+            Gets the note with the specified ID.
+            </summary>
+            <param name="id">The ID of the note to be retrieved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.GetNoteList">
+            <summary>
+            Gets all the notes for the currently login user.
+            </summary>
+            <returns>HTTP 200, with a list of notes.</returns>
+        </member>
+        <member name="T:CloudNotes.WebAPI.Controllers.PackageController">
+            <summary>
+            Represents the controller that provides the client package management APIs.
+            </summary>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.PackageController.#ctor(Apworks.Repositories.IRepositoryContext,Apworks.Repositories.IRepository{CloudNotes.Domain.Model.ClientPackage})">
+            <summary>
+            Initializes a new instance of <c>PackageController</c> class.
+            </summary>
+            <param name="repositoryContext">The instance of <see cref="T:Apworks.Repositories.IRepositoryContext"/></param>
+            <param name="repository">The instance of client package repository.</param>
+        </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.PackageController.GetLatestPackage(System.String)">
+            <summary>
+            Gets the latest package information based on the given client type.
+            </summary>
+            <param name="clientType">The type of the client application. Currently
+            it only supports DesktopClient.</param>
+            <returns>HTTP 200 with package information if success.</returns>
         </member>
         <member name="T:CloudNotes.WebAPI.Controllers.PingController">
             <summary>

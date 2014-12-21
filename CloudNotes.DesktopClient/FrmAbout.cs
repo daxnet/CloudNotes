@@ -43,6 +43,14 @@ namespace CloudNotes.DesktopClient
                         new[] { assemblyName.Name, assemblyName.Version.ToString(), assemblyName.FullName },
                         "Assembly.png"));
             }
+            if (Thread.CurrentThread.CurrentUICulture.Name == "zh-CN")
+            {
+                tpDonate.Visible = true;
+            }
+            else
+            {
+                tpDonate.Visible = false;
+            }
         }
 
         private void lblAuthorName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -69,6 +77,11 @@ namespace CloudNotes.DesktopClient
                 "http://daxnetsvr.cloudapp.net/schen".Navigate();
             }
             
+        }
+
+        private void lblDonateLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            "http://www.alipay.com".Navigate();
         }
     }
 }

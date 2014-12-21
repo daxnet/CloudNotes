@@ -9,6 +9,9 @@ using Unity.WebApi;
 
 namespace CloudNotes.WebAPI
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ApworksConfig
     {
         public static void Initialize()

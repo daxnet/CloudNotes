@@ -13,6 +13,8 @@ namespace CloudNotes.WebAPI.Controllers
     [RoutePrefix("api")]
     public class PingController : WebApiController
     {
+        #region Ctor
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PingController"/> class.
         /// </summary>
@@ -21,6 +23,10 @@ namespace CloudNotes.WebAPI.Controllers
             : base(repositoryContext)
         {
         }
+
+        #endregion
+
+        #region Public APIs
 
         /// <summary>
         /// Pings the server instance.
@@ -31,22 +37,21 @@ namespace CloudNotes.WebAPI.Controllers
         [Route("ping")]
         public IHttpActionResult Ping()
         {
-            return
-                Ok(
-                    new
-                        {
-                            ID = Guid.NewGuid(),
-                            UserID = CurrentLoginUser.ID,
-                            UserName = User.Identity.Name,
-                            ServerName = Environment.MachineName,
-                            ProcessorCount = Environment.ProcessorCount.ToString(CultureInfo.InvariantCulture),
-                            Is64BitOperatingSystem =
-                                Environment.Is64BitOperatingSystem.ToString(CultureInfo.InvariantCulture),
-                            OSVersion = Environment.OSVersion.ToString(),
-                            CLRVersion = Environment.Version.ToString(),
-                            DomainName = Environment.UserDomainName,
-                            DomainUserName = Environment.UserName
-                        });
+            return this.Ok(
+                new
+                {
+                    ID = Guid.NewGuid(),
+                    UserID = this.CurrentLoginUser.ID,
+                    UserName = this.User.Identity.Name,
+                    ServerName = Environment.MachineName,
+                    ProcessorCount = Environment.ProcessorCount.ToString(CultureInfo.InvariantCulture),
+                    Is64BitOperatingSystem =
+                        Environment.Is64BitOperatingSystem.ToString(CultureInfo.InvariantCulture),
+                    OSVersion = Environment.OSVersion.ToString(),
+                    CLRVersion = Environment.Version.ToString(),
+                    DomainName = Environment.UserDomainName,
+                    DomainUserName = Environment.UserName
+                });
         }
 
         /// <summary>
@@ -61,5 +66,7 @@ namespace CloudNotes.WebAPI.Controllers
         {
             return this.Ok(text);
         }
+
+        #endregion
     }
 }
