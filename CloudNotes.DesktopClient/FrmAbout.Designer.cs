@@ -85,19 +85,19 @@
             // 
             // tabControl
             // 
-            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tpLicense);
             this.tabControl.Controls.Add(this.tpRefAssemblies);
             this.tabControl.Controls.Add(this.tpDonate);
             this.tabControl.Controls.Add(this.tpAuthor);
+            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.ImageList = this.imageList;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             // 
             // tpLicense
             // 
-            resources.ApplyResources(this.tpLicense, "tpLicense");
             this.tpLicense.Controls.Add(this.txtLicense);
+            resources.ApplyResources(this.tpLicense, "tpLicense");
             this.tpLicense.Name = "tpLicense";
             this.tpLicense.UseVisualStyleBackColor = true;
             // 
@@ -109,18 +109,18 @@
             // 
             // tpRefAssemblies
             // 
-            resources.ApplyResources(this.tpRefAssemblies, "tpRefAssemblies");
             this.tpRefAssemblies.Controls.Add(this.lstAssemblies);
+            resources.ApplyResources(this.tpRefAssemblies, "tpRefAssemblies");
             this.tpRefAssemblies.Name = "tpRefAssemblies";
             this.tpRefAssemblies.UseVisualStyleBackColor = true;
             // 
             // lstAssemblies
             // 
-            resources.ApplyResources(this.lstAssemblies, "lstAssemblies");
             this.lstAssemblies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colAssemblyName,
             this.colAssemblyVersion,
             this.colAssemblyFullName});
+            resources.ApplyResources(this.lstAssemblies, "lstAssemblies");
             this.lstAssemblies.Name = "lstAssemblies";
             this.lstAssemblies.SmallImageList = this.imageList;
             this.lstAssemblies.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -150,9 +150,9 @@
             // 
             // tpDonate
             // 
-            resources.ApplyResources(this.tpDonate, "tpDonate");
             this.tpDonate.Controls.Add(this.lblDonateLink);
             this.tpDonate.Controls.Add(this.label3);
+            resources.ApplyResources(this.tpDonate, "tpDonate");
             this.tpDonate.Name = "tpDonate";
             this.tpDonate.UseVisualStyleBackColor = true;
             // 
@@ -160,7 +160,6 @@
             // 
             resources.ApplyResources(this.lblDonateLink, "lblDonateLink");
             this.lblDonateLink.Name = "lblDonateLink";
-            this.lblDonateLink.TabStop = true;
             this.lblDonateLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDonateLink_LinkClicked);
             // 
             // label3
@@ -170,8 +169,8 @@
             // 
             // tpAuthor
             // 
-            resources.ApplyResources(this.tpAuthor, "tpAuthor");
             this.tpAuthor.Controls.Add(this.tableLayoutPanel1);
+            resources.ApplyResources(this.tpAuthor, "tpAuthor");
             this.tpAuthor.Name = "tpAuthor";
             this.tpAuthor.UseVisualStyleBackColor = true;
             // 
@@ -244,7 +243,6 @@
             this.tpLicense.PerformLayout();
             this.tpRefAssemblies.ResumeLayout(false);
             this.tpDonate.ResumeLayout(false);
-            this.tpDonate.PerformLayout();
             this.tpAuthor.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

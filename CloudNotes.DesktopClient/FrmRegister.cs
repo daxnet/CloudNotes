@@ -14,9 +14,11 @@ namespace CloudNotes.DesktopClient
 
     public partial class FrmRegister : Form
     {
-        public FrmRegister()
+        private readonly string defaultServerUri;
+        public FrmRegister(string defaultServerUri)
         {
             InitializeComponent();
+            this.defaultServerUri = defaultServerUri;
         }
 
         internal string UserName { get; private set; }
@@ -26,6 +28,10 @@ namespace CloudNotes.DesktopClient
         private void FrmRegister_Load(object sender, EventArgs e)
         {
             txtUserName.Focus();
+            if (!string.IsNullOrEmpty(this.defaultServerUri))
+            {
+                txtServer.Text = this.defaultServerUri;
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)

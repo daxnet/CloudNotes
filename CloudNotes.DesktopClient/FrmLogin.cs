@@ -273,7 +273,7 @@ namespace CloudNotes.DesktopClient
 
         private void btnRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var registerForm = new FrmRegister();
+            var registerForm = new FrmRegister(this.cbServer.Text);
             if (registerForm.ShowDialog() == DialogResult.OK)
             {
                 this.cbUserName.Text = registerForm.UserName;
