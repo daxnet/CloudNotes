@@ -1,6 +1,4 @@
 ﻿
-
-
 namespace CloudNotes.DesktopClient
 {
     using System.Globalization;
@@ -320,16 +318,15 @@ namespace CloudNotes.DesktopClient
                         proxy.PostAsJsonAsync(
                             "api/notes/update",
                             new
-                                {
-                                    ID = currentNoteId,
-                                    Title = currentNoteTitle,
-                                    Content = currentNoteContent,
-                                    Weather = "Unspecified"
-                                });
+                            {
+                                ID = currentNoteId,
+                                Title = currentNoteTitle,
+                                Content = currentNoteContent,
+                                Weather = "Unspecified"
+                            });
                     result.EnsureSuccessStatusCode();
                 }
                 workspace.IsSaved = true;
-
             }
         }
 
@@ -357,11 +354,6 @@ namespace CloudNotes.DesktopClient
                             break;
                     }
                 }
-                //if (!canceled)
-                //{
-                //    workspace.PropertyChanged -= workspace_PropertyChanged;
-                //    workspace = null;
-                //}
             }
             return canceled;
         }
@@ -393,272 +385,264 @@ namespace CloudNotes.DesktopClient
 
         private async Task DoNewAsync()
         {
-            try
-            {
-                var canceled = await this.SaveWorkspaceAsync();
-                if (!canceled)
-                {
-                    var newNoteForm = new FrmNewNote(this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text));
-                    if (newNoteForm.ShowDialog() == DialogResult.OK)
+            await SafeExecutionContext.ExecuteAsync(
+                this,
+                async () =>
                     {
-                        var title = newNoteForm.NoteTitle;
-                        dynamic note =
-                            new
-                                {
-                                    ID = Guid.Empty,
-                                    Title = title,
-                                    Content = string.Empty,
-                                    DatePublished = DateTime.UtcNow
-                                };
-                        ClearWorkspace();
-                        this.workspace = new Workspace(note);
-                        this.workspace.PropertyChanged += this.workspace_PropertyChanged;
-                        await this.SaveWorkspaceSlientlyAsync();
-                        await this.LoadNotesAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                FrmExceptionDialog.ShowException(ex);
-            }
+                        var canceled = await this.SaveWorkspaceAsync();
+                        if (!canceled)
+                        {
+                            var newNoteForm = new FrmNewNote(
+                                this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text));
+                            if (newNoteForm.ShowDialog() == DialogResult.OK)
+                            {
+                                var title = newNoteForm.NoteTitle;
+                                dynamic note =
+                                    new
+                                    {
+                                        ID = Guid.Empty,
+                                        Title = title,
+                                        Content = string.Empty,
+                                        DatePublished = DateTime.UtcNow
+                                    };
+                                ClearWorkspace();
+                                this.workspace = new Workspace(note);
+                                this.workspace.PropertyChanged += this.workspace_PropertyChanged;
+                                await this.SaveWorkspaceSlientlyAsync();
+                                await this.LoadNotesAsync();
+                            }
+                        }
+                    });
         }
 
         private async Task DoOpenAsync()
         {
-            try
-            {
-                slblStatus.Text = Resources.Opening;
-                sp.Visible = true;
-                await this.OpenTreeNodeAsync(tvNotes.SelectedNode);
-            }
-            catch (Exception ex)
-            {
-                FrmExceptionDialog.ShowException(ex);
-            }
-            finally
-            {
-                sp.Visible = false;
-            }
+            await
+                SafeExecutionContext.ExecuteAsync(
+                    this,
+                    async () => await this.OpenTreeNodeAsync(tvNotes.SelectedNode),
+                    () =>
+                        {
+                            slblStatus.Text = Resources.Opening;
+                            sp.Visible = true;
+                        },
+                    () => sp.Visible = false);
         }
 
         private async Task DoSaveAsync()
         {
             if (!workspace.IsSaved)
             {
-                try
-                {
-                    slblStatus.Text = Resources.Saving;
-                    sp.Visible = true;
-                    await this.SaveWorkspaceSlientlyAsync();
-                }
-                catch (Exception ex)
-                {
-                    FrmExceptionDialog.ShowException(ex);
-                }
-                finally
-                {
-                    sp.Visible = false;
-                }
+                await SafeExecutionContext.ExecuteAsync(
+                    this,
+                    async () => await this.SaveWorkspaceSlientlyAsync(),
+                    () =>
+                        {
+                            slblStatus.Text = Resources.Saving;
+                            sp.Visible = true;
+                        },
+                    () => sp.Visible = false);
             }
         }
 
         private async Task DoMarkDeleteAsync()
         {
-            try
-            {
-                slblStatus.Text = Resources.Deleting;
-                sp.Visible = true;
-                var treeNode = tvNotes.SelectedNode;
-                if (treeNode != null)
-                {
-                    dynamic note = treeNode.Tag;
-                    Guid id = note.ID;
-                    using (var serviceProxy = new ServiceProxy(credential))
+            await SafeExecutionContext.ExecuteAsync(
+                this,
+                async () =>
                     {
-                        var result = await serviceProxy.PostAsJsonAsync("api/notes/markdelete", id);
-                        result.EnsureSuccessStatusCode();
-                        await this.CorrectNodeSelectionAsync(treeNode);
-                        treeNode.Remove();
-                        var markDeletedNoteNode = trashNode.Nodes.Add(
-                            note.ID.ToString(),
-                            note.Title.ToString(),
-                            "DeletedNote.png",
-                            "DeletedNote.png");
-                        note.DeletedFlag = (int)DeleteFlagModel.MarkDeleted;
-                        markDeletedNoteNode.Tag = note;
-                        ResortNodes(trashNode);
-                        if (trashNode.Nodes.Count > 0)
+                        var treeNode = tvNotes.SelectedNode;
+                        if (treeNode != null)
                         {
+                            dynamic note = treeNode.Tag;
+                            Guid id = note.ID;
+                            using (var serviceProxy = new ServiceProxy(credential))
+                            {
+                                var result = await serviceProxy.PostAsJsonAsync("api/notes/markdelete", id);
+                                result.EnsureSuccessStatusCode();
+                                await this.CorrectNodeSelectionAsync(treeNode);
+                                treeNode.Remove();
+                                var markDeletedNoteNode = trashNode.Nodes.Add(
+                                    note.ID.ToString(),
+                                    note.Title.ToString(),
+                                    "DeletedNote.png",
+                                    "DeletedNote.png");
+                                note.DeletedFlag = (int)DeleteFlagModel.MarkDeleted;
+                                markDeletedNoteNode.Tag = note;
+                                ResortNodes(trashNode);
+                                if (trashNode.Nodes.Count > 0)
+                                {
+                                    mnuEmptyTrash.Enabled = true;
+                                    cmnuEmptyTrash.Enabled = true;
+                                }
+                            }
                             mnuEmptyTrash.Enabled = true;
                             cmnuEmptyTrash.Enabled = true;
                         }
-                    }
-                    mnuEmptyTrash.Enabled = true;
-                    cmnuEmptyTrash.Enabled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                FrmExceptionDialog.ShowException(ex);
-            }
-            finally
-            {
-                sp.Visible = false;
-            }
+                    },
+                () =>
+                    {
+                        slblStatus.Text = Resources.Deleting;
+                        sp.Visible = true;
+                    },
+                () => sp.Visible = false);
         }
 
         private async Task DoDeleteAsync()
         {
-            try
-            {
-                var confirmResult = MessageBox.Show(
-                    Resources.DeleteNoteConfirm,
-                    Resources.Confirmation,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button2);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    slblStatus.Text = Resources.Deleting;
-                    sp.Visible = true;
-                    var treeNode = tvNotes.SelectedNode;
-                    if (treeNode != null)
+            await SafeExecutionContext.ExecuteAsync(
+                this,
+                async () =>
                     {
-                        dynamic note = treeNode.Tag;
-                        Guid id = note.ID;
-                        using (var serviceProxy = new ServiceProxy(credential))
+                        var confirmResult = MessageBox.Show(
+                            Resources.DeleteNoteConfirm,
+                            Resources.Confirmation,
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question,
+                            MessageBoxDefaultButton.Button2);
+                        if (confirmResult == DialogResult.Yes)
                         {
-                            var result = await serviceProxy.DeleteAsync(string.Format("api/notes/delete/{0}", id));
-                            result.EnsureSuccessStatusCode();
-                            await this.LoadNotesAsync();
+                            slblStatus.Text = Resources.Deleting;
+                            sp.Visible = true;
+                            var treeNode = tvNotes.SelectedNode;
+                            if (treeNode != null)
+                            {
+                                dynamic note = treeNode.Tag;
+                                Guid id = note.ID;
+                                using (var serviceProxy = new ServiceProxy(credential))
+                                {
+                                    var result =
+                                        await serviceProxy.DeleteAsync(string.Format("api/notes/delete/{0}", id));
+                                    result.EnsureSuccessStatusCode();
+                                    await this.LoadNotesAsync();
+                                }
+                            }
+                            if (trashNode.Nodes.Count == 0)
+                            {
+                                mnuEmptyTrash.Enabled = false;
+                                cmnuEmptyTrash.Enabled = false;
+                            }
                         }
-                    }
-                    if (trashNode.Nodes.Count == 0)
-                    {
-                        mnuEmptyTrash.Enabled = false;
-                        cmnuEmptyTrash.Enabled = false;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                FrmExceptionDialog.ShowException(ex);
-            }
-            finally
-            {
-                sp.Visible = false;
-            }
+                    },
+                null,
+                () => sp.Visible = false);
         }
 
         private async Task DoRestoreAsync()
         {
-            try
-            {
-                slblStatus.Text = Resources.Restoring;
-                sp.Visible = true;
-                var treeNode = tvNotes.SelectedNode;
-                if (treeNode != null)
-                {
-                    dynamic note = treeNode.Tag;
-                    Guid id = note.ID;
-                    using (var serviceProxy = new ServiceProxy(credential))
+            await SafeExecutionContext.ExecuteAsync(
+                this,
+                async () =>
                     {
-                        var result = await serviceProxy.PostAsJsonAsync("api/notes/restore", id);
-                        result.EnsureSuccessStatusCode();
-                    }
-                    await this.CorrectNodeSelectionAsync(treeNode);
-                    treeNode.Remove();
+                        var treeNode = tvNotes.SelectedNode;
+                        if (treeNode != null)
+                        {
+                            dynamic note = treeNode.Tag;
+                            Guid id = note.ID;
+                            using (var serviceProxy = new ServiceProxy(credential))
+                            {
+                                var result = await serviceProxy.PostAsJsonAsync("api/notes/restore", id);
+                                result.EnsureSuccessStatusCode();
+                            }
+                            await this.CorrectNodeSelectionAsync(treeNode);
+                            treeNode.Remove();
 
-                    var restoredNoteNode = notesNode.Nodes.Add(
-                        note.ID.ToString(),
-                        note.Title.ToString(),
-                        "Note.png",
-                        "Note.png");
-                    note.DeletedFlag = (int)DeleteFlagModel.None;
-                    restoredNoteNode.Tag = note;
-                    ResortNodes(notesNode);
-                    if (trashNode.Nodes.Count == 0)
+                            var restoredNoteNode = notesNode.Nodes.Add(
+                                note.ID.ToString(),
+                                note.Title.ToString(),
+                                "Note.png",
+                                "Note.png");
+                            note.DeletedFlag = (int)DeleteFlagModel.None;
+                            restoredNoteNode.Tag = note;
+                            ResortNodes(notesNode);
+                            if (trashNode.Nodes.Count == 0)
+                            {
+                                mnuEmptyTrash.Enabled = false;
+                                cmnuEmptyTrash.Enabled = false;
+                            }
+                        }
+                    },
+                () =>
                     {
-                        mnuEmptyTrash.Enabled = false;
-                        cmnuEmptyTrash.Enabled = false;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                FrmExceptionDialog.ShowException(ex);
-            }
-            finally
-            {
-                sp.Visible = false;
-            }
+                        slblStatus.Text = Resources.Restoring;
+                        sp.Visible = true;
+                    },
+                () => sp.Visible = false);
         }
 
         private async Task DoEmptyTrashAsync()
         {
-            try
-            {
-                var confirmResult = MessageBox.Show(
-                    Resources.DeleteNoteConfirm,
-                    Resources.Confirmation,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button2);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    slblStatus.Text = Resources.Deleting;
-                    sp.Visible = true;
-                    using (var serviceProxy = new ServiceProxy(credential))
+            await SafeExecutionContext.ExecuteAsync(
+                this,
+                async () =>
                     {
-                        var result = await serviceProxy.DeleteAsync("api/notes/emptytrash");
-                        result.EnsureSuccessStatusCode();
-                        trashNode.Nodes.Clear();
-                        if (notesNode.Nodes.Count > 0)
+                        var confirmResult = MessageBox.Show(
+                            Resources.DeleteNoteConfirm,
+                            Resources.Confirmation,
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question,
+                            MessageBoxDefaultButton.Button2);
+                        if (confirmResult == DialogResult.Yes)
                         {
-                            var firstNode = notesNode.Nodes[0];
-                            dynamic firstNote = firstNode.Tag;
-                            await this.LoadNoteAsync((Guid)firstNote.ID);
+                            slblStatus.Text = Resources.Deleting;
+                            sp.Visible = true;
+                            using (var serviceProxy = new ServiceProxy(credential))
+                            {
+                                var result = await serviceProxy.DeleteAsync("api/notes/emptytrash");
+                                result.EnsureSuccessStatusCode();
+                                trashNode.Nodes.Clear();
+                                if (notesNode.Nodes.Count > 0)
+                                {
+                                    var firstNode = notesNode.Nodes[0];
+                                    dynamic firstNote = firstNode.Tag;
+                                    await this.LoadNoteAsync((Guid)firstNote.ID);
+                                }
+                                else
+                                {
+                                    tvNotes.SelectedNode = notesNode;
+                                    lblTitle.Text = string.Empty;
+                                    lblDatePublished.Text = string.Empty;
+                                    htmlEditor.Enabled = false;
+                                    htmlEditor.Html = string.Empty;
+                                }
+                            }
                         }
-                        else
-                        {
-                            tvNotes.SelectedNode = notesNode;
-                            lblTitle.Text = string.Empty;
-                            lblDatePublished.Text = string.Empty;
-                            htmlEditor.Enabled = false;
-                            htmlEditor.Html = string.Empty;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                FrmExceptionDialog.ShowException(ex);
-            }
-            finally
-            {
-                sp.Visible = false;
-            }
+                    },
+                null,
+                () => sp.Visible = false);
         }
 
         private void DoRename()
         {
-            var node = this.tvNotes.SelectedNode;
-            node.BeginEdit();
+            SafeExecutionContext.Execute(
+                this,
+                () =>
+                    {
+                        var node = this.tvNotes.SelectedNode;
+                        node.BeginEdit();
+                    });
         }
 
         private async Task DoReconnectAsync()
         {
-            bool canceled = false;
-            var localCredential = LoginProvider.Login(delegate { canceled = true; }, settings, true);
-            if (!canceled && localCredential != null)
-            {
-                this.credential.UserName = localCredential.UserName;
-                this.credential.Password = localCredential.Password;
-                this.credential.ServerUri = localCredential.ServerUri;
-                this.Text = string.Format("CloudNotes - {0}@{1}", this.credential.UserName, this.credential.ServerUri);
-                await this.LoadNotesAsync();
-            }
+            await SafeExecutionContext.ExecuteAsync(
+                this,
+                async () =>
+                    {
+                        bool canceled = false;
+                        var localCredential = LoginProvider.Login(delegate { canceled = true; }, settings, true);
+                        if (!canceled && localCredential != null)
+                        {
+                            this.credential.UserName = localCredential.UserName;
+                            this.credential.Password = localCredential.Password;
+                            this.credential.ServerUri = localCredential.ServerUri;
+                            this.Text = string.Format(
+                                "CloudNotes - {0}@{1}",
+                                this.credential.UserName,
+                                this.credential.ServerUri);
+                            await this.LoadNotesAsync();
+                        }
+                    });
         }
 
         #endregion
@@ -699,7 +683,7 @@ namespace CloudNotes.DesktopClient
 
         private void Action_Print(object sender, EventArgs e)
         {
-            this.htmlEditor.ExecuteButtonFunction<PrintButton>();
+            SafeExecutionContext.Execute(this, () => this.htmlEditor.ExecuteButtonFunction<PrintButton>());
         }
 
         private async void Action_Delete(object sender, EventArgs e)
@@ -743,17 +727,25 @@ namespace CloudNotes.DesktopClient
 
         private void Action_ChangePassword(object sender, EventArgs e)
         {
-            var changePasswordForm = new FrmChangePassword(credential);
-            changePasswordForm.ShowDialog();
+            SafeExecutionContext.Execute(this, () =>
+                {
+                    var changePasswordForm = new FrmChangePassword(credential);
+                    changePasswordForm.ShowDialog();
+                });
         }
 
         private void Action_Settings(object sender, EventArgs e)
         {
-            var settingsForm = new FrmSettings(this.settings);
-            if (settingsForm.ShowDialog() == DialogResult.OK)
-            {
-                this.UpdateSettings();
-            }
+            SafeExecutionContext.Execute(
+                this,
+                () =>
+                    {
+                        var settingsForm = new FrmSettings(this.settings);
+                        if (settingsForm.ShowDialog() == DialogResult.OK)
+                        {
+                            this.UpdateSettings();
+                        }
+                    });
         }
 
         private void Action_OpenMainWindow(object sender, EventArgs e)
@@ -768,7 +760,7 @@ namespace CloudNotes.DesktopClient
 
         private void Action_About(object sender, EventArgs e)
         {
-            new FrmAbout().ShowDialog();
+            SafeExecutionContext.Execute(this, () => new FrmAbout().ShowDialog());
         }
 
         private void Action_CloudNotesTech(object sender, EventArgs e)
@@ -783,23 +775,25 @@ namespace CloudNotes.DesktopClient
 
         private async void FrmMain_Load(object sender, EventArgs e)
         {
-            try
-            {
-                slblStatus.Text = Resources.Loading;
-                sp.Visible = true;
-                var desktopClientService = new DesktopClientService(this.settings);
-                this.checkUpdateResult = await desktopClientService.CheckUpdateAsync();
-                slblUpdateAvailable.Visible = this.checkUpdateResult.HasUpdate;
-                await this.LoadNotesAsync();
-            }
-            catch (Exception ex)
-            {
-                FrmExceptionDialog.ShowException(ex);
-            }
-            finally
-            {
-                sp.Visible = false;
-            }
+            await SafeExecutionContext.ExecuteAsync(
+                this,
+                async () =>
+                    {
+                        lblTitle.Text = string.Empty;
+                        lblDatePublished.Text = string.Empty;
+                        htmlEditor.Html = string.Empty;
+                        htmlEditor.Enabled = false;
+                        var desktopClientService = new DesktopClientService(this.settings);
+                        this.checkUpdateResult = await desktopClientService.CheckUpdateAsync();
+                        slblUpdateAvailable.Visible = this.checkUpdateResult.HasUpdate;
+                        await this.LoadNotesAsync();
+                    },
+                () =>
+                    {
+                        slblStatus.Text = Resources.Loading;
+                        sp.Visible = true;
+                    },
+                () => sp.Visible = false);
         }
 
         private async void tvNotes_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -807,20 +801,15 @@ namespace CloudNotes.DesktopClient
             if (e.Button == MouseButtons.Left && e.Node != null && !ReferenceEquals(e.Node, notesNode)
                 && !ReferenceEquals(e.Node, trashNode))
             {
-                try
-                {
-                    slblStatus.Text = Resources.Opening;
-                    sp.Visible = true;
-                    await this.OpenTreeNodeAsync(e.Node);
-                }
-                catch (Exception ex)
-                {
-                    FrmExceptionDialog.ShowException(ex);
-                }
-                finally
-                {
-                    sp.Visible = false;
-                }
+                await SafeExecutionContext.ExecuteAsync(
+                    this,
+                    async () => await this.OpenTreeNodeAsync(e.Node),
+                    () =>
+                        {
+                            slblStatus.Text = Resources.Opening;
+                            sp.Visible = true;
+                        },
+                    () => sp.Visible = false);
             }
         }
 
@@ -907,47 +896,49 @@ namespace CloudNotes.DesktopClient
         {
             if (!e.CancelEdit)
             {
-                try
-                {
-                    var title = e.Label;
-                    if (string.IsNullOrEmpty(title)) return;
-                    slblStatus.Text = Resources.Renaming;
-                    sp.Visible = true;
-                    if (notesNode.Nodes.Cast<TreeNode>().Any(n => n != e.Node && n.Text == title))
-                    {
-                        MessageBox.Show(
-                            Resources.TitleExists,
-                            Resources.Error,
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                        e.CancelEdit = true;
-                    }
-                    else
-                    {
-                        dynamic nodeMetadata = e.Node.Tag;
-                        Guid id = nodeMetadata.ID;
-                        using (var proxy = new ServiceProxy(credential))
+                await SafeExecutionContext.ExecuteAsync(
+                    this,
+                    async () =>
                         {
-                            var getNoteResult = await proxy.GetStringAsync(string.Format("api/notes/{0}", id));
-                            dynamic selectedNote = JsonConvert.DeserializeObject(getNoteResult);
-                            var result =
-                                await
-                                proxy.PostAsJsonAsync(
-                                    "api/notes/update",
-                                    new { ID = id, Title = title, selectedNote.Content, Weather = "Unspecified" });
-                            result.EnsureSuccessStatusCode();
-                            lblTitle.Text = title;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    FrmExceptionDialog.ShowException(ex);
-                }
-                finally
-                {
-                    sp.Visible = false;
-                }
+                            var title = e.Label;
+                            if (string.IsNullOrEmpty(title)) return;
+                            slblStatus.Text = Resources.Renaming;
+                            sp.Visible = true;
+                            if (notesNode.Nodes.Cast<TreeNode>().Any(n => n != e.Node && n.Text == title))
+                            {
+                                MessageBox.Show(
+                                    Resources.TitleExists,
+                                    Resources.Error,
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                                e.CancelEdit = true;
+                            }
+                            else
+                            {
+                                dynamic nodeMetadata = e.Node.Tag;
+                                Guid id = nodeMetadata.ID;
+                                using (var proxy = new ServiceProxy(credential))
+                                {
+                                    var getNoteResult = await proxy.GetStringAsync(string.Format("api/notes/{0}", id));
+                                    dynamic selectedNote = JsonConvert.DeserializeObject(getNoteResult);
+                                    var result =
+                                        await
+                                        proxy.PostAsJsonAsync(
+                                            "api/notes/update",
+                                            new
+                                            {
+                                                ID = id,
+                                                Title = title,
+                                                selectedNote.Content,
+                                                Weather = "Unspecified"
+                                            });
+                                    result.EnsureSuccessStatusCode();
+                                    lblTitle.Text = title;
+                                }
+                            }
+                        },
+                    null,
+                    () => sp.Visible = false);
             }
         }
 
