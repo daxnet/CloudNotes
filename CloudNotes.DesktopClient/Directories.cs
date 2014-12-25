@@ -18,7 +18,7 @@ namespace CloudNotes.DesktopClient
             return Path.Combine(Application.StartupPath, fileOrDir);
 #else
             var path = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 CloudNotesDataFolder);
             return Path.Combine(path, fileOrDir);
 #endif
