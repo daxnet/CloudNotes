@@ -16,7 +16,7 @@ namespace CloudNotes.DesktopClient
         {
             var crypto = Crypto.CreateDefaultCrypto();
             Profile profile;
-            var profileFile = Directories.GetFullName(Directories.ProfileFileName);
+            var profileFile = Directories.GetFullName(Constants.ProfileFileName);
             if (File.Exists(profileFile))
             {
                 try

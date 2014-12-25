@@ -11,7 +11,7 @@ namespace CloudNotes.DesktopClient.Settings
 
     public class DesktopClientSettings
     {
-        private static readonly string SettingsFile = Path.Combine(Application.StartupPath, Constants.DesktopClientSettingsFile);
+        private static readonly string SettingsFile = Directories.GetFullName(Constants.DesktopClientSettingsFile);
 
         private static readonly DesktopClientSettings Default;
 

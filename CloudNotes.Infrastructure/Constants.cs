@@ -37,6 +37,10 @@
         /// The name of the Desktop Client settings file.
         /// </summary>
         public const string DesktopClientSettingsFile = "settings.json";
+        /// <summary>
+        /// The name of the profile file used by the login provider.
+        /// </summary>
+        public const string ProfileFileName = "cloudnotes.profile";
         #endregion
     }
 }

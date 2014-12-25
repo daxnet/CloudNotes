@@ -11,10 +11,17 @@ namespace CloudNotes.DesktopClient
 {
     public static class Directories
     {
-        public const string ProfileFileName = "cloudnotes.profile";
+        private const string CloudNotesDataFolder = "CloudNotes";
         public static string GetFullName(string fileOrDir)
         {
+#if DEBUG
             return Path.Combine(Application.StartupPath, fileOrDir);
+#else
+            var path = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+                CloudNotesDataFolder);
+            return Path.Combine(path, fileOrDir);
+#endif
         }
     }
 }
