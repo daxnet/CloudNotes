@@ -16,6 +16,8 @@ using AutoMapper;
 
 namespace CloudNotes.WebAPI.Controllers
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Represents the controller that provides Notes APIs.
     /// </summary>
@@ -215,10 +217,18 @@ namespace CloudNotes.WebAPI.Controllers
         [EnableQuery]
         public IQueryable<NoteItemViewModel> GetNoteList()
         {
-            return
-                this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID))
-                    .Project()
-                    .To<NoteItemViewModel>();
+            //return
+            //    this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID))
+            //        .Project()
+            //        .To<NoteItemViewModel>();
+            var notes =
+                this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID));
+            var list = new List<NoteItemViewModel>();
+            foreach (var note in notes)
+            {
+                list.Add(Mapper.Map<Note, NoteItemViewModel>(note));
+            }
+            return list.AsQueryable();
         }
 
         #endregion

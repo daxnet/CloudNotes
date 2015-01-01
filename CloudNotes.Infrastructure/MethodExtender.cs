@@ -8,6 +8,8 @@ using System.Web;
 
 namespace CloudNotes.Infrastructure
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Represents the method extender.
     /// </summary>
@@ -81,6 +83,28 @@ namespace CloudNotes.Infrastructure
 
             return html;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="html"></param>
+        /// <returns></returns>
+        public static IEnumerable<string> GetImgSrcBase64FromHtml(this string html)
+        {
+            var matchesImgSrc = Regex.Matches(html, Constants.ImgSrcFormatPattern,
+                RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            if (matchesImgSrc.Count == 0)
+                return null;
+            List<string> result = new List<string>();
+            foreach (Match m in matchesImgSrc)
+            {
+                var href = m.Groups[1].Value;
+                var pos = href.IndexOf("base64,", StringComparison.InvariantCultureIgnoreCase);
+                pos += 7;
+                result.Add(href.Substring(pos, href.Length - pos).Trim());
+            }
+            return result;
+        } 
         #endregion
 
         #region Private Static Methods

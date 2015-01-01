@@ -26,6 +26,10 @@
         /// </summary>
         public const string EmailAddressFormatPattern = @"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";
         /// <summary>
+        /// The regular expression for extracting the Src value from an HTML Img tag.
+        /// </summary>
+        public const string ImgSrcFormatPattern = @"<img[^>]*?src\s*=\s*[""']?([^'"" >]+?)[ '""][^>]*?>";
+        /// <summary>
         /// The key of the setting that represents the relative package location URI on the server file system. (server setting).
         /// </summary>
         public const string PackageLocationUriSettingKey = "cloudnotes:PackageLocationUri";
