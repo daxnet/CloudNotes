@@ -998,6 +998,7 @@ namespace CloudNotes.DesktopClient
                                             });
                                     result.EnsureSuccessStatusCode();
                                     lblTitle.Text = title;
+                                    workspace.Title = title;
                                     item.Title = title;
                                     tvNotes.Refresh();
                                 }

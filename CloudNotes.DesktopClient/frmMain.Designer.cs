@@ -32,11 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.tvNotes = new CloudNotes.DesktopClient.Controls.TreeViewEx();
+            this.tvImageList = new System.Windows.Forms.ImageList(this.components);
             this.htmlEditor = new YARTE.UI.HtmlEditor();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDatePublished = new System.Windows.Forms.Label();
-            this.tvImageList = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,7 +95,6 @@
             this.cmnuPermanentDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuRename = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuRestore = new System.Windows.Forms.ToolStripMenuItem();
-            this.tvNotes = new CloudNotes.DesktopClient.Controls.TreeViewEx();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -131,6 +131,40 @@
             resources.ApplyResources(this.pnlLeft, "pnlLeft");
             this.pnlLeft.Name = "pnlLeft";
             // 
+            // tvNotes
+            // 
+            this.tvNotes.DescriptionFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tvNotes.DescriptionIndent = 2;
+            this.tvNotes.DescriptionTextColor = System.Drawing.Color.DarkGray;
+            resources.ApplyResources(this.tvNotes, "tvNotes");
+            this.tvNotes.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.tvNotes.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tvNotes.FullRowSelect = true;
+            this.tvNotes.HideSelection = false;
+            this.tvNotes.HighlightBackgroundColor = System.Drawing.Color.SkyBlue;
+            this.tvNotes.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
+            this.tvNotes.ImageList = this.tvImageList;
+            this.tvNotes.ImageWidth = 65;
+            this.tvNotes.ItemHeight = 34;
+            this.tvNotes.LabelEdit = true;
+            this.tvNotes.Name = "tvNotes";
+            this.tvNotes.NormalTextBackgroundColor = System.Drawing.SystemColors.Window;
+            this.tvNotes.ShowLines = false;
+            this.tvNotes.TitleColor = System.Drawing.Color.DodgerBlue;
+            this.tvNotes.TitleFont = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tvNotes.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvNotes_BeforeLabelEdit);
+            this.tvNotes.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvNotes_AfterLabelEdit);
+            this.tvNotes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvNotes_AfterSelect);
+            this.tvNotes.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvNotes_NodeMouseClick);
+            this.tvNotes.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvNotes_NodeMouseDoubleClick);
+            // 
+            // tvImageList
+            // 
+            this.tvImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tvImageList.ImageStream")));
+            this.tvImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.tvImageList.Images.SetKeyName(0, "note.png");
+            this.tvImageList.Images.SetKeyName(1, "trash.png");
+            // 
             // htmlEditor
             // 
             resources.ApplyResources(this.htmlEditor, "htmlEditor");
@@ -157,13 +191,6 @@
             resources.ApplyResources(this.lblDatePublished, "lblDatePublished");
             this.lblDatePublished.ForeColor = System.Drawing.Color.Gray;
             this.lblDatePublished.Name = "lblDatePublished";
-            // 
-            // tvImageList
-            // 
-            this.tvImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tvImageList.ImageStream")));
-            this.tvImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.tvImageList.Images.SetKeyName(0, "note.png");
-            this.tvImageList.Images.SetKeyName(1, "trash.png");
             // 
             // menuStrip
             // 
@@ -565,33 +592,6 @@
             this.cmnuRestore.Name = "cmnuRestore";
             resources.ApplyResources(this.cmnuRestore, "cmnuRestore");
             this.cmnuRestore.Click += new System.EventHandler(this.Action_Restore);
-            // 
-            // tvNotes
-            // 
-            this.tvNotes.DescriptionFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tvNotes.DescriptionIndent = 2;
-            this.tvNotes.DescriptionTextColor = System.Drawing.Color.DarkGray;
-            resources.ApplyResources(this.tvNotes, "tvNotes");
-            this.tvNotes.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
-            this.tvNotes.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.tvNotes.FullRowSelect = true;
-            this.tvNotes.HideSelection = false;
-            this.tvNotes.HighlightBackgroundColor = System.Drawing.Color.SkyBlue;
-            this.tvNotes.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
-            this.tvNotes.ImageList = this.tvImageList;
-            this.tvNotes.ImageWidth = 65;
-            this.tvNotes.ItemHeight = 34;
-            this.tvNotes.LabelEdit = true;
-            this.tvNotes.Name = "tvNotes";
-            this.tvNotes.NormalTextBackgroundColor = System.Drawing.SystemColors.Window;
-            this.tvNotes.ShowLines = false;
-            this.tvNotes.TitleColor = System.Drawing.Color.DodgerBlue;
-            this.tvNotes.TitleFont = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tvNotes.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvNotes_BeforeLabelEdit);
-            this.tvNotes.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvNotes_AfterLabelEdit);
-            this.tvNotes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvNotes_AfterSelect);
-            this.tvNotes.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvNotes_NodeMouseClick);
-            this.tvNotes.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvNotes_NodeMouseDoubleClick);
             // 
             // FrmMain
             // 
