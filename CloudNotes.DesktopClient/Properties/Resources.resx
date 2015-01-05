@@ -248,7 +248,7 @@
     <value>..\Resources\world.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NotesNodeTitle" xml:space="preserve">
-    <value>Notes</value>
+    <value>My Notes</value>
   </data>
   <data name="TrashNodeTitle" xml:space="preserve">
     <value>Trash</value>
@@ -291,5 +291,11 @@
   </data>
   <data name="MVP_Horizontal_FullColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MVP_Horizontal_FullColor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Collapsed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Collapsed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Expanded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Expanded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

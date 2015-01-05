@@ -91,6 +91,16 @@ namespace CloudNotes.DesktopClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Collapsed {
+            get {
+                object obj = ResourceManager.GetObject("Collapsed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmation.
         /// </summary>
         internal static string Confirmation {
@@ -198,6 +208,16 @@ namespace CloudNotes.DesktopClient.Properties {
         internal static System.Drawing.Bitmap exclamation5 {
             get {
                 object obj = ResourceManager.GetObject("exclamation5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Expanded {
+            get {
+                object obj = ResourceManager.GetObject("Expanded", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -349,7 +369,7 @@ namespace CloudNotes.DesktopClient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notes.
+        ///   Looks up a localized string similar to My Notes.
         /// </summary>
         internal static string NotesNodeTitle {
             get {

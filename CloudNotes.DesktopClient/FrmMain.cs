@@ -1,4 +1,6 @@
 ﻿
+using CloudNotes.DesktopClient.Controls;
+
 namespace CloudNotes.DesktopClient
 {
     using System.Globalization;
@@ -23,6 +25,7 @@ namespace CloudNotes.DesktopClient
     using YARTE.Buttons;
     using YARTE.UI.Buttons;
     using CloudNotes.DESecurity;
+    using System.Drawing;
 
     public sealed partial class FrmMain : Form
     {
@@ -58,15 +61,20 @@ namespace CloudNotes.DesktopClient
 
             this.notifyIcon.Text = string.Format("CloudNotes - {0}", credential.UserName);
 
-            this.notesNode = this.tvNotes.Nodes.Add("NotesRoot", Resources.NotesNodeTitle, "Notes.png", "Notes.png");
-            this.trashNode = this.tvNotes.Nodes.Add("TrashRoot", Resources.TrashNodeTitle, "Trash.png", "Trash.png");
+            this.notesNode = this.tvNotes.Nodes.Add("NotesRoot", Resources.NotesNodeTitle, 0, 0);
+            this.trashNode = this.tvNotes.Nodes.Add("TrashRoot", Resources.TrashNodeTitle, 1, 1);
 
             Application.Idle += (s, e) =>
                 {
                     slblStatus.Text = Resources.Ready;
                 };
+
+            //this.tvNotes.TitleFont = new Font("Segoe UI", 12F);
+            //this.tvNotes.DescriptionFont = new Font("Tahoma", 6.25F);
         }
 
+
+        #region Private Methods
         private void InitializeHtmlEditor()
         {
             PredefinedButtonSets.SetupDefaultButtons(this.htmlEditor);
@@ -108,7 +116,7 @@ namespace CloudNotes.DesktopClient
             }
             else
             {
-                dynamic note = previousNode.Tag;
+                dynamic note = (previousNode.Tag as TreeViewEx.TreeNodeExItem).Data;
                 await this.LoadNoteAsync((Guid)note.ID);
             }
             tvNotes.SelectedNode = previousNode;
@@ -122,8 +130,8 @@ namespace CloudNotes.DesktopClient
             sortedList.Sort(
                 (x, y) =>
                 {
-                    dynamic xTag = x.Tag;
-                    dynamic yTag = y.Tag;
+                    dynamic xTag = (x.Tag as TreeViewEx.TreeNodeExItem).Data;
+                    dynamic yTag = (y.Tag as TreeViewEx.TreeNodeExItem).Data;
                     var xPublishedDate = (DateTime)xTag.DatePublished;
                     var yPublishedDate = (DateTime)yTag.DatePublished;
                     return yPublishedDate.CompareTo(xPublishedDate);
@@ -135,6 +143,25 @@ namespace CloudNotes.DesktopClient
         private void UpdateSettings()
         {
 
+        }
+
+        private TreeNode FindNoteNode(Guid noteId)
+        {
+            foreach(TreeNode node in notesNode.Nodes)
+            {
+                if ((Guid)((node.Tag as TreeViewEx.TreeNodeExItem).Data.ID) == noteId)
+                {
+                    return node;
+                }
+            }
+            foreach(TreeNode node in trashNode.Nodes)
+            {
+                if ((Guid)((node.Tag as TreeViewEx.TreeNodeExItem).Data.ID) == noteId)
+                {
+                    return node;
+                }
+            }
+            return null;
         }
 
         private static string ReplaceFileSystemImages(string html)
@@ -173,7 +200,7 @@ namespace CloudNotes.DesktopClient
         private static bool IsMarkedAsDeletedNoteNode(TreeNode node)
         {
             if (node.Tag == null) return false;
-            dynamic note = node.Tag;
+            dynamic note = (node.Tag as TreeViewEx.TreeNodeExItem).Data;
             if (note == null || note.DeletedFlag == null) return false;
             return (int)note.DeletedFlag == (int)DeleteFlagModel.MarkDeleted;
         }
@@ -212,12 +239,14 @@ namespace CloudNotes.DesktopClient
                 dynamic noteItems = JsonConvert.DeserializeObject(await result.Content.ReadAsStringAsync());
                 foreach (dynamic note in noteItems)
                 {
-                    var treeNode = notesNode.Nodes.Add(
-                        note.ID.ToString(),
-                        note.Title.ToString(),
-                        "Note.png",
-                        "Note.png");
-                    treeNode.Tag = note;
+                    var imageString = (string)note.ImageData;
+                    Image image = null;
+                    if (!string.IsNullOrEmpty(imageString))
+                    {
+                        var base64ImageString = crypto.Decrypt(imageString);
+                        image = Image.FromStream(new MemoryStream(Convert.FromBase64String(base64ImageString)));
+                    }
+                    tvNotes.AddItem(notesNode.Nodes, note.Title.ToString(), crypto.Decrypt(note.Description.ToString()), note, image);
                 }
 
                 var markDeletedResult =
@@ -233,19 +262,26 @@ namespace CloudNotes.DesktopClient
                     cmnuEmptyTrash.Enabled = true;
                     foreach (dynamic deletedNote in deletedNotes)
                     {
-                        var treeNode = trashNode.Nodes.Add(
-                            deletedNote.ID.ToString(),
+                        var imageString = (string)deletedNote.ImageData;
+                        Image image = null;
+                        if (!string.IsNullOrEmpty(imageString))
+                        {
+                            var base64ImageString = crypto.Decrypt(imageString);
+                            image = Image.FromStream(new MemoryStream(Convert.FromBase64String(base64ImageString)));
+                        }
+                        tvNotes.AddItem(
+                            trashNode.Nodes,
                             deletedNote.Title.ToString(),
-                            "DeletedNote.png",
-                            "DeletedNote.png");
-                        treeNode.Tag = deletedNote;
+                            crypto.Decrypt(deletedNote.Description.ToString()),
+                            deletedNote,
+                            image);
                     }
                 }
             }
 
             if (notesNode.Nodes.Count > 0)
             {
-                dynamic note = notesNode.Nodes[0].Tag;
+                dynamic note = (notesNode.Nodes[0].Tag as TreeViewEx.TreeNodeExItem).Data;
                 Guid id = note.ID;
                 await this.LoadNoteAsync(id);
 
@@ -291,11 +327,20 @@ namespace CloudNotes.DesktopClient
         {
             var currentNoteId = workspace.ID;
             var currentNoteTitle = workspace.Title;
+            var currentNoteDescription = string.Empty;
+            Image currentNoteThumbnailImage = null;
 
             string currentNoteContent = string.Empty;
             if (!string.IsNullOrEmpty(workspace.Content))
             {
                 var content = ReplaceFileSystemImages(workspace.Content);
+                currentNoteDescription = content.ExtractDescription();
+                var currentNoteThumbnailImageBase64 = content.ExtractThumbnailImageBase64();
+                if (!string.IsNullOrEmpty(currentNoteThumbnailImageBase64))
+                {
+                    currentNoteThumbnailImage =
+                        Image.FromStream(new MemoryStream(Convert.FromBase64String(currentNoteThumbnailImageBase64)));
+                }
                 currentNoteContent = crypto.Encrypt(content);
             }
 
@@ -327,6 +372,15 @@ namespace CloudNotes.DesktopClient
                     result.EnsureSuccessStatusCode();
                 }
                 workspace.IsSaved = true;
+                var node = this.FindNoteNode(currentNoteId);
+                if (node != null)
+                {
+                    var item = (node.Tag as TreeViewEx.TreeNodeExItem);
+                    item.Title = workspace.Title;
+                    item.Description = currentNoteDescription;
+                    item.Image = currentNoteThumbnailImage;
+                    tvNotes.Refresh();
+                }
             }
         }
 
@@ -363,7 +417,7 @@ namespace CloudNotes.DesktopClient
             var canceled = await this.SaveWorkspaceAsync();
             if (!canceled)
             {
-                dynamic noteItem = treeNode.Tag;
+                dynamic noteItem = (treeNode.Tag as TreeViewEx.TreeNodeExItem).Data;
                 await this.LoadNoteAsync((Guid)noteItem.ID);
             }
             else
@@ -374,12 +428,13 @@ namespace CloudNotes.DesktopClient
                         notesNode.Nodes.Cast<TreeNode>(),
                         p =>
                         {
-                            dynamic note = p.Tag;
+                            dynamic note = (p.Tag as TreeViewEx.TreeNodeExItem).Data;
                             if (workspace.ID == (Guid)note.ID) tvNotes.SelectedNode = p;
                         });
                 }
             }
         }
+        #endregion
 
         #region Async Handlers
 
@@ -454,7 +509,8 @@ namespace CloudNotes.DesktopClient
                         var treeNode = tvNotes.SelectedNode;
                         if (treeNode != null)
                         {
-                            dynamic note = treeNode.Tag;
+                            var item = treeNode.Tag as TreeViewEx.TreeNodeExItem;
+                            dynamic note = item.Data;
                             Guid id = note.ID;
                             using (var serviceProxy = new ServiceProxy(credential))
                             {
@@ -462,13 +518,17 @@ namespace CloudNotes.DesktopClient
                                 result.EnsureSuccessStatusCode();
                                 await this.CorrectNodeSelectionAsync(treeNode);
                                 treeNode.Remove();
-                                var markDeletedNoteNode = trashNode.Nodes.Add(
-                                    note.ID.ToString(),
-                                    note.Title.ToString(),
-                                    "DeletedNote.png",
-                                    "DeletedNote.png");
+                                //var markDeletedNoteNode = trashNode.Nodes.Add(
+                                //    note.ID.ToString(),
+                                //    note.Title.ToString(),
+                                //    "DeletedNote.png",
+                                //    "DeletedNote.png");
+                                //markDeletedNoteNode.Tag = note;
+
+                                tvNotes.AddItem(trashNode.Nodes, item);
+
                                 note.DeletedFlag = (int)DeleteFlagModel.MarkDeleted;
-                                markDeletedNoteNode.Tag = note;
+                                
                                 ResortNodes(trashNode);
                                 if (trashNode.Nodes.Count > 0)
                                 {
@@ -507,7 +567,7 @@ namespace CloudNotes.DesktopClient
                             var treeNode = tvNotes.SelectedNode;
                             if (treeNode != null)
                             {
-                                dynamic note = treeNode.Tag;
+                                dynamic note = (treeNode.Tag as TreeViewEx.TreeNodeExItem).Data;
                                 Guid id = note.ID;
                                 using (var serviceProxy = new ServiceProxy(credential))
                                 {
@@ -537,7 +597,8 @@ namespace CloudNotes.DesktopClient
                         var treeNode = tvNotes.SelectedNode;
                         if (treeNode != null)
                         {
-                            dynamic note = treeNode.Tag;
+                            var item = treeNode.Tag as TreeViewEx.TreeNodeExItem;
+                            dynamic note = item.Data;
                             Guid id = note.ID;
                             using (var serviceProxy = new ServiceProxy(credential))
                             {
@@ -547,13 +608,15 @@ namespace CloudNotes.DesktopClient
                             await this.CorrectNodeSelectionAsync(treeNode);
                             treeNode.Remove();
 
-                            var restoredNoteNode = notesNode.Nodes.Add(
-                                note.ID.ToString(),
-                                note.Title.ToString(),
-                                "Note.png",
-                                "Note.png");
+                            //var restoredNoteNode = notesNode.Nodes.Add(
+                            //    note.ID.ToString(),
+                            //    note.Title.ToString(),
+                            //    "Note.png",
+                            //    "Note.png");
+                            //restoredNoteNode.Tag = note;
+                            tvNotes.AddItem(notesNode.Nodes, item);
                             note.DeletedFlag = (int)DeleteFlagModel.None;
-                            restoredNoteNode.Tag = note;
+                            
                             ResortNodes(notesNode);
                             if (trashNode.Nodes.Count == 0)
                             {
@@ -594,7 +657,7 @@ namespace CloudNotes.DesktopClient
                                 if (notesNode.Nodes.Count > 0)
                                 {
                                     var firstNode = notesNode.Nodes[0];
-                                    dynamic firstNote = firstNode.Tag;
+                                    dynamic firstNote = (firstNode.Tag as TreeViewEx.TreeNodeExItem).Data;
                                     await this.LoadNoteAsync((Guid)firstNote.ID);
                                 }
                                 else
@@ -915,7 +978,8 @@ namespace CloudNotes.DesktopClient
                             }
                             else
                             {
-                                dynamic nodeMetadata = e.Node.Tag;
+                                var item = (e.Node.Tag as TreeViewEx.TreeNodeExItem);
+                                dynamic nodeMetadata = item.Data;
                                 Guid id = nodeMetadata.ID;
                                 using (var proxy = new ServiceProxy(credential))
                                 {
@@ -934,6 +998,8 @@ namespace CloudNotes.DesktopClient
                                             });
                                     result.EnsureSuccessStatusCode();
                                     lblTitle.Text = title;
+                                    item.Title = title;
+                                    tvNotes.Refresh();
                                 }
                             }
                         },

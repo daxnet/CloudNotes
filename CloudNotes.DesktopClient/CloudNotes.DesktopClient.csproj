@@ -79,6 +79,9 @@
     </Compile>
     <Compile Include="ClientCredential.cs" />
     <Compile Include="ClientModel\DeleteFlagModel.cs" />
+    <Compile Include="Controls\TreeViewEx.cs">
+      <SubType>component</SubType>
+    </Compile>
     <Compile Include="DesktopClientService.cs" />
     <Compile Include="FrmUpdatePackage.cs">
       <SubType>Form</SubType>
@@ -238,6 +241,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Expanded.png" />
+    <None Include="Resources\Collapsed.png" />
     <None Include="Resources\MVP_Horizontal_FullColor.png" />
     <None Include="Resources\page_white_csharp.png" />
     <None Include="Resources\money.png" />

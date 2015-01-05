@@ -9,6 +9,7 @@ using System.Web;
 namespace CloudNotes.Infrastructure
 {
     using System.Collections.Generic;
+using System.Drawing;
 
     /// <summary>
     /// Represents the method extender.
@@ -63,11 +64,38 @@ namespace CloudNotes.Infrastructure
         }
 
         /// <summary>
+        /// Extract the description from the html.
+        /// </summary>
+        /// <param name="html"></param>
+        /// <returns></returns>
+        public static string ExtractDescription(this string html)
+        {
+            var plainText = html.RemoveHtmlTags();
+            return plainText.Substring(0, plainText.Length < 100 ? plainText.Length : 100);
+        }
+
+        /// <summary>
+        /// Extract the thumbnail image from the html.
+        /// </summary>
+        /// <param name="html"></param>
+        /// <returns></returns>
+        public static string ExtractThumbnailImageBase64(this string html)
+        {
+            var imageBase64List = html.GetImgSrcBase64FromHtml();
+            string result = null;
+            if (imageBase64List != null && imageBase64List.Any())
+            {
+                result = imageBase64List.First();
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Removes all the HTML tags and bad characters from the given HTML string.
         /// </summary>
         /// <param name="html">The source HTML string.</param>
         /// <returns></returns>
-        public static string RemoveHtmlTags(this string html)
+        private static string RemoveHtmlTags(this string html)
         {
             html = HttpUtility.UrlDecode(html);
             html = HttpUtility.HtmlDecode(html);
@@ -89,7 +117,7 @@ namespace CloudNotes.Infrastructure
         /// </summary>
         /// <param name="html"></param>
         /// <returns></returns>
-        public static IEnumerable<string> GetImgSrcBase64FromHtml(this string html)
+        private static IEnumerable<string> GetImgSrcBase64FromHtml(this string html)
         {
             var matchesImgSrc = Regex.Matches(html, Constants.ImgSrcFormatPattern,
                 RegexOptions.IgnoreCase | RegexOptions.Singleline);

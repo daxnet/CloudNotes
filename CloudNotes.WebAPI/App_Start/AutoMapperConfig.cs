@@ -47,25 +47,28 @@ namespace CloudNotes.WebAPI
                     opt => opt.MapFrom(note => note.Deleted == null ? "None" : note.Deleted.ToString()))
                 .ForMember(
                     noteItemViewModel => noteItemViewModel.DeletedFlag,
-                    opt => opt.MapFrom(note => note.Deleted == null ? (int) DeleteFlag.None : (int) note.Deleted.Value))
-                .ForMember(noteItemViewModel => noteItemViewModel.Description,
-                    opt => opt.ResolveUsing(note =>
-                    {
-                        var plainText = crypto.Decrypt(note.Content).RemoveHtmlTags();
-                        return crypto.Encrypt(plainText.Substring(0, plainText.Length < 100 ? plainText.Length : 100));
-                    }))
-                .ForMember(noteItemViewModel => noteItemViewModel.ImageData,
-                    opt => opt.ResolveUsing(note =>
-                    {
-                        var html = crypto.Decrypt(note.Content);
-                        var imageBase64List = html.GetImgSrcBase64FromHtml();
-                        string result = null;
-                        if (imageBase64List != null && imageBase64List.Any())
-                        {
-                            result = crypto.Encrypt(imageBase64List.First());
-                        }
-                        return result;
-                    }));
+                    opt => opt.MapFrom(note => note.Deleted == null ? (int)DeleteFlag.None : (int)note.Deleted.Value))
+                .ForMember(
+                    noteItemViewModel => noteItemViewModel.Description,
+                    opt => opt.ResolveUsing(
+                        note =>
+                            {
+                                var html = crypto.Decrypt(note.Content);
+                                return crypto.Encrypt(html.ExtractDescription());
+                            }))
+                .ForMember(
+                    noteItemViewModel => noteItemViewModel.ImageData,
+                    opt => opt.ResolveUsing(
+                        note =>
+                            {
+                                var html = crypto.Decrypt(note.Content);
+                                var thumbnailImageBase64 = html.ExtractThumbnailImageBase64();
+                                if (!string.IsNullOrEmpty(thumbnailImageBase64))
+                                {
+                                    return crypto.Encrypt(thumbnailImageBase64);
+                                }
+                                return null;
+                            }));
 
             Mapper.CreateMap<Note, NoteViewModel>()
                 .ForMember(viewModel => viewModel.Weather, opt => opt.ResolveUsing(note => note.Weather.ToString()))
