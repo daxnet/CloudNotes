@@ -64,7 +64,7 @@ namespace CloudNotes.WebAPI.Controllers
                     string.Format("The package for client type {0} doesn't exist.", clientType));
             }
             var packagePath =
-                HostingEnvironment.MapPath(ConfigurationManager.AppSettings[Constants.PackageLocationUriSettingKey]);
+                ConfigurationManager.AppSettings[Constants.PackageLocationUriSettingKey];
 
             string packageDownloadUrl;
             if (packagePath != null && !packagePath.EndsWith("/"))

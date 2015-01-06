@@ -8,6 +8,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © 2014-2015 by daxnet")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("1.0.5472.20097")]
+[assembly: AssemblyVersion("1.0.5484.36793")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
