@@ -180,6 +180,7 @@ namespace YARTE.UI
             toolStripButton.Name = toolbarItem.IconName;
             toolStripButton.Size = new Size(25, 24);
             toolStripButton.Text = toolbarItem.IconTooltip;
+            toolStripButton.MergeAction = MergeAction.Append;
 
             var args = new HTMLEditorButtonArgs { Document = this._doc, Editor = this };
 
@@ -227,6 +228,14 @@ namespace YARTE.UI
             set
             {
                 editcontrolsToolStrip.Visible = value;
+            }
+        }
+
+        public ToolStrip Toolbar
+        {
+            get
+            {
+                return this.editcontrolsToolStrip;
             }
         }
 

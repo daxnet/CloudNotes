@@ -36,6 +36,7 @@
             // 
             // editcontrolsToolStrip
             // 
+            this.editcontrolsToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.editcontrolsToolStrip.Location = new System.Drawing.Point(0, 0);
             this.editcontrolsToolStrip.Name = "editcontrolsToolStrip";
             this.editcontrolsToolStrip.Size = new System.Drawing.Size(557, 25);
