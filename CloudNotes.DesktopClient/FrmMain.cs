@@ -335,7 +335,7 @@ namespace CloudNotes.DesktopClient
             var currentNoteDescription = string.Empty;
             Image currentNoteThumbnailImage = null;
 
-            string currentNoteContent = string.Empty;
+            string currentNoteContent = crypto.Encrypt("<p />");
             if (!string.IsNullOrEmpty(workspace.Content))
             {
                 var content = ReplaceFileSystemImages(workspace.Content);
