@@ -26,14 +26,24 @@
 // limitations under the License.
 // =======================================================================================================
 
-using System.Reflection;
-
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CloudNotes")]
-[assembly: AssemblyCopyright("Copyright © 2014-2015 by daxnet")]
-[assembly: AssemblyTrademark("")]
-
-[assembly: AssemblyVersion("1.0.5484.36793")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-
+namespace CloudNotes.DesktopClient.Extensibility.Data
+{
+    /// <summary>
+    /// Represents the deletion flag of the note.
+    /// </summary>
+    public enum DeleteFlag
+    {
+        /// <summary>
+        /// Indicates that the note has been marked as deleted.
+        /// </summary>
+        MarkDeleted,
+        /// <summary>
+        /// Indicates that the note has been deleted.
+        /// </summary>
+        Deleted,
+        /// <summary>
+        /// Indicates that the note is in its normal state.
+        /// </summary>
+        None
+    }
+}

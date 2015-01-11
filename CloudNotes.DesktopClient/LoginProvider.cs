@@ -10,9 +10,12 @@ using CloudNotes.DESecurity;
 
 namespace CloudNotes.DesktopClient
 {
+    using Extensibility;
+
     public static class LoginProvider
     {
-        public static ClientCredential Login(Action cancelCallback, DesktopClientSettings settings, bool alwaysShowDialog = false)
+        public static ClientCredential Login(Action cancelCallback, DesktopClientSettings settings,
+            bool alwaysShowDialog = false)
         {
             var crypto = Crypto.CreateDefaultCrypto();
             Profile profile;

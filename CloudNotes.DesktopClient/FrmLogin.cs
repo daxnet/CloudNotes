@@ -1,21 +1,18 @@
-﻿using System.Threading.Tasks;
-
-using CloudNotes.DesktopClient.Profiles;
-using CloudNotes.DesktopClient.Properties;
-using CloudNotes.DesktopClient.Settings;
-using CloudNotes.Infrastructure;
-using System;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Windows.Forms;
-
-using Newtonsoft.Json;
-using CloudNotes.DESecurity;
-
-namespace CloudNotes.DesktopClient
+﻿namespace CloudNotes.DesktopClient
 {
+    using System;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Text;
+    using System.Windows.Forms;
+    using DESecurity;
+    using Extensibility;
+    using Newtonsoft.Json;
+    using Profiles;
+    using Properties;
+    using Settings;
+
     public partial class FrmLogin : Form
     {
         private readonly Profile profile;
@@ -133,7 +130,7 @@ namespace CloudNotes.DesktopClient
         private void btnOK_Click(object sender, EventArgs e)
         {
             var hasError = false;
-            errorProvider.Clear();
+            this.errorProvider.Clear();
             if (string.IsNullOrWhiteSpace(cbUserName.Text))
             {
                 hasError = true;

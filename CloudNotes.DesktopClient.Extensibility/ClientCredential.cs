@@ -26,14 +26,36 @@
 // limitations under the License.
 // =======================================================================================================
 
-using System.Reflection;
+ 
+namespace CloudNotes.DesktopClient.Extensibility
+{
+    /// <summary>
+    /// Represents the client credentials.
+    /// </summary>
+    public sealed class ClientCredential
+    {
+        /// <summary>
+        /// Gets or sets the name of the user.
+        /// </summary>
+        /// <value>
+        /// The name of the user.
+        /// </value>
+        public string UserName { get; set; }
 
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CloudNotes")]
-[assembly: AssemblyCopyright("Copyright © 2014-2015 by daxnet")]
-[assembly: AssemblyTrademark("")]
+        /// <summary>
+        /// Gets or sets the password.
+        /// </summary>
+        /// <value>
+        /// The password.
+        /// </value>
+        public string Password { get; set; }
 
-[assembly: AssemblyVersion("1.0.5484.36793")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-
+        /// <summary>
+        /// Gets or sets the server URI.
+        /// </summary>
+        /// <value>
+        /// The server URI.
+        /// </value>
+        public string ServerUri { get; set; }
+    }
+}

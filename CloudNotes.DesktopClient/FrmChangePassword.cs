@@ -10,6 +10,8 @@ using CloudNotes.Infrastructure;
 
 namespace CloudNotes.DesktopClient
 {
+    using Extensibility;
+
     public partial class FrmChangePassword : Form
     {
         private readonly ClientCredential clientCredential;

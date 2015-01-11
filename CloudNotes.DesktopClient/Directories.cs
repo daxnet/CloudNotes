@@ -1,9 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
-
-namespace CloudNotes.DesktopClient
+﻿namespace CloudNotes.DesktopClient
 {
+    using System.IO;
+    using System.Windows.Forms;
+
     public static class Directories
     {
         private const string CloudNotesDataFolder = "CloudNotes";

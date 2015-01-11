@@ -77,8 +77,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ClientCredential.cs" />
-    <Compile Include="ClientModel\DeleteFlagModel.cs" />
     <Compile Include="Controls\TreeViewEx.cs">
       <SubType>component</SubType>
     </Compile>
@@ -152,7 +150,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SafeExecutionContext.cs" />
-    <Compile Include="ServiceProxy.cs" />
     <Compile Include="SingleInstanceController.cs" />
     <Compile Include="Workspace.cs" />
     <EmbeddedResource Include="FrmAbout.resx">
@@ -231,6 +228,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CloudNotes.DesktopClient.Extensibility\CloudNotes.DesktopClient.Extensibility.csproj">
+      <Project>{6c248049-642b-453c-8a67-f8b2e9fc25b9}</Project>
+      <Name>CloudNotes.DesktopClient.Extensibility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CloudNotes.Infrastructure\CloudNotes.Infrastructure.csproj">
       <Project>{b2ce984b-141e-4c7a-af2a-51a7aeda8a00}</Project>
       <Name>CloudNotes.Infrastructure</Name>

@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using CloudNotes.DesktopClient.Properties;
-using CloudNotes.Infrastructure;
-
-namespace CloudNotes.DesktopClient
+﻿namespace CloudNotes.DesktopClient
 {
+    using System;
     using System.Diagnostics;
     using System.Reflection;
+    using System.Threading;
+    using System.Windows.Forms;
+    using Infrastructure;
+    using Properties;
 
     public partial class FrmAbout : Form
     {
         public FrmAbout()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void ExecuteLink(string url)
@@ -31,14 +22,14 @@ namespace CloudNotes.DesktopClient
 
         private void FrmAbout_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = string.Format(
+            this.lblTitle.Text = string.Format(
                 "{0} version {1}",
                 this.GetType().Assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title,
                 this.GetType().Assembly.GetName().Version);
             this.txtLicense.Text = Resources.License;
             foreach (var assemblyName in this.GetType().Assembly.GetReferencedAssemblies())
             {
-                lstAssemblies.Items.Add(
+                this.lstAssemblies.Items.Add(
                     new ListViewItem(
                         new[] { assemblyName.Name, assemblyName.Version.ToString(), assemblyName.FullName },
                         "Assembly.png"));

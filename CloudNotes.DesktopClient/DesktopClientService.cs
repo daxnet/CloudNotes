@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CloudNotes.DesktopClient.Settings;
-using Newtonsoft.Json;
-using CloudNotes.Infrastructure;
-
-namespace CloudNotes.DesktopClient
+﻿namespace CloudNotes.DesktopClient
 {
+    using System;
+    using System.Threading.Tasks;
+    using Extensibility;
+    using Infrastructure;
+    using Newtonsoft.Json;
+    using Settings;
+
     internal sealed class CheckUpdateResult
     {
         public static readonly CheckUpdateResult NoUpdate = new CheckUpdateResult {HasUpdate = false};
@@ -34,7 +32,7 @@ namespace CloudNotes.DesktopClient
                 {
                     UserName = Constants.ProxyUserName,
                     Password = Constants.ProxyUserPassword,
-                    ServerUri = settings.PackageServer
+                    ServerUri = this.settings.PackageServer
                 };
                 using (var proxyClient = new ServiceProxy(proxyCredential))
                 {

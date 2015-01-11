@@ -26,14 +26,36 @@
 // limitations under the License.
 // =======================================================================================================
 
-using System.Reflection;
+namespace CloudNotes.DesktopClient.Extensibility
+{
+    using System;
+    using System.Net;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
 
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CloudNotes")]
-[assembly: AssemblyCopyright("Copyright © 2014-2015 by daxnet")]
-[assembly: AssemblyTrademark("")]
-
-[assembly: AssemblyVersion("1.0.5484.36793")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-
+    /// <summary>
+    /// Represents the HTTP client proxy.
+    /// </summary>
+    public class ServiceProxy : HttpClient
+    {
+        #region Ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceProxy"/> class.
+        /// </summary>
+        /// <param name="clientCredential">The client credential.</param>
+        public ServiceProxy(ClientCredential clientCredential)
+            : base(new HttpClientHandler
+            {
+                Credentials = new NetworkCredential(clientCredential.UserName, clientCredential.Password)
+            }, true)
+        {
+            this.BaseAddress =
+                new Uri(
+                    clientCredential.ServerUri.EndsWith("/")
+                        ? clientCredential.ServerUri
+                        : clientCredential.ServerUri + "/");
+            this.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+        #endregion
+    }
+}

@@ -11,6 +11,7 @@ namespace CloudNotes.DesktopClient
     using Newtonsoft.Json;
     using System.Net.Http;
     using System.Text.RegularExpressions;
+    using Extensibility;
 
     public partial class FrmRegister : Form
     {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "CloudNotes.Design", "CloudNotes.Design\CloudNotes.Design.modelproj", "{3364894A-8207-4077-96CD-77C6C3525A04}"
 EndProject
@@ -39,6 +39,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesktopClient", "DesktopClient", "{2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DesktopClient.Extensibility", "CloudNotes.DesktopClient.Extensibility\CloudNotes.DesktopClient.Extensibility.csproj", "{6C248049-642B-453C-8A67-F8B2E9FC25B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,12 +89,18 @@ Global
 		{850D08A3-046B-4300-9F71-52FF86AE0800}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{850D08A3-046B-4300-9F71-52FF86AE0800}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{850D08A3-046B-4300-9F71-52FF86AE0800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C248049-642B-453C-8A67-F8B2E9FC25B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C248049-642B-453C-8A67-F8B2E9FC25B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C248049-642B-453C-8A67-F8B2E9FC25B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C248049-642B-453C-8A67-F8B2E9FC25B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E132859F-A45B-4386-B5AD-D6CF9DB46104} = {4F533DE9-CA4F-46E4-8DD0-181097803B4E}
-		{850D08A3-046B-4300-9F71-52FF86AE0800} = {4F533DE9-CA4F-46E4-8DD0-181097803B4E}
+		{E132859F-A45B-4386-B5AD-D6CF9DB46104} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
+		{850D08A3-046B-4300-9F71-52FF86AE0800} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
+		{2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A} = {4F533DE9-CA4F-46E4-8DD0-181097803B4E}
+		{6C248049-642B-453C-8A67-F8B2E9FC25B9} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
 	EndGlobalSection
 EndGlobal
