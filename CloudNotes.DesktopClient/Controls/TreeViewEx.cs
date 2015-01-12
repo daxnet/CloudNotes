@@ -9,6 +9,8 @@ using CloudNotes.DesktopClient.Properties;
 
 namespace CloudNotes.DesktopClient.Controls
 {
+    using Extensibility.Data;
+
     /// <summary>
     /// Represents the extended TreeView control that can be used specifically by CloudNotes.
     /// </summary>
@@ -210,7 +212,7 @@ namespace CloudNotes.DesktopClient.Controls
         /// <param name="data">The data of the item.</param>
         /// <param name="image">The image of the data.</param>
         /// <returns>A <see cref="TreeNode"/> which contains the <see cref="TreeNodeExItem"/> data.</returns>
-        public TreeNode AddItem(TreeNodeCollection collection, string title, string description, dynamic data, Image image = null)
+        public TreeNode AddItem(TreeNodeCollection collection, string title, string description, Note data, Image image = null)
         {
             return AddItem(collection, new TreeNodeExItem
                                            {
@@ -418,7 +420,7 @@ namespace CloudNotes.DesktopClient.Controls
             /// <summary>
             /// Gets or sets the data of the item.
             /// </summary>
-            public dynamic Data { get; set; }
+            public Note Data { get; set; }
             /// <summary>
             /// Gets or sets the image of the item.
             /// </summary>

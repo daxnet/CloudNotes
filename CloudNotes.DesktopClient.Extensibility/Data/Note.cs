@@ -66,7 +66,7 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
         /// <summary>
         /// Gets or sets the <c>DeleteFlag</c> which indicates the note deletion state.
         /// </summary>
-        public DeleteFlag DeletedFlag { get; set; }
+        public DeleteFlag? DeletedFlag { get; set; }
 
         #region Overrides of Object
 

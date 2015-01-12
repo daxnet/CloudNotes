@@ -10,6 +10,8 @@ using CloudNotes.DESecurity;
 
 namespace CloudNotes.DesktopClient
 {
+    using Extensibility.Data;
+
     /// <summary>
     /// Represents the workspace initialized with a note object.
     /// </summary>
@@ -28,7 +30,7 @@ namespace CloudNotes.DesktopClient
 
         public Workspace() { }
 
-        public Workspace(dynamic note)
+        public Workspace(Note note)
         {
             id = note.ID;
             title = note.Title;

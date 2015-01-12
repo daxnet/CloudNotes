@@ -1,4 +1,32 @@
-﻿namespace CloudNotes.DesktopClient
+﻿// =======================================================================================================
+//
+//    ,uEZGZX  LG                             Eu       iJ       vi                                              
+//   BB7.  .:  uM                             8F       0BN      Bq             S:                               
+//  @X         LO    rJLYi    :     i    iYLL XJ       Xu7@     Mu    7LjL;   rBOii   7LJ7    .vYUi             
+// ,@          LG  7Br...SB  vB     B   B1...7BL       0S i@,   OU  :@7. ,u@   @u.. :@:  ;B  LB. ::             
+// v@          LO  B      Z0 i@     @  BU     @Y       qq  .@L  Oj  @      5@  Oi   @.    MB U@                 
+// .@          JZ :@      :@ rB     B  @      5U       Eq    @0 Xj ,B      .B  Br  ,B:rv777i  :0ZU              
+//  @M         LO  @      Mk :@    .@  BL     @J       EZ     GZML  @      XM  B;   @            Y@             
+//   ZBFi::vu  1B  ;B7..:qO   BS..iGB   BJ..:vB2       BM      rBj  :@7,.:5B   qM.. i@r..i5. ir. UB             
+//     iuU1vi   ,    ;LLv,     iYvi ,    ;LLr  .       .,       .     rvY7:     rLi   7LLr,  ,uvv:  
+//
+//
+// Copyright 2014-2015 daxnet
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// =======================================================================================================
+
+namespace CloudNotes.DesktopClient
 {
     using System;
     using System.Collections.Generic;
@@ -28,7 +56,7 @@
 
         private readonly Crypto crypto = Crypto.CreateDefaultCrypto();
 
-        private dynamic currentNote;
+        private Note currentNote;
 
         private Workspace workspace;
 
@@ -60,30 +88,31 @@
             this.trashNode = this.tvNotes.Nodes.Add("TrashRoot", Resources.TrashNodeTitle, 1, 1);
 
             Application.Idle += (s, e) =>
-                {
-                    this.slblStatus.Text = Resources.Ready;
-                };
+            {
+                this.slblStatus.Text = Resources.Ready;
+            };
         }
 
 
         #region Private Methods
+
         private void InitializeHtmlEditor()
         {
             PredefinedButtonSets.SetupDefaultButtons(this.htmlEditor);
             this.htmlEditor.DocumentTextChanged += (s, e) =>
+            {
+                if (this.workspace != null)
                 {
-                    if (this.workspace != null)
-                    {
-                        this.workspace.Content = this.htmlEditor.Html;
-                    }
-                };
+                    this.workspace.Content = this.htmlEditor.Html;
+                }
+            };
             this.htmlEditor.DocumentPreviewKeyDown += async (kds, kde) =>
+            {
+                if (kde.KeyData == (Keys.Control | Keys.S))
                 {
-                    if (kde.KeyData == (Keys.Control | Keys.S))
-                    {
-                        await this.DoSaveAsync();
-                    }
-                };
+                    await this.DoSaveAsync();
+                }
+            };
         }
 
         /// <summary>
@@ -117,8 +146,8 @@
             }
             else
             {
-                dynamic note = GetItem(previousNode).Data;
-                await this.LoadNoteAsync((Guid)note.ID);
+                var note = GetItem(previousNode).Data;
+                await this.LoadNoteAsync(note.ID);
             }
             this.tvNotes.SelectedNode = previousNode;
         }
@@ -131,11 +160,9 @@
             sortedList.Sort(
                 (x, y) =>
                 {
-                    dynamic xTag = GetItem(x).Data;
-                    dynamic yTag = GetItem(y).Data;
-                    var xPublishedDate = (DateTime)xTag.DatePublished;
-                    var yPublishedDate = (DateTime)yTag.DatePublished;
-                    return yPublishedDate.CompareTo(xPublishedDate);
+                    var xTag = GetItem(x).Data;
+                    var yTag = GetItem(y).Data;
+                    return yTag.DatePublished.CompareTo(xTag.DatePublished);
                 });
             parent.Nodes.Clear();
             parent.Nodes.AddRange(sortedList.ToArray());
@@ -150,14 +177,14 @@
         {
             foreach (TreeNode node in this.notesNode.Nodes)
             {
-                if ((Guid)(GetItem(node).Data.ID) == noteId)
+                if (GetItem(node).Data.ID == noteId)
                 {
                     return node;
                 }
             }
             foreach (TreeNode node in this.trashNode.Nodes)
             {
-                if ((Guid)(GetItem(node).Data.ID) == noteId)
+                if (GetItem(node).Data.ID == noteId)
                 {
                     return node;
                 }
@@ -211,9 +238,9 @@
         private static bool IsMarkedAsDeletedNoteNode(TreeNode node)
         {
             if (node.Tag == null) return false;
-            dynamic note = GetItem(node).Data;
+            var note = GetItem(node).Data;
             if (note == null || note.DeletedFlag == null) return false;
-            return (int)note.DeletedFlag == (int)DeleteFlag.MarkDeleted;
+            return (int) note.DeletedFlag == (int) DeleteFlag.MarkDeleted;
         }
 
         private async Task LoadNotesAsync()
@@ -255,7 +282,7 @@
                     {
                         image = Image.FromStream(new MemoryStream(Convert.FromBase64String(note.ThumbnailImageBase64)));
                     }
-                    this.tvNotes.AddItem(this.notesNode.Nodes, note.Title,note.Description, note, image);
+                    this.tvNotes.AddItem(this.notesNode.Nodes, note.Title, note.Description, note, image);
                 }
 
                 // Retrieves all the marked as deleted notes
@@ -273,8 +300,8 @@
 
             if (this.notesNode.Nodes.Count > 0)
             {
-                dynamic note = GetItem(this.notesNode.Nodes[0]).Data;
-                Guid id = note.ID;
+                var note = GetItem(this.notesNode.Nodes[0]).Data;
+                var id = note.ID;
                 await this.LoadNoteAsync(id);
 
                 this.tvNotes.SelectedNode = this.notesNode.Nodes[0];
@@ -300,13 +327,14 @@
             using (var proxy = new ServiceProxy(this.credential))
             {
                 var result = await proxy.GetStringAsync(string.Format("api/notes/{0}", id));
-                this.currentNote = JsonConvert.DeserializeObject(result);
+                this.currentNote = JsonConvert.DeserializeObject<Note>(result);
                 this.ClearWorkspace();
                 this.workspace = new Workspace(this.currentNote);
                 this.workspace.PropertyChanged += this.workspace_PropertyChanged;
                 this.lblTitle.Text = this.workspace.Title;
                 var datePublished = this.workspace.DatePublished;
-                this.lblDatePublished.Text = datePublished.ToLocalTime().ToString("G", new CultureInfo(this.settings.General.Language));
+                this.lblDatePublished.Text = datePublished.ToLocalTime()
+                    .ToString("G", new CultureInfo(this.settings.General.Language));
                 this.htmlEditor.Html = this.workspace.Content;
                 this.htmlEditor.Enabled = true;
                 this.tbtnSave.Enabled = false;
@@ -342,9 +370,9 @@
                 {
                     var result =
                         await
-                        proxy.PostAsJsonAsync(
-                            "api/notes/create",
-                            new { Title = currentNoteTitle, Content = currentNoteContent, Weather = "Unspecified" });
+                            proxy.PostAsJsonAsync(
+                                "api/notes/create",
+                                new {Title = currentNoteTitle, Content = currentNoteContent, Weather = "Unspecified"});
                     result.EnsureSuccessStatusCode();
                     this.workspace.ID = new Guid((await result.Content.ReadAsStringAsync()).Trim('\"'));
                 }
@@ -352,15 +380,15 @@
                 {
                     var result =
                         await
-                        proxy.PostAsJsonAsync(
-                            "api/notes/update",
-                            new
-                            {
-                                ID = currentNoteId,
-                                Title = currentNoteTitle,
-                                Content = currentNoteContent,
-                                Weather = "Unspecified"
-                            });
+                            proxy.PostAsJsonAsync(
+                                "api/notes/update",
+                                new
+                                {
+                                    ID = currentNoteId,
+                                    Title = currentNoteTitle,
+                                    Content = currentNoteContent,
+                                    Weather = "Unspecified"
+                                });
                     result.EnsureSuccessStatusCode();
                 }
                 this.workspace.IsSaved = true;
@@ -409,8 +437,8 @@
             var canceled = await this.SaveWorkspaceAsync();
             if (!canceled)
             {
-                dynamic noteItem = GetItem(treeNode).Data;
-                await this.LoadNoteAsync((Guid)noteItem.ID);
+                var noteItem = GetItem(treeNode).Data;
+                await this.LoadNoteAsync(noteItem.ID);
             }
             else
             {
@@ -420,12 +448,13 @@
                         this.notesNode.Nodes.Cast<TreeNode>(),
                         p =>
                         {
-                            dynamic note = GetItem(p).Data;
-                            if (this.workspace.ID == (Guid)note.ID) this.tvNotes.SelectedNode = p;
+                            var note = GetItem(p).Data;
+                            if (this.workspace.ID == note.ID) this.tvNotes.SelectedNode = p;
                         });
                 }
             }
         }
+
         #endregion
 
         #region Async Handlers
@@ -444,8 +473,8 @@
                         if (newNoteForm.ShowDialog() == DialogResult.OK)
                         {
                             var title = newNoteForm.NoteTitle;
-                            dynamic note =
-                                new
+                            var note =
+                                new Note
                                 {
                                     ID = Guid.Empty,
                                     Title = title,
@@ -502,11 +531,10 @@
                     if (treeNode != null)
                     {
                         var item = GetItem(treeNode);
-                        dynamic note = item.Data;
-                        Guid id = note.ID;
+                        var note = item.Data;
                         using (var serviceProxy = new ServiceProxy(this.credential))
                         {
-                            var result = await serviceProxy.PostAsJsonAsync("api/notes/markdelete", id);
+                            var result = await serviceProxy.PostAsJsonAsync("api/notes/markdelete", note.ID);
                             result.EnsureSuccessStatusCode();
                             await this.CorrectNodeSelectionAsync(treeNode);
                             treeNode.Remove();
@@ -519,7 +547,7 @@
 
                             this.tvNotes.AddItem(this.trashNode.Nodes, item);
 
-                            note.DeletedFlag = (int)DeleteFlag.MarkDeleted;
+                            note.DeletedFlag = (int) DeleteFlag.MarkDeleted;
 
                             this.ResortNodes(this.trashNode);
                             if (this.trashNode.Nodes.Count > 0)
@@ -559,12 +587,11 @@
                         var treeNode = this.tvNotes.SelectedNode;
                         if (treeNode != null)
                         {
-                            dynamic note = GetItem(treeNode).Data;
-                            Guid id = note.ID;
+                            var note = GetItem(treeNode).Data;
                             using (var serviceProxy = new ServiceProxy(this.credential))
                             {
                                 var result =
-                                    await serviceProxy.DeleteAsync(string.Format("api/notes/delete/{0}", id));
+                                    await serviceProxy.DeleteAsync(string.Format("api/notes/delete/{0}", note.ID));
                                 result.EnsureSuccessStatusCode();
                                 await this.LoadNotesAsync();
                             }
@@ -590,11 +617,10 @@
                     if (treeNode != null)
                     {
                         var item = GetItem(treeNode);
-                        dynamic note = item.Data;
-                        Guid id = note.ID;
+                        var note = item.Data;
                         using (var serviceProxy = new ServiceProxy(this.credential))
                         {
-                            var result = await serviceProxy.PostAsJsonAsync("api/notes/restore", id);
+                            var result = await serviceProxy.PostAsJsonAsync("api/notes/restore", note.ID);
                             result.EnsureSuccessStatusCode();
                         }
                         await this.CorrectNodeSelectionAsync(treeNode);
@@ -607,7 +633,7 @@
                         //    "Note.png");
                         //restoredNoteNode.Tag = note;
                         this.tvNotes.AddItem(this.notesNode.Nodes, item);
-                        note.DeletedFlag = (int)DeleteFlag.None;
+                        note.DeletedFlag = DeleteFlag.None;
 
                         this.ResortNodes(this.notesNode);
                         if (this.trashNode.Nodes.Count == 0)
@@ -649,8 +675,8 @@
                             if (this.notesNode.Nodes.Count > 0)
                             {
                                 var firstNode = this.notesNode.Nodes[0];
-                                dynamic firstNote = GetItem(firstNode).Data;
-                                await this.LoadNoteAsync((Guid)firstNote.ID);
+                                var firstNote = GetItem(firstNode).Data;
+                                await this.LoadNoteAsync(firstNote.ID);
                             }
                             else
                             {
@@ -783,10 +809,10 @@
         private void Action_ChangePassword(object sender, EventArgs e)
         {
             SafeExecutionContext.Execute(this, () =>
-                {
-                    var changePasswordForm = new FrmChangePassword(this.credential);
-                    changePasswordForm.ShowDialog();
-                });
+            {
+                var changePasswordForm = new FrmChangePassword(this.credential);
+                changePasswordForm.ShowDialog();
+            });
         }
 
         private void Action_Settings(object sender, EventArgs e)
@@ -971,23 +997,23 @@
                         else
                         {
                             var item = GetItem(e.Node);
-                            dynamic nodeMetadata = item.Data;
-                            Guid id = nodeMetadata.ID;
+                            var nodeMetadata = item.Data;
                             using (var proxy = new ServiceProxy(this.credential))
                             {
-                                var getNoteResult = await proxy.GetStringAsync(string.Format("api/notes/{0}", id));
+                                var getNoteResult =
+                                    await proxy.GetStringAsync(string.Format("api/notes/{0}", nodeMetadata.ID));
                                 dynamic selectedNote = JsonConvert.DeserializeObject(getNoteResult);
                                 var result =
                                     await
-                                    proxy.PostAsJsonAsync(
-                                        "api/notes/update",
-                                        new
-                                        {
-                                            ID = id,
-                                            Title = title,
-                                            selectedNote.Content,
-                                            Weather = "Unspecified"
-                                        });
+                                        proxy.PostAsJsonAsync(
+                                            "api/notes/update",
+                                            new
+                                            {
+                                                nodeMetadata.ID,
+                                                Title = title,
+                                                selectedNote.Content,
+                                                Weather = "Unspecified"
+                                            });
                                 result.EnsureSuccessStatusCode();
                                 this.lblTitle.Text = title;
                                 this.workspace.Title = title;
