@@ -364,43 +364,36 @@ namespace CloudNotes.DesktopClient
                 currentNoteContent = this.crypto.Encrypt(content);
             }
 
-            using (var proxy = new ServiceProxy(this.credential))
+            using (var dataAccessProxy = this.CreateDataAccessProxy())
             {
                 if (currentNoteId == Guid.Empty)
                 {
-                    var result =
-                        await
-                            proxy.PostAsJsonAsync(
-                                "api/notes/create",
-                                new {Title = currentNoteTitle, Content = currentNoteContent, Weather = "Unspecified"});
-                    result.EnsureSuccessStatusCode();
-                    this.workspace.ID = new Guid((await result.Content.ReadAsStringAsync()).Trim('\"'));
+                    this.workspace.ID = await dataAccessProxy.CreateNoteAsync(new Note
+                    {
+                        Title = currentNoteTitle,
+                        Content = currentNoteContent
+                    });
                 }
                 else
                 {
-                    var result =
-                        await
-                            proxy.PostAsJsonAsync(
-                                "api/notes/update",
-                                new
-                                {
-                                    ID = currentNoteId,
-                                    Title = currentNoteTitle,
-                                    Content = currentNoteContent,
-                                    Weather = "Unspecified"
-                                });
-                    result.EnsureSuccessStatusCode();
+                    await dataAccessProxy.UpdateNoteAsync(new Note
+                    {
+                        ID = currentNoteId,
+                        Title = currentNoteTitle,
+                        Content = currentNoteContent
+                    });
                 }
-                this.workspace.IsSaved = true;
-                var node = this.FindNoteNode(currentNoteId);
-                if (node != null)
-                {
-                    var item = GetItem(node);
-                    item.Title = this.workspace.Title;
-                    item.Description = currentNoteDescription;
-                    item.Image = currentNoteThumbnailImage;
-                    this.tvNotes.Refresh();
-                }
+            }
+
+            this.workspace.IsSaved = true;
+            var node = this.FindNoteNode(currentNoteId);
+            if (node != null)
+            {
+                var item = GetItem(node);
+                item.Title = this.workspace.Title;
+                item.Description = currentNoteDescription;
+                item.Image = currentNoteThumbnailImage;
+                this.tvNotes.Refresh();
             }
         }
 
@@ -532,29 +525,21 @@ namespace CloudNotes.DesktopClient
                     {
                         var item = GetItem(treeNode);
                         var note = item.Data;
-                        using (var serviceProxy = new ServiceProxy(this.credential))
+                        using (var dataAccessProxy = this.CreateDataAccessProxy())
                         {
-                            var result = await serviceProxy.PostAsJsonAsync("api/notes/markdelete", note.ID);
-                            result.EnsureSuccessStatusCode();
-                            await this.CorrectNodeSelectionAsync(treeNode);
-                            treeNode.Remove();
-                            //var markDeletedNoteNode = trashNode.Nodes.Add(
-                            //    note.ID.ToString(),
-                            //    note.Title.ToString(),
-                            //    "DeletedNote.png",
-                            //    "DeletedNote.png");
-                            //markDeletedNoteNode.Tag = note;
+                            await dataAccessProxy.MarkDeleteAsync(note.ID);
+                        }
+                        treeNode.Remove();
 
-                            this.tvNotes.AddItem(this.trashNode.Nodes, item);
+                        this.tvNotes.AddItem(this.trashNode.Nodes, item);
 
-                            note.DeletedFlag = (int) DeleteFlag.MarkDeleted;
+                        note.DeletedFlag = (int)DeleteFlag.MarkDeleted;
 
-                            this.ResortNodes(this.trashNode);
-                            if (this.trashNode.Nodes.Count > 0)
-                            {
-                                this.mnuEmptyTrash.Enabled = true;
-                                this.cmnuEmptyTrash.Enabled = true;
-                            }
+                        this.ResortNodes(this.trashNode);
+                        if (this.trashNode.Nodes.Count > 0)
+                        {
+                            this.mnuEmptyTrash.Enabled = true;
+                            this.cmnuEmptyTrash.Enabled = true;
                         }
                         this.mnuEmptyTrash.Enabled = true;
                         this.cmnuEmptyTrash.Enabled = true;

@@ -83,13 +83,54 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Gets the notes asynchronously.
+        /// </summary>
+        /// <param name="deleted">True if the method should return the notes that are marked as deleted. False will return all the
+        /// notes available.</param>
+        /// <returns>The <see cref="Task"/> that returns a list of retrieved notes.</returns>
         public abstract Task<IEnumerable<Note>> GetNotesAsync(bool deleted = false);
-        public abstract Task CreateNoteAsync(Note note);
+        /// <summary>
+        /// Creates the note asynchronously.
+        /// </summary>
+        /// <param name="note">The note object to be created.</param>
+        /// <returns>The <see cref="Task"/> that returns the <see cref="Guid"/> value which represents the ID of the note that is newly created.</returns>
+        public abstract Task<Guid> CreateNoteAsync(Note note);
+        /// <summary>
+        /// Updates the note asynchronously.
+        /// </summary>
+        /// <param name="note">The note to be updated.</param>
+        /// <returns>The <see cref="Task"/> that is responsible for updating the note.</returns>
         public abstract Task UpdateNoteAsync(Note note);
+        /// <summary>
+        /// Marks the note as deleted asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be marked as deleted.</param>
+        /// <returns>The <see cref="Task"/> that is responsible for marking the note as deleted.</returns>
         public abstract Task MarkDeleteAsync(Guid id);
+        /// <summary>
+        /// Deletes the asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be deleted.</param>
+        /// <returns>The <see cref="Task"/> that is responsible for deleting the note.</returns>
         public abstract Task DeleteAsync(Guid id);
+        /// <summary>
+        /// Empties the trash bin asynchronously.
+        /// </summary>
+        /// <returns>The <see cref="Task"/> that is responsible for empty the trash bin.</returns>
         public abstract Task EmptyTrashAsync();
+        /// <summary>
+        /// Restores the note from the trash bin asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be restored.</param>
+        /// <returns>The <see cref="Task"/> that is responsible for restoring the note from the trash bin.</returns>
         public abstract Task RestoreAsync(Guid id);
+        /// <summary>
+        /// Gets the note asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be retrieved.</param>
+        /// <returns>The <see cref="Task"/> that returns the retrieved note.</returns>
         public abstract Task<Note> GetNoteAsync(Guid id);
         #endregion
 

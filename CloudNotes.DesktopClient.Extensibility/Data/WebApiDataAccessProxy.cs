@@ -30,6 +30,7 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
 {
     using System;
     using System.Collections.Generic;
+    using System.Net.Http;
     using System.Threading.Tasks;
     using DESecurity;
     using Newtonsoft.Json;
@@ -65,6 +66,14 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
 
         #region Overrides of DataAccessProxy
 
+        /// <summary>
+        /// Gets the notes asynchronously.
+        /// </summary>
+        /// <param name="deleted">True if the method should return the notes that are marked as deleted. False will return all the
+        /// notes available.</param>
+        /// <returns>
+        /// The <see cref="Task" /> that returns a list of retrieved notes.
+        /// </returns>
         public async override Task<IEnumerable<Note>> GetNotesAsync(bool deleted = false)
         {
             var uri = "api/notes/all";
@@ -103,19 +112,52 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
             return notes;
         }
 
-        public override Task CreateNoteAsync(Note note)
+        /// <summary>
+        /// Creates the note asynchronously.
+        /// </summary>
+        /// <param name="note">The note object to be created.</param>
+        /// <returns>
+        /// The <see cref="Task" /> that returns the <see cref="Guid" /> value which represents the ID of the note that is newly created.
+        /// </returns>
+        public async override Task<Guid> CreateNoteAsync(Note note)
         {
-            throw new NotImplementedException();
+            var result =
+                await
+                    this.serviceProxy.PostAsJsonAsync(
+                        "api/notes/create",
+                        new {note.Title, Content = note.Content, Weather = "Unspecified"});
+            result.EnsureSuccessStatusCode();
+            return new Guid((await result.Content.ReadAsStringAsync()).Trim('\"'));
         }
 
-        public override Task UpdateNoteAsync(Note note)
+        public async override Task UpdateNoteAsync(Note note)
         {
-            throw new NotImplementedException();
+            var result =
+                        await
+                            serviceProxy.PostAsJsonAsync(
+                                "api/notes/update",
+                                new
+                                {
+                                    note.ID,
+                                    note.Title,
+                                    note.Content,
+                                    Weather = "Unspecified"
+                                });
+            result.EnsureSuccessStatusCode();
         }
 
-        public override Task MarkDeleteAsync(Guid id)
+        /// <summary>
+        /// Marks the note as deleted asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be marked as deleted.</param>
+        /// <returns>
+        /// The <see cref="Task" /> that is responsible for marking the note as deleted.
+        /// </returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public async override Task MarkDeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await serviceProxy.PostAsJsonAsync("api/notes/markdelete", id);
+            result.EnsureSuccessStatusCode();
         }
 
         public override Task DeleteAsync(Guid id)
