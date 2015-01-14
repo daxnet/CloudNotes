@@ -48,7 +48,7 @@ namespace CloudNotes.DesktopClient
     using YARTE.Buttons;
     using YARTE.UI.Buttons;
 
-    public sealed partial class FrmMain : Form
+    public sealed partial class FrmMain : Form, IShell
     {
         private readonly ClientCredential credential;
 
@@ -471,11 +471,7 @@ namespace CloudNotes.DesktopClient
                                     Content = string.Empty,
                                     DatePublished = DateTime.UtcNow
                                 };
-                            this.ClearWorkspace();
-                            this.workspace = new Workspace(note);
-                            this.workspace.PropertyChanged += this.workspace_PropertyChanged;
-                            await this.SaveWorkspaceSlientlyAsync();
-                            await this.LoadNotesAsync();
+                            await this.AddNoteAsync(note);
                         }
                     }
                 });
@@ -1018,6 +1014,15 @@ namespace CloudNotes.DesktopClient
                     updatePackageForm.ShowDialog();
                 }
             }
+        }
+
+        public async Task AddNoteAsync(Note note)
+        {
+            this.ClearWorkspace();
+            this.workspace = new Workspace(note);
+            this.workspace.PropertyChanged += this.workspace_PropertyChanged;
+            await this.SaveWorkspaceSlientlyAsync();
+            await this.LoadNotesAsync();
         }
     }
 }

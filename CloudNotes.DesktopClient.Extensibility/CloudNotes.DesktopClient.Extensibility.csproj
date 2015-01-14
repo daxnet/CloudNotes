@@ -67,6 +67,7 @@
     <Compile Include="Data\DeleteFlag.cs" />
     <Compile Include="Data\Note.cs" />
     <Compile Include="Data\WebApiDataAccessProxy.cs" />
+    <Compile Include="IShell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceProxy.cs" />
   </ItemGroup>

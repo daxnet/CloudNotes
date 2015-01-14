@@ -28,8 +28,6 @@ namespace CloudNotes.DesktopClient
 
         private DateTime datePublished;
 
-        public Workspace() { }
-
         public Workspace(Note note)
         {
             id = note.ID;
