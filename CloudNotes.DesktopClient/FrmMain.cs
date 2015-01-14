@@ -28,6 +28,13 @@
 
 namespace CloudNotes.DesktopClient
 {
+    using Controls;
+    using DESecurity;
+    using Extensibility;
+    using Extensibility.Data;
+    using Infrastructure;
+    using Properties;
+    using Settings;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -35,18 +42,9 @@ namespace CloudNotes.DesktopClient
     using System.Globalization;
     using System.IO;
     using System.Linq;
-    using System.Net.Http;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Windows.Forms;
-    using Controls;
-    using DESecurity;
-    using Extensibility;
-    using Extensibility.Data;
-    using Infrastructure;
-    using Newtonsoft.Json;
-    using Properties;
-    using Settings;
     using YARTE.Buttons;
     using YARTE.UI.Buttons;
 
@@ -240,7 +238,7 @@ namespace CloudNotes.DesktopClient
             if (node.Tag == null) return false;
             var note = GetItem(node).Data;
             if (note == null || note.DeletedFlag == null) return false;
-            return (int) note.DeletedFlag == (int) DeleteFlag.MarkDeleted;
+            return (int)note.DeletedFlag == (int)DeleteFlag.MarkDeleted;
         }
 
         private async Task LoadNotesAsync()
@@ -324,23 +322,22 @@ namespace CloudNotes.DesktopClient
 
         private async Task LoadNoteAsync(Guid id)
         {
-            using (var proxy = new ServiceProxy(this.credential))
+            using (var dataAccessProxy = this.CreateDataAccessProxy())
             {
-                var result = await proxy.GetStringAsync(string.Format("api/notes/{0}", id));
-                this.currentNote = JsonConvert.DeserializeObject<Note>(result);
-                this.ClearWorkspace();
-                this.workspace = new Workspace(this.currentNote);
-                this.workspace.PropertyChanged += this.workspace_PropertyChanged;
-                this.lblTitle.Text = this.workspace.Title;
-                var datePublished = this.workspace.DatePublished;
-                this.lblDatePublished.Text = datePublished.ToLocalTime()
-                    .ToString("G", new CultureInfo(this.settings.General.Language));
-                this.htmlEditor.Html = this.workspace.Content;
-                this.htmlEditor.Enabled = true;
-                this.tbtnSave.Enabled = false;
-                this.mnuSave.Enabled = false;
-                this.mnuPrint.Enabled = true;
+                this.currentNote = await dataAccessProxy.GetNoteAsync(id);
             }
+            this.ClearWorkspace();
+            this.workspace = new Workspace(this.currentNote);
+            this.workspace.PropertyChanged += this.workspace_PropertyChanged;
+            this.lblTitle.Text = this.workspace.Title;
+            var datePublished = this.workspace.DatePublished;
+            this.lblDatePublished.Text = datePublished.ToLocalTime()
+                .ToString("G", new CultureInfo(this.settings.General.Language));
+            this.htmlEditor.Html = this.workspace.Content;
+            this.htmlEditor.Enabled = true;
+            this.tbtnSave.Enabled = false;
+            this.mnuSave.Enabled = false;
+            this.mnuPrint.Enabled = true;
         }
 
         private async Task SaveWorkspaceSlientlyAsync()
@@ -573,13 +570,11 @@ namespace CloudNotes.DesktopClient
                         if (treeNode != null)
                         {
                             var note = GetItem(treeNode).Data;
-                            using (var serviceProxy = new ServiceProxy(this.credential))
+                            using (var dataAccessProxy = this.CreateDataAccessProxy())
                             {
-                                var result =
-                                    await serviceProxy.DeleteAsync(string.Format("api/notes/delete/{0}", note.ID));
-                                result.EnsureSuccessStatusCode();
-                                await this.LoadNotesAsync();
+                                await dataAccessProxy.DeleteAsync(note.ID);
                             }
+                            await this.LoadNotesAsync();
                         }
                         if (this.trashNode.Nodes.Count == 0)
                         {
@@ -603,10 +598,9 @@ namespace CloudNotes.DesktopClient
                     {
                         var item = GetItem(treeNode);
                         var note = item.Data;
-                        using (var serviceProxy = new ServiceProxy(this.credential))
+                        using (var dataAccessProxy = this.CreateDataAccessProxy())
                         {
-                            var result = await serviceProxy.PostAsJsonAsync("api/notes/restore", note.ID);
-                            result.EnsureSuccessStatusCode();
+                            await dataAccessProxy.RestoreAsync(note.ID);
                         }
                         await this.CorrectNodeSelectionAsync(treeNode);
                         treeNode.Remove();
@@ -652,25 +646,25 @@ namespace CloudNotes.DesktopClient
                     {
                         this.slblStatus.Text = Resources.Deleting;
                         this.sp.Visible = true;
-                        using (var serviceProxy = new ServiceProxy(this.credential))
+                        using (var dataAccessProxy = this.CreateDataAccessProxy())
                         {
-                            var result = await serviceProxy.DeleteAsync("api/notes/emptytrash");
-                            result.EnsureSuccessStatusCode();
-                            this.trashNode.Nodes.Clear();
-                            if (this.notesNode.Nodes.Count > 0)
-                            {
-                                var firstNode = this.notesNode.Nodes[0];
-                                var firstNote = GetItem(firstNode).Data;
-                                await this.LoadNoteAsync(firstNote.ID);
-                            }
-                            else
-                            {
-                                this.tvNotes.SelectedNode = this.notesNode;
-                                this.lblTitle.Text = string.Empty;
-                                this.lblDatePublished.Text = string.Empty;
-                                this.htmlEditor.Enabled = false;
-                                this.htmlEditor.Html = string.Empty;
-                            }
+                            await dataAccessProxy.EmptyTrashAsync();
+                        }
+
+                        this.trashNode.Nodes.Clear();
+                        if (this.notesNode.Nodes.Count > 0)
+                        {
+                            var firstNode = this.notesNode.Nodes[0];
+                            var firstNote = GetItem(firstNode).Data;
+                            await this.LoadNoteAsync(firstNote.ID);
+                        }
+                        else
+                        {
+                            this.tvNotes.SelectedNode = this.notesNode;
+                            this.lblTitle.Text = string.Empty;
+                            this.lblDatePublished.Text = string.Empty;
+                            this.htmlEditor.Enabled = false;
+                            this.htmlEditor.Html = string.Empty;
                         }
                     }
                 },
@@ -983,23 +977,16 @@ namespace CloudNotes.DesktopClient
                         {
                             var item = GetItem(e.Node);
                             var nodeMetadata = item.Data;
-                            using (var proxy = new ServiceProxy(this.credential))
+                            using (var dataAccessProxy = this.CreateDataAccessProxy())
                             {
-                                var getNoteResult =
-                                    await proxy.GetStringAsync(string.Format("api/notes/{0}", nodeMetadata.ID));
-                                dynamic selectedNote = JsonConvert.DeserializeObject(getNoteResult);
-                                var result =
-                                    await
-                                        proxy.PostAsJsonAsync(
-                                            "api/notes/update",
-                                            new
-                                            {
-                                                nodeMetadata.ID,
-                                                Title = title,
-                                                selectedNote.Content,
-                                                Weather = "Unspecified"
-                                            });
-                                result.EnsureSuccessStatusCode();
+                                var selectedNote = await dataAccessProxy.GetNoteAsync(nodeMetadata.ID);
+                                var noteUpdate = new Note
+                                {
+                                    ID = nodeMetadata.ID,
+                                    Title = title,
+                                    Content = selectedNote.Content
+                                };
+                                await dataAccessProxy.UpdateNoteAsync(noteUpdate);
                                 this.lblTitle.Text = title;
                                 this.workspace.Title = title;
                                 item.Title = title;

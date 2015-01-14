@@ -36,7 +36,7 @@ namespace CloudNotes.DesktopClient.Extensibility
     /// <summary>
     /// Represents the HTTP client proxy.
     /// </summary>
-    public class ServiceProxy : HttpClient
+    internal sealed class ServiceProxy : HttpClient
     {
         #region Ctor
         /// <summary>

@@ -46,7 +46,6 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
         #endregion
 
         #region Private Constants
-
         private const string RetrieveNotesODataQueryString = @"?$filter=(DeletedString ne 'Deleted') and (DeletedString ne 'MarkDeleted')&$orderby=DatePublished desc";
         private const string RetrieveMarkDeletedNotesODataQueryString = @"?$filter=(DeletedString eq 'MarkDeleted')&$orderby=DatePublished desc";
         #endregion
@@ -160,26 +159,61 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
             result.EnsureSuccessStatusCode();
         }
 
-        public override Task DeleteAsync(Guid id)
+        /// <summary>
+        /// Deletes the note asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be deleted.</param>
+        /// <returns>
+        /// The <see cref="Task" /> that is responsible for deleting the note.
+        /// </returns>
+        public async override Task DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await serviceProxy.DeleteAsync(string.Format("api/notes/delete/{0}", id));
+            result.EnsureSuccessStatusCode();
         }
 
-        public override Task EmptyTrashAsync()
+        /// <summary>
+        /// Empties the trash bin asynchronously.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="Task" /> that is responsible for empty the trash bin.
+        /// </returns>
+        public async override Task EmptyTrashAsync()
         {
-            throw new NotImplementedException();
+            var result = await serviceProxy.DeleteAsync("api/notes/emptytrash");
+            result.EnsureSuccessStatusCode();
         }
 
-        public override Task RestoreAsync(Guid id)
+        /// <summary>
+        /// Restores the note from the trash bin asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be restored.</param>
+        /// <returns>
+        /// The <see cref="Task" /> that is responsible for restoring the note from the trash bin.
+        /// </returns>
+        public async override Task RestoreAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await serviceProxy.PostAsJsonAsync("api/notes/restore", id);
+            result.EnsureSuccessStatusCode();
         }
 
-        public override Task<Note> GetNoteAsync(Guid id)
+        /// <summary>
+        /// Gets the note asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the note to be retrieved.</param>
+        /// <returns>
+        /// The <see cref="Task" /> that returns the retrieved note.
+        /// </returns>
+        public async override Task<Note> GetNoteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await serviceProxy.GetStringAsync(string.Format("api/notes/{0}", id));
+            return JsonConvert.DeserializeObject<Note>(result);
         }
 
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,11 +1,11 @@
 ﻿namespace CloudNotes.DesktopClient
 {
-    using System;
-    using System.Threading.Tasks;
     using Extensibility;
     using Infrastructure;
     using Newtonsoft.Json;
     using Settings;
+    using System;
+    using System.Threading.Tasks;
 
     internal sealed class CheckUpdateResult
     {

@@ -110,7 +110,7 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
         /// <returns>The <see cref="Task"/> that is responsible for marking the note as deleted.</returns>
         public abstract Task MarkDeleteAsync(Guid id);
         /// <summary>
-        /// Deletes the asynchronously.
+        /// Deletes the note asynchronously.
         /// </summary>
         /// <param name="id">The ID of the note to be deleted.</param>
         /// <returns>The <see cref="Task"/> that is responsible for deleting the note.</returns>

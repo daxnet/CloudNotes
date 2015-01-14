@@ -1,15 +1,41 @@
-﻿using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
-
-using CloudNotes.DesktopClient.Properties;
+﻿// =======================================================================================================
+//
+//    ,uEZGZX  LG                             Eu       iJ       vi                                              
+//   BB7.  .:  uM                             8F       0BN      Bq             S:                               
+//  @X         LO    rJLYi    :     i    iYLL XJ       Xu7@     Mu    7LjL;   rBOii   7LJ7    .vYUi             
+// ,@          LG  7Br...SB  vB     B   B1...7BL       0S i@,   OU  :@7. ,u@   @u.. :@:  ;B  LB. ::             
+// v@          LO  B      Z0 i@     @  BU     @Y       qq  .@L  Oj  @      5@  Oi   @.    MB U@                 
+// .@          JZ :@      :@ rB     B  @      5U       Eq    @0 Xj ,B      .B  Br  ,B:rv777i  :0ZU              
+//  @M         LO  @      Mk :@    .@  BL     @J       EZ     GZML  @      XM  B;   @            Y@             
+//   ZBFi::vu  1B  ;B7..:qO   BS..iGB   BJ..:vB2       BM      rBj  :@7,.:5B   qM.. i@r..i5. ir. UB             
+//     iuU1vi   ,    ;LLv,     iYvi ,    ;LLr  .       .,       .     rvY7:     rLi   7LLr,  ,uvv:  
+//
+//
+// Copyright 2014-2015 daxnet
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// =======================================================================================================
 
 namespace CloudNotes.DesktopClient.Controls
 {
+    using CloudNotes.DesktopClient.Properties;
     using Extensibility.Data;
+    using System;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Drawing.Drawing2D;
+    using System.Drawing.Imaging;
+    using System.Windows.Forms;
 
     /// <summary>
     /// Represents the extended TreeView control that can be used specifically by CloudNotes.
@@ -58,6 +84,83 @@ namespace CloudNotes.DesktopClient.Controls
                 SetStyle(ControlStyles.UserPaint, true);
 
             this.DoubleBuffered = true;
+        }
+        #endregion
+
+        #region Private Methods
+        /// <summary>
+        /// Releases all the images shown as the thumbnail of the notes.
+        /// </summary>
+        /// <param name="target">The target tree node collection to be released.</param>
+        private void ReleaseImages(TreeNodeCollection target)
+        {
+            foreach (TreeNode node in target)
+            {
+                if (node.Tag != null && node.Tag is TreeNodeExItem)
+                {
+                    var item = node.Tag as TreeNodeExItem;
+                    if (item.Image != null)
+                    {
+                        try
+                        {
+                            item.Image.Dispose();
+                        }
+                        catch
+                        { } // Simply bypass the error when disposing the thumbnail image.
+                    }
+                }
+                ReleaseImages(node.Nodes);
+            }
+        }
+        #endregion
+
+        #region Private Static Methods
+        private static Image FixedSize(Image imgPhoto, int width, int height, Color clearColor)
+        {
+            int sourceWidth = imgPhoto.Width;
+            int sourceHeight = imgPhoto.Height;
+            int sourceX = 0;
+            int sourceY = 0;
+            int destX = 0;
+            int destY = 0;
+
+            float nPercent;
+            float nPercentW;
+            float nPercentH;
+
+            nPercentW = ((float)width / (float)sourceWidth);
+            nPercentH = ((float)height / (float)sourceHeight);
+            if (nPercentH < nPercentW)
+            {
+                nPercent = nPercentH;
+                destX = Convert.ToInt16((width - (sourceWidth * nPercent)) / 2);
+            }
+            else
+            {
+                nPercent = nPercentW;
+                destY = Convert.ToInt16((height - (sourceHeight * nPercent)) / 2);
+            }
+
+            int destWidth = (int)(sourceWidth * nPercent);
+            int destHeight = (int)(sourceHeight * nPercent);
+
+            Bitmap bmPhoto = new Bitmap(width, height,
+                PixelFormat.Format24bppRgb);
+            bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
+                imgPhoto.VerticalResolution);
+
+            Graphics grPhoto = Graphics.FromImage(bmPhoto);
+            grPhoto.Clear(clearColor);
+            grPhoto.InterpolationMode =
+                InterpolationMode.HighQualityBicubic;
+
+            grPhoto.DrawImage(imgPhoto,
+                new Rectangle(destX, destY, destWidth, destHeight),
+                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
+                GraphicsUnit.Pixel);
+
+            grPhoto.Dispose();
+            return bmPhoto;
         }
         #endregion
 
@@ -137,56 +240,6 @@ namespace CloudNotes.DesktopClient.Controls
         public int DescriptionIndent { get; set; }
         #endregion
 
-        #region Private Static Methods
-        private static Image FixedSize(Image imgPhoto, int width, int height, Color clearColor)
-        {
-            int sourceWidth = imgPhoto.Width;
-            int sourceHeight = imgPhoto.Height;
-            int sourceX = 0;
-            int sourceY = 0;
-            int destX = 0;
-            int destY = 0;
-
-            float nPercent;
-            float nPercentW;
-            float nPercentH;
-
-            nPercentW = ((float)width / (float)sourceWidth);
-            nPercentH = ((float)height / (float)sourceHeight);
-            if (nPercentH < nPercentW)
-            {
-                nPercent = nPercentH;
-                destX = Convert.ToInt16((width - (sourceWidth * nPercent)) / 2);
-            }
-            else
-            {
-                nPercent = nPercentW;
-                destY = Convert.ToInt16((height - (sourceHeight * nPercent)) / 2);
-            }
-
-            int destWidth = (int)(sourceWidth * nPercent);
-            int destHeight = (int)(sourceHeight * nPercent);
-
-            Bitmap bmPhoto = new Bitmap(width, height,
-                PixelFormat.Format24bppRgb);
-            bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
-                imgPhoto.VerticalResolution);
-
-            Graphics grPhoto = Graphics.FromImage(bmPhoto);
-            grPhoto.Clear(clearColor);
-            grPhoto.InterpolationMode =
-                InterpolationMode.HighQualityBicubic;
-
-            grPhoto.DrawImage(imgPhoto,
-                new Rectangle(destX, destY, destWidth, destHeight),
-                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
-                GraphicsUnit.Pixel);
-
-            grPhoto.Dispose();
-            return bmPhoto;
-        }
-        #endregion
-
         #region Public Methods
         /// <summary>
         /// Adds a <see cref="TreeNodeExItem"/> object to the specified tree node collection.
@@ -227,9 +280,9 @@ namespace CloudNotes.DesktopClient.Controls
         #region Overrides of TreeView
 
         /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.TreeView.DrawNode"/> event.
+        /// Raises the <see cref="E:System.Windows.Forms.TreeView.DrawNode" /> event.
         /// </summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.DrawTreeNodeEventArgs"/> that contains the event data. </param>
+        /// <param name="e">A <see cref="T:System.Windows.Forms.DrawTreeNodeEventArgs" /> that contains the event data.</param>
         protected override void OnDrawNode(DrawTreeNodeEventArgs e)
         {
             if (!isItemHeightSet)
@@ -378,12 +431,20 @@ namespace CloudNotes.DesktopClient.Controls
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Control.Resize" /> event.
+        /// </summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected override void OnResize(EventArgs e)
         {
             this.Refresh();
             base.OnResize(e);
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Control.Paint" /> event.
+        /// </summary>
+        /// <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs" /> that contains the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint))
@@ -401,6 +462,19 @@ namespace CloudNotes.DesktopClient.Controls
             base.OnPaint(e);
         }
 
+
+        /// <summary>
+        /// Releases the unmanaged resources used by the <see cref="T:System.Windows.Forms.TreeView" /> and optionally releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                ReleaseImages(this.Nodes);
+            }
+            base.Dispose(disposing);
+        }
         #endregion
 
         #region Nested Classes
