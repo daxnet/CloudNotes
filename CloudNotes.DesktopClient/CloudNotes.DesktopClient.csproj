@@ -94,7 +94,6 @@
     </Compile>
     <Compile Include="Settings\DesktopClientSettings.cs" />
     <Compile Include="Settings\GeneralSettings.cs" />
-    <Compile Include="Directories.cs" />
     <Compile Include="FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>

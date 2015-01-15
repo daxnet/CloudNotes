@@ -455,24 +455,20 @@ namespace CloudNotes.DesktopClient
                 this,
                 async () =>
                 {
-                    var canceled = await this.SaveWorkspaceAsync();
-                    if (!canceled)
-                    {
-                        var newNoteForm = new FrmNewNote(
+                    var newNoteForm = new FrmNewNote(
                             this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text));
-                        if (newNoteForm.ShowDialog() == DialogResult.OK)
-                        {
-                            var title = newNoteForm.NoteTitle;
-                            var note =
-                                new Note
-                                {
-                                    ID = Guid.Empty,
-                                    Title = title,
-                                    Content = string.Empty,
-                                    DatePublished = DateTime.UtcNow
-                                };
-                            await this.AddNoteAsync(note);
-                        }
+                    if (newNoteForm.ShowDialog() == DialogResult.OK)
+                    {
+                        var title = newNoteForm.NoteTitle;
+                        var note =
+                            new Note
+                            {
+                                ID = Guid.Empty,
+                                Title = title,
+                                Content = string.Empty,
+                                DatePublished = DateTime.UtcNow
+                            };
+                        await this.AddNoteAsync(note);
                     }
                 });
         }
@@ -600,13 +596,6 @@ namespace CloudNotes.DesktopClient
                         }
                         await this.CorrectNodeSelectionAsync(treeNode);
                         treeNode.Remove();
-
-                        //var restoredNoteNode = notesNode.Nodes.Add(
-                        //    note.ID.ToString(),
-                        //    note.Title.ToString(),
-                        //    "Note.png",
-                        //    "Note.png");
-                        //restoredNoteNode.Tag = note;
                         this.tvNotes.AddItem(this.notesNode.Nodes, item);
                         note.DeletedFlag = DeleteFlag.None;
 
@@ -1018,11 +1007,15 @@ namespace CloudNotes.DesktopClient
 
         public async Task AddNoteAsync(Note note)
         {
-            this.ClearWorkspace();
-            this.workspace = new Workspace(note);
-            this.workspace.PropertyChanged += this.workspace_PropertyChanged;
-            await this.SaveWorkspaceSlientlyAsync();
-            await this.LoadNotesAsync();
+            var canceled = await this.SaveWorkspaceAsync();
+            if (!canceled)
+            {
+                this.ClearWorkspace();
+                this.workspace = new Workspace(note);
+                this.workspace.PropertyChanged += this.workspace_PropertyChanged;
+                await this.SaveWorkspaceSlientlyAsync();
+                await this.LoadNotesAsync();
+            }
         }
     }
 }

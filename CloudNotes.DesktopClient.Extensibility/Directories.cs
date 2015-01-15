@@ -1,9 +1,9 @@
-﻿namespace CloudNotes.DesktopClient
+﻿namespace CloudNotes.DesktopClient.Extensibility
 {
     using System.IO;
     using System.Windows.Forms;
 
-    public static class Directories
+    internal static class Directories
     {
         private const string CloudNotesDataFolder = "CloudNotes";
         public static string GetFullName(string fileOrDir)

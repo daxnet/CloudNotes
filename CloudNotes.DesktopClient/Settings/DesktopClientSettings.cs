@@ -8,6 +8,7 @@ namespace CloudNotes.DesktopClient.Settings
     using System.Windows.Forms;
     using System.Configuration;
     using CloudNotes.Infrastructure;
+    using CloudNotes.DesktopClient.Extensibility;
 
     public class DesktopClientSettings
     {
