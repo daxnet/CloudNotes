@@ -12,6 +12,7 @@
     using Profiles;
     using Properties;
     using Settings;
+using System.Threading.Tasks;
 
     public partial class FrmLogin : Form
     {
@@ -24,6 +25,10 @@
         private ClientCredential credential;
 
         private readonly Crypto crypto = Crypto.CreateDefaultCrypto();
+
+        private readonly ExtensionManager extensionManager = new ExtensionManager();
+
+        private Task loadExtensionTask;
 
         private dynamic availablePackage;
 
@@ -87,6 +92,8 @@
             this.RefreshUserProfileList();
 
             this.RefreshServerProfileList();
+
+            this.loadExtensionTask = Task.Factory.StartNew(() => this.extensionManager.Load());
         }
 
         private void RefreshServerProfileList()
@@ -238,6 +245,8 @@
                             return;
                     }
                 }
+
+                Task.WaitAll(this.loadExtensionTask);
 
                 Profile.Save(fileName, profile);
             }

@@ -47,6 +47,11 @@ namespace CloudNotes.DesktopClient.Extensibility
             this.toolName = toolName;
         }
 
+        public string ToolName
+        {
+            get { return this.toolName; }
+        }
+
         public virtual Image ToolIcon
         {
             get
@@ -69,6 +74,17 @@ namespace CloudNotes.DesktopClient.Extensibility
             {
                 return Shortcut.None;
             }
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            return this.toolName;
         }
     }
 }

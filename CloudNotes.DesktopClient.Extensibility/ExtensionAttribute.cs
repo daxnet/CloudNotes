@@ -41,9 +41,9 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// Initializes a new instance of the <see cref="ExtensionAttribute"/> class.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        public ExtensionAttribute(Guid id)
+        public ExtensionAttribute(string id)
         {
-            this.ID = id;
+            this.ID = new Guid(id);
         }
         #endregion
 

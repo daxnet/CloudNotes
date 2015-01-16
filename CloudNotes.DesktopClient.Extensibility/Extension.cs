@@ -71,7 +71,7 @@ namespace CloudNotes.DesktopClient.Extensibility
             File.WriteAllText(settingFile, settingJson);
         }
 
-        protected Guid ID
+        public Guid ID
         {
             get
             {

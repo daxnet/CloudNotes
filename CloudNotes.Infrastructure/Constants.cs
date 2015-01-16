@@ -45,6 +45,14 @@
         /// The name of the profile file used by the login provider.
         /// </summary>
         public const string ProfileFileName = "cloudnotes.profile";
+        /// <summary>
+        /// The name of the folder for storing the extensions.
+        /// </summary>
+        public const string ExtensionFolderName = "Extensions";
+        /// <summary>
+        /// The extension file search pattern.
+        /// </summary>
+        public const string ExtensionFileSearchPattern = "*.dll";
         #endregion
     }
 }

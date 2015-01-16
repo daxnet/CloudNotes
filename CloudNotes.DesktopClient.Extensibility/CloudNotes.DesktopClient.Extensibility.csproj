@@ -72,6 +72,8 @@
     <Compile Include="Directories.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="ExtensionAttribute.cs" />
+    <Compile Include="ExtensionLoadEventArgs.cs" />
+    <Compile Include="ExtensionManager.cs" />
     <Compile Include="IExtensionSetting.cs" />
     <Compile Include="ExtensionSettingControl.cs">
       <SubType>UserControl</SubType>
@@ -101,6 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plugin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CloudNotes.Infrastructure\CloudNotes.Infrastructure.csproj">
+      <Project>{b2ce984b-141e-4c7a-af2a-51a7aeda8a00}</Project>
+      <Name>CloudNotes.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
