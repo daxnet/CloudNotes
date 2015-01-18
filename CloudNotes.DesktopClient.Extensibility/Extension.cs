@@ -84,7 +84,7 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
         }
 
-        protected abstract Task DoExecuteAsync(IShell shell);
+        protected abstract void DoExecute(IShell shell);
 
         public string Name { get; private set; }
         public abstract string DisplayName { get; }
@@ -101,8 +101,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         {
             if (shell == null)
                 throw new ArgumentNullException("shell");
-            var task = Task.Run(async () => await this.DoExecuteAsync(shell));
-            task.Wait();
+            this.DoExecute(shell);
         }
     }
 }

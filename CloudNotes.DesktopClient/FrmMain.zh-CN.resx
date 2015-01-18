@@ -126,38 +126,38 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABE
-        CAAAAk1TRnQBSQFMAgEBAgEAASgBAQEoAQEBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
-        AwABEAMAAQEBAAEgBgABEF4AA2ABtQOMAf8DiQH/A4UB/wOBAf8DeQH/A3QB/wNwAf8DbAH/A2gB/wNb
-        AbXUAAORAf8DowH/A7cB/wOxAf8DqgH/A6MB/wOcAf8DlQH/A48B/wN3Af8DZQH/kAABKAGjAeoB/wEh
-        AZ4B6AH/ARkBmgHnAf8BEAGVAeYB/wEAAYwB4gH/AQABjAHiAf8BAAGNAeQB/wEAAYkB4wH/AQABgwHj
-        Af8BAAGBAeEB/wEAAVgB4AH/AQABVAHfAf8UAAORAf8DvwH/A7kB/wOkAf8DvAH/A6UB/wOIAf8DqgH/
-        A5AB/wOKAf8DZgH/kAABMAGnAesB/wG2AeYB+QH/AZUB0QHxAf8BJgGnAegB/wE1Aa8B6wH/AVgBwgHu
-        Af8BuwHuAfsB/wG6Ae4B+QH/AbcB7QH5Af8BswHtAfkB/wGyAe0B+QH/AQABWAHiAf8UAAOTAf8DwQH/
-        A7oB/wOkAf8DvQH/A6UB/wOJAf8DqgH/A5EB/wOLAf8DZgH/kAABOAGrAesB/wG0AeMB+AH/AQ0BnwHm
-        Af8BFgGrAekB/wGoAekB+AH/ASkBugHrAf8BNQHWAfMB/wErAdQB8wH/ASMB0gHyAf8BHQHRAfIB/wG0
-        Ae0B+QH/AQABgQHjAf8UAAOVAf8DwwH/A70B/wOkAf8DvgH/A6cB/wOLAf8DqgH/A5IB/wOMAf8DZwH/
-        kAABOAGsAewB/wEwAa0B6wH/ASIBrwHrAf8BrAHpAfkB/wGtAeoB+gH/ATEBuwHrAf8BPQHZAfQB/wE1
-        AdYB8wH/ASsB1AHzAf8BJAHSAfMB/wG3Ae0B+QH/AQABhQHkAf8UAAOVAf8DxQH/A70B/wOkAf8DwAH/
-        A6kB/wOMAf8DqgH/A5MB/wONAf8DaAH/kAABOQGtAesB/wGDAcMB8AH/AdMB8wH8Af8B0QHzAfwB/wGy
-        Ae0B+gH/ATYBvAHtAf8BRwHaAfQB/wE9AdkB9AH/ATUB1gHzAf8BLAHUAfMB/wG6Ae4B+wH/AQABigHl
-        Af8UAAOXAf8DxgH/A8AB/wOkAf8DwQH/A6oB/wONAf8DqgH/A5UB/wOOAf8DaAH/kAABTAG2Ae4B/wGe
-        AdEB9AH/AVMBygHwAf8BTQHHAfAB/wFJAcYB8AH/ATsBvgHtAf8BUQHdAfUB/wFHAdsB9AH/AT8B2QH0
-        Af8BNgHWAfMB/wG+Ae8B+wH/AQABjwHoAf8UAAOYAf8DyAH/A8EB/wOkAf8DwgH/A6wB/wOOAf8DqgH/
-        A5UB/wOQAf8DaQH/kAABVAG5AfAB/wHbAfYB/AH/AZwB5wH4Af8BlQHlAfgB/wGPAeMB9wH/AYYB4QH3
-        Af8BWQHfAfUB/wFRAd0B9QH/AUgB2wH0Af8BPwHZAfQB/wHAAfAB+wH/AQcBlAHpAf8UAAOZAf8DyQH/
-        A8MB/wOkAf8DxAH/A60B/wOPAf8DqgH/A5cB/wORAf8DagH/kAABjAHFAfQB/wHdAfcB/QH/AaIB6AH4
-        Af8BnQHnAfgB/wGVAeUB+AH/AY8B4wH3Af8BhwHhAfcB/wFaAd8B9gH/AVIB3QH1Af8BSAHbAfQB/wHE
-        AfAB+wH/ARIBmAHqAf8UAAOaAf8DywH/A6kB/wOkAf8DxQH/A5cB/wORAf8DqgH/A5gB/wOSAf8DagH/
+        CAAAAk1TRnQBSQFMAgEBAgEAATABAQEwAQEBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AwABEAMAAQEBAAEgBgABEF4AA1sBtQOMAf8DiQH/A4UB/wOBAf8DeAH/A3MB/wNvAf8DawH/A2cB/wNZ
+        AbXUAAORAf8DowH/A7cB/wOxAf8DqgH/A6MB/wOcAf8DlQH/A48B/wN2Af8DZAH/kAABJwGjAeoB/wEg
+        AZ4B6AH/ARgBmgHnAf8BDwGVAeYB/wEAAYwB4gH/AQABjAHiAf8BAAGNAeQB/wEAAYkB4wH/AQABgwHj
+        Af8BAAGBAeEB/wEAAVcB4AH/AQABUwHfAf8UAAORAf8DvwH/A7kB/wOkAf8DvAH/A6UB/wOIAf8DqgH/
+        A5AB/wOKAf8DZQH/kAABLwGnAesB/wG2AeYB+QH/AZUB0QHxAf8BJQGnAegB/wE0Aa8B6wH/AVcBwgHu
+        Af8BuwHuAfsB/wG6Ae4B+QH/AbcB7QH5Af8BswHtAfkB/wGyAe0B+QH/AQABVwHiAf8UAAOTAf8DwQH/
+        A7oB/wOkAf8DvQH/A6UB/wOJAf8DqgH/A5EB/wOLAf8DZQH/kAABNwGrAesB/wG0AeMB+AH/AQwBnwHm
+        Af8BFQGrAekB/wGoAekB+AH/ASgBugHrAf8BNAHWAfMB/wEqAdQB8wH/ASIB0gHyAf8BHAHRAfIB/wG0
+        Ae0B+QH/AQABgQHjAf8UAAOVAf8DwwH/A70B/wOkAf8DvgH/A6cB/wOLAf8DqgH/A5IB/wOMAf8DZgH/
+        kAABNwGsAewB/wEvAa0B6wH/ASEBrwHrAf8BrAHpAfkB/wGtAeoB+gH/ATABuwHrAf8BPAHZAfQB/wE0
+        AdYB8wH/ASoB1AHzAf8BIwHSAfMB/wG3Ae0B+QH/AQABhQHkAf8UAAOVAf8DxQH/A70B/wOkAf8DwAH/
+        A6kB/wOMAf8DqgH/A5MB/wONAf8DZwH/kAABOAGtAesB/wGDAcMB8AH/AdMB8wH8Af8B0QHzAfwB/wGy
+        Ae0B+gH/ATUBvAHtAf8BRgHaAfQB/wE8AdkB9AH/ATQB1gHzAf8BKwHUAfMB/wG6Ae4B+wH/AQABigHl
+        Af8UAAOXAf8DxgH/A8AB/wOkAf8DwQH/A6oB/wONAf8DqgH/A5UB/wOOAf8DZwH/kAABSwG2Ae4B/wGe
+        AdEB9AH/AVIBygHwAf8BTAHHAfAB/wFIAcYB8AH/AToBvgHtAf8BUAHdAfUB/wFGAdsB9AH/AT4B2QH0
+        Af8BNQHWAfMB/wG+Ae8B+wH/AQABjwHoAf8UAAOYAf8DyAH/A8EB/wOkAf8DwgH/A6wB/wOOAf8DqgH/
+        A5UB/wOQAf8DaAH/kAABUwG5AfAB/wHbAfYB/AH/AZwB5wH4Af8BlQHlAfgB/wGPAeMB9wH/AYYB4QH3
+        Af8BWAHfAfUB/wFQAd0B9QH/AUcB2wH0Af8BPgHZAfQB/wHAAfAB+wH/AQYBlAHpAf8UAAOZAf8DyQH/
+        A8MB/wOkAf8DxAH/A60B/wOPAf8DqgH/A5cB/wORAf8DaQH/kAABjAHFAfQB/wHdAfcB/QH/AaIB6AH4
+        Af8BnQHnAfgB/wGVAeUB+AH/AY8B4wH3Af8BhwHhAfcB/wFZAd8B9gH/AVEB3QH1Af8BRwHbAfQB/wHE
+        AfAB+wH/AREBmAHqAf8UAAOaAf8DywH/A6kB/wOkAf8DxQH/A5cB/wORAf8DqgH/A5gB/wOSAf8DaQH/
         kAABkwHIAfUB/wHhAfcB/QH/AaoB6gH5Af8BowHoAfkB/wGdAecB+AH/AZYB5QH4Af8BkAHjAfcB/wGI
-        AeEB9wH/AYAB3wH2Af8BUgHdAfUB/wHIAfEB+wH/ARsBngHrAf8UAAOHAf8DrwH/A6kB/wOkAf8DngH/
-        A5gB/wORAf8DiwH/A4UB/wOBAf8DYAH/kAABlwHMAfYB/wH5Af0C/wHwAfsB/gH/AfAB+wH+Af8B8AH8
-        Af4B/wHuAfsB/QH/Ae8B+wH9Af8B7wH7Af0B/wHwAfsB/QH/AfAB+wH9Af8B9wH9Af4B/wElAaMB7QH/
-        EAADnwH/A5wB/wOZAf8DlQH/A5AB/wOLAf8DhQH/A4EB/wN5Af8DdAH/A3AB/wNsAf8DaQH/jAABsgHc
+        AeEB9wH/AYAB3wH2Af8BUQHdAfUB/wHIAfEB+wH/ARoBngHrAf8UAAOHAf8DrwH/A6kB/wOkAf8DngH/
+        A5gB/wORAf8DiwH/A4UB/wOBAf8DXwH/kAABlwHMAfYB/wH5Af0C/wHwAfsB/gH/AfAB+wH+Af8B8AH8
+        Af4B/wHuAfsB/QH/Ae8B+wH9Af8B7wH7Af0B/wHwAfsB/QH/AfAB+wH9Af8B9wH9Af4B/wEkAaMB7QH/
+        EAADnwH/A5wB/wOZAf8DlQH/A5AB/wOLAf8DhQH/A4EB/wN4Af8DcwH/A28B/wNrAf8DaAH/jAABsgHc
         Af0B/wH6Af4C/wH6Af4C/wH6Af4C/wH6Af4C/wH6Af4C/wH6Af0B/gH/AfoB/QL/AfoB/gL/AfoB/gL/
-        AfoB/QL/AS4BqAHuAf8QAAOgAf8D1QH/A9AB/wPJAf8DwgH/A7sB/wOzAf8DqwH/A6QB/wOcAf8DlQH/
-        A48B/wNqAf+MAAG2Ad8B/gH/AaIB0gH6Af8BnAHRAfkB/wGXAc0B+AH/AZIBygH3Af8BjAHGAfYB/wGF
-        AcIB9QH/AVkBvwH0Af8BUQG6AfQB/wFJAbYB8QH/AUABsgHwAf8BOAGtAfAB/xQAA50B/wOaAf8DlgH/
-        A5IB/wONAf8DiQH/A4MB/wN7Af8DdgH/A3IB/wNuAf/gAANgAf8DiQH/BAADiQH/A2AB//AAA4kB/wNg
+        AfoB/QL/AS0BqAHuAf8QAAOgAf8D1QH/A9AB/wPJAf8DwgH/A7sB/wOzAf8DqwH/A6QB/wOcAf8DlQH/
+        A48B/wNpAf+MAAG2Ad8B/gH/AaIB0gH6Af8BnAHRAfkB/wGXAc0B+AH/AZIBygH3Af8BjAHGAfYB/wGF
+        AcIB9QH/AVgBvwH0Af8BUAG6AfQB/wFIAbYB8QH/AT8BsgHwAf8BNwGtAfAB/xQAA50B/wOaAf8DlgH/
+        A5IB/wONAf8DiQH/A4MB/wN6Af8DdQH/A3EB/wNtAf/gAANfAf8DiQH/BAADiQH/A18B//AAA4kB/wNf
         Af8DiQH/mAABQgFNAT4HAAE+AwABKAMAAUADAAEQAwABAQEAAQEFAAGAFwAD/wEAAv8B4AEDBAAC/wHg
         AQMEAAHAAQMB4AEDBAABwAEDAeABAwQAAcABAwHgAQMEAAHAAQMB4AEDBAABwAEDAeABAwQAAcABAwHg
         AQMEAAHAAQMB4AEDBAABwAEDAeABAwQAAcABAwHgAQMEAAHAAQMBwAEBBAABwAEDAcABAQQAAcABAwHg
@@ -225,7 +225,7 @@
 </value>
   </data>
   <data name="mnuNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="mnuNew.Text" xml:space="preserve">
     <value>新建笔记(&amp;N)...</value>
@@ -248,7 +248,7 @@
 </value>
   </data>
   <data name="mnuOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="mnuOpen.Text" xml:space="preserve">
     <value>打开(&amp;O)</value>
@@ -271,22 +271,22 @@
 </value>
   </data>
   <data name="mnuSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="mnuSave.Text" xml:space="preserve">
     <value>保存(&amp;S)...</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 6</value>
+    <value>192, 6</value>
   </data>
   <data name="mnuPrint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="mnuPrint.Text" xml:space="preserve">
     <value>打印(&amp;P)...</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 6</value>
+    <value>192, 6</value>
   </data>
   <data name="mnuReconnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -307,13 +307,13 @@
 </value>
   </data>
   <data name="mnuReconnect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="mnuReconnect.Text" xml:space="preserve">
     <value>重新登录...</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 6</value>
+    <value>192, 6</value>
   </data>
   <data name="mnuExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -335,13 +335,13 @@
 </value>
   </data>
   <data name="mnuExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="mnuExit.Text" xml:space="preserve">
     <value>退出</value>
   </data>
   <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
+    <value>59, 20</value>
   </data>
   <data name="mnuFile.Text" xml:space="preserve">
     <value>文件(&amp;F)</value>
@@ -362,19 +362,19 @@
 </value>
   </data>
   <data name="mnuDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="mnuDelete.Text" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="mnuPermanentDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="mnuPermanentDelete.Text" xml:space="preserve">
     <value>永久删除...</value>
   </data>
   <data name="mnuRename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="mnuRename.Text" xml:space="preserve">
     <value>重命名</value>
@@ -396,22 +396,22 @@
 </value>
   </data>
   <data name="mnuRestore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="mnuRestore.Text" xml:space="preserve">
     <value>恢复</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 6</value>
+    <value>188, 6</value>
   </data>
   <data name="mnuEmptyTrash.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="mnuEmptyTrash.Text" xml:space="preserve">
     <value>清空回收站...</value>
   </data>
   <data name="mnuNote.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
+    <value>62, 20</value>
   </data>
   <data name="mnuNote.Text" xml:space="preserve">
     <value>笔记(&amp;N)</value>
@@ -432,49 +432,49 @@
 </value>
   </data>
   <data name="mnuChangePassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>135, 22</value>
   </data>
   <data name="mnuChangePassword.Text" xml:space="preserve">
     <value>修改密码...</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 6</value>
+    <value>132, 6</value>
   </data>
   <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>135, 22</value>
   </data>
   <data name="mnuSettings.Text" xml:space="preserve">
     <value>设置...</value>
   </data>
   <data name="mnuTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 20</value>
+    <value>60, 20</value>
   </data>
   <data name="mnuTools.Text" xml:space="preserve">
     <value>工具(&amp;T)</value>
   </data>
   <data name="mnuSourceCodeRepository.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="mnuSourceCodeRepository.Text" xml:space="preserve">
     <value>源代码库...</value>
   </data>
   <data name="mnuCloudNotesTech.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="mnuCloudNotesTech.Text" xml:space="preserve">
     <value>CloudNotes 技术主题...</value>
   </data>
   <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 6</value>
+    <value>198, 6</value>
   </data>
   <data name="mnuAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="mnuAbout.Text" xml:space="preserve">
     <value>&amp;关于...</value>
   </data>
   <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
+    <value>62, 20</value>
   </data>
   <data name="mnuHelp.Text" xml:space="preserve">
     <value>帮助(&amp;H)</value>
@@ -511,17 +511,17 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKmSURBVDhPhZLbSxRhGMbnNuh/6LqLiAitOyO66KKICi2I
-        uikIwgsFKTJoLcyUQl1nk1DMIDSyQCivUhK3rdb1sK6n1XVd1z3vWq3O7Bx2Dt/TO7N7Y3Z44eEbZt7n
+        uikIwgsFKTJoLcyUQl1nk1DMoBSyQCivUhK3rdb1sK6n1XVd1z3vWq3O7Bx2Dt/TO7N7Y3Z44eEbZt7n
         9x6+4f4WfZ9z6B5PoWs0Yav2ZUC63jsnX3VNhU7e9dw/Xv9mXzn1z9H9KQkGICuayJEygoF4XkNa0NA6
         mkN18+yHqltD+8vpe4Onqj8khi8RA9+iOtzhIkYWJIhFBk9MAz/xHafvufly+t6w2t6WGWZiBmbiBrwb
-        GsZWFaxnJWyJGkRVx0XHACun7w0LsKMwzCcNBBIGpmM6POtFjAZlDAdEJGicy47XjFseOTq3+f6MFvtN
+        GsZWFaxnJWyJGkRVx0XHa1ZO3xsWYEdhmE8aCCQMTMd0eNaLGA3KGA6ISNA4lx2DjFseOTq3+f6MFvtN
         TgIICrCUZrYCSRO+qAZPpGh3khZMXLIA3leVKmMmrYtWxiyVnp0faQQbACynTSymTMxRJ1Nxax8aMiJD
-        jQVYHK7YZoYCNdEOKeKEFO2HvPkOF5p9NAKwmgXWcqUzSLD5JDAVg/2t2jHIuNDgEcHUdsjsQiHMIzt2
+        jQVYHK7YZoYCNdEOKeKEFO2HvPkOF5p9NAKwmgXWcqUzSLD5JDAVg/2t2jHAuNDgEcHUdsjsQiHMIzt2
         AyFXxX+Vl3UCUAehtxWaLmeQHqtDbKga0YGz2Jp0Ik+bNmkcgyYqiUE3GL1jNiAj5FHzYBbUwTHNnt9U
         STJlSmCGiEKiB0qqB3KqF1Kyj/QChWQ/VDFkA34WTFQ1jRe5kKuyyAwZatJF4styIrvGIx7kEZ7nEZzt
         hN/7FF8nWrC8MmkDTjW4M+dv+3Y4b0+lamoC1JQF6CJ1Qo0/gRJrgbLpgBy5Azlci8LqNYhL56AL0zag
         /LtwnL/jsMK0fKlyooPMbWR8CGWjkcz1kNZuorByBeLiWQiBEwTw7Qasth/Qte0wXd1zyNFnkDe66Ebo
-        SsNtKIQeUeUmiMFGqt4AYaEOas69G7DUcjDgbz2k+B+TrPNfKudYnpKb434Bq9vD06v3HzwAAAAASUVO
+        SsNtKIQeUeUmiMFGqt4AYaEOas69G7DUcjDgbz2k+B+TrPNfKudYnpKb434BnVbDza6dc9gAAAAASUVO
         RK5CYII=
 </value>
   </data>
@@ -535,17 +535,17 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKrSURBVDhPjZJZTxNRHMX7hXygy+ASv4WPxrAVugABRGTT
-        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
+        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
         AABJRU5ErkJggg==
 </value>
   </data>
@@ -555,16 +555,16 @@
   <data name="tbtnDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH5SURBVDhPnZFda9NQGMeLIAS/gkhAvWmDlDHxZpqQC7dZ
-        5iyb67JmS+yL3azry9aSkq226oWCn8RPowi9EASreDF0OF27JW2a5O/JWWIZ7RT9QeDJOfn9c57nhP4V
-        5HIX/HIUt1JhXU3j/NcR+kqW68lyyUgkeX9piCejtgNX0+GWyyMhfUXheqks+ht5HMYXX3di8bC/NZTR
-        eAaXPM5WFf18/ncIldU0BoUSUG/Aqw9m7pTQbJ6jH5CC+bSYcNydJ8DLV3D0OgaPNuEdmcpKCtZmESD7
-        pppCK8LZmJw8T+UAqE3m4+Oi7VRrwPMXsCsaeukszLUHsPIFQN+ldSsSsduCwPjaaaCqzIdMzh4UyqSd
-        p8Bug4h1oKbDXFX+LAd4Ie8FwYFO2pEVQJKBqoZ3ZO2vskdXUjhTXgPIbSCxAtxfBsrb+Dk9i+9TU2de
-        MaUrSZyRXIWVXQe2q0SsAEXSDhmgubSMg1sC9qLR8SFUXpFhZXIAuUZDStKe39zknaO7cWB9A8fzcexf
-        v4G9cPh0CJVJr1b6IfnrFgxy9GBg3uPVndszQDqDo9kYvl6L4vOlK8OQ7sKCeJyQYKUyMJakkWm32ZOQ
-        Q0GEEZvDt+gEvlxkRX/7hB/TMbEzdw9v+fHTbrMs07p81R4rB+zzvDhODvBCzpT/j1DoF4a3RqEgTklS
-        AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH2SURBVDhPnZHvaxJxHMclCKR/IUKonjgJiUVPVooP2pas
+        Ekt387Yzf+SWzR+boriZVg8K+kv6Z4oeDIIgJHowarSabqee3r363k2ToSvqBQef+37v9b7v5/O1/Suk
+        UucG5ThGoeAwSiXX4HWMrpJ0dWQ5p4YjnsHSCFOmvIVRqmDk82MhXUVxdWJJumtpDgL33zT9AedgayRT
+        e44hHn2jSDed/h1iydE4vUwOqjXMen/udo56/Yz1gSjsjWBIN7aewqvX6JUqvcfrmEe2ZCWGtp4Fsd+O
+        xtiZmuozPX3WkocQrds/Pcn29WIZXrykXyjRiSdprzxES2egsm3Vptzweu0D7SREo/aPiVS/l8mLdp7B
+        dk2IVShXaC8rf5aHmCEfvF6dimhHVkCSoVjivVj7q2zSkhRXW14BcRuEl+DBIuQ3+Tk7z/eZmVOv2KIl
+        SS41soyWXIXNohALkBXtiAG2Q4vs3/Sy63ZPDrHkJRktkQJxjaoUsXp+e8OjH94JwOoaR3cD7F27zq7T
+        eTLEkkWvWvyR+OsGqjj6cGDmY9bNW3MQT3A47+frFTefL1wahbSCQd9RWEKLJVBD0ti0G47jkAOvD9W/
+        wDf3Vb6cd/gG28f8mPX7mgv3eOeZPO2Gw2HfuXi5P1Eesufx+CbJQ8yQU+X/w2b7BW86RpdIES4MAAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="tbtnDelete.Text" xml:space="preserve">
@@ -576,17 +576,17 @@
   <data name="tbtnRestore.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI6SURBVDhPvZFhT1JhGIbZ+h20ytLJdC4rkJGUMWUaoWaE
-        wQhiaphpR1FAUTHxZKImCKIoooBlObdONUMSc7iszRyEWn33I/+h3R3yLNekLb90fbv37rqf930f1n9F
-        uXDdJFuQHWPi0ZH7JdtVvqteJh6mPqphN7xTE7q3qlAtpUhqKTluL96Acr4S8qAUzW/q8eBlHSQukZ1R
-        DmhY0fJ1YTVFbpjhjg3DvzOBp1+9COx6MLM9jukvLnjiDri2hnH3uRqiAUEfo9KTlzXslDy69Rgvvs9i
-        dseN4O4UXeKBL+HGVNwJT8yOMVp2bNqgDSohJHk2RmexdMsqom+jA/PffL+mTsZHYVhuhGxWgkpvKaTj
-        JSgbvYKaZyrcCSogtPKcjLpPzZIi5NyyYTrhxGTMgepA2R4tjzDHvykiBdtCK3eGiQdoqeqkN+GirzsG
-        S8SAKl/pITnFxV6eWSZLs0blojQ5Qb8x9Ukd4RZUeMRpC/6KYq481L9ugX2zH0MfSZQ5ivbETy7/e8lN
-        /zWCeK2D8/MgXTIAMtoNTeAWLpEFEPRcQIE5H+eNeTirz0FuUzY4DZlg1H3KfSVsqbuYMiw1YfATCUvU
-        hEcfLOhd70RPtB3da0Z0rLbCtNqCthUCWXUZfxakEI+I+MVDQkpDr4l4dQ+dkTZ0rZnQ+d6Adlo2RprR
-        Ssv6cCNOa08cLkhRaC1kFz7kEvyucyGunpPMr8j9kUdwkHM/C9n1Z5BZewoZtHxSfTx9wdFhsX4CBCwt
-        bHOBMeEAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI6SURBVDhPvZFvT1JhHIbZ+hy0ytLJdC4rkBmUMXUaQWaE
+        wQhiahhpR1FEUDHxZP5LEURRRP5UlnPrVDMgNYfL2oxJqNV7X/Id2t0hz3IN2vJN17t7z6779zzPj/Vf
+        US5cM8kWZEeYeHjkfvF2tfeyh4npNEQ1bP07NaF7qwrVUYqklpLj1uJ1KOerIA9K0PymAfdf1kPsFI0x
+        ygH6ZS1fF1FT5IYFrq0R+Hem8PSrB4FdN+a2JzH7xQl33A5nbAR3nqshGijuY1R6cljDTsnjsUd48d0H
+        344Lwd0ZusQNb8KFmbgD7q0xTNCyfXMQ2qASQpI3yOgsli6sIvo2zJj/5v01dTo+DmO4ETKfGFWeCkgm
+        y1A5fgm1z1S4HVRAaOM5GHWf2iVFyBEbxGzCgektO2oClXu0PMoc/6aELN4W2rhzTDxAS9UkPQknfd0J
+        WFeMqPZWpMkpzvfyLDJZhjUqFyXJKfqNqU8yR1pw1V2eseCvKJ5IQ/3rVoxt9mP4I4lKe8le+eOL/15y
+        w3+FIF7r4Pg8RJcMgIx2QxO4iQtkEYp7zqHIUoiz7QU4bchDflMuOPpsMOo+Um8ZW+IqpYxLTRj6RMIa
+        NeHhByt61zvRE+1A91o7zKutMK22oG2ZQE591p8FKcpHRfzSYSGloddEvLqLzpU2dK2Z0PneiA5abl9p
+        RistGyKNOKk9ll6QQmATsAUPuAS/60yIa+AkC6X5PwoIDvLu5SC34RSy604gi5aPq49mLjg8LNZPA8gt
+        a2pwG5kAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="tbtnRestore.Text" xml:space="preserve">
@@ -602,7 +602,7 @@
     <value>637, 25</value>
   </data>
   <data name="slblUpdateAvailable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 17</value>
+    <value>179, 17</value>
   </data>
   <data name="slblUpdateAvailable.Text" xml:space="preserve">
     <value>发现新版本，请点击查看。</value>
@@ -621,7 +621,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAA
-        BgAAAk1TRnQBSQFMAgEBAgEAATgBAgE4AQIBEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        BgAAAk1TRnQBSQFMAgEBAgEAAUABAgFAAQIBEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABEAMAAQEBAAEYBgABDCEAAUkCRwFJAkcBSQJHAUkCRwFJAkcBSQJHAUkCRw8AAUkCRwFiAl+QAAFJ
         AkcBSQJHAUkCRwPbCQABkAKOAUkCRwFJAkcBSQJHCQABSQJHAUkCRwHIAZABcAHIAZABcIcAAUkCRwFJ
         AkcBTwJNAUkBtAFCAUkBtAFCDwABSQJHAUkCRwFJAkcJAAHaAb8BrgYAAcgBkAFwAcgBkAFwfgAD+QFJ
@@ -667,13 +667,13 @@
 </value>
   </data>
   <data name="cmnuOpenMainWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
+    <value>144, 22</value>
   </data>
   <data name="cmnuOpenMainWindow.Text" xml:space="preserve">
     <value>打开主窗体</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 6</value>
+    <value>141, 6</value>
   </data>
   <data name="cmnuExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -695,13 +695,13 @@
 </value>
   </data>
   <data name="cmnuExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
+    <value>144, 22</value>
   </data>
   <data name="cmnuExit.Text" xml:space="preserve">
     <value>退出</value>
   </data>
   <data name="trayIconContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 54</value>
+    <value>145, 54</value>
   </data>
   <data name="notifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4735,49 +4735,49 @@
 </value>
   </data>
   <data name="cmnuNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>178, 22</value>
   </data>
   <data name="cmnuNew.Text" xml:space="preserve">
     <value>新建笔记...</value>
   </data>
   <data name="ctxMnuNotesNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 26</value>
+    <value>179, 26</value>
   </data>
   <data name="cmnuEmptyTrash.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+    <value>148, 22</value>
   </data>
   <data name="cmnuEmptyTrash.Text" xml:space="preserve">
     <value>清空回收站...</value>
   </data>
   <data name="ctxMnuTrashNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 26</value>
+    <value>149, 26</value>
   </data>
   <data name="cmnuDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="cmnuDelete.Text" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="cmnuPermanentDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="cmnuPermanentDelete.Text" xml:space="preserve">
     <value>永久删除...</value>
   </data>
   <data name="cmnuRename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="cmnuRename.Text" xml:space="preserve">
     <value>重命名</value>
   </data>
   <data name="cmnuRestore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>191, 22</value>
   </data>
   <data name="cmnuRestore.Text" xml:space="preserve">
     <value>恢复</value>
   </data>
   <data name="ctxMnuNoteNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 92</value>
+    <value>192, 92</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>

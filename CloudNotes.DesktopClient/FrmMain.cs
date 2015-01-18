@@ -48,6 +48,9 @@ namespace CloudNotes.DesktopClient
     using YARTE.Buttons;
     using YARTE.UI.Buttons;
 
+    /// <summary>
+    /// Represents the main form for CloudNotes desktop client.
+    /// </summary>
     public sealed partial class FrmMain : Form, IShell
     {
         private readonly ClientCredential credential;
@@ -66,17 +69,23 @@ namespace CloudNotes.DesktopClient
 
         private readonly DesktopClientSettings settings;
 
+        private readonly ExtensionManager extensionManager;
+
         private CheckUpdateResult checkUpdateResult;
 
-        public FrmMain(ClientCredential credential, DesktopClientSettings settings)
+        internal FrmMain(ClientCredential credential, DesktopClientSettings settings, ExtensionManager extensionManager)
         {
+            this.credential = credential;
+
+            this.settings = settings;
+
+            this.extensionManager = extensionManager;
+
             this.InitializeComponent();
 
             this.InitializeHtmlEditor();
 
-            this.credential = credential;
-
-            this.settings = settings;
+            this.InitializeExtensions();
 
             this.Text = string.Format("CloudNotes - {0}@{1}", credential.UserName, credential.ServerUri);
 
@@ -111,6 +120,27 @@ namespace CloudNotes.DesktopClient
                     await this.DoSaveAsync();
                 }
             };
+        }
+
+        private void InitializeExtensions()
+        {
+            // Initialize tool extensions
+            var toolExtensions = this.extensionManager.ToolExtensions.ToList();
+            if (toolExtensions.Count > 0)
+            {
+                mnuTools.DropDownItems.Add("-");
+                foreach(var toolExtension in toolExtensions)
+                {
+                    var extensionToolStrip = mnuTools.DropDownItems.Add(toolExtension.ToolName);
+                    extensionToolStrip.Image = toolExtension.ToolIcon;
+                    extensionToolStrip.ToolTipText = toolExtension.ToolTip;
+                    extensionToolStrip.Tag = toolExtension.ID;
+                    extensionToolStrip.Click += (s, e) =>
+                    {
+                        SafeExecutionContext.Execute(this, () => toolExtension.Execute(this));
+                    };
+                }
+            }
         }
 
         /// <summary>
@@ -1011,6 +1041,7 @@ namespace CloudNotes.DesktopClient
             if (!canceled)
             {
                 this.ClearWorkspace();
+                note.Content = string.IsNullOrEmpty(note.Content) ? string.Empty : crypto.Encrypt(note.Content);
                 this.workspace = new Workspace(note);
                 this.workspace.PropertyChanged += this.workspace_PropertyChanged;
                 await this.SaveWorkspaceSlientlyAsync();

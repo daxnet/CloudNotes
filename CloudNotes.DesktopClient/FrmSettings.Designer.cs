@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSettings));
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.btnOK = new System.Windows.Forms.Button();
@@ -36,8 +37,14 @@
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tpExtensions = new System.Windows.Forms.TabPage();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.tabControl.SuspendLayout();
             this.tpGeneral.SuspendLayout();
+            this.tpExtensions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // fontDialog
@@ -63,22 +70,24 @@
             // 
             resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tpGeneral);
+            this.tabControl.Controls.Add(this.tpExtensions);
+            this.tabControl.ImageList = this.imageList;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             // 
             // tpGeneral
             // 
-            resources.ApplyResources(this.tpGeneral, "tpGeneral");
             this.tpGeneral.Controls.Add(this.cbLanguage);
             this.tpGeneral.Controls.Add(this.label1);
+            resources.ApplyResources(this.tpGeneral, "tpGeneral");
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.UseVisualStyleBackColor = true;
             // 
             // cbLanguage
             // 
-            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLanguage.FormattingEnabled = true;
+            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.Name = "cbLanguage";
             this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
             // 
@@ -86,6 +95,26 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            // 
+            // tpExtensions
+            // 
+            this.tpExtensions.Controls.Add(this.splitContainer);
+            resources.ApplyResources(this.tpExtensions, "tpExtensions");
+            this.tpExtensions.Name = "tpExtensions";
+            this.tpExtensions.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer
+            // 
+            resources.ApplyResources(this.splitContainer, "splitContainer");
+            this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer.Name = "splitContainer";
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "cog.png");
+            this.imageList.Images.SetKeyName(1, "plugin.png");
             // 
             // FrmSettings
             // 
@@ -102,6 +131,9 @@
             this.tabControl.ResumeLayout(false);
             this.tpGeneral.ResumeLayout(false);
             this.tpGeneral.PerformLayout();
+            this.tpExtensions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -115,5 +147,8 @@
         private System.Windows.Forms.TabPage tpGeneral;
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tpExtensions;
+        private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.ImageList imageList;
     }
 }

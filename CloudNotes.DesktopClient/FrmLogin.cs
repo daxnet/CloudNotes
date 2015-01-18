@@ -26,10 +26,6 @@ using System.Threading.Tasks;
 
         private readonly Crypto crypto = Crypto.CreateDefaultCrypto();
 
-        private readonly ExtensionManager extensionManager = new ExtensionManager();
-
-        private Task loadExtensionTask;
-
         private dynamic availablePackage;
 
         public FrmLogin()
@@ -93,7 +89,6 @@ using System.Threading.Tasks;
 
             this.RefreshServerProfileList();
 
-            this.loadExtensionTask = Task.Factory.StartNew(() => this.extensionManager.Load());
         }
 
         private void RefreshServerProfileList()
@@ -245,8 +240,6 @@ using System.Threading.Tasks;
                             return;
                     }
                 }
-
-                Task.WaitAll(this.loadExtensionTask);
 
                 Profile.Save(fileName, profile);
             }

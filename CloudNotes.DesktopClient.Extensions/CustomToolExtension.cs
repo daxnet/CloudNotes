@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CloudNotes.DesktopClient.Extensions
 {
@@ -14,9 +15,14 @@ namespace CloudNotes.DesktopClient.Extensions
             : base("MyCustomTool", "My Custom Tool")
         { }
 
-        protected override Task DoExecuteAsync(IShell shell)
+        protected async override void DoExecute(IShell shell)
         {
-            throw new NotImplementedException();
+            await shell.AddNoteAsync(new Extensibility.Data.Note
+            {
+                Title = "8899",
+                Content = "hello"
+            });
+            MessageBox.Show(shell.Text);
         }
 
         public override string DisplayName

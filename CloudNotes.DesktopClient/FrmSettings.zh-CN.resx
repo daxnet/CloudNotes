@@ -176,6 +176,12 @@
   <data name="tpGeneral.Text" xml:space="preserve">
     <value>通用</value>
   </data>
+  <data name="tpExtensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tpExtensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 241</value>
+  </data>
   <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 10</value>
   </data>

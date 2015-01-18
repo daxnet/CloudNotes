@@ -241,6 +241,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\plugin.png" />
     <None Include="Resources\Expanded.png" />
     <None Include="Resources\Collapsed.png" />
     <None Include="Resources\MVP_Horizontal_FullColor.png" />
