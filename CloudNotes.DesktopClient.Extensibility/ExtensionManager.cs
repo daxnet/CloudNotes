@@ -85,11 +85,31 @@ namespace CloudNotes.DesktopClient.Extensibility
         #endregion
 
         #region Public Properties
+        /// <summary>
+        /// Gets all of the tool extensions.
+        /// </summary>
+        /// <value>
+        /// The tool extensions.
+        /// </value>
         public IEnumerable<ToolExtension> ToolExtensions
         {
             get
             {
                 return this.extensions.Values.Where(p => p.GetType().IsSubclassOf(typeof(ToolExtension))).Select(p => (ToolExtension)p);
+            }
+        }
+
+        /// <summary>
+        /// Gets all of the registered extensions.
+        /// </summary>
+        /// <value>
+        /// All extensions.
+        /// </value>
+        public IEnumerable<KeyValuePair<Guid, Extension>> AllExtensions
+        {
+            get
+            {
+                return this.extensions;
             }
         }
         #endregion
@@ -123,6 +143,15 @@ namespace CloudNotes.DesktopClient.Extensibility
                 }
                 catch { }
             }
+        }
+
+        public Extension GetByKey(Guid key)
+        {
+            if (this.extensions.ContainsKey(key))
+            {
+                return this.extensions[key];
+            }
+            throw new InvalidOperationException(string.Format("The extension {0} does not exist.", key));
         }
         #endregion
     }

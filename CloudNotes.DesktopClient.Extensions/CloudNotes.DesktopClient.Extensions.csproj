@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,14 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CustomSetting.cs" />
+    <Compile Include="CustomSettingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomSettingControl.Designer.cs">
+      <DependentUpon>CustomSettingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomSettingProvider.cs" />
     <Compile Include="CustomToolExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CloudNotesKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomSettingControl.resx">
+      <DependentUpon>CustomSettingControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

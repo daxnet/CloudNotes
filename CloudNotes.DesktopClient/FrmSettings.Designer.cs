@@ -39,11 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tpExtensions = new System.Windows.Forms.TabPage();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.lvExtensions = new System.Windows.Forms.ListView();
+            this.colExtension = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.tabControl.SuspendLayout();
             this.tpGeneral.SuspendLayout();
             this.tpExtensions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,17 +80,17 @@
             // 
             // tpGeneral
             // 
+            resources.ApplyResources(this.tpGeneral, "tpGeneral");
             this.tpGeneral.Controls.Add(this.cbLanguage);
             this.tpGeneral.Controls.Add(this.label1);
-            resources.ApplyResources(this.tpGeneral, "tpGeneral");
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.UseVisualStyleBackColor = true;
             // 
             // cbLanguage
             // 
+            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLanguage.FormattingEnabled = true;
-            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.Name = "cbLanguage";
             this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
             // 
@@ -98,8 +101,8 @@
             // 
             // tpExtensions
             // 
-            this.tpExtensions.Controls.Add(this.splitContainer);
             resources.ApplyResources(this.tpExtensions, "tpExtensions");
+            this.tpExtensions.Controls.Add(this.splitContainer);
             this.tpExtensions.Name = "tpExtensions";
             this.tpExtensions.UseVisualStyleBackColor = true;
             // 
@@ -108,6 +111,33 @@
             resources.ApplyResources(this.splitContainer, "splitContainer");
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer.Name = "splitContainer";
+            // 
+            // splitContainer.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer.Panel1, "splitContainer.Panel1");
+            this.splitContainer.Panel1.Controls.Add(this.lvExtensions);
+            // 
+            // splitContainer.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer.Panel2, "splitContainer.Panel2");
+            // 
+            // lvExtensions
+            // 
+            resources.ApplyResources(this.lvExtensions, "lvExtensions");
+            this.lvExtensions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colExtension});
+            this.lvExtensions.FullRowSelect = true;
+            this.lvExtensions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvExtensions.HideSelection = false;
+            this.lvExtensions.MultiSelect = false;
+            this.lvExtensions.Name = "lvExtensions";
+            this.lvExtensions.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lvExtensions.UseCompatibleStateImageBehavior = false;
+            this.lvExtensions.View = System.Windows.Forms.View.Details;
+            // 
+            // colExtension
+            // 
+            resources.ApplyResources(this.colExtension, "colExtension");
             // 
             // imageList
             // 
@@ -132,6 +162,7 @@
             this.tpGeneral.ResumeLayout(false);
             this.tpGeneral.PerformLayout();
             this.tpExtensions.ResumeLayout(false);
+            this.splitContainer.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -150,5 +181,7 @@
         private System.Windows.Forms.TabPage tpExtensions;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.ListView lvExtensions;
+        private System.Windows.Forms.ColumnHeader colExtension;
     }
 }

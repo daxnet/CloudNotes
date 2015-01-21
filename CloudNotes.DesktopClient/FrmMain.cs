@@ -815,7 +815,7 @@ namespace CloudNotes.DesktopClient
                 this,
                 () =>
                 {
-                    var settingsForm = new FrmSettings(this.settings);
+                    var settingsForm = new FrmSettings(this.settings, this.extensionManager);
                     if (settingsForm.ShowDialog() == DialogResult.OK)
                     {
                         this.UpdateSettings();

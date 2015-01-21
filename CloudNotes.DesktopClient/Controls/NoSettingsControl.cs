@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
-namespace CloudNotes.DesktopClient.Extensibility
+namespace CloudNotes.DesktopClient.Controls
 {
-    public partial class ExtensionSettingControl : UserControl
+    public partial class NoSettingsControl : UserControl
     {
-        private readonly Extension extension;
-
-        public ExtensionSettingControl(Extension extension)
+        public NoSettingsControl()
         {
             InitializeComponent();
-            this.extension = extension;
         }
-
-
     }
 }

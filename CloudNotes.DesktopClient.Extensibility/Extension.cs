@@ -38,6 +38,8 @@ namespace CloudNotes.DesktopClient.Extensibility
 
     public abstract class Extension
     {
+        private ExtensionSettingProvider extensionSettingProvider;
+
         private Extension() { }
 
         protected Extension(string name)
@@ -47,7 +49,7 @@ namespace CloudNotes.DesktopClient.Extensibility
 
         private static string GetExtensionSettingFileName(Extension extension)
         {
-            var relativeFileName = Path.Combine("extensions", string.Format("extension.{0}.setting.json", extension.ID.ToString().ToUpper()));
+            var relativeFileName = Path.Combine("extensions", string.Format("extension.{0}.{1}.setting.json", extension.Name, extension.ID.ToString().Replace('-', '_').ToUpper()));
             return Directories.GetFullName(relativeFileName);
         }
 
@@ -65,6 +67,27 @@ namespace CloudNotes.DesktopClient.Extensibility
 
         protected internal static void WriteSetting<T>(Extension extension, T setting)
             where T : class, IExtensionSetting
+        {
+            var settingFile = GetExtensionSettingFileName(extension);
+            var settingJson = JsonConvert.SerializeObject(setting);
+            File.WriteAllText(settingFile, settingJson);
+        }
+
+        protected internal static IExtensionSetting ReadSetting(Extension extension, Type type)
+        {
+            if (!typeof(IExtensionSetting).IsAssignableFrom(type))
+                throw new InvalidOperationException();
+
+            var settingFile = GetExtensionSettingFileName(extension);
+            if (!File.Exists(settingFile))
+            {
+                return null;
+            }
+            var settingJson = File.ReadAllText(settingFile);
+            return (IExtensionSetting)JsonConvert.DeserializeObject(settingJson, type);
+        }
+
+        protected internal static void WriteSetting(Extension extension, object setting)
         {
             var settingFile = GetExtensionSettingFileName(extension);
             var settingJson = JsonConvert.SerializeObject(setting);
@@ -89,11 +112,23 @@ namespace CloudNotes.DesktopClient.Extensibility
         public string Name { get; private set; }
         public abstract string DisplayName { get; }
 
-        public virtual ExtensionSettingControl SettingControl
+        protected virtual ExtensionSettingProvider SettingProviderInternal
         {
             get
             {
                 return null;
+            }
+        }
+
+        public ExtensionSettingProvider SettingProvider
+        {
+            get
+            {
+                if (this.extensionSettingProvider == null)
+                {
+                    this.extensionSettingProvider = this.SettingProviderInternal;
+                }
+                return this.extensionSettingProvider;
             }
         }
 

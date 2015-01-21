@@ -74,13 +74,8 @@
     <Compile Include="ExtensionAttribute.cs" />
     <Compile Include="ExtensionLoadEventArgs.cs" />
     <Compile Include="ExtensionManager.cs" />
+    <Compile Include="ExtensionSettingProvider.cs" />
     <Compile Include="IExtensionSetting.cs" />
-    <Compile Include="ExtensionSettingControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ExtensionSettingControl.Designer.cs">
-      <DependentUpon>ExtensionSettingControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="IShell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
