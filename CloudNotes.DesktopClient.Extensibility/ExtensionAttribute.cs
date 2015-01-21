@@ -45,6 +45,12 @@ namespace CloudNotes.DesktopClient.Extensibility
         {
             this.ID = new Guid(id);
         }
+
+        public ExtensionAttribute(string id, Type settingProviderType)
+            : this(id)
+        {
+            this.SettingProviderType = settingProviderType;
+        }
         #endregion
 
         #region Public Properties
@@ -55,6 +61,8 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// The identifier.
         /// </value>
         public Guid ID { get; set; }
+
+        public Type SettingProviderType { get; set; }
         #endregion
 
         #region Public Methods

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CloudNotes.DesktopClient.Extensions
 {
-    [Extension("{93275853-1649-4726-8200-3F3643779499}")]
+    [Extension("{93275853-1649-4726-8200-3F3643779499}", typeof(CustomSettingProvider))]
     public class CustomToolExtension : ToolExtension
     {
         public CustomToolExtension()
@@ -23,8 +23,7 @@ namespace CloudNotes.DesktopClient.Extensions
             //    Content = "hello"
             //});
             //MessageBox.Show(shell.Text);
-
-            var setting = (CustomSetting)this.SettingProvider.ReadSetting();
+            var setting = (CustomSetting)this.SettingProvider.Setting;
             if (setting!=null)
             {
                 MessageBox.Show(setting.Greeting);
@@ -34,14 +33,6 @@ namespace CloudNotes.DesktopClient.Extensions
         public override string DisplayName
         {
             get { return this.ToolName; }
-        }
-
-        protected override ExtensionSettingProvider SettingProviderInternal
-        {
-            get
-            {
-                return new CustomSettingProvider(this);
-            }
         }
     }
 }

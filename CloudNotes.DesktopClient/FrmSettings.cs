@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
+﻿
 
 namespace CloudNotes.DesktopClient
 {
@@ -9,6 +6,10 @@ namespace CloudNotes.DesktopClient
     using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Properties;
     using CloudNotes.DesktopClient.Settings;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Forms;
 
     public partial class FrmSettings : Form
     {
@@ -43,7 +44,7 @@ namespace CloudNotes.DesktopClient
         private void InitializeExtensions()
         {
             lvExtensions.Items.Clear();
-            this.splitContainer.Panel2.Controls.Clear();
+            pnlSettings.Controls.Clear();
             foreach(var extension in extensionManager.AllExtensions)
             {
                 var lvi = new ListViewItem(extension.Value.DisplayName);
@@ -59,17 +60,17 @@ namespace CloudNotes.DesktopClient
         private void BindExtension(Guid extensionId)
         {
             var extension = this.extensionManager.GetByKey(extensionId);
-            this.splitContainer.Panel2.Controls.Clear();
+            pnlSettings.Controls.Clear();
             if (extension.SettingProvider == null)
             {
                 var noSettingsControl = new NoSettingsControl();
                 noSettingsControl.Dock = DockStyle.Fill;
-                this.splitContainer.Panel2.Controls.Add(noSettingsControl);
+                pnlSettings.Controls.Add(noSettingsControl);
             }
             else
             {
-                this.splitContainer.Panel2.Controls.Add(extension.SettingProvider.SettingControl);
-                extension.SettingProvider.BindSettings();
+                pnlSettings.Controls.Add(extension.SettingProvider.SettingControl);
+                extension.SettingProvider.BindSetting();
             }
         }
 
@@ -80,15 +81,27 @@ namespace CloudNotes.DesktopClient
             this.InitializeExtensions();
         }
 
-        private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             settings.General.Language = ((KeyValuePair<string, string>)cbLanguage.SelectedItem).Key;
             DesktopClientSettings.WriteSettings(settings);
+        }
+
+        private void pnlSettings_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (e.Control.Tag != null)
+            {
+                var extension = e.Control.Tag as Extension;
+                if (extension != null)
+                {
+                    extension.SettingProvider.SaveSettings();
+                }
+            }
+        }
+
+        private void FrmSettings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.pnlSettings.Controls.Clear();
         }
     }
 }

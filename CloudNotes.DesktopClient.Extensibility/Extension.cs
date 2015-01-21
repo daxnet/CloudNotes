@@ -47,53 +47,6 @@ namespace CloudNotes.DesktopClient.Extensibility
             this.Name = name;
         }
 
-        private static string GetExtensionSettingFileName(Extension extension)
-        {
-            var relativeFileName = Path.Combine("extensions", string.Format("extension.{0}.{1}.setting.json", extension.Name, extension.ID.ToString().Replace('-', '_').ToUpper()));
-            return Directories.GetFullName(relativeFileName);
-        }
-
-        protected internal static T ReadSetting<T>(Extension extension)
-            where T : class, IExtensionSetting
-        {
-            var settingFile = GetExtensionSettingFileName(extension);
-            if (!File.Exists(settingFile))
-            {
-                return null;
-            }
-            var settingJson = File.ReadAllText(settingFile);
-            return JsonConvert.DeserializeObject<T>(settingJson);
-        }
-
-        protected internal static void WriteSetting<T>(Extension extension, T setting)
-            where T : class, IExtensionSetting
-        {
-            var settingFile = GetExtensionSettingFileName(extension);
-            var settingJson = JsonConvert.SerializeObject(setting);
-            File.WriteAllText(settingFile, settingJson);
-        }
-
-        protected internal static IExtensionSetting ReadSetting(Extension extension, Type type)
-        {
-            if (!typeof(IExtensionSetting).IsAssignableFrom(type))
-                throw new InvalidOperationException();
-
-            var settingFile = GetExtensionSettingFileName(extension);
-            if (!File.Exists(settingFile))
-            {
-                return null;
-            }
-            var settingJson = File.ReadAllText(settingFile);
-            return (IExtensionSetting)JsonConvert.DeserializeObject(settingJson, type);
-        }
-
-        protected internal static void WriteSetting(Extension extension, object setting)
-        {
-            var settingFile = GetExtensionSettingFileName(extension);
-            var settingJson = JsonConvert.SerializeObject(setting);
-            File.WriteAllText(settingFile, settingJson);
-        }
-
         public Guid ID
         {
             get
@@ -112,21 +65,24 @@ namespace CloudNotes.DesktopClient.Extensibility
         public string Name { get; private set; }
         public abstract string DisplayName { get; }
 
-        protected virtual ExtensionSettingProvider SettingProviderInternal
-        {
-            get
-            {
-                return null;
-            }
-        }
-
         public ExtensionSettingProvider SettingProvider
         {
             get
             {
                 if (this.extensionSettingProvider == null)
                 {
-                    this.extensionSettingProvider = this.SettingProviderInternal;
+                    var extensionAttributes = this.GetType().GetCustomAttributes(typeof(ExtensionAttribute), false);
+                    if (extensionAttributes != null && extensionAttributes.Length > 0)
+                    {
+                        var extensionAttribute = (ExtensionAttribute)extensionAttributes[0];
+                        if (extensionAttribute.SettingProviderType != null &&
+                            extensionAttribute.SettingProviderType.IsSubclassOf(typeof(ExtensionSettingProvider)))
+                        {
+                            this.extensionSettingProvider = (ExtensionSettingProvider)Activator.CreateInstance(extensionAttribute.SettingProviderType, new[] { this });
+                            return this.extensionSettingProvider;
+                        }
+                    }
+                    return null;
                 }
                 return this.extensionSettingProvider;
             }

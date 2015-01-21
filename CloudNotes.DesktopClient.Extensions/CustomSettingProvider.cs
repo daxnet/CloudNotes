@@ -24,11 +24,19 @@ namespace CloudNotes.DesktopClient.Extensions
             get { return typeof(CustomSetting); }
         }
 
-        protected override void DoBindSettings(IExtensionSetting setting)
+        protected override void DoBindSettingsToControl(IExtensionSetting setting)
         {
             var localSetting = (CustomSetting)setting;
             
             (this.SettingControl as CustomSettingControl).txtGreeting.Text = localSetting.Greeting;
+        }
+
+        protected override IExtensionSetting DoCollectSettingsFromControl()
+        {
+            return new CustomSetting
+            {
+                Greeting = (this.SettingControl as CustomSettingControl).txtGreeting.Text
+            };
         }
 
         protected override IExtensionSetting DefaultSetting
