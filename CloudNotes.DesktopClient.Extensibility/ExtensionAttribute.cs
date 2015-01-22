@@ -40,14 +40,22 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <summary>
         /// Initializes a new instance of the <see cref="ExtensionAttribute"/> class.
         /// </summary>
-        /// <param name="id">The identifier.</param>
-        public ExtensionAttribute(string id)
+        /// <param name="id">The identifier of the extension.</param>
+        /// <param name="name">The name of the extension.</param>
+        public ExtensionAttribute(string id, string name)
         {
             this.ID = new Guid(id);
+            this.Name = name;
         }
 
-        public ExtensionAttribute(string id, Type settingProviderType)
-            : this(id)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExtensionAttribute"/> class.
+        /// </summary>
+        /// <param name="id">The identifier of the extension.</param>
+        /// <param name="name">The name of the extension.</param>
+        /// <param name="settingProviderType">Type of the extension setting provider.</param>
+        public ExtensionAttribute(string id, string name, Type settingProviderType)
+            : this(id, name)
         {
             this.SettingProviderType = settingProviderType;
         }
@@ -55,13 +63,27 @@ namespace CloudNotes.DesktopClient.Extensibility
 
         #region Public Properties
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the identifier of the extension.
         /// </summary>
         /// <value>
-        /// The identifier.
+        /// The identifier of the extension.
         /// </value>
         public Guid ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name of the extension.
+        /// </summary>
+        /// <value>
+        /// The name of the extension.
+        /// </value>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the extension setting provider.
+        /// </summary>
+        /// <value>
+        /// The type of the extension setting provider.
+        /// </value>
         public Type SettingProviderType { get; set; }
         #endregion
 

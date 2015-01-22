@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="CustomSettingProvider.cs" />
     <Compile Include="CustomToolExtension.cs" />
+    <Compile Include="Email\SendByEmailExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

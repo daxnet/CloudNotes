@@ -28,71 +28,146 @@
 
 namespace CloudNotes.DesktopClient.Extensibility
 {
-    using Newtonsoft.Json;
     using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
+    /// <summary>
+    /// Represents the base class for CloudNotes Desktop Client extensions.
+    /// </summary>
     public abstract class Extension
     {
-        private ExtensionSettingProvider extensionSettingProvider;
+        #region Private Fields
+        private ExtensionSettingProvider settingProvider;
+        #endregion
 
-        private Extension() { }
-
-        protected Extension(string name)
+        #region Ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Extension"/> class.
+        /// </summary>
+        protected Extension()
         {
-            this.Name = name;
+            
         }
+        #endregion
 
+        #region Private Properties
+        private ExtensionAttribute ExtensionAttribute
+        {
+            get
+            {
+                var thisType = this.GetType();
+                if (thisType.IsDefined(typeof(ExtensionAttribute), false))
+                {
+                    return (ExtensionAttribute)thisType.GetCustomAttributes(typeof(ExtensionAttribute), false)[0];
+                }
+                return null;
+            }
+        }
+        #endregion
+
+        #region Protected Methods
+        /// <summary>
+        /// Executes the current extension.
+        /// </summary>
+        /// <param name="shell">The shell.</param>
+        protected abstract void DoExecute(IShell shell);
+        #endregion
+
+        #region Public Properties
+        /// <summary>
+        /// Gets the identifier of the extension.
+        /// </summary>
+        /// <value>
+        /// The identifier of the extension.
+        /// </value>
+        /// <exception cref="System.InvalidOperationException">The extension was not decorated with ExtensionAttribute attribute.</exception>
         public Guid ID
         {
             get
             {
-                var extensionAttributes = this.GetType().GetCustomAttributes(typeof(ExtensionAttribute), false);
-                if (extensionAttributes != null && extensionAttributes.Length > 0)
-                {
-                    return (extensionAttributes[0] as ExtensionAttribute).ID;
-                }
+                if (this.ExtensionAttribute != null)
+                    return this.ExtensionAttribute.ID;
                 throw new InvalidOperationException("The extension was not decorated with ExtensionAttribute attribute.");
             }
         }
 
-        protected abstract void DoExecute(IShell shell);
+        /// <summary>
+        /// Gets the name of the extension.
+        /// </summary>
+        /// <value>
+        /// The name of the extension.
+        /// </value>
+        /// <exception cref="System.InvalidOperationException">The extension was not decorated with ExtensionAttribute attribute.</exception>
+        public string Name
+        {
+            get
+            {
+                if (this.ExtensionAttribute != null)
+                    return this.ExtensionAttribute.Name;
+                throw new InvalidOperationException("The extension was not decorated with ExtensionAttribute attribute.");
+            }
+        }
 
-        public string Name { get; private set; }
+        /// <summary>
+        /// Gets the display name of the extension.
+        /// </summary>
+        /// <value>
+        /// The display name of the extension.
+        /// </value>
         public abstract string DisplayName { get; }
 
+        /// <summary>
+        /// Gets the setting provider.
+        /// </summary>
+        /// <value>
+        /// The setting provider.
+        /// </value>
         public ExtensionSettingProvider SettingProvider
         {
             get
             {
-                if (this.extensionSettingProvider == null)
+                if (this.settingProvider == null)
                 {
-                    var extensionAttributes = this.GetType().GetCustomAttributes(typeof(ExtensionAttribute), false);
-                    if (extensionAttributes != null && extensionAttributes.Length > 0)
+                    if (this.ExtensionAttribute == null)
                     {
-                        var extensionAttribute = (ExtensionAttribute)extensionAttributes[0];
-                        if (extensionAttribute.SettingProviderType != null &&
-                            extensionAttribute.SettingProviderType.IsSubclassOf(typeof(ExtensionSettingProvider)))
-                        {
-                            this.extensionSettingProvider = (ExtensionSettingProvider)Activator.CreateInstance(extensionAttribute.SettingProviderType, new[] { this });
-                            return this.extensionSettingProvider;
-                        }
+                        throw new InvalidOperationException("The extension was not decorated with ExtensionAttribute attribute.");
+                    }
+
+                    if (this.ExtensionAttribute.SettingProviderType != null &&
+                        this.ExtensionAttribute.SettingProviderType.IsSubclassOf(typeof(ExtensionSettingProvider)))
+                    {
+                        this.settingProvider = (ExtensionSettingProvider)Activator.CreateInstance(this.ExtensionAttribute.SettingProviderType, new[] { this });
+                        return this.settingProvider;
                     }
                     return null;
                 }
-                return this.extensionSettingProvider;
+                return this.settingProvider;
             }
         }
+        #endregion
 
+        #region Public Methods
+        /// <summary>
+        /// Executes the current extension against the specified shell.
+        /// </summary>
+        /// <param name="shell">The shell.</param>
+        /// <exception cref="System.ArgumentNullException">shell</exception>
         public void Execute(IShell shell)
         {
             if (shell == null)
                 throw new ArgumentNullException("shell");
             this.DoExecute(shell);
         }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            return this.Name;
+        }
+        #endregion
     }
 }

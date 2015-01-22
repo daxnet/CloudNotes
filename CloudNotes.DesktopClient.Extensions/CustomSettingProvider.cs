@@ -28,14 +28,14 @@ namespace CloudNotes.DesktopClient.Extensions
         {
             var localSetting = (CustomSetting)setting;
             
-            (this.SettingControl as CustomSettingControl).txtGreeting.Text = localSetting.Greeting;
+            this.GetSettingControl<CustomSettingControl>().txtGreeting.Text = localSetting.Greeting;
         }
 
         protected override IExtensionSetting DoCollectSettingsFromControl()
         {
             return new CustomSetting
             {
-                Greeting = (this.SettingControl as CustomSettingControl).txtGreeting.Text
+                Greeting = this.GetSettingControl<CustomSettingControl>().txtGreeting.Text
             };
         }
 

@@ -29,29 +29,48 @@
 namespace CloudNotes.DesktopClient.Extensibility
 {
     using CloudNotes.DesktopClient.Extensibility.Properties;
-    using System;
-    using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Represents that the derived classes are the extensions that will be registered
+    /// as a tool in CloudNotes Desktop Client.
+    /// </summary>
     public abstract class ToolExtension : Extension
     {
+        #region Private Fields
         private readonly string toolName;
-        
-        public ToolExtension(string name, string toolName)
-            : base(name)
+        #endregion
+
+        #region Ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ToolExtension"/> class.
+        /// </summary>
+        /// <param name="toolName">Name of the tool.</param>
+        public ToolExtension(string toolName)
         {
             this.toolName = toolName;
         }
+        #endregion
 
+        #region Public Properties
+        /// <summary>
+        /// Gets the name of the tool.
+        /// </summary>
+        /// <value>
+        /// The name of the tool.
+        /// </value>
         public string ToolName
         {
             get { return this.toolName; }
         }
 
+        /// <summary>
+        /// Gets the tool icon that will appear on the menu or toolbar.
+        /// </summary>
+        /// <value>
+        /// The tool icon.
+        /// </value>
         public virtual Image ToolIcon
         {
             get
@@ -60,6 +79,12 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
         }
 
+        /// <summary>
+        /// Gets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual string ToolTip
         {
             get
@@ -68,6 +93,12 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
         }
 
+        /// <summary>
+        /// Gets the shortcut.
+        /// </summary>
+        /// <value>
+        /// The shortcut.
+        /// </value>
         public virtual Shortcut Shortcut
         {
             get
@@ -75,7 +106,19 @@ namespace CloudNotes.DesktopClient.Extensibility
                 return Shortcut.None;
             }
         }
+        #endregion
 
+        #region Public Methods        
+        /// <summary>
+        /// Gets the display name of the extension.
+        /// </summary>
+        /// <value>
+        /// The display name of the extension.
+        /// </value>
+        public override string DisplayName
+        {
+            get { return this.ToolName; }
+        }
         /// <summary>
         /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
@@ -86,5 +129,6 @@ namespace CloudNotes.DesktopClient.Extensibility
         {
             return this.toolName;
         }
+        #endregion
     }
 }

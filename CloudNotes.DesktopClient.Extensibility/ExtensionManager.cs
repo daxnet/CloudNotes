@@ -112,6 +112,17 @@ namespace CloudNotes.DesktopClient.Extensibility
                 return this.extensions;
             }
         }
+
+        /// <summary>
+        /// Gets a value indicating whether there is any extension loaded by the current extension manager.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this there is any extension loaded by the current extension manager; otherwise, <c>false</c>.
+        /// </value>
+        public bool HasExtension
+        {
+            get { return this.extensions.Count > 0; }
+        }
         #endregion
 
         #region Public Methods
@@ -145,6 +156,12 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
         }
 
+        /// <summary>
+        /// Gets the extension by the specified identifier.
+        /// </summary>
+        /// <param name="key">The identifier of the extension.</param>
+        /// <returns></returns>
+        /// <exception cref="System.InvalidOperationException"></exception>
         public Extension GetByKey(Guid key)
         {
             if (this.extensions.ContainsKey(key))

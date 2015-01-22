@@ -21,6 +21,7 @@ namespace CloudNotes.DesktopClient
 
         private readonly DesktopClientSettings settings;
         private readonly ExtensionManager extensionManager;
+        private readonly Dictionary<Guid, IExtensionSetting> cachedSettings = new Dictionary<Guid, IExtensionSetting>();
 
         internal FrmSettings(DesktopClientSettings settings, ExtensionManager extensionManager)
         {
@@ -51,9 +52,9 @@ namespace CloudNotes.DesktopClient
                 lvi.Tag = extension.Key;
                 lvExtensions.Items.Add(lvi);
             }
-            if (lvExtensions.Items.Count>0)
+            if (lvExtensions.Items.Count > 0)
             {
-                this.BindExtension((Guid)lvExtensions.Items[0].Tag);
+                lvExtensions.SelectedIndices.Add(0);
             }
         }
 
@@ -70,7 +71,14 @@ namespace CloudNotes.DesktopClient
             else
             {
                 pnlSettings.Controls.Add(extension.SettingProvider.SettingControl);
-                extension.SettingProvider.BindSetting();
+                if (cachedSettings.ContainsKey(extensionId))
+                {
+                    extension.SettingProvider.BindSetting(cachedSettings[extensionId]);
+                }
+                else
+                {
+                    extension.SettingProvider.BindSetting(extension.SettingProvider.ExtensionSetting);
+                }
             }
         }
 
@@ -83,8 +91,28 @@ namespace CloudNotes.DesktopClient
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            // Saves the extension settings
+            foreach (var extension in this.extensionManager.AllExtensions)
+            {
+                var settingProvider = extension.Value.SettingProvider;
+                if (settingProvider != null)
+                {
+                    settingProvider.PersistSettings();
+                }
+            }
+
             settings.General.Language = ((KeyValuePair<string, string>)cbLanguage.SelectedItem).Key;
             DesktopClientSettings.WriteSettings(settings);
+        }
+
+        private void lvExtensions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.lvExtensions.SelectedItems.Count > 0)
+            {
+                var item = this.lvExtensions.SelectedItems[0];
+                var extensionId = (Guid)item.Tag;
+                this.BindExtension(extensionId);
+            }
         }
 
         private void pnlSettings_ControlRemoved(object sender, ControlEventArgs e)
@@ -92,16 +120,12 @@ namespace CloudNotes.DesktopClient
             if (e.Control.Tag != null)
             {
                 var extension = e.Control.Tag as Extension;
-                if (extension != null)
+                if (extension!=null && extension.SettingProvider!=null)
                 {
-                    extension.SettingProvider.SaveSettings();
+                    var setting = extension.SettingProvider.CollectedSetting;
+                    this.cachedSettings[extension.ID] = setting;
                 }
             }
-        }
-
-        private void FrmSettings_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.pnlSettings.Controls.Clear();
         }
     }
 }

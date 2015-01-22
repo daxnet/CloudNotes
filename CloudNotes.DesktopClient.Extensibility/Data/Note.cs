@@ -28,13 +28,16 @@
 
 namespace CloudNotes.DesktopClient.Extensibility.Data
 {
+    using CloudNotes.DESecurity;
     using System;
+    using CloudNotes.Infrastructure;
 
     /// <summary>
     /// Represents the object that contains the <c>Note</c> data for client processing.
     /// </summary>
     public class Note
     {
+        private static readonly Crypto crypto = Crypto.CreateDefaultCrypto();
         /// <summary>
         /// Gets or sets the ID of the note.
         /// </summary>

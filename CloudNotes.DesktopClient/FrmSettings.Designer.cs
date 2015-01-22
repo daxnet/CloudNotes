@@ -33,6 +33,7 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.lvExtensions = new System.Windows.Forms.ListView();
             this.colExtension = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pnlSettings = new System.Windows.Forms.Panel();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tpExtensions = new System.Windows.Forms.TabPage();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.pnlSettings = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -79,10 +79,17 @@
             this.lvExtensions.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvExtensions.UseCompatibleStateImageBehavior = false;
             this.lvExtensions.View = System.Windows.Forms.View.Details;
+            this.lvExtensions.SelectedIndexChanged += new System.EventHandler(this.lvExtensions_SelectedIndexChanged);
             // 
             // colExtension
             // 
             resources.ApplyResources(this.colExtension, "colExtension");
+            // 
+            // pnlSettings
+            // 
+            resources.ApplyResources(this.pnlSettings, "pnlSettings");
+            this.pnlSettings.Name = "pnlSettings";
+            this.pnlSettings.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnlSettings_ControlRemoved);
             // 
             // fontDialog
             // 
@@ -146,12 +153,6 @@
             this.imageList.Images.SetKeyName(0, "cog.png");
             this.imageList.Images.SetKeyName(1, "plugin.png");
             // 
-            // pnlSettings
-            // 
-            resources.ApplyResources(this.pnlSettings, "pnlSettings");
-            this.pnlSettings.Name = "pnlSettings";
-            this.pnlSettings.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnlSettings_ControlRemoved);
-            // 
             // FrmSettings
             // 
             this.AcceptButton = this.btnOK;
@@ -163,7 +164,6 @@
             this.Controls.Add(this.btnOK);
             this.Name = "FrmSettings";
             this.ShowInTaskbar = false;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSettings_FormClosed);
             this.Load += new System.EventHandler(this.FrmSettings_Load);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);

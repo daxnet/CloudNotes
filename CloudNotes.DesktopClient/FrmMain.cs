@@ -129,9 +129,11 @@ namespace CloudNotes.DesktopClient
             if (toolExtensions.Count > 0)
             {
                 mnuTools.DropDownItems.Add("-");
+                var extensionsTool = (ToolStripMenuItem)mnuTools.DropDownItems.Add("Extensions");
+                extensionsTool.Image = Resources.plugin;
                 foreach(var toolExtension in toolExtensions)
                 {
-                    var extensionToolStrip = mnuTools.DropDownItems.Add(toolExtension.ToolName);
+                    var extensionToolStrip = extensionsTool.DropDownItems.Add(toolExtension.ToolName);
                     extensionToolStrip.Image = toolExtension.ToolIcon;
                     extensionToolStrip.ToolTipText = toolExtension.ToolTip;
                     extensionToolStrip.Tag = toolExtension.ID;
@@ -498,7 +500,7 @@ namespace CloudNotes.DesktopClient
                                 Content = string.Empty,
                                 DatePublished = DateTime.UtcNow
                             };
-                        await this.AddNoteAsync(note);
+                        await this.AddNote(note);
                     }
                 });
         }
@@ -1035,7 +1037,7 @@ namespace CloudNotes.DesktopClient
             }
         }
 
-        public async Task AddNoteAsync(Note note)
+        public async Task AddNote(Note note)
         {
             var canceled = await this.SaveWorkspaceAsync();
             if (!canceled)
@@ -1046,6 +1048,26 @@ namespace CloudNotes.DesktopClient
                 this.workspace.PropertyChanged += this.workspace_PropertyChanged;
                 await this.SaveWorkspaceSlientlyAsync();
                 await this.LoadNotesAsync();
+            }
+        }
+
+
+        public Note CurrentNote
+        {
+            get
+            {
+                if (this.workspace == null)
+                    return null;
+                var content = this.htmlEditor.Html;
+                return new Note
+                {
+                    ID = this.workspace.ID,
+                    Content = content,
+                    DatePublished = this.workspace.DatePublished,
+                    Description = content.ExtractDescription(),
+                    ThumbnailImageBase64 = content.ExtractThumbnailImageBase64(),
+                    Title = this.workspace.Title
+                };
             }
         }
     }
