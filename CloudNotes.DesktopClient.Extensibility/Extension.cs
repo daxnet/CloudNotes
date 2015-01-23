@@ -28,6 +28,7 @@
 
 namespace CloudNotes.DesktopClient.Extensibility
 {
+    using CloudNotes.DesktopClient.Extensibility.Properties;
     using System;
 
     /// <summary>
@@ -86,7 +87,7 @@ namespace CloudNotes.DesktopClient.Extensibility
             {
                 if (this.ExtensionAttribute != null)
                     return this.ExtensionAttribute.ID;
-                throw new InvalidOperationException("The extension was not decorated with ExtensionAttribute attribute.");
+                throw new InvalidOperationException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
             }
         }
 
@@ -103,10 +104,32 @@ namespace CloudNotes.DesktopClient.Extensibility
             {
                 if (this.ExtensionAttribute != null)
                     return this.ExtensionAttribute.Name;
-                throw new InvalidOperationException("The extension was not decorated with ExtensionAttribute attribute.");
+                throw new InvalidOperationException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
             }
         }
 
+        /// <summary>
+        /// Gets the version of the extension.
+        /// </summary>
+        /// <value>
+        /// The version of the extension.
+        /// </value>
+        public virtual Version Version
+        {
+            get
+            {
+                return this.GetType().Assembly.GetName().Version;
+            }
+        }
+
+        /// <summary>
+        /// Gets the manufacture of the extension.
+        /// </summary>
+        /// <value>
+        /// The manufacture of the extension.
+        /// </value>
+        public abstract string Manufacture { get; }
+        
         /// <summary>
         /// Gets the display name of the extension.
         /// </summary>
@@ -114,6 +137,14 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// The display name of the extension.
         /// </value>
         public abstract string DisplayName { get; }
+
+        /// <summary>
+        /// Gets the description of the extension.
+        /// </summary>
+        /// <value>
+        /// The description of the extension.
+        /// </value>
+        public abstract string Description { get; }
 
         /// <summary>
         /// Gets the setting provider.
@@ -129,7 +160,7 @@ namespace CloudNotes.DesktopClient.Extensibility
                 {
                     if (this.ExtensionAttribute == null)
                     {
-                        throw new InvalidOperationException("The extension was not decorated with ExtensionAttribute attribute.");
+                        throw new InvalidOperationException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
                     }
 
                     if (this.ExtensionAttribute.SettingProviderType != null &&

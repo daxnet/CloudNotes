@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CloudNotes.DesktopClient.Extensibility.Properties {
+namespace CloudNotes.DesktopClient.Extensions.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CloudNotes.DesktopClient.Extensibility.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CloudNotes.DesktopClient.Extensibility.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CloudNotes.DesktopClient.Extensions.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,25 +57,6 @@ namespace CloudNotes.DesktopClient.Extensibility.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The extension was not decorated with the ExtensionAttribute attribute..
-        /// </summary>
-        internal static string ExtensionNotDecoratedWithExtensionAttribute {
-            get {
-                return ResourceManager.GetString("ExtensionNotDecoratedWithExtensionAttribute", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Plugin {
-            get {
-                object obj = ResourceManager.GetObject("Plugin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

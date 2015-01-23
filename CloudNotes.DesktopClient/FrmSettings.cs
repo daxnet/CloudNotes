@@ -44,17 +44,26 @@ namespace CloudNotes.DesktopClient
 
         private void InitializeExtensions()
         {
+            lvExtensions.Groups.Clear();
+            var grpToolExtension = lvExtensions.Groups.Add("grpToolExtension", Resources.ToolsExtensionGroupName);
+
             lvExtensions.Items.Clear();
+            ilExtensions.Images.Clear();
             pnlSettings.Controls.Clear();
-            foreach(var extension in extensionManager.AllExtensions)
+            // Create the Tool Extensions items.
+            foreach(var extension in extensionManager.ToolExtensions)
             {
-                var lvi = new ListViewItem(extension.Value.DisplayName);
-                lvi.Tag = extension.Key;
+                var lvi = new ListViewItem(extension.DisplayName.Trim('.'));
+                lvi.Group = grpToolExtension;
+                lvi.Tag = extension.ID;
+                ilExtensions.Images.Add(extension.ID.ToString(), extension.ToolIcon);
+                lvi.ImageKey = extension.ID.ToString();
                 lvExtensions.Items.Add(lvi);
             }
             if (lvExtensions.Items.Count > 0)
             {
-                lvExtensions.SelectedIndices.Add(0);
+                lvExtensions.Items[0].Selected = true;
+                this.BindExtension((Guid)this.lvExtensions.Items[0].Tag);
             }
         }
 

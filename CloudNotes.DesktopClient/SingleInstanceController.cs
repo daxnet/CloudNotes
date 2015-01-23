@@ -71,9 +71,16 @@ namespace CloudNotes.DesktopClient
         protected override void OnCreateMainForm()
         {
             var extensionManager = new ExtensionManager();
-            var loadExtensionTask = Task.Factory.StartNew(() => extensionManager.Load());
-
             var settings = DesktopClientSettings.ReadSettings();
+            var loadExtensionTask = Task.Factory.StartNew(() => 
+            {
+                // As the extensions are loaded in another thread, setting that thread's ui culture
+                // to the one read from the setting preference.
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(settings.General.Language);
+                extensionManager.Load(); 
+            });
+
+            
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(settings.General.Language);
 
             var credential = LoginProvider.Login(Application.Exit, settings);

@@ -33,12 +33,14 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.lvExtensions = new System.Windows.Forms.ListView();
             this.colExtension = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ilExtensions = new System.Windows.Forms.ImageList(this.components);
             this.pnlSettings = new System.Windows.Forms.Panel();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
+            this.groupBoxLocalization = new System.Windows.Forms.GroupBox();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpExtensions = new System.Windows.Forms.TabPage();
@@ -49,6 +51,7 @@
             this.splitContainer.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpGeneral.SuspendLayout();
+            this.groupBoxLocalization.SuspendLayout();
             this.tpExtensions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,22 +63,25 @@
             // 
             // splitContainer.Panel1
             // 
+            resources.ApplyResources(this.splitContainer.Panel1, "splitContainer.Panel1");
             this.splitContainer.Panel1.Controls.Add(this.lvExtensions);
             // 
             // splitContainer.Panel2
             // 
+            resources.ApplyResources(this.splitContainer.Panel2, "splitContainer.Panel2");
             this.splitContainer.Panel2.Controls.Add(this.pnlSettings);
             // 
             // lvExtensions
             // 
+            resources.ApplyResources(this.lvExtensions, "lvExtensions");
             this.lvExtensions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colExtension});
-            resources.ApplyResources(this.lvExtensions, "lvExtensions");
             this.lvExtensions.FullRowSelect = true;
             this.lvExtensions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvExtensions.HideSelection = false;
             this.lvExtensions.MultiSelect = false;
             this.lvExtensions.Name = "lvExtensions";
+            this.lvExtensions.SmallImageList = this.ilExtensions;
             this.lvExtensions.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvExtensions.UseCompatibleStateImageBehavior = false;
             this.lvExtensions.View = System.Windows.Forms.View.Details;
@@ -84,6 +90,12 @@
             // colExtension
             // 
             resources.ApplyResources(this.colExtension, "colExtension");
+            // 
+            // ilExtensions
+            // 
+            this.ilExtensions.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            resources.ApplyResources(this.ilExtensions, "ilExtensions");
+            this.ilExtensions.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // pnlSettings
             // 
@@ -121,17 +133,24 @@
             // 
             // tpGeneral
             // 
-            this.tpGeneral.Controls.Add(this.cbLanguage);
-            this.tpGeneral.Controls.Add(this.label1);
             resources.ApplyResources(this.tpGeneral, "tpGeneral");
+            this.tpGeneral.Controls.Add(this.groupBoxLocalization);
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.UseVisualStyleBackColor = true;
             // 
+            // groupBoxLocalization
+            // 
+            resources.ApplyResources(this.groupBoxLocalization, "groupBoxLocalization");
+            this.groupBoxLocalization.Controls.Add(this.cbLanguage);
+            this.groupBoxLocalization.Controls.Add(this.label1);
+            this.groupBoxLocalization.Name = "groupBoxLocalization";
+            this.groupBoxLocalization.TabStop = false;
+            // 
             // cbLanguage
             // 
+            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLanguage.FormattingEnabled = true;
-            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.Name = "cbLanguage";
             // 
             // label1
@@ -141,8 +160,8 @@
             // 
             // tpExtensions
             // 
-            this.tpExtensions.Controls.Add(this.splitContainer);
             resources.ApplyResources(this.tpExtensions, "tpExtensions");
+            this.tpExtensions.Controls.Add(this.splitContainer);
             this.tpExtensions.Name = "tpExtensions";
             this.tpExtensions.UseVisualStyleBackColor = true;
             // 
@@ -171,7 +190,8 @@
             this.splitContainer.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tpGeneral.ResumeLayout(false);
-            this.tpGeneral.PerformLayout();
+            this.groupBoxLocalization.ResumeLayout(false);
+            this.groupBoxLocalization.PerformLayout();
             this.tpExtensions.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -184,13 +204,15 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tpGeneral;
-        private System.Windows.Forms.ComboBox cbLanguage;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tpExtensions;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.ListView lvExtensions;
         private System.Windows.Forms.ColumnHeader colExtension;
         private System.Windows.Forms.Panel pnlSettings;
+        private System.Windows.Forms.ImageList ilExtensions;
+        private System.Windows.Forms.GroupBox groupBoxLocalization;
+        private System.Windows.Forms.ComboBox cbLanguage;
+        private System.Windows.Forms.Label label1;
     }
 }

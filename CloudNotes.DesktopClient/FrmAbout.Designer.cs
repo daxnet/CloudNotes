@@ -42,6 +42,13 @@
             this.colAssemblyVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAssemblyFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.tpExtensions = new System.Windows.Forms.TabPage();
+            this.lstExtensions = new System.Windows.Forms.ListView();
+            this.colExtensionName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colExtensionVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colExtensionManufacture = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colExtensionDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ilExtensions = new System.Windows.Forms.ImageList(this.components);
             this.tpDonate = new System.Windows.Forms.TabPage();
             this.lblDonateLink = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,6 +65,7 @@
             this.tabControl.SuspendLayout();
             this.tpLicense.SuspendLayout();
             this.tpRefAssemblies.SuspendLayout();
+            this.tpExtensions.SuspendLayout();
             this.tpDonate.SuspendLayout();
             this.tpAuthor.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -87,6 +95,7 @@
             // 
             this.tabControl.Controls.Add(this.tpLicense);
             this.tabControl.Controls.Add(this.tpRefAssemblies);
+            this.tabControl.Controls.Add(this.tpExtensions);
             this.tabControl.Controls.Add(this.tpDonate);
             this.tabControl.Controls.Add(this.tpAuthor);
             resources.ApplyResources(this.tabControl, "tabControl");
@@ -121,6 +130,9 @@
             this.colAssemblyVersion,
             this.colAssemblyFullName});
             resources.ApplyResources(this.lstAssemblies, "lstAssemblies");
+            this.lstAssemblies.FullRowSelect = true;
+            this.lstAssemblies.HideSelection = false;
+            this.lstAssemblies.MultiSelect = false;
             this.lstAssemblies.Name = "lstAssemblies";
             this.lstAssemblies.SmallImageList = this.imageList;
             this.lstAssemblies.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -147,6 +159,53 @@
             this.imageList.Images.SetKeyName(1, "License");
             this.imageList.Images.SetKeyName(2, "Donate");
             this.imageList.Images.SetKeyName(3, "Person");
+            this.imageList.Images.SetKeyName(4, "plugin.png");
+            // 
+            // tpExtensions
+            // 
+            this.tpExtensions.Controls.Add(this.lstExtensions);
+            resources.ApplyResources(this.tpExtensions, "tpExtensions");
+            this.tpExtensions.Name = "tpExtensions";
+            this.tpExtensions.UseVisualStyleBackColor = true;
+            // 
+            // lstExtensions
+            // 
+            this.lstExtensions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colExtensionName,
+            this.colExtensionVersion,
+            this.colExtensionManufacture,
+            this.colExtensionDescription});
+            resources.ApplyResources(this.lstExtensions, "lstExtensions");
+            this.lstExtensions.FullRowSelect = true;
+            this.lstExtensions.HideSelection = false;
+            this.lstExtensions.MultiSelect = false;
+            this.lstExtensions.Name = "lstExtensions";
+            this.lstExtensions.SmallImageList = this.ilExtensions;
+            this.lstExtensions.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lstExtensions.UseCompatibleStateImageBehavior = false;
+            this.lstExtensions.View = System.Windows.Forms.View.Details;
+            // 
+            // colExtensionName
+            // 
+            resources.ApplyResources(this.colExtensionName, "colExtensionName");
+            // 
+            // colExtensionVersion
+            // 
+            resources.ApplyResources(this.colExtensionVersion, "colExtensionVersion");
+            // 
+            // colExtensionManufacture
+            // 
+            resources.ApplyResources(this.colExtensionManufacture, "colExtensionManufacture");
+            // 
+            // colExtensionDescription
+            // 
+            resources.ApplyResources(this.colExtensionDescription, "colExtensionDescription");
+            // 
+            // ilExtensions
+            // 
+            this.ilExtensions.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            resources.ApplyResources(this.ilExtensions, "ilExtensions");
+            this.ilExtensions.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tpDonate
             // 
@@ -160,6 +219,7 @@
             // 
             resources.ApplyResources(this.lblDonateLink, "lblDonateLink");
             this.lblDonateLink.Name = "lblDonateLink";
+            this.lblDonateLink.TabStop = true;
             this.lblDonateLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDonateLink_LinkClicked);
             // 
             // label3
@@ -242,6 +302,7 @@
             this.tpLicense.ResumeLayout(false);
             this.tpLicense.PerformLayout();
             this.tpRefAssemblies.ResumeLayout(false);
+            this.tpExtensions.ResumeLayout(false);
             this.tpDonate.ResumeLayout(false);
             this.tpAuthor.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -276,5 +337,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel lblDonateLink;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TabPage tpExtensions;
+        private System.Windows.Forms.ListView lstExtensions;
+        private System.Windows.Forms.ColumnHeader colExtensionName;
+        private System.Windows.Forms.ColumnHeader colExtensionVersion;
+        private System.Windows.Forms.ColumnHeader colExtensionManufacture;
+        private System.Windows.Forms.ColumnHeader colExtensionDescription;
+        private System.Windows.Forms.ImageList ilExtensions;
     }
 }

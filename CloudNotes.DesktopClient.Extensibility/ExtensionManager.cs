@@ -35,6 +35,7 @@ namespace CloudNotes.DesktopClient.Extensibility
     using System.IO;
     using System.Reflection;
     using System.Windows.Forms;
+    using System.Threading;
 
     /// <summary>
     /// Represents the Extension Manager that registers and manages the extensions.

@@ -129,13 +129,15 @@ namespace CloudNotes.DesktopClient
             if (toolExtensions.Count > 0)
             {
                 mnuTools.DropDownItems.Add("-");
-                var extensionsTool = (ToolStripMenuItem)mnuTools.DropDownItems.Add("Extensions");
+                var extensionsTool = (ToolStripMenuItem)mnuTools.DropDownItems.Add(Resources.ExtensionsMenuItemName);
                 extensionsTool.Image = Resources.plugin;
                 foreach(var toolExtension in toolExtensions)
                 {
-                    var extensionToolStrip = extensionsTool.DropDownItems.Add(toolExtension.ToolName);
+                    var extensionToolStrip = (ToolStripMenuItem)extensionsTool.DropDownItems.Add(toolExtension.ToolName);
                     extensionToolStrip.Image = toolExtension.ToolIcon;
                     extensionToolStrip.ToolTipText = toolExtension.ToolTip;
+                    extensionToolStrip.ShowShortcutKeys = true;
+                    extensionToolStrip.ShortcutKeys = (Keys)toolExtension.Shortcut;
                     extensionToolStrip.Tag = toolExtension.ID;
                     extensionToolStrip.Click += (s, e) =>
                     {
@@ -837,7 +839,7 @@ namespace CloudNotes.DesktopClient
 
         private void Action_About(object sender, EventArgs e)
         {
-            SafeExecutionContext.Execute(this, () => new FrmAbout().ShowDialog());
+            SafeExecutionContext.Execute(this, () => new FrmAbout(this.extensionManager).ShowDialog());
         }
 
         private void Action_CloudNotesTech(object sender, EventArgs e)

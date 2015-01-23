@@ -34,5 +34,15 @@ namespace CloudNotes.DesktopClient.Extensions
         {
             get { return this.ToolName; }
         }
+
+        public override string Manufacture
+        {
+            get { return "daxnet"; }
+        }
+
+        public override string Description
+        {
+            get { return "A simple custom extension."; }
+        }
     }
 }

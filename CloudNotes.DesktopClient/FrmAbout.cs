@@ -1,18 +1,22 @@
 ﻿namespace CloudNotes.DesktopClient
 {
+    using CloudNotes.DesktopClient.Extensibility;
+    using Infrastructure;
+    using Properties;
     using System;
     using System.Diagnostics;
     using System.Reflection;
     using System.Threading;
     using System.Windows.Forms;
-    using Infrastructure;
-    using Properties;
 
     public partial class FrmAbout : Form
     {
-        public FrmAbout()
+        private readonly ExtensionManager extensionManager;
+
+        internal FrmAbout(ExtensionManager extensionManager)
         {
             this.InitializeComponent();
+            this.extensionManager = extensionManager;
         }
 
         private void ExecuteLink(string url)
@@ -33,6 +37,21 @@
                     new ListViewItem(
                         new[] { assemblyName.Name, assemblyName.Version.ToString(), assemblyName.FullName },
                         "Assembly.png"));
+            }
+
+            this.lstExtensions.Groups.Clear();
+            var grpToolsExtension = this.lstExtensions.Groups.Add("grpToolsExtension", Resources.ToolsExtensionGroupName);
+
+            this.ilExtensions.Images.Clear();
+            this.ilExtensions.Images.Add("plugin.png", Resources.plugin);
+            // Displays all the tool extensions.
+            foreach(var toolExtension in this.extensionManager.ToolExtensions)
+            {
+                this.ilExtensions.Images.Add(toolExtension.ID.ToString(), toolExtension.ToolIcon);
+                var lvi = new ListViewItem(new[] { toolExtension.DisplayName, toolExtension.Version.ToString(), toolExtension.Manufacture, toolExtension.Description });
+                lvi.Group = grpToolsExtension;
+                lvi.ImageKey = toolExtension.ID.ToString();
+                this.lstExtensions.Items.Add(lvi);
             }
         }
 
