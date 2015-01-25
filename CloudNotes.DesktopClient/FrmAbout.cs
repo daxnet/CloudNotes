@@ -40,17 +40,27 @@
             }
 
             this.lstExtensions.Groups.Clear();
-            var grpToolsExtension = this.lstExtensions.Groups.Add("grpToolsExtension", Resources.ToolsExtensionGroupName);
+            var grpToolExtension = this.lstExtensions.Groups.Add("grpToolExtension", Resources.ToolExtensionGroupName);
+            var grpExportExtension = this.lstExtensions.Groups.Add("grpExportExtension", Resources.ExportExtensionGroupName);
 
             this.ilExtensions.Images.Clear();
             this.ilExtensions.Images.Add("plugin.png", Resources.plugin);
-            // Displays all the tool extensions.
-            foreach(var toolExtension in this.extensionManager.ToolExtensions)
+            // Displays all the extensions.
+            foreach(var kvp in this.extensionManager.AllExtensions)
             {
-                this.ilExtensions.Images.Add(toolExtension.ID.ToString(), toolExtension.ToolIcon);
-                var lvi = new ListViewItem(new[] { toolExtension.DisplayName, toolExtension.Version.ToString(), toolExtension.Manufacture, toolExtension.Description });
-                lvi.Group = grpToolsExtension;
-                lvi.ImageKey = toolExtension.ID.ToString();
+                var extension = kvp.Value;
+                var lvi = new ListViewItem(new[] { extension.DisplayName, extension.Version.ToString(), extension.Manufacture, extension.Description });
+                if (extension.Kind == typeof(ToolExtension))
+                {
+                    lvi.Group = grpToolExtension;
+                    this.ilExtensions.Images.Add(extension.ID.ToString(), ((ToolExtension)extension).ToolIcon);
+                    lvi.ImageKey = extension.ID.ToString();
+                }
+                else if (extension.Kind == typeof(ExportExtension))
+                {
+                    lvi.Group = grpExportExtension;
+                    lvi.ImageKey = "plugin.png";
+                }
                 this.lstExtensions.Items.Add(lvi);
             }
         }

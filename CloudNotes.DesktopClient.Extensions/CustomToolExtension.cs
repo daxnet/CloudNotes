@@ -15,14 +15,25 @@ namespace CloudNotes.DesktopClient.Extensions
             : base("My Custom Tool")
         { }
 
-        protected override void DoExecute(IShell shell)
+        protected async override void DoExecute(IShell shell)
         {
-            //await shell.AddNoteAsync(new Extensibility.Data.Note
-            //{
-            //    Title = "8899",
-            //    Content = "hello"
-            //});
-            //MessageBox.Show(shell.Text);
+            try
+            {
+                await shell.ImportNote(new Extensibility.Data.Note
+                {
+                    Title = "test",
+                    Content = "testing the extension."
+                });
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            if (shell.Note != null)
+            {
+                MessageBox.Show(shell.Note.Title);
+                MessageBox.Show(shell.Note.Content);
+            }
             var setting = this.SettingProvider.GetExtensionSetting<CustomSetting>();
             if (setting!=null)
             {

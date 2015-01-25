@@ -28,6 +28,7 @@
 
 namespace CloudNotes.DesktopClient.Extensibility
 {
+    using CloudNotes.DesktopClient.Extensibility.Exceptions;
     using CloudNotes.DesktopClient.Extensibility.Properties;
     using System;
 
@@ -80,14 +81,14 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <value>
         /// The identifier of the extension.
         /// </value>
-        /// <exception cref="System.InvalidOperationException">The extension was not decorated with ExtensionAttribute attribute.</exception>
+        /// <exception cref="System.ExtensionException">The extension was not decorated with ExtensionAttribute attribute.</exception>
         public Guid ID
         {
             get
             {
                 if (this.ExtensionAttribute != null)
                     return this.ExtensionAttribute.ID;
-                throw new InvalidOperationException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
+                throw new ExtensionException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
             }
         }
 
@@ -97,14 +98,14 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <value>
         /// The name of the extension.
         /// </value>
-        /// <exception cref="System.InvalidOperationException">The extension was not decorated with ExtensionAttribute attribute.</exception>
+        /// <exception cref="System.ExtensionException">The extension was not decorated with ExtensionAttribute attribute.</exception>
         public string Name
         {
             get
             {
                 if (this.ExtensionAttribute != null)
                     return this.ExtensionAttribute.Name;
-                throw new InvalidOperationException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
+                throw new ExtensionException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
             }
         }
 
@@ -160,7 +161,7 @@ namespace CloudNotes.DesktopClient.Extensibility
                 {
                     if (this.ExtensionAttribute == null)
                     {
-                        throw new InvalidOperationException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
+                        throw new ExtensionException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
                     }
 
                     if (this.ExtensionAttribute.SettingProviderType != null &&
@@ -172,6 +173,26 @@ namespace CloudNotes.DesktopClient.Extensibility
                     return null;
                 }
                 return this.settingProvider;
+            }
+        }
+
+        /// <summary>
+        /// Gets the kind of the current extension.
+        /// </summary>
+        /// <value>
+        /// The <see cref="Type"/> object which represents the kind of the current extension.
+        /// </value>
+        /// <exception cref="ExtensionException">Throws when the kind cannot be determined.</exception>
+        public Type Kind
+        {
+            get
+            {
+                if (this.GetType().IsSubclassOf(typeof(ToolExtension)))
+                    return typeof(ToolExtension);
+                else if (this.GetType().IsSubclassOf(typeof(ExportExtension)))
+                    return typeof(ExportExtension);
+                else
+                    throw new ExtensionException(Resources.ExtensionKindCannotDetermine);
             }
         }
         #endregion

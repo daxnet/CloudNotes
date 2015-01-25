@@ -28,6 +28,7 @@
 
 namespace CloudNotes.DesktopClient
 {
+    using CloudNotes.DesktopClient.Extensibility.Exceptions;
     using Controls;
     using DESecurity;
     using Extensibility;
@@ -42,6 +43,7 @@ namespace CloudNotes.DesktopClient
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Windows.Forms;
@@ -58,6 +60,8 @@ namespace CloudNotes.DesktopClient
         private readonly Crypto crypto = Crypto.CreateDefaultCrypto();
 
         private Note currentNote;
+
+        private ToolStripMenuItem mnuSaveAs = null;
 
         private Workspace workspace;
 
@@ -128,7 +132,7 @@ namespace CloudNotes.DesktopClient
             var toolExtensions = this.extensionManager.ToolExtensions.ToList();
             if (toolExtensions.Count > 0)
             {
-                mnuTools.DropDownItems.Add("-");
+                mnuTools.DropDownItems.Add(new ToolStripSeparator());
                 var extensionsTool = (ToolStripMenuItem)mnuTools.DropDownItems.Add(Resources.ExtensionsMenuItemName);
                 extensionsTool.Image = Resources.plugin;
                 foreach(var toolExtension in toolExtensions)
@@ -144,6 +148,44 @@ namespace CloudNotes.DesktopClient
                         SafeExecutionContext.Execute(this, () => toolExtension.Execute(this));
                     };
                 }
+            }
+
+            // Initialize export extensions
+            var exportExtensions = this.extensionManager.ExportExtensions.ToList();
+            if (exportExtensions.Count > 0)
+            {
+                var idx = this.mnuFile.DropDownItems.IndexOf(mnuSave);
+                this.mnuFile.DropDownItems.Insert(++idx, new ToolStripSeparator());
+                this.mnuSaveAs = new ToolStripMenuItem(Resources.SaveAsMenuText);
+                this.mnuSaveAs.ShortcutKeys = Keys.Control | Keys.Alt | Keys.S;
+                this.mnuSaveAs.Click += (s, e) =>
+                    {
+                        SafeExecutionContext.Execute(this, () =>
+                            {
+                                var exportExtensionArray = this.extensionManager.ExportExtensions.ToArray();
+                                var filters = new StringBuilder();
+                                for (var i=0;i<exportExtensionArray.Length;i++)
+                                {
+                                    filters.AppendFormat("{0}|{1}|", exportExtensionArray[i].FileExtensionDescription, exportExtensionArray[i].FileExtension);
+                                }
+                                var saveFileDialog = new SaveFileDialog()
+                                {
+                                    Title = Resources.SaveAsDialogTitle,
+                                    AddExtension = true,
+                                    FileName = this.Note == null ? string.Empty : this.Note.Title,
+                                    Filter = filters.ToString().Trim('|'),
+                                    OverwritePrompt = true,
+                                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                                };
+                                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                                {
+                                    var exportExtension = exportExtensionArray[saveFileDialog.FilterIndex - 1];
+                                    exportExtension.SetFileName(saveFileDialog.FileName);
+                                    exportExtension.Execute(this);
+                                }
+                            });
+                    };
+                this.mnuFile.DropDownItems.Insert(++idx, mnuSaveAs);
             }
         }
 
@@ -175,6 +217,10 @@ namespace CloudNotes.DesktopClient
                 this.htmlEditor.Enabled = false;
                 this.htmlEditor.Html = string.Empty;
                 this.mnuPrint.Enabled = false;
+                if (this.mnuSaveAs!=null)
+                {
+                    this.mnuSaveAs.Enabled = false;
+                }
             }
             else
             {
@@ -222,6 +268,11 @@ namespace CloudNotes.DesktopClient
                 }
             }
             return null;
+        }
+
+        private IEnumerable<string> GetExistingNoteTitles()
+        {
+            return this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text).Concat(this.trashNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text));
         }
 
         private static TreeViewEx.TreeNodeExItem GetItem(TreeNode treeNode)
@@ -281,6 +332,10 @@ namespace CloudNotes.DesktopClient
             this.lblDatePublished.Text = string.Empty;
             this.htmlEditor.Html = string.Empty;
             this.htmlEditor.Enabled = false;
+            if (this.mnuSaveAs!=null)
+            {
+                this.mnuSaveAs.Enabled = false;
+            }
 
             this.mnuOpen.Enabled = false;
             this.tbtnOpen.Enabled = false;
@@ -372,6 +427,10 @@ namespace CloudNotes.DesktopClient
             this.tbtnSave.Enabled = false;
             this.mnuSave.Enabled = false;
             this.mnuPrint.Enabled = true;
+            if (this.mnuSaveAs != null)
+            {
+                this.mnuSaveAs.Enabled = true;
+            }
         }
 
         private async Task SaveWorkspaceSlientlyAsync()
@@ -489,8 +548,7 @@ namespace CloudNotes.DesktopClient
                 this,
                 async () =>
                 {
-                    var newNoteForm = new FrmNewNote(
-                            this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text));
+                    var newNoteForm = new FrmNewNote(this.GetExistingNoteTitles());
                     if (newNoteForm.ShowDialog() == DialogResult.OK)
                     {
                         var title = newNoteForm.NoteTitle;
@@ -502,7 +560,7 @@ namespace CloudNotes.DesktopClient
                                 Content = string.Empty,
                                 DatePublished = DateTime.UtcNow
                             };
-                        await this.AddNote(note);
+                        await this.ImportNote(note);
                     }
                 });
         }
@@ -684,6 +742,10 @@ namespace CloudNotes.DesktopClient
                             this.lblDatePublished.Text = string.Empty;
                             this.htmlEditor.Enabled = false;
                             this.htmlEditor.Html = string.Empty;
+                            if (this.mnuSaveAs != null)
+                            {
+                                this.mnuSaveAs.Enabled = false;
+                            }
                         }
                     }
                 },
@@ -862,6 +924,10 @@ namespace CloudNotes.DesktopClient
                     this.lblDatePublished.Text = string.Empty;
                     this.htmlEditor.Html = string.Empty;
                     this.htmlEditor.Enabled = false;
+                    if (this.mnuSaveAs!=null)
+                    {
+                        this.mnuSaveAs.Enabled = false;
+                    }
                     var desktopClientService = new DesktopClientService(this.settings);
                     this.checkUpdateResult = await desktopClientService.CheckUpdateAsync();
                     this.slblUpdateAvailable.Visible = this.checkUpdateResult.HasUpdate;
@@ -1039,8 +1105,14 @@ namespace CloudNotes.DesktopClient
             }
         }
 
-        public async Task AddNote(Note note)
+        public async Task ImportNote(Note note)
         {
+            var existingNoteTitles = this.GetExistingNoteTitles();
+            if (existingNoteTitles.Contains(note.Title))
+            {
+                throw new NoteAlreadyExistsException(Resources.TitleExists);
+            }
+
             var canceled = await this.SaveWorkspaceAsync();
             if (!canceled)
             {
@@ -1053,13 +1125,15 @@ namespace CloudNotes.DesktopClient
             }
         }
 
-
-        public Note CurrentNote
+        public Note Note
         {
             get
             {
                 if (this.workspace == null)
                     return null;
+                if (this.htmlEditor.Enabled == false)
+                    return null;
+
                 var content = this.htmlEditor.Html;
                 return new Note
                 {

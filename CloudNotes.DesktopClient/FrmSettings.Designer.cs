@@ -41,6 +41,10 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.groupBoxLocalization = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numMaxExtensionsLoaded = new System.Windows.Forms.NumericUpDown();
+            this.chkOnlyShowWhenMoreThan = new System.Windows.Forms.CheckBox();
+            this.chkShowExtensionInMenuGroup = new System.Windows.Forms.CheckBox();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpExtensions = new System.Windows.Forms.TabPage();
@@ -52,6 +56,7 @@
             this.tabControl.SuspendLayout();
             this.tpGeneral.SuspendLayout();
             this.groupBoxLocalization.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxExtensionsLoaded)).BeginInit();
             this.tpExtensions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,19 +68,17 @@
             // 
             // splitContainer.Panel1
             // 
-            resources.ApplyResources(this.splitContainer.Panel1, "splitContainer.Panel1");
             this.splitContainer.Panel1.Controls.Add(this.lvExtensions);
             // 
             // splitContainer.Panel2
             // 
-            resources.ApplyResources(this.splitContainer.Panel2, "splitContainer.Panel2");
             this.splitContainer.Panel2.Controls.Add(this.pnlSettings);
             // 
             // lvExtensions
             // 
-            resources.ApplyResources(this.lvExtensions, "lvExtensions");
             this.lvExtensions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colExtension});
+            resources.ApplyResources(this.lvExtensions, "lvExtensions");
             this.lvExtensions.FullRowSelect = true;
             this.lvExtensions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvExtensions.HideSelection = false;
@@ -133,24 +136,56 @@
             // 
             // tpGeneral
             // 
-            resources.ApplyResources(this.tpGeneral, "tpGeneral");
             this.tpGeneral.Controls.Add(this.groupBoxLocalization);
+            resources.ApplyResources(this.tpGeneral, "tpGeneral");
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.UseVisualStyleBackColor = true;
             // 
             // groupBoxLocalization
             // 
             resources.ApplyResources(this.groupBoxLocalization, "groupBoxLocalization");
+            this.groupBoxLocalization.Controls.Add(this.label2);
+            this.groupBoxLocalization.Controls.Add(this.numMaxExtensionsLoaded);
+            this.groupBoxLocalization.Controls.Add(this.chkOnlyShowWhenMoreThan);
+            this.groupBoxLocalization.Controls.Add(this.chkShowExtensionInMenuGroup);
             this.groupBoxLocalization.Controls.Add(this.cbLanguage);
             this.groupBoxLocalization.Controls.Add(this.label1);
             this.groupBoxLocalization.Name = "groupBoxLocalization";
             this.groupBoxLocalization.TabStop = false;
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // numMaxExtensionsLoaded
+            // 
+            resources.ApplyResources(this.numMaxExtensionsLoaded, "numMaxExtensionsLoaded");
+            this.numMaxExtensionsLoaded.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numMaxExtensionsLoaded.Name = "numMaxExtensionsLoaded";
+            // 
+            // chkOnlyShowWhenMoreThan
+            // 
+            resources.ApplyResources(this.chkOnlyShowWhenMoreThan, "chkOnlyShowWhenMoreThan");
+            this.chkOnlyShowWhenMoreThan.Name = "chkOnlyShowWhenMoreThan";
+            this.chkOnlyShowWhenMoreThan.UseVisualStyleBackColor = true;
+            // 
+            // chkShowExtensionInMenuGroup
+            // 
+            resources.ApplyResources(this.chkShowExtensionInMenuGroup, "chkShowExtensionInMenuGroup");
+            this.chkShowExtensionInMenuGroup.Name = "chkShowExtensionInMenuGroup";
+            this.chkShowExtensionInMenuGroup.UseVisualStyleBackColor = true;
+            this.chkShowExtensionInMenuGroup.Click += new System.EventHandler(this.chkShowExtensionInMenuGroup_Click);
+            // 
             // cbLanguage
             // 
-            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLanguage.FormattingEnabled = true;
+            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.Name = "cbLanguage";
             // 
             // label1
@@ -160,8 +195,8 @@
             // 
             // tpExtensions
             // 
-            resources.ApplyResources(this.tpExtensions, "tpExtensions");
             this.tpExtensions.Controls.Add(this.splitContainer);
+            resources.ApplyResources(this.tpExtensions, "tpExtensions");
             this.tpExtensions.Name = "tpExtensions";
             this.tpExtensions.UseVisualStyleBackColor = true;
             // 
@@ -192,6 +227,7 @@
             this.tpGeneral.ResumeLayout(false);
             this.groupBoxLocalization.ResumeLayout(false);
             this.groupBoxLocalization.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxExtensionsLoaded)).EndInit();
             this.tpExtensions.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -214,5 +250,9 @@
         private System.Windows.Forms.GroupBox groupBoxLocalization;
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkShowExtensionInMenuGroup;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numMaxExtensionsLoaded;
+        private System.Windows.Forms.CheckBox chkOnlyShowWhenMoreThan;
     }
 }

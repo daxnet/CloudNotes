@@ -40,26 +40,44 @@ namespace CloudNotes.DesktopClient
         private void InitializeSettings()
         {
             cbLanguage.SelectedItem = SupportedLanguages.First(k => k.Key == settings.General.Language);
+            chkShowExtensionInMenuGroup.Checked = this.settings.General.ShowUnderExtensionsMenu;
+            chkOnlyShowWhenMoreThan.Checked = this.settings.General.OnlyShowForMaximumExtensionsLoaded;
+            numMaxExtensionsLoaded.Value = this.settings.General.MaximumExtensionsLoadedValue;
+            chkOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
+            numMaxExtensionsLoaded.Enabled = chkShowExtensionInMenuGroup.Checked;
         }
 
         private void InitializeExtensions()
         {
             lvExtensions.Groups.Clear();
-            var grpToolExtension = lvExtensions.Groups.Add("grpToolExtension", Resources.ToolsExtensionGroupName);
+            var grpToolExtension = lvExtensions.Groups.Add("grpToolExtension", Resources.ToolExtensionGroupName);
+            var grpExportExtension = lvExtensions.Groups.Add("grpExportExtension", Resources.ExportExtensionGroupName);
 
             lvExtensions.Items.Clear();
             ilExtensions.Images.Clear();
+            ilExtensions.Images.Add("plugin.png", Resources.plugin);
+
             pnlSettings.Controls.Clear();
             // Create the Tool Extensions items.
-            foreach(var extension in extensionManager.ToolExtensions)
+            foreach(var kvp in extensionManager.AllExtensions)
             {
+                var extension = kvp.Value;
                 var lvi = new ListViewItem(extension.DisplayName.Trim('.'));
-                lvi.Group = grpToolExtension;
                 lvi.Tag = extension.ID;
-                ilExtensions.Images.Add(extension.ID.ToString(), extension.ToolIcon);
-                lvi.ImageKey = extension.ID.ToString();
+                if (extension.Kind == typeof(ToolExtension))
+                {
+                    lvi.Group = grpToolExtension;
+                    ilExtensions.Images.Add(extension.ID.ToString(), ((ToolExtension)extension).ToolIcon);
+                    lvi.ImageKey = extension.ID.ToString();
+                }
+                else if (extension.Kind == typeof(ExportExtension))
+                {
+                    lvi.Group = grpExportExtension;
+                    lvi.ImageKey = "plugin.png";
+                }
                 lvExtensions.Items.Add(lvi);
             }
+
             if (lvExtensions.Items.Count > 0)
             {
                 lvExtensions.Items[0].Selected = true;
@@ -111,6 +129,9 @@ namespace CloudNotes.DesktopClient
             }
 
             settings.General.Language = ((KeyValuePair<string, string>)cbLanguage.SelectedItem).Key;
+            settings.General.ShowUnderExtensionsMenu = chkShowExtensionInMenuGroup.Checked;
+            settings.General.OnlyShowForMaximumExtensionsLoaded = chkOnlyShowWhenMoreThan.Checked;
+            settings.General.MaximumExtensionsLoadedValue = Convert.ToInt32(numMaxExtensionsLoaded.Value);
             DesktopClientSettings.WriteSettings(settings);
         }
 
@@ -135,6 +156,12 @@ namespace CloudNotes.DesktopClient
                     this.cachedSettings[extension.ID] = setting;
                 }
             }
+        }
+
+        private void chkShowExtensionInMenuGroup_Click(object sender, EventArgs e)
+        {
+            chkOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
+            numMaxExtensionsLoaded.Enabled = chkShowExtensionInMenuGroup.Checked;
         }
     }
 }

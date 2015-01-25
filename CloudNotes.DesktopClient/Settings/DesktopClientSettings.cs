@@ -21,6 +21,9 @@ namespace CloudNotes.DesktopClient.Settings
             Default = new DesktopClientSettings();
             Default.General = new GeneralSettings();
             Default.General.Language = Thread.CurrentThread.CurrentUICulture.Name;
+            Default.General.ShowUnderExtensionsMenu = false;
+            Default.General.OnlyShowForMaximumExtensionsLoaded = false;
+            Default.General.MaximumExtensionsLoadedValue = 0;
             Default.PackageServer = ConfigurationManager.AppSettings[Constants.PackageServerSettingKey];
         }
 

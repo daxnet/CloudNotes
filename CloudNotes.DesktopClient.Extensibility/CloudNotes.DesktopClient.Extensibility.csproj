@@ -70,11 +70,15 @@
     <Compile Include="Data\Note.cs" />
     <Compile Include="Data\WebApiDataAccessProxy.cs" />
     <Compile Include="Directories.cs" />
+    <Compile Include="Exceptions\ExtensionException.cs" />
+    <Compile Include="Exceptions\NoteAlreadyExistsException.cs" />
+    <Compile Include="ExportExtension.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="ExtensionAttribute.cs" />
     <Compile Include="ExtensionLoadEventArgs.cs" />
     <Compile Include="ExtensionManager.cs" />
     <Compile Include="ExtensionSettingProvider.cs" />
+    <Compile Include="IExportOptionDialog.cs" />
     <Compile Include="IExtensionSetting.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +118,7 @@
       <Name>CloudNotes.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

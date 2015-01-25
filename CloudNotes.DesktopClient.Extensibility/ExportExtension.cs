@@ -29,19 +29,46 @@
 namespace CloudNotes.DesktopClient.Extensibility
 {
     using CloudNotes.DesktopClient.Extensibility.Data;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Windows.Forms;
 
-    /// <summary>
-    /// Represents that the implemented classes are CloudNotes Desktop Client Shell.
-    /// </summary>
-    public interface IShell
+    public abstract class ExportExtension : Extension
     {
-        string Text { get; }
-        Task ImportNote(Note note);
-        Note Note { get; }
+        private string fileName;
+
+        public abstract string FileExtension { get; }
+        public abstract string FileExtensionDescription { get; }
+
+        internal void SetFileName(string fileName)
+        {
+            this.fileName = fileName;
+        }
+
+        protected virtual IExportOptionDialog OptionDialog
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        protected abstract void DoExport(string fileName, Note note, object options);
+
+        protected override void DoExecute(IShell shell)
+        {
+            object options = null;
+            if (this.OptionDialog != null)
+            {
+                var dialogResult = this.OptionDialog.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    options = this.OptionDialog.Options;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            this.DoExport(this.fileName, shell.Note, options);
+        }
     }
 }

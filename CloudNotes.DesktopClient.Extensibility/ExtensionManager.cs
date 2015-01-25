@@ -30,12 +30,11 @@ namespace CloudNotes.DesktopClient.Extensibility
 {
     using CloudNotes.Infrastructure;
     using System;
-    using System.Linq;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Reflection;
     using System.Windows.Forms;
-    using System.Threading;
 
     /// <summary>
     /// Represents the Extension Manager that registers and manages the extensions.
@@ -87,7 +86,7 @@ namespace CloudNotes.DesktopClient.Extensibility
 
         #region Public Properties
         /// <summary>
-        /// Gets all of the tool extensions.
+        /// Gets all the tool extensions.
         /// </summary>
         /// <value>
         /// The tool extensions.
@@ -97,6 +96,20 @@ namespace CloudNotes.DesktopClient.Extensibility
             get
             {
                 return this.extensions.Values.Where(p => p.GetType().IsSubclassOf(typeof(ToolExtension))).Select(p => (ToolExtension)p);
+            }
+        }
+
+        /// <summary>
+        /// Gets all the export extensions.
+        /// </summary>
+        /// <value>
+        /// The export extensions.
+        /// </value>
+        public IEnumerable<ExportExtension> ExportExtensions
+        {
+            get
+            {
+                return this.extensions.Values.Where(p => p.GetType().IsSubclassOf(typeof(ExportExtension))).Select(p => (ExportExtension)p);
             }
         }
 

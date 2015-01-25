@@ -95,7 +95,7 @@ using System.Drawing;
         /// </summary>
         /// <param name="html">The source HTML string.</param>
         /// <returns></returns>
-        private static string RemoveHtmlTags(this string html)
+        public static string RemoveHtmlTags(this string html)
         {
             html = HttpUtility.UrlDecode(html);
             html = HttpUtility.HtmlDecode(html);
