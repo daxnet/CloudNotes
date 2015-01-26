@@ -34,6 +34,6 @@ using System.Reflection;
 [assembly: AssemblyCopyright("Copyright © 2014-2015 by daxnet")]
 [assembly: AssemblyTrademark("")]
 
-[assembly: AssemblyVersion("1.0.5484.36793")]
+[assembly: AssemblyVersion("1.0.5504.38654")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 

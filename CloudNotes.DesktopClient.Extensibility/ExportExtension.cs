@@ -32,18 +32,23 @@ namespace CloudNotes.DesktopClient.Extensibility
     using CloudNotes.DesktopClient.Extensibility.Exceptions;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Represents that the derived classes are the extensions that are responsible for exporting
+    /// the current note to a specific file format.
+    /// </summary>
     public abstract class ExportExtension : Extension
     {
+        #region Private Fields
         private string fileName;
+        #endregion
 
-        public abstract string FileExtension { get; }
-        public abstract string FileExtensionDescription { get; }
-
-        internal void SetFileName(string fileName)
-        {
-            this.fileName = fileName;
-        }
-
+        #region Protected Properties
+        /// <summary>
+        /// Gets the option dialog.
+        /// </summary>
+        /// <value>
+        /// The option dialog.
+        /// </value>
         protected virtual IExportOptionDialog OptionDialog
         {
             get
@@ -51,9 +56,19 @@ namespace CloudNotes.DesktopClient.Extensibility
                 return null;
             }
         }
+        #endregion
 
-        protected abstract void DoExport(string fileName, Note note, object options);
-
+        #region Protected Methods
+        /// <summary>
+        /// Executes the current extension.
+        /// </summary>
+        /// <param name="shell">
+        /// The <see cref="IShell"/> object on which the current extension will be executed.
+        /// </param>
+        /// <exception cref="ExportCancelledException">
+        /// Throws when the <c>OptionDialog</c> is specified, but the dialog's returned result is
+        /// <c>DialogResult.OK</c>
+        /// </exception>
         protected override void DoExecute(IShell shell)
         {
             object options = null;
@@ -72,5 +87,58 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
             this.DoExport(this.fileName, shell.Note, options);
         }
+
+        /// <summary>
+        /// Performs the export.
+        /// </summary>
+        /// <param name="fileName">Name of the file to which the note will be exported.</param>
+        /// <param name="note">The note that is being exported.</param>
+        /// <param name="options">The options for the exporting.</param>
+        /// <remarks>
+        /// When the <c>OptionDialog</c> is not null, the <paramref name="options"/> value
+        /// represents the options collected from the <c>OptionDialog</c>. Otherwise the options
+        /// value will be null.
+        /// </remarks>
+        protected abstract void DoExport(string fileName, Note note, object options);
+        #endregion
+
+        #region Internal Methods
+        /// <summary>
+        /// Sets the name of the file that needs to be exported.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <remarks>
+        /// This method will only be called in the CloudNotes Desktop Client main window, simply to
+        /// specify the name of the file that needs to be exported. Once the file name has been
+        /// specified, the <c>DoExecute</c> protected method will use this file name to save the
+        /// note as another file format.
+        /// </remarks>
+        internal void SetFileName(string fileName)
+        {
+            this.fileName = fileName;
+        }
+        #endregion
+
+        #region Public Properties
+        /// <summary>
+        /// Gets the file extension which represents the file format used for exporting.
+        /// </summary>
+        /// <value>Returns the file extension, e.g. *.txt, for text file.</value>
+        /// <remarks>
+        /// This value is the extension portion of the file filtering options available in the Save
+        /// As dialog box.
+        /// </remarks>
+        public abstract string FileExtension { get; }
+        /// <summary>
+        /// Gets the file extension description which describes the file format used for exporting.
+        /// </summary>
+        /// <value>The file extension description, e.g. Text Files (*.txt), for text file.</value>
+        /// <remarks>
+        /// This value is the description portion of the file filtering options available in the
+        /// Save As dialog box.
+        /// </remarks>
+        public abstract string FileExtensionDescription { get; }
+        #endregion
+
     }
 }

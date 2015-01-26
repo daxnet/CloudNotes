@@ -51,7 +51,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         }
         #endregion
 
-        #region Private Properties
+        #region Private Properties        
         private ExtensionAttribute ExtensionAttribute
         {
             get
@@ -70,7 +70,9 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <summary>
         /// Executes the current extension.
         /// </summary>
-        /// <param name="shell">The shell.</param>
+        /// <param name="shell">
+        /// The <see cref="IShell"/> object on which the current extension will be executed.
+        /// </param>
         protected abstract void DoExecute(IShell shell);
         #endregion
 
@@ -179,9 +181,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <summary>
         /// Gets the kind of the current extension.
         /// </summary>
-        /// <value>
-        /// The <see cref="Type"/> object which represents the kind of the current extension.
-        /// </value>
+        /// <value>The <see cref="Type"/> object which represents the kind of the current extension.</value>
         /// <exception cref="ExtensionException">Throws when the kind cannot be determined.</exception>
         public Type Kind
         {
@@ -199,10 +199,11 @@ namespace CloudNotes.DesktopClient.Extensibility
 
         #region Public Methods
         /// <summary>
-        /// Executes the current extension against the specified shell.
+        /// Executes the current extension.
         /// </summary>
-        /// <param name="shell">The shell.</param>
-        /// <exception cref="System.ArgumentNullException">shell</exception>
+        /// <param name="shell">
+        /// The <see cref="IShell"/> object on which the current extension will be executed.
+        /// </param>
         public void Execute(IShell shell)
         {
             if (shell == null)

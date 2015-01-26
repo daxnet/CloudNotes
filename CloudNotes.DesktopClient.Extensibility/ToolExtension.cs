@@ -108,7 +108,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         }
         #endregion
 
-        #region Public Methods        
+        #region Public Methods 
         /// <summary>
         /// Gets the display name of the extension.
         /// </summary>

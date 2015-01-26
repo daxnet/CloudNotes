@@ -31,7 +31,8 @@ namespace CloudNotes.DesktopClient.Extensibility
     using System;
 
     /// <summary>
-    /// Represents the class that carries the event data when the extension is being loading or has been loaded.
+    /// Represents the class that carries the event data when the extension is being loading or has
+    /// been loaded.
     /// </summary>
     internal sealed class ExtensionLoadEventArgs : EventArgs
     {

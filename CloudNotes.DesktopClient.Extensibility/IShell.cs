@@ -29,22 +29,43 @@
 namespace CloudNotes.DesktopClient.Extensibility
 {
     using CloudNotes.DesktopClient.Extensibility.Data;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-using System.Windows.Forms;
+    using System.Windows.Forms;
 
     /// <summary>
-    /// Represents that the implemented classes are CloudNotes Desktop Client Shell.
+    /// Represents that the implemented classes are CloudNotes Desktop Client shells.
     /// </summary>
     public interface IShell
     {
+        /// <summary>
+        /// Gets the text of the current shell.
+        /// </summary>
+        /// <value>The text of the current shell.</value>
+        /// <remarks>Usually this is the text of the CloudNotes Desktop Client main form.</remarks>
         string Text { get; }
+        /// <summary>
+        /// Returns the <see cref="Task"/> object on which the note importing is being executed.
+        /// </summary>
+        /// <param name="note">The note that is going to be imported.</param>
+        /// <returns>
+        /// The <see cref="Task"/> object which executes the importing of the specified <see cref="Note"/>.
+        /// </returns>
+        /// <exception cref="CloudNotes.DesktopClient.Extensibility.Exceptions.NoteAlreadyExistsException">
+        /// Throws when there is already a note that has the same title as the note being imported.
+        /// </exception>
         Task ImportNote(Note note);
+        /// <summary>
+        /// Gets the currently selected note in the shell.
+        /// </summary>
+        /// <value>
+        /// The note that is currently selected.
+        /// </value>
         Note Note { get; }
-
+        /// <summary>
+        /// Gets the owner value, usually it refers to the current instance of CloudNotes Desktop
+        /// Client main form.
+        /// </summary>
+        /// <value>The owner.</value>
         IWin32Window Owner { get; }
     }
 }
