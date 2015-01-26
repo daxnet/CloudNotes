@@ -316,4 +316,10 @@
   <data name="SaveAsDialogTitle" xml:space="preserve">
     <value>Save Current Note As...</value>
   </data>
+  <data name="SaveAsCancelled" xml:space="preserve">
+    <value>Saving was cancelled by user.</value>
+  </data>
+  <data name="SaveAsSuccessful" xml:space="preserve">
+    <value>The note has been saved successfully.</value>
+  </data>
 </root>

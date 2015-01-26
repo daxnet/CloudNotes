@@ -1,5 +1,6 @@
 ﻿using CloudNotes.DesktopClient.Extensibility;
 using CloudNotes.DesktopClient.Extensibility.Data;
+using CloudNotes.DesktopClient.Extensibility.Exceptions;
 using CloudNotes.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,16 @@ namespace CloudNotes.DesktopClient.Extensions.Exporters
 
         protected override void DoExport(string fileName, Note note, object options)
         {
-            File.WriteAllText(fileName, note.Content.RemoveHtmlTags());
+            var encodingInfo = (EncodingInfo)options;
+            File.WriteAllText(fileName, note.Content.RemoveHtmlTags(), Encoding.GetEncoding(encodingInfo.CodePage));
+        }
+
+        protected override IExportOptionDialog OptionDialog
+        {
+            get
+            {
+                return new TextFileExporterOptionDialog();
+            }
         }
 
         public override string Manufacture

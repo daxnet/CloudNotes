@@ -128,16 +128,46 @@ namespace CloudNotes.DesktopClient
 
         private void InitializeExtensions()
         {
+            Func<ToolStripMenuItem> createExtensionsToolMenuItem = () =>
+                {
+                    var extensionsTool = (ToolStripMenuItem)mnuTools.DropDownItems.Add(Resources.ExtensionsMenuItemName);
+                    extensionsTool.Image = Resources.plugin;
+                    return extensionsTool;
+                };
+
             // Initialize tool extensions
             var toolExtensions = this.extensionManager.ToolExtensions.ToList();
             if (toolExtensions.Count > 0)
             {
                 mnuTools.DropDownItems.Add(new ToolStripSeparator());
-                var extensionsTool = (ToolStripMenuItem)mnuTools.DropDownItems.Add(Resources.ExtensionsMenuItemName);
-                extensionsTool.Image = Resources.plugin;
+
+                ToolStripMenuItem parentTool = null;
+                if (this.settings.General.ShowUnderExtensionsMenu)
+                {
+                    if (this.settings.General.OnlyShowForMaximumExtensionsLoaded)
+                    {
+                        if (this.settings.General.MaximumExtensionsLoadedValue < toolExtensions.Count)
+                        {
+                            parentTool = createExtensionsToolMenuItem();
+                        }
+                        else
+                        {
+                            parentTool = mnuTools;
+                        }
+                    }
+                    else
+                    {
+                        parentTool = createExtensionsToolMenuItem();
+                    }
+                }
+                else
+                {
+                    parentTool = mnuTools;
+                }
+                
                 foreach(var toolExtension in toolExtensions)
                 {
-                    var extensionToolStrip = (ToolStripMenuItem)extensionsTool.DropDownItems.Add(toolExtension.ToolName);
+                    var extensionToolStrip = (ToolStripMenuItem)parentTool.DropDownItems.Add(toolExtension.ToolName);
                     extensionToolStrip.Image = toolExtension.ToolIcon;
                     extensionToolStrip.ToolTipText = toolExtension.ToolTip;
                     extensionToolStrip.ShowShortcutKeys = true;
@@ -181,7 +211,15 @@ namespace CloudNotes.DesktopClient
                                 {
                                     var exportExtension = exportExtensionArray[saveFileDialog.FilterIndex - 1];
                                     exportExtension.SetFileName(saveFileDialog.FileName);
-                                    exportExtension.Execute(this);
+                                    try
+                                    {
+                                        exportExtension.Execute(this);
+                                        MessageBox.Show(Resources.SaveAsSuccessful, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    catch(ExportCancelledException)
+                                    {
+                                        MessageBox.Show(Resources.SaveAsCancelled, Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
                                 }
                             });
                     };
@@ -1145,6 +1183,12 @@ namespace CloudNotes.DesktopClient
                     Title = this.workspace.Title
                 };
             }
+        }
+
+
+        public new IWin32Window Owner
+        {
+            get { return this; }
         }
     }
 }

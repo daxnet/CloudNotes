@@ -34,6 +34,7 @@ namespace CloudNotes.DesktopClient.Extensibility
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+using System.Windows.Forms;
 
     /// <summary>
     /// Represents that the implemented classes are CloudNotes Desktop Client Shell.
@@ -43,5 +44,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         string Text { get; }
         Task ImportNote(Note note);
         Note Note { get; }
+
+        IWin32Window Owner { get; }
     }
 }

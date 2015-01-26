@@ -138,7 +138,7 @@
     <value>251</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 408</value>
+    <value>428, 409</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
@@ -191,7 +191,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACO
-        CQAAAk1TRnQBSQFMAgEBAgEAAUgBAAFIAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CQAAAk1TRnQBSQFMAgEBAgEAAWABAAFgAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -249,17 +249,29 @@
   <data name="groupBoxLocalization.Text" xml:space="preserve">
     <value>界面外观</value>
   </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 23</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 22</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 86</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 12</value>
+    <value>263, 18</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>时，才在 “工具 -&gt; 扩展功能” 菜单中显示</value>
   </data>
   <data name="numMaxExtensionsLoaded.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 83</value>
+    <value>204, 83</value>
   </data>
   <data name="numMaxExtensionsLoaded.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 21</value>
+    <value>38, 21</value>
+  </data>
+  <data name="chkOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 86</value>
   </data>
   <data name="chkOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 16</value>
@@ -268,7 +280,7 @@
     <value>仅当加载的扩展功能数大于</value>
   </data>
   <data name="chkShowExtensionInMenuGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 16</value>
+    <value>291, 26</value>
   </data>
   <data name="chkShowExtensionInMenuGroup.Text" xml:space="preserve">
     <value>在 “工具 -&gt; 扩展功能” 菜单中显示扩展功能</value>
@@ -290,6 +302,15 @@
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>语言：</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 413</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>305, 19</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>由感叹号标记的设置需要重启桌面客户端才会生效。</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>

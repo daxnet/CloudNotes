@@ -29,6 +29,7 @@
 namespace CloudNotes.DesktopClient.Extensibility
 {
     using CloudNotes.DesktopClient.Extensibility.Data;
+    using CloudNotes.DesktopClient.Extensibility.Exceptions;
     using System.Windows.Forms;
 
     public abstract class ExportExtension : Extension
@@ -58,14 +59,15 @@ namespace CloudNotes.DesktopClient.Extensibility
             object options = null;
             if (this.OptionDialog != null)
             {
-                var dialogResult = this.OptionDialog.ShowDialog();
+                var optionDialog = this.OptionDialog;
+                var dialogResult = optionDialog.ShowDialog(shell.Owner);
                 if (dialogResult == DialogResult.OK)
                 {
-                    options = this.OptionDialog.Options;
+                    options = optionDialog.Options;
                 }
                 else
                 {
-                    return;
+                    throw new ExportCancelledException();
                 }
             }
             this.DoExport(this.fileName, shell.Note, options);

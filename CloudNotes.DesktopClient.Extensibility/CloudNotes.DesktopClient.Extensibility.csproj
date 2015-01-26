@@ -70,6 +70,7 @@
     <Compile Include="Data\Note.cs" />
     <Compile Include="Data\WebApiDataAccessProxy.cs" />
     <Compile Include="Directories.cs" />
+    <Compile Include="Exceptions\ExportCancelledException.cs" />
     <Compile Include="Exceptions\ExtensionException.cs" />
     <Compile Include="Exceptions\NoteAlreadyExistsException.cs" />
     <Compile Include="ExportExtension.cs" />

@@ -316,4 +316,10 @@
   <data name="SaveAsDialogTitle" xml:space="preserve">
     <value>将当前笔记另存为...</value>
   </data>
+  <data name="SaveAsCancelled" xml:space="preserve">
+    <value>保存操作已被用户取消。</value>
+  </data>
+  <data name="SaveAsSuccessful" xml:space="preserve">
+    <value>所选笔记保存成功。</value>
+  </data>
 </root>
