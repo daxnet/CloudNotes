@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CloudNotes.DesktopClient.Extensions
 {
-    [Extension("{93275853-1649-4726-8200-3F3643779499}", "MyCustomTool", typeof(CustomSettingProvider))]
+    //[Extension("{93275853-1649-4726-8200-3F3643779499}", "MyCustomTool", typeof(CustomSettingProvider))]
     public class CustomToolExtension : ToolExtension
     {
         public CustomToolExtension()

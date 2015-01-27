@@ -1,5 +1,6 @@
 ﻿namespace CloudNotes.DesktopClient
 {
+    using CloudNotes.DesktopClient.Controls;
     using CloudNotes.DesktopClient.Extensibility;
     using Infrastructure;
     using Properties;
@@ -39,29 +40,39 @@
                         "Assembly.png"));
             }
 
-            this.lstExtensions.Groups.Clear();
-            var grpToolExtension = this.lstExtensions.Groups.Add("grpToolExtension", Resources.ToolExtensionGroupName);
-            var grpExportExtension = this.lstExtensions.Groups.Add("grpExportExtension", Resources.ExportExtensionGroupName);
-
-            this.ilExtensions.Images.Clear();
-            this.ilExtensions.Images.Add("plugin.png", Resources.plugin);
-            // Displays all the extensions.
-            foreach(var kvp in this.extensionManager.AllExtensions)
+            if (this.extensionManager.HasExtension)
             {
-                var extension = kvp.Value;
-                var lvi = new ListViewItem(new[] { extension.DisplayName, extension.Version.ToString(), extension.Manufacture, extension.Description });
-                if (extension.Kind == typeof(ToolExtension))
+                this.lstExtensions.Visible = true;
+                this.lstExtensions.Groups.Clear();
+                var grpToolExtension = this.lstExtensions.Groups.Add("grpToolExtension", Resources.ToolExtensionGroupName);
+                var grpExportExtension = this.lstExtensions.Groups.Add("grpExportExtension", Resources.ExportExtensionGroupName);
+
+                this.ilExtensions.Images.Clear();
+                this.ilExtensions.Images.Add("plugin.png", Resources.plugin);
+                // Displays all the extensions.
+                foreach (var kvp in this.extensionManager.AllExtensions)
                 {
-                    lvi.Group = grpToolExtension;
-                    this.ilExtensions.Images.Add(extension.ID.ToString(), ((ToolExtension)extension).ToolIcon);
-                    lvi.ImageKey = extension.ID.ToString();
+                    var extension = kvp.Value;
+                    var lvi = new ListViewItem(new[] { extension.DisplayName, extension.Version.ToString(), extension.Manufacture, extension.Description });
+                    if (extension.Kind == typeof(ToolExtension))
+                    {
+                        lvi.Group = grpToolExtension;
+                        this.ilExtensions.Images.Add(extension.ID.ToString(), ((ToolExtension)extension).ToolIcon);
+                        lvi.ImageKey = extension.ID.ToString();
+                    }
+                    else if (extension.Kind == typeof(ExportExtension))
+                    {
+                        lvi.Group = grpExportExtension;
+                        lvi.ImageKey = "plugin.png";
+                    }
+                    this.lstExtensions.Items.Add(lvi);
                 }
-                else if (extension.Kind == typeof(ExportExtension))
-                {
-                    lvi.Group = grpExportExtension;
-                    lvi.ImageKey = "plugin.png";
-                }
-                this.lstExtensions.Items.Add(lvi);
+            }
+            else
+            {
+                this.lstExtensions.Visible = false;
+                var noExtensionControl = new NoExtensionControl { Dock = DockStyle.Fill };
+                this.tpExtensions.Controls.Add(noExtensionControl);
             }
         }
 

@@ -59,5 +59,41 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saves the note as an HTML file..
+        /// </summary>
+        internal static string HtmlExporterDescription {
+            get {
+                return ResourceManager.GetString("HtmlExporterDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save As HTML.
+        /// </summary>
+        internal static string HtmlExporterDisplayName {
+            get {
+                return ResourceManager.GetString("HtmlExporterDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saves the note as a text file..
+        /// </summary>
+        internal static string TextFileExporterDescription {
+            get {
+                return ResourceManager.GetString("TextFileExporterDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save As Text File.
+        /// </summary>
+        internal static string TextFileExporterDisplayName {
+            get {
+                return ResourceManager.GetString("TextFileExporterDisplayName", resourceCulture);
+            }
+        }
     }
 }

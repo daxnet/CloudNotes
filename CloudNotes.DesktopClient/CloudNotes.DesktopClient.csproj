@@ -77,6 +77,12 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Controls\NoExtensionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NoExtensionControl.Designer.cs">
+      <DependentUpon>NoExtensionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NoSettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     <Compile Include="SafeExecutionContext.cs" />
     <Compile Include="SingleInstanceController.cs" />
     <Compile Include="Workspace.cs" />
+    <EmbeddedResource Include="Controls\NoExtensionControl.resx">
+      <DependentUpon>NoExtensionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NoExtensionControl.zh-CN.resx">
+      <DependentUpon>NoExtensionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\NoSettingsControl.resx">
       <DependentUpon>NoSettingsControl.cs</DependentUpon>
     </EmbeddedResource>

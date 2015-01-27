@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HtmlExporterDescription" xml:space="preserve">
+    <value>将笔记另存为HTML文档。</value>
+  </data>
+  <data name="HtmlExporterDisplayName" xml:space="preserve">
+    <value>另存为HTML文档</value>
+  </data>
+  <data name="TextFileExporterDescription" xml:space="preserve">
+    <value>将笔记另存为文本文件。</value>
+  </data>
+  <data name="TextFileExporterDisplayName" xml:space="preserve">
+    <value>另存为文本文件</value>
+  </data>
 </root>

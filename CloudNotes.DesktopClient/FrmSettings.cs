@@ -49,39 +49,49 @@ namespace CloudNotes.DesktopClient
 
         private void InitializeExtensions()
         {
-            lvExtensions.Groups.Clear();
-            var grpToolExtension = lvExtensions.Groups.Add("grpToolExtension", Resources.ToolExtensionGroupName);
-            var grpExportExtension = lvExtensions.Groups.Add("grpExportExtension", Resources.ExportExtensionGroupName);
-
-            lvExtensions.Items.Clear();
-            ilExtensions.Images.Clear();
-            ilExtensions.Images.Add("plugin.png", Resources.plugin);
-
-            pnlSettings.Controls.Clear();
-            // Create the Tool Extensions items.
-            foreach(var kvp in extensionManager.AllExtensions)
+            if (this.extensionManager.HasExtension)
             {
-                var extension = kvp.Value;
-                var lvi = new ListViewItem(extension.DisplayName.Trim('.'));
-                lvi.Tag = extension.ID;
-                if (extension.Kind == typeof(ToolExtension))
+                splitContainer.Visible = true;
+                lvExtensions.Groups.Clear();
+                var grpToolExtension = lvExtensions.Groups.Add("grpToolExtension", Resources.ToolExtensionGroupName);
+                var grpExportExtension = lvExtensions.Groups.Add("grpExportExtension", Resources.ExportExtensionGroupName);
+
+                lvExtensions.Items.Clear();
+                ilExtensions.Images.Clear();
+                ilExtensions.Images.Add("plugin.png", Resources.plugin);
+
+                pnlSettings.Controls.Clear();
+                // Create the Tool Extensions items.
+                foreach (var kvp in extensionManager.AllExtensions)
                 {
-                    lvi.Group = grpToolExtension;
-                    ilExtensions.Images.Add(extension.ID.ToString(), ((ToolExtension)extension).ToolIcon);
-                    lvi.ImageKey = extension.ID.ToString();
+                    var extension = kvp.Value;
+                    var lvi = new ListViewItem(extension.DisplayName.Trim('.'));
+                    lvi.Tag = extension.ID;
+                    if (extension.Kind == typeof(ToolExtension))
+                    {
+                        lvi.Group = grpToolExtension;
+                        ilExtensions.Images.Add(extension.ID.ToString(), ((ToolExtension)extension).ToolIcon);
+                        lvi.ImageKey = extension.ID.ToString();
+                    }
+                    else if (extension.Kind == typeof(ExportExtension))
+                    {
+                        lvi.Group = grpExportExtension;
+                        lvi.ImageKey = "plugin.png";
+                    }
+                    lvExtensions.Items.Add(lvi);
                 }
-                else if (extension.Kind == typeof(ExportExtension))
+
+                if (lvExtensions.Items.Count > 0)
                 {
-                    lvi.Group = grpExportExtension;
-                    lvi.ImageKey = "plugin.png";
+                    lvExtensions.Items[0].Selected = true;
+                    this.BindExtension((Guid)this.lvExtensions.Items[0].Tag);
                 }
-                lvExtensions.Items.Add(lvi);
             }
-
-            if (lvExtensions.Items.Count > 0)
+            else
             {
-                lvExtensions.Items[0].Selected = true;
-                this.BindExtension((Guid)this.lvExtensions.Items[0].Tag);
+                splitContainer.Visible = false;
+                var noExtensionControl = new NoExtensionControl { Dock = DockStyle.Fill };
+                this.tpExtensions.Controls.Add(noExtensionControl);
             }
         }
 

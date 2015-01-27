@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="CustomSettingProvider.cs" />
     <Compile Include="CustomToolExtension.cs" />
+    <Compile Include="Exporters\HtmlExporter.cs" />
     <Compile Include="Exporters\TextFileExporter.cs" />
     <Compile Include="Exporters\TextFileExporterOptionDialog.cs">
       <SubType>Form</SubType>

@@ -1172,7 +1172,7 @@ namespace CloudNotes.DesktopClient
                 if (this.htmlEditor.Enabled == false)
                     return null;
 
-                var content = this.htmlEditor.Html;
+                var content = ReplaceFileSystemImages(this.htmlEditor.Html);
                 return new Note
                 {
                     ID = this.workspace.ID,
