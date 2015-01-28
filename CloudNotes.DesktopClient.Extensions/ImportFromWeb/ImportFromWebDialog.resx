@@ -117,22 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HtmlExporterDescription" xml:space="preserve">
-    <value>Saves the note as an HTML file.</value>
-  </data>
-  <data name="HtmlExporterDisplayName" xml:space="preserve">
-    <value>Save As HTML</value>
-  </data>
-  <data name="HtmlFileFilterDescription" xml:space="preserve">
-    <value>HTML Files (*.html)</value>
-  </data>
-  <data name="TextFileExporterDescription" xml:space="preserve">
-    <value>Saves the note as a text file.</value>
-  </data>
-  <data name="TextFileExporterDisplayName" xml:space="preserve">
-    <value>Save As Text File</value>
-  </data>
-  <data name="TextFileFilterDescription" xml:space="preserve">
-    <value>Text Files (*.txt)</value>
-  </data>
 </root>

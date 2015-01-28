@@ -109,7 +109,7 @@ namespace CloudNotes.DesktopClient.Extensions.Exporters
         /// </remarks>
         public override string FileExtensionDescription
         {
-            get { return "Text Files (*.txt)"; }
+            get { return Resources.TextFileFilterDescription; }
         }
 
         /// <summary>

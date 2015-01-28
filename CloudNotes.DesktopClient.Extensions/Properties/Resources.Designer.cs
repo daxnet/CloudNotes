@@ -79,6 +79,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HTML Files (*.html).
+        /// </summary>
+        internal static string HtmlFileFilterDescription {
+            get {
+                return ResourceManager.GetString("HtmlFileFilterDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saves the note as a text file..
         /// </summary>
         internal static string TextFileExporterDescription {
@@ -93,6 +102,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         internal static string TextFileExporterDisplayName {
             get {
                 return ResourceManager.GetString("TextFileExporterDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text Files (*.txt).
+        /// </summary>
+        internal static string TextFileFilterDescription {
+            get {
+                return ResourceManager.GetString("TextFileFilterDescription", resourceCulture);
             }
         }
     }

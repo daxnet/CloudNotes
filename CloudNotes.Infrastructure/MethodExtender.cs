@@ -128,6 +128,8 @@ using System.Drawing;
             {
                 var href = m.Groups[1].Value;
                 var pos = href.IndexOf("base64,", StringComparison.InvariantCultureIgnoreCase);
+                if (pos == -1)
+                    continue;
                 pos += 7;
                 result.Add(href.Substring(pos, href.Length - pos).Trim());
             }

@@ -123,10 +123,16 @@
   <data name="HtmlExporterDisplayName" xml:space="preserve">
     <value>另存为HTML文档</value>
   </data>
+  <data name="HtmlFileFilterDescription" xml:space="preserve">
+    <value>HTML文件（*.html）</value>
+  </data>
   <data name="TextFileExporterDescription" xml:space="preserve">
     <value>将笔记另存为文本文件。</value>
   </data>
   <data name="TextFileExporterDisplayName" xml:space="preserve">
     <value>另存为文本文件</value>
+  </data>
+  <data name="TextFileFilterDescription" xml:space="preserve">
+    <value>文本文件（*.txt）</value>
   </data>
 </root>
