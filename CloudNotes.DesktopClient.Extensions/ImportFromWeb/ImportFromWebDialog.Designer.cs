@@ -28,20 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportFromWebDialog));
+            this.lblLink = new System.Windows.Forms.Label();
+            this.txtLink = new System.Windows.Forms.TextBox();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblLink
+            // 
+            resources.ApplyResources(this.lblLink, "lblLink");
+            this.lblLink.Name = "lblLink";
+            // 
+            // txtLink
+            // 
+            resources.ApplyResources(this.txtLink, "txtLink");
+            this.txtLink.Name = "txtLink";
+            // 
+            // btnOK
+            // 
+            resources.ApplyResources(this.btnOK, "btnOK");
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Name = "btnOK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
             // 
             // ImportFromWebDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AcceptButton = this.btnOK;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 192);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelButton = this.btnCancel;
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.txtLink);
+            this.Controls.Add(this.lblLink);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ImportFromWebDialog";
-            this.Text = "Import Note from Web";
+            this.ShowInTaskbar = false;
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblLink;
+        private System.Windows.Forms.TextBox txtLink;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

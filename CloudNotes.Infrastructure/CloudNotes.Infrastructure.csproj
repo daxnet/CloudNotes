@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Dynamic.cs" />
+    <Compile Include="HtmlUtilities.cs" />
     <Compile Include="MethodExtender.cs" />
     <Compile Include="Privileges.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

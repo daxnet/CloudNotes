@@ -31,6 +31,7 @@ namespace CloudNotes.DesktopClient.Extensions.Exporters
     using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Extensibility.Data;
     using CloudNotes.DesktopClient.Extensions.Properties;
+    using CloudNotes.Infrastructure;
     using System.IO;
     using System.Text;
 
@@ -55,7 +56,8 @@ namespace CloudNotes.DesktopClient.Extensions.Exporters
         /// </remarks>
         protected override void DoExport(string fileName, Note note, object options)
         {
-            File.WriteAllText(fileName, note.Content, Encoding.UTF8);
+            var content = HtmlUtilities.ReplaceFileSystemImages(note.Content);
+            File.WriteAllText(fileName, content, Encoding.UTF8);
         }
         #endregion
 

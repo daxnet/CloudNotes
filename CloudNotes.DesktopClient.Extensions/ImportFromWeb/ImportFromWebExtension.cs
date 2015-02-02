@@ -1,4 +1,5 @@
 ﻿using CloudNotes.DesktopClient.Extensibility;
+using CloudNotes.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,19 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
 
         protected async override void DoExecute(IShell shell)
         {
-            var html = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString("http://www.cnblogs.com/daxnet/p/4208713.html");
-            await shell.ImportNote(new Extensibility.Data.Note
-                {
-                    Title = Guid.NewGuid().ToString(),
-                    Content = html
-                });
+            var setting = this.SettingProvider.GetExtensionSetting<ImportFromWebSetting>();
+            var dialog = new ImportFromWebDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                var webClient = new WebClient();
+                webClient.Encoding = Encoding.GetEncoding(setting.EncodingCodePage);
+                var html = await webClient.DownloadStringTaskAsync(dialog.Url);
+                await shell.ImportNote(new Extensibility.Data.Note
+                    {
+                        Title = Guid.NewGuid().ToString(),
+                        Content = html
+                    });
+            }
         }
 
         public override string Manufacture

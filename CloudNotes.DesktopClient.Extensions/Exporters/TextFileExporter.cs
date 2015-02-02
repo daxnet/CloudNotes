@@ -74,7 +74,7 @@ namespace CloudNotes.DesktopClient.Extensions.Exporters
         protected override void DoExport(string fileName, Note note, object options)
         {
             var encodingInfo = (EncodingInfo)options;
-            File.WriteAllText(fileName, note.Content.RemoveHtmlTags(), Encoding.GetEncoding(encodingInfo.CodePage));
+            File.WriteAllText(fileName, HtmlUtilities.RemoveHtmlTags(note.Content), Encoding.GetEncoding(encodingInfo.CodePage));
         }
 
         

@@ -54,7 +54,7 @@ namespace CloudNotes.WebAPI
                         note =>
                             {
                                 var html = crypto.Decrypt(note.Content);
-                                return crypto.Encrypt(html.ExtractDescription());
+                                return crypto.Encrypt(HtmlUtilities.ExtractDescription(html));
                             }))
                 .ForMember(
                     noteItemViewModel => noteItemViewModel.ImageData,
@@ -62,7 +62,7 @@ namespace CloudNotes.WebAPI
                         note =>
                             {
                                 var html = crypto.Decrypt(note.Content);
-                                var thumbnailImageBase64 = html.ExtractThumbnailImageBase64();
+                                var thumbnailImageBase64 = HtmlUtilities.ExtractThumbnailImageBase64(html);
                                 if (!string.IsNullOrEmpty(thumbnailImageBase64))
                                 {
                                     return crypto.Encrypt(thumbnailImageBase64);

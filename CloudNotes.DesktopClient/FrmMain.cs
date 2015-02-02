@@ -323,33 +323,6 @@ namespace CloudNotes.DesktopClient
             throw new InvalidOperationException();
         }
 
-        private static string ReplaceFileSystemImages(string html)
-        {
-            var matches = Regex.Matches(
-                html,
-                @"<img[^>]*?src\s*=\s*([""']?[^'"">]+?['""])[^>]*?>",
-                RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Multiline);
-            foreach (Match match in matches)
-            {
-                string src = match.Groups[1].Value;
-                src = src.Trim('\"');
-                if (File.Exists(src))
-                {
-                    var ext = Path.GetExtension(src);
-                    if (ext.Length > 0)
-                    {
-                        ext = ext.Substring(1);
-                        src = string.Format(
-                            "'data:image/{0};base64,{1}'",
-                            ext,
-                            Convert.ToBase64String(File.ReadAllBytes(src)));
-                        html = html.Replace(match.Groups[1].Value, src);
-                    }
-                }
-            }
-            return html;
-        }
-
         /// <summary>
         /// Determines whether the note data contained within the specified tree node has already
         /// been marked as deleted.
@@ -481,9 +454,9 @@ namespace CloudNotes.DesktopClient
             string currentNoteContent = this.crypto.Encrypt("<p />");
             if (!string.IsNullOrEmpty(this.workspace.Content))
             {
-                var content = ReplaceFileSystemImages(this.workspace.Content);
-                currentNoteDescription = content.ExtractDescription();
-                var currentNoteThumbnailImageBase64 = content.ExtractThumbnailImageBase64();
+                var content = HtmlUtilities.ReplaceFileSystemImages(this.workspace.Content);
+                currentNoteDescription = HtmlUtilities.ExtractDescription(content);
+                var currentNoteThumbnailImageBase64 = HtmlUtilities.ExtractThumbnailImageBase64(content);
                 if (!string.IsNullOrEmpty(currentNoteThumbnailImageBase64))
                 {
                     currentNoteThumbnailImage =
@@ -1172,14 +1145,14 @@ namespace CloudNotes.DesktopClient
                 if (this.htmlEditor.Enabled == false)
                     return null;
 
-                var content = ReplaceFileSystemImages(this.htmlEditor.Html);
+                var content = this.htmlEditor.Html;
                 return new Note
                 {
                     ID = this.workspace.ID,
                     Content = content,
                     DatePublished = this.workspace.DatePublished,
-                    Description = content.ExtractDescription(),
-                    ThumbnailImageBase64 = content.ExtractThumbnailImageBase64(),
+                    Description = HtmlUtilities.ExtractDescription(content),
+                    ThumbnailImageBase64 = HtmlUtilities.ExtractThumbnailImageBase64(content),
                     Title = this.workspace.Title
                 };
             }

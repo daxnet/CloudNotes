@@ -82,6 +82,12 @@
       <DependentUpon>ImportFromWebSettingControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportFromWeb\ImportFromWebSettingProvider.cs" />
+    <Compile Include="ImportFromWeb\ProgressIndicatorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportFromWeb\ProgressIndicatorDialog.Designer.cs">
+      <DependentUpon>ProgressIndicatorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.zh-CN.Designer.cs">
       <DependentUpon>Resources.zh-CN.resx</DependentUpon>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ImportFromWeb\ImportFromWebSettingControl.resx">
       <DependentUpon>ImportFromWebSettingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportFromWeb\ProgressIndicatorDialog.resx">
+      <DependentUpon>ProgressIndicatorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
