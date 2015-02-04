@@ -26,7 +26,7 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient
+namespace CloudNotes.DesktopClient.Extensibility
 {
     using System;
     using System.Threading.Tasks;

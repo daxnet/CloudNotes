@@ -10,6 +10,7 @@ using CloudNotes.Infrastructure;
 using CloudNotes.ViewModels;
 using CloudNotes.WebAPI.Models.Exceptions;
 using CloudNotes.WebAPI.Models.Filters;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -26,6 +27,8 @@ namespace CloudNotes.WebAPI.Controllers
     {
         private bool disposed;
         private readonly IRepositoryContext repositoryContext;
+
+        private static readonly ILog log = LogManager.GetLogger("CloudNotes.WebApi.Logger");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WebApiController"/> class.
@@ -59,6 +62,11 @@ namespace CloudNotes.WebAPI.Controllers
             {
                 return User != null ? ((BasicAuthenticationIdentity)User.Identity).User : null;
             }
+        }
+
+        protected ILog Log
+        {
+            get { return log; }
         }
 
         /// <summary>

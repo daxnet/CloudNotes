@@ -1,27 +1,28 @@
-﻿using System.Web.Http.OData;
-using Apworks;
-using Apworks.Repositories;
-using Apworks.Specifications;
-using Apworks.Storage;
-using AutoMapper.QueryableExtensions;
-using CloudNotes.Domain.Model;
-using CloudNotes.ViewModels;
-using CloudNotes.WebAPI.Models.Exceptions;
-using CloudNotes.WebAPI.Models.Filters;
-using CloudNotes.WebAPI.Properties;
-using System;
-using System.Linq;
-using System.Web.Http;
-using AutoMapper;
+﻿
 
 namespace CloudNotes.WebAPI.Controllers
 {
+    using Apworks;
+    using Apworks.Repositories;
+    using Apworks.Specifications;
+    using Apworks.Storage;
+    using AutoMapper;
+    using CloudNotes.Domain.Model;
+    using CloudNotes.ViewModels;
+    using CloudNotes.WebAPI.Models.Exceptions;
+    using CloudNotes.WebAPI.Models.Filters;
+    using CloudNotes.WebAPI.Properties;
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Http;
+    using System.Web.Http.OData;
 
     /// <summary>
     /// Represents the controller that provides Notes APIs.
     /// </summary>
     [RoutePrefix("api")]
+    [WebApiLogging]
     public class NotesController : WebApiController
     {
         #region Private Fields

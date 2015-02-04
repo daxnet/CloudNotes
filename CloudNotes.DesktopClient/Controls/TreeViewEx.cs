@@ -462,7 +462,6 @@ namespace CloudNotes.DesktopClient.Controls
             base.OnPaint(e);
         }
 
-
         /// <summary>
         /// Releases the unmanaged resources used by the <see cref="T:System.Windows.Forms.TreeView" /> and optionally releases the managed resources.
         /// </summary>

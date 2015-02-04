@@ -84,6 +84,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -256,6 +259,7 @@
     <Compile Include="Models\Exceptions\UserAlreadyExistsException.cs" />
     <Compile Include="Models\Exceptions\UserDoesNotExistException.cs" />
     <Compile Include="Models\Exceptions\UserLockedException.cs" />
+    <Compile Include="Models\Filters\WebApiLoggingAttribute.cs" />
     <Compile Include="Models\Filters\WebApiAuthorizationAttribute.cs" />
     <Compile Include="Models\Filters\WebApiExceptionHandlerAttribute.cs" />
     <Compile Include="Models\Filters\WebApiModelValidationAttribute.cs" />

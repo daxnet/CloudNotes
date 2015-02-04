@@ -88,6 +88,24 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import from Web....
+        /// </summary>
+        internal static string ImportFromWeb {
+            get {
+                return ResourceManager.GetString("ImportFromWeb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download the HTML web and import it as a new note..
+        /// </summary>
+        internal static string ImportFromWebDescription {
+            get {
+                return ResourceManager.GetString("ImportFromWebDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saves the note as a text file..
         /// </summary>
         internal static string TextFileExporterDescription {

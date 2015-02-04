@@ -1,4 +1,4 @@
-﻿namespace CloudNotes.DesktopClient
+﻿namespace CloudNotes.DesktopClient.Extensibility
 {
     partial class FrmExceptionDialog
     {
@@ -53,7 +53,7 @@
             // pictureBox1
             // 
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::CloudNotes.DesktopClient.Properties.Resources.exclamation5;
+            this.pictureBox1.Image = global::CloudNotes.DesktopClient.Extensibility.Properties.Resources.exclamation5;
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 

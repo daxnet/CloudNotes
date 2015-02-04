@@ -79,6 +79,12 @@
     <Compile Include="ExtensionLoadEventArgs.cs" />
     <Compile Include="ExtensionManager.cs" />
     <Compile Include="ExtensionSettingProvider.cs" />
+    <Compile Include="FrmExceptionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExceptionDialog.Designer.cs">
+      <DependentUpon>FrmExceptionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="IExportOptionDialog.cs" />
     <Compile Include="IExtensionSetting.cs" />
     <Compile Include="IShell.cs" />
@@ -93,6 +99,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SafeExecutionContext.cs" />
     <Compile Include="ServiceProxy.cs" />
     <Compile Include="ToolExtension.cs" />
   </ItemGroup>
@@ -101,9 +108,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmExceptionDialog.resx">
+      <DependentUpon>FrmExceptionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExceptionDialog.zh-CN.resx">
+      <DependentUpon>FrmExceptionDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,7 +133,9 @@
       <Name>CloudNotes.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\exclamation5.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

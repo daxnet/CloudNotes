@@ -2,6 +2,7 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Windows.Forms;
+using CloudNotes.DesktopClient.Extensibility;
 
 namespace CloudNotes.DesktopClient
 {

@@ -8,6 +8,7 @@ namespace CloudNotes.Infrastructure
     using System.Net;
     using System.Text;
     using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
     using System.Web;
 
     public static class HtmlUtilities
@@ -44,28 +45,28 @@ namespace CloudNotes.Infrastructure
             return html;
         }
 
-        public static string ReplaceWebImages(string html, Action<int, int> progressIndication = null)
+        public static async Task<string> ReplaceWebImagesAsync(string html, Action<int, int> reportProgress = null)
         {
             var matches = Regex.Matches(
                    html,
                    @"<img[^>]*?src\s*=\s*([""']?[^'"">]+?['""])[^>]*?>",
                    RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Multiline);
             var webClient = new WebClient();
+
             var i = 0;
-            var cnt = matches.Count;
+            var count = matches.Count;
             foreach (Match match in matches)
             {
-                i++;
-                if (progressIndication!=null)
+                if (reportProgress!=null)
                 {
-                    progressIndication(i, cnt);
+                    reportProgress(++i, count);
                 }
                 string src = match.Groups[1].Value;
                 src = src.Trim('\"');
                 try
                 {
                     var fileName = Path.GetTempFileName();
-                    webClient.DownloadFile(src, fileName);
+                    await webClient.DownloadFileTaskAsync(new Uri(src), fileName);
                     var length = src.Length;
                     var pos = src.LastIndexOf('.');
                     src = string.Format(

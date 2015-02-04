@@ -126,6 +126,12 @@
   <data name="HtmlFileFilterDescription" xml:space="preserve">
     <value>HTML Files (*.html)</value>
   </data>
+  <data name="ImportFromWeb" xml:space="preserve">
+    <value>Import from Web...</value>
+  </data>
+  <data name="ImportFromWebDescription" xml:space="preserve">
+    <value>Download the HTML web and import it as a new note.</value>
+  </data>
   <data name="TextFileExporterDescription" xml:space="preserve">
     <value>Saves the note as a text file.</value>
   </data>

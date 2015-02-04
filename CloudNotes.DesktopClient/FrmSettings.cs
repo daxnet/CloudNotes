@@ -81,10 +81,15 @@ namespace CloudNotes.DesktopClient
                     lvExtensions.Items.Add(lvi);
                 }
 
-                if (lvExtensions.Items.Count > 0)
+                if (grpToolExtension.Items.Count > 0)
                 {
-                    lvExtensions.Items[0].Selected = true;
-                    this.BindExtension((Guid)this.lvExtensions.Items[0].Tag);
+                    grpToolExtension.Items[0].Selected = true;
+                    this.BindExtension((Guid)grpToolExtension.Items[0].Tag);
+                }
+                else if (grpExportExtension.Items.Count > 0)
+                {
+                    grpExportExtension.Items[0].Selected = true;
+                    this.BindExtension((Guid)grpExportExtension.Items[0].Tag);
                 }
             }
             else

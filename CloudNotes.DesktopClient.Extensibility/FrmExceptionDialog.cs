@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using CloudNotes.DesktopClient.Properties;
+using CloudNotes.DesktopClient.Extensibility.Properties;
 
-namespace CloudNotes.DesktopClient
+namespace CloudNotes.DesktopClient.Extensibility
 {
     public partial class FrmExceptionDialog : Form
     {
