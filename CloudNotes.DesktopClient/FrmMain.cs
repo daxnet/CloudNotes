@@ -456,7 +456,7 @@ namespace CloudNotes.DesktopClient
             {
                 var content = HtmlUtilities.ReplaceFileSystemImages(this.workspace.Content);
                 currentNoteDescription = HtmlUtilities.ExtractDescription(content);
-                var currentNoteThumbnailImageBase64 = HtmlUtilities.ExtractThumbnailImageBase64(content);
+                var currentNoteThumbnailImageBase64 = HtmlUtilities.ExtractThumbnailBase64(content);
                 if (!string.IsNullOrEmpty(currentNoteThumbnailImageBase64))
                 {
                     currentNoteThumbnailImage =
@@ -1152,7 +1152,7 @@ namespace CloudNotes.DesktopClient
                     Content = content,
                     DatePublished = this.workspace.DatePublished,
                     Description = HtmlUtilities.ExtractDescription(content),
-                    ThumbnailImageBase64 = HtmlUtilities.ExtractThumbnailImageBase64(content),
+                    ThumbnailImageBase64 = HtmlUtilities.ExtractThumbnailBase64(content),
                     Title = this.workspace.Title
                 };
             }

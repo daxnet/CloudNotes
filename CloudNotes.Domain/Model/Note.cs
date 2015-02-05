@@ -43,13 +43,19 @@ namespace CloudNotes.Domain.Model
 			set;
 		}
 
-		public virtual Nullable<bool> Encrypted
+		public virtual Nullable<DeleteFlag> Deleted
 		{
 			get;
 			set;
 		}
 
-		public virtual Nullable<DeleteFlag> Deleted
+		public virtual string Description
+		{
+			get;
+			set;
+		}
+
+		public virtual string ThumbnailBase64
 		{
 			get;
 			set;

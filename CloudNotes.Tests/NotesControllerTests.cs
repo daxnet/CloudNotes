@@ -65,7 +65,6 @@ namespace CloudNotes.Tests
                                 note.Content = n.Content;
                                 note.DateLastModified = n.DateLastModified;
                                 note.DatePublished = n.DatePublished;
-                                note.Encrypted = n.Encrypted;
                                 note.ID = n.ID;
                                 note.User = n.User;
                                 note.Weather = n.Weather;

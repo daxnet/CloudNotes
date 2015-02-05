@@ -93,10 +93,10 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
             foreach (dynamic note in noteItems)
             {
                 string base64ImageString = null;
-                var imageString = (string)note.ImageData;
+                var imageString = (string)note.ThumbnailBase64;
                 if (!string.IsNullOrEmpty(imageString))
                 {
-                    base64ImageString = this.crypto.Decrypt(imageString);
+                    base64ImageString = imageString; // this.crypto.Decrypt(imageString);
                 }
                 notes.Add(new Note
                 {

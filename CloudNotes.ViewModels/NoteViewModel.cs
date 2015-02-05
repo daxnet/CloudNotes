@@ -21,5 +21,9 @@ namespace CloudNotes.ViewModels
         public string Weather { get; set; }
 
         public Guid UserID { get; set; }
+
+        public string Description { get; set; }
+
+        public string ThumbnailBase64 { get; set; }
     }
 }

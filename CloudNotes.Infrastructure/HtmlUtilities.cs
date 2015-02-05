@@ -98,7 +98,7 @@ namespace CloudNotes.Infrastructure
         /// </summary>
         /// <param name="html"></param>
         /// <returns></returns>
-        public static string ExtractThumbnailImageBase64(string html)
+        public static string ExtractThumbnailBase64(string html)
         {
             var imageBase64List = GetImgSrcBase64FromHtml(html);
             string result = null;

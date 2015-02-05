@@ -7,13 +7,13 @@ namespace CloudNotes.WebAPI.Controllers
     using Apworks.Specifications;
     using Apworks.Storage;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using CloudNotes.Domain.Model;
     using CloudNotes.ViewModels;
     using CloudNotes.WebAPI.Models.Exceptions;
     using CloudNotes.WebAPI.Models.Filters;
     using CloudNotes.WebAPI.Properties;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Http;
     using System.Web.Http.OData;
@@ -218,18 +218,18 @@ namespace CloudNotes.WebAPI.Controllers
         [EnableQuery]
         public IQueryable<NoteItemViewModel> GetNoteList()
         {
-            //return
-            //    this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID))
-            //        .Project()
-            //        .To<NoteItemViewModel>();
-            var notes =
-                this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID));
-            var list = new List<NoteItemViewModel>();
-            foreach (var note in notes)
-            {
-                list.Add(Mapper.Map<Note, NoteItemViewModel>(note));
-            }
-            return list.AsQueryable();
+            return
+                this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID))
+                    .Project()
+                    .To<NoteItemViewModel>();
+            //var notes =
+            //    this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID));
+            //var list = new List<NoteItemViewModel>();
+            //foreach (var note in notes)
+            //{
+            //    list.Add(Mapper.Map<Note, NoteItemViewModel>(note));
+            //}
+            //return list.AsQueryable();
         }
 
         #endregion

@@ -32,7 +32,13 @@ namespace CloudNotes.Domain.Repositories.EntityFramework
                 .IsRequired()
                 .IsUnicode();
             Property(x => x.Weather);
-            Property(x => x.Encrypted)
+            Property(x => x.Description)
+                .IsMaxLength()
+                .IsUnicode()
+                .IsOptional();
+            Property(x => x.ThumbnailBase64)
+                .IsMaxLength()
+                .IsUnicode()
                 .IsOptional();
         }
     }

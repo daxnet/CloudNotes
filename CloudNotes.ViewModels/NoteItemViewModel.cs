@@ -23,7 +23,7 @@ namespace CloudNotes.ViewModels
         /// shown in the note content. If there is no picture in the
         /// note, value of this property is null.
         /// </summary>
-        public string ImageData { get; set; }
+        public string ThumbnailBase64 { get; set; }
 
         public DateTime DatePublished { get; set; }
 

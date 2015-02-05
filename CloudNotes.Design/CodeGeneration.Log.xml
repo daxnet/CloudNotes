@@ -1,54 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 14.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
 <Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
   <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
   <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="High" Text="Code generation or text transformation started." />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Diagnostic" Text="Name = ClassTemplate" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Diagnostic" Text="ProjectPath = ..\CloudNotes.Domain\CloudNotes.Domain.csproj" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Diagnostic" Text="TargetDirectory = Model" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Diagnostic" Text="TemplateFilePath = .\Templates\ClassTemplate.t4" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Design\Templates\ClassTemplate.t4" />
-  <Message Timestamp="2014-12-13T10:37:08" Importance="Medium" Text="CloudNotes.Design's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class) " />
-  <Message Timestamp="2014-12-13T10:37:26" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\AggregateRootBase.cs" />
-  <Message Timestamp="2014-12-13T10:37:27" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Note.cs" />
-  <Message Timestamp="2014-12-13T10:37:27" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Role.cs" />
-  <Message Timestamp="2014-12-13T10:37:27" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Privilege.cs" />
-  <Message Timestamp="2014-12-13T10:37:27" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\User.cs" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Permission.cs" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\ClientPackage.cs" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="Name = EnumTemplate" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="ProjectPath = ..\CloudNotes.Domain\CloudNotes.Domain.csproj" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="TargetDirectory = Model" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="TemplateFilePath = .\Templates\EnumTemplate.t4" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Design\Templates\EnumTemplate.t4" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Medium" Text="CloudNotes.Design's Text Template Binding: 'EnumTemplate' will apply EnumTemplate.t4 to: 'CloudNotes.Design::CloudNotes.Domain.Model::Weather' -  (Enumeration), 'CloudNotes.Design::CloudNotes.Domain.Model::PermissionValue' -  (Enumeration), 'CloudNotes.Design::CloudNotes.Domain.Model::DeleteFlag' -  (Enumeration) " />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Weather' -  (Enumeration) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Weather.cs" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::PermissionValue' -  (Enumeration) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\PermissionValue.cs" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::DeleteFlag' -  (Enumeration) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\DeleteFlag.cs" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="Name = StructTemplate" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="ProjectPath = ..\CloudNotes.Domain\CloudNotes.Domain.csproj" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="TargetDirectory = Model" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="TemplateFilePath = .\Templates\StructTemplate.t4" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Design\Templates\StructTemplate.t4" />
-  <Message Timestamp="2014-12-13T10:37:28" Importance="Medium" Text="CloudNotes.Design's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class) " />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="The selection included 1 elements which were not bound to a template." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model' -  (Package): no bound template." />
-  <Message Timestamp="2014-12-13T10:37:29" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Diagnostic" Text="ProjectPath = ..\CloudNotes.Domain\CloudNotes.Domain.csproj" />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Diagnostic" Text="TargetDirectory = Model" />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Diagnostic" Text="TemplateFilePath = .\Templates\ClassTemplate.t4" />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Design\Templates\ClassTemplate.t4" />
+  <Message Timestamp="2015-02-05T21:07:56" Importance="Medium" Text="CloudNotes.Design's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class) " />
+  <Message Timestamp="2015-02-05T21:08:02" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\AggregateRootBase.cs" />
+  <Message Timestamp="2015-02-05T21:08:02" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Role.cs" />
+  <Message Timestamp="2015-02-05T21:08:02" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Privilege.cs" />
+  <Message Timestamp="2015-02-05T21:08:03" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\ClientPackage.cs" />
+  <Message Timestamp="2015-02-05T21:08:03" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\User.cs" />
+  <Message Timestamp="2015-02-05T21:08:03" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Note.cs" />
+  <Message Timestamp="2015-02-05T21:08:03" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Permission.cs" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="Name = EnumTemplate" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="ProjectPath = ..\CloudNotes.Domain\CloudNotes.Domain.csproj" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="TargetDirectory = Model" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="TemplateFilePath = .\Templates\EnumTemplate.t4" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Design\Templates\EnumTemplate.t4" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Medium" Text="CloudNotes.Design's Text Template Binding: 'EnumTemplate' will apply EnumTemplate.t4 to: 'CloudNotes.Design::CloudNotes.Domain.Model::DeleteFlag' -  (Enumeration), 'CloudNotes.Design::CloudNotes.Domain.Model::Weather' -  (Enumeration), 'CloudNotes.Design::CloudNotes.Domain.Model::PermissionValue' -  (Enumeration) " />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::DeleteFlag' -  (Enumeration) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\DeleteFlag.cs" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Weather' -  (Enumeration) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\Weather.cs" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Medium" Text="'CloudNotes.Design::CloudNotes.Domain.Model::PermissionValue' -  (Enumeration) : success (file replaced) - C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Domain\Model\PermissionValue.cs" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="ProjectPath = ..\CloudNotes.Domain\CloudNotes.Domain.csproj" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="TargetDirectory = Model" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="TemplateFilePath = .\Templates\StructTemplate.t4" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Users\Sunny\Documents\GitHub\CloudNotes\CloudNotes.Design\Templates\StructTemplate.t4" />
+  <Message Timestamp="2015-02-05T21:08:04" Importance="Medium" Text="CloudNotes.Design's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class), 'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class) " />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::AggregateRootBase' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Role' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Privilege' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::ClientPackage' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::User' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Note' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model::Permission' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="The selection included 1 elements which were not bound to a template." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="Diagnostic" Text="'CloudNotes.Design::CloudNotes.Domain.Model' -  (Package): no bound template." />
+  <Message Timestamp="2015-02-05T21:08:05" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
 </Log>
