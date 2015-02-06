@@ -22,6 +22,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Release History", "Release", "Home", new { area = "" }, null)</li>
                 </ul>
             </div>
         </div>
@@ -30,7 +31,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - CloudNotes</p>
+            <p>&copy; @DateTime.Now.Year - CloudNotes. Version: @typeof(CloudNotes.WebAPI.Controllers.WebApiController).Assembly.GetName().Version.ToString()</p>
         </footer>
     </div>
 

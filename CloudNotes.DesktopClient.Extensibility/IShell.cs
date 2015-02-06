@@ -29,6 +29,7 @@
 namespace CloudNotes.DesktopClient.Extensibility
 {
     using CloudNotes.DesktopClient.Extensibility.Data;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
@@ -67,5 +68,12 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// </summary>
         /// <value>The owner.</value>
         IWin32Window Owner { get; }
+        /// <summary>
+        /// Gets the title of all the existing notes for current user.
+        /// </summary>
+        /// <value>
+        /// The title of all the existing notes.
+        /// </value>
+        IEnumerable<string> ExistingNotesTitle { get; }
     }
 }

@@ -474,6 +474,12 @@ namespace CloudNotes.DesktopClient.Controls
             }
             base.Dispose(disposing);
         }
+
+        protected override void WndProc(ref Message m)
+        {
+
+            base.WndProc(ref m);
+        }
         #endregion
 
         #region Nested Classes

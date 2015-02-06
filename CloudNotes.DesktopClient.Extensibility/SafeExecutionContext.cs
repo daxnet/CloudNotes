@@ -29,6 +29,7 @@
 namespace CloudNotes.DesktopClient.Extensibility
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
@@ -63,7 +64,7 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
         }
 
-        public static async Task ExecuteAsync(Form form, Func<Task> body, Action initialize = null, Action cleanup = null)
+        public static async Task ExecuteAsync(Form form, Func<Task> body, Action initialize = null, Action cleanup = null, params Type[] rethrowExceptionTypes)
         {
             try
             {
@@ -76,6 +77,9 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
             catch (Exception exc)
             {
+                if (rethrowExceptionTypes != null &&
+                    rethrowExceptionTypes.Contains(exc.GetType()))
+                    throw;
                 FrmExceptionDialog.ShowException(exc);
             }
             finally

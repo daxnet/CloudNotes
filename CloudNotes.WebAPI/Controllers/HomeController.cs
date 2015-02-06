@@ -17,5 +17,10 @@ namespace CloudNotes.WebAPI.Controllers
 
             return View();
         }
+
+        public ActionResult Release()
+        {
+            return View();
+        }
     }
 }

@@ -333,6 +333,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Home\Release.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -45,6 +45,19 @@ namespace CloudNotes.Infrastructure
             return html;
         }
 
+        public static string ExtractTitle(string html)
+        {
+            Match m = Regex.Match(html, Constants.HtmlTitleFormatPattern);
+            if (m.Success)
+            {
+                return m.Groups[1].Value;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static async Task<string> ReplaceWebImagesAsync(string html, Action<int, int> reportProgress = null)
         {
             var matches = Regex.Matches(
@@ -140,7 +153,7 @@ namespace CloudNotes.Infrastructure
         /// <returns></returns>
         private static IEnumerable<string> GetImgSrcBase64FromHtml(string html)
         {
-            var matchesImgSrc = Regex.Matches(html, Constants.ImgSrcFormatPattern,
+            var matchesImgSrc = Regex.Matches(html, Constants.HtmlImgSrcFormatPattern,
                 RegexOptions.IgnoreCase | RegexOptions.Singleline);
             if (matchesImgSrc.Count == 0)
                 return null;

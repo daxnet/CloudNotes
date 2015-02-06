@@ -122,6 +122,9 @@
     <EmbeddedResource Include="ImportFromWeb\ImportFromWebDialog.resx">
       <DependentUpon>ImportFromWebDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ImportFromWeb\ImportFromWebDialog.zh-CN.resx">
+      <DependentUpon>ImportFromWebDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportFromWeb\ImportFromWebSettingControl.resx">
       <DependentUpon>ImportFromWebSettingControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -3,6 +3,7 @@
 namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
 {
     using CloudNotes.DesktopClient.Extensibility;
+    using CloudNotes.DesktopClient.Extensibility.Exceptions;
     using CloudNotes.DesktopClient.Extensions.Properties;
     using CloudNotes.Infrastructure;
     using System;
@@ -11,6 +12,7 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
     using System.Net;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Forms;
 
     [Extension("D3C4C8BB-38E0-4EEE-9263-C83F3F4C39E0", "ImportFromWeb", typeof(ImportFromWebSettingProvider))]
     public sealed class ImportFromWebExtension : ToolExtension
@@ -29,12 +31,12 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
                 {
                     await shell.ImportNote(new Extensibility.Data.Note
                         {
-                            Title = Guid.NewGuid().ToString(),
+                            Title = HtmlUtilities.ExtractTitle(dialog.HtmlContent),
                             Content = dialog.HtmlContent
                         });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FrmExceptionDialog.ShowException(ex);
             }

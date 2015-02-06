@@ -308,11 +308,6 @@ namespace CloudNotes.DesktopClient
             return null;
         }
 
-        private IEnumerable<string> GetExistingNoteTitles()
-        {
-            return this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text).Concat(this.trashNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text));
-        }
-
         private static TreeViewEx.TreeNodeExItem GetItem(TreeNode treeNode)
         {
             if (treeNode != null && treeNode.Tag != null)
@@ -559,7 +554,7 @@ namespace CloudNotes.DesktopClient
                 this,
                 async () =>
                 {
-                    var newNoteForm = new FrmNewNote(this.GetExistingNoteTitles());
+                    var newNoteForm = new FrmNewNote(this.ExistingNotesTitle);
                     if (newNoteForm.ShowDialog() == DialogResult.OK)
                     {
                         var title = newNoteForm.NoteTitle;
@@ -1118,22 +1113,31 @@ namespace CloudNotes.DesktopClient
 
         public async Task ImportNote(Note note)
         {
-            var existingNoteTitles = this.GetExistingNoteTitles();
-            if (existingNoteTitles.Contains(note.Title))
-            {
-                throw new NoteAlreadyExistsException(Resources.TitleExists);
-            }
+            await SafeExecutionContext.ExecuteAsync(this, async () =>
+                {
+                    var existingNoteTitles = this.ExistingNotesTitle;
+                    if (existingNoteTitles.Contains(note.Title))
+                    {
+                        throw new NoteAlreadyExistsException(Resources.TitleExists);
+                    }
 
-            var canceled = await this.SaveWorkspaceAsync();
-            if (!canceled)
-            {
-                this.ClearWorkspace();
-                note.Content = string.IsNullOrEmpty(note.Content) ? string.Empty : crypto.Encrypt(note.Content);
-                this.workspace = new Workspace(note);
-                this.workspace.PropertyChanged += this.workspace_PropertyChanged;
-                await this.SaveWorkspaceSlientlyAsync();
-                await this.LoadNotesAsync();
-            }
+                    var canceled = await this.SaveWorkspaceAsync();
+                    if (!canceled)
+                    {
+                        this.ClearWorkspace();
+                        note.Content = string.IsNullOrEmpty(note.Content) ? string.Empty : crypto.Encrypt(note.Content);
+                        this.workspace = new Workspace(note);
+                        this.workspace.PropertyChanged += this.workspace_PropertyChanged;
+                        await this.SaveWorkspaceSlientlyAsync();
+                        await this.LoadNotesAsync();
+                    }
+                }, 
+                () =>
+                    {
+                        this.slblStatus.Text = "Importing...";
+                        this.sp.Visible = true;
+                    },
+                () => this.sp.Visible = false);
         }
 
         public Note Note
@@ -1162,6 +1166,12 @@ namespace CloudNotes.DesktopClient
         public new IWin32Window Owner
         {
             get { return this; }
+        }
+
+
+        public IEnumerable<string> ExistingNotesTitle
+        {
+            get { return this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text).Concat(this.trashNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text)); }
         }
     }
 }
