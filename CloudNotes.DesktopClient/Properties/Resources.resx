@@ -322,4 +322,7 @@
   <data name="SaveAsSuccessful" xml:space="preserve">
     <value>The note has been saved successfully.</value>
   </data>
+  <data name="Importing" xml:space="preserve">
+    <value>Importing...</value>
+  </data>
 </root>

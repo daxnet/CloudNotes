@@ -54,7 +54,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <exception cref="CloudNotes.DesktopClient.Extensibility.Exceptions.NoteAlreadyExistsException">
         /// Throws when there is already a note that has the same title as the note being imported.
         /// </exception>
-        Task ImportNote(Note note);
+        Task ImportNote(Note note, bool rethrow = false);
         /// <summary>
         /// Gets the currently selected note in the shell.
         /// </summary>

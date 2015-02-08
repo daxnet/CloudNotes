@@ -29,6 +29,24 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
                 var dialog = new ImportFromWebDialog(setting);
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    var title = HtmlUtilities.ExtractTitle(dialog.HtmlContent);
+                    if (string.IsNullOrEmpty(title) || shell.ExistingNotesTitle.Contains(title))
+                    {
+                        var titleInputDialog = new TextInputBox(Resources.ImportFromWebInputTitlePrompt, title, 
+                            new Tuple<Func<string, bool>, string>[]
+                            {
+                                new Tuple<Func<string, bool>, string>(txt => string.IsNullOrEmpty(txt), Resources.ImportFromWebEmptyTitleErrorMsg),
+                                new Tuple<Func<string, bool>, string>(txt => shell.ExistingNotesTitle.Contains(txt), Resources.ImportFromWebDuplicatedTitleErrorMsg)
+                            });
+                        if (titleInputDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            title = titleInputDialog.InputText;
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
                     await shell.ImportNote(new Extensibility.Data.Note
                         {
                             Title = HtmlUtilities.ExtractTitle(dialog.HtmlContent),

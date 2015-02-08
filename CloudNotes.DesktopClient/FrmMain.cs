@@ -44,7 +44,6 @@ namespace CloudNotes.DesktopClient
     using System.IO;
     using System.Linq;
     using System.Text;
-    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using YARTE.Buttons;
@@ -1111,8 +1110,13 @@ namespace CloudNotes.DesktopClient
             }
         }
 
-        public async Task ImportNote(Note note)
+        public async Task ImportNote(Note note, bool rethrow = false)
         {
+            Type[] exceptionTypes = null;
+            if (rethrow)
+            {
+                exceptionTypes = new[] { typeof(NoteAlreadyExistsException) };
+            }
             await SafeExecutionContext.ExecuteAsync(this, async () =>
                 {
                     var existingNoteTitles = this.ExistingNotesTitle;
@@ -1131,13 +1135,13 @@ namespace CloudNotes.DesktopClient
                         await this.SaveWorkspaceSlientlyAsync();
                         await this.LoadNotesAsync();
                     }
-                }, 
+                },
                 () =>
-                    {
-                        this.slblStatus.Text = "Importing...";
-                        this.sp.Visible = true;
-                    },
-                () => this.sp.Visible = false);
+                {
+                    this.slblStatus.Text = Resources.Importing;
+                    this.sp.Visible = true;
+                },
+                () => this.sp.Visible = false, exceptionTypes);
         }
 
         public Note Note

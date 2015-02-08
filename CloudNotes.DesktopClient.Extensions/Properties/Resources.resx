@@ -132,6 +132,15 @@
   <data name="ImportFromWebDescription" xml:space="preserve">
     <value>Download the HTML web and import it as a new note.</value>
   </data>
+  <data name="ImportFromWebDuplicatedTitleErrorMsg" xml:space="preserve">
+    <value>The title is duplicated with the existing note.</value>
+  </data>
+  <data name="ImportFromWebEmptyTitleErrorMsg" xml:space="preserve">
+    <value>The title cannot be empty.</value>
+  </data>
+  <data name="ImportFromWebInputTitlePrompt" xml:space="preserve">
+    <value>The title extracted from the downloaded HTML is either duplicated with the existing one, or empty. Please specify another title for the importing note.</value>
+  </data>
   <data name="TextFileExporterDescription" xml:space="preserve">
     <value>Saves the note as a text file.</value>
   </data>

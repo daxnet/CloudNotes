@@ -322,4 +322,7 @@
   <data name="SaveAsSuccessful" xml:space="preserve">
     <value>所选笔记保存成功。</value>
   </data>
+  <data name="Importing" xml:space="preserve">
+    <value>正在导入...</value>
+  </data>
 </root>
