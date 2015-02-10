@@ -60,6 +60,7 @@
     <Compile Include="Buttons\BoldButton.cs" />
     <Compile Include="Buttons\ForecolorButton.cs" />
     <Compile Include="Buttons\IHTMLEditorButton.cs" />
+    <Compile Include="Buttons\InsertHtmlButton.cs" />
     <Compile Include="Buttons\InsertLinkedImageButton.cs" />
     <Compile Include="Buttons\ItalicButton.cs" />
     <Compile Include="Buttons\JustifyCenterButton.cs" />
@@ -320,6 +321,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_world.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

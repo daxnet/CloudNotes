@@ -39,7 +39,16 @@ namespace CloudNotes.DesktopClient.Extensibility
     /// </summary>
     public static class SafeExecutionContext
     {
-        public static void Execute(Form form, Action body, Action initialize = null, Action cleanup = null)
+        #region Public Static Methods
+        /// <summary>
+        /// Executes the action within a safe context.
+        /// </summary>
+        /// <param name="form">The form in which the action should be executed.</param>
+        /// <param name="body">The body of the action to be executed.</param>
+        /// <param name="initialize">The initializer action that will be invoked before the action body is executed.</param>
+        /// <param name="cleanup">The cleanup action that will be invoked after the action body has been executed.</param>
+        /// <param name="rethrowExceptionTypes">The <see cref="System.Exception"/> types that need to be rethrown to the upper level.</param>
+        public static void Execute(Form form, Action body, Action initialize = null, Action cleanup = null, params Type[] rethrowExceptionTypes)
         {
             try
             {
@@ -52,6 +61,9 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
             catch (Exception exc)
             {
+                if (rethrowExceptionTypes != null &&
+                    rethrowExceptionTypes.Contains(exc.GetType()))
+                    throw;
                 FrmExceptionDialog.ShowException(exc);
             }
             finally
@@ -64,6 +76,14 @@ namespace CloudNotes.DesktopClient.Extensibility
             }
         }
 
+        /// <summary>
+        /// Executes the action within a safe context asynchronously.
+        /// </summary>
+        /// <param name="form">The form in which the action should be executed.</param>
+        /// <param name="body">The body of the action to be executed.</param>
+        /// <param name="initialize">The initializer action that will be invoked before the action body is executed.</param>
+        /// <param name="cleanup">The cleanup action that will be invoked after the action body has been executed.</param>
+        /// <param name="rethrowExceptionTypes">The <see cref="System.Exception"/> types that need to be rethrown to the upper level.</param>
         public static async Task ExecuteAsync(Form form, Func<Task> body, Action initialize = null, Action cleanup = null, params Type[] rethrowExceptionTypes)
         {
             try
@@ -91,5 +111,6 @@ namespace CloudNotes.DesktopClient.Extensibility
                 form.Cursor = Cursors.Default;
             }
         }
+        #endregion
     }
 }

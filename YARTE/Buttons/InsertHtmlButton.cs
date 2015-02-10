@@ -26,56 +26,57 @@
 //  limitations under the License.
 //  =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensions.Exporters
+namespace YARTE.Buttons
 {
-    using System;
-    using System.Linq;
-    using System.Text;
-    using System.Windows.Forms;
-    using CloudNotes.DesktopClient.Extensibility;
+    using System.Drawing;
+    using mshtml;
+    using YARTE.Properties;
+    using YARTE.UI.Buttons;
 
-    /// <summary>
-    ///     Represents the option dialog for the Text File Export extension.
-    /// </summary>
-    public partial class TextFileExporterOptionDialog : Form, IExportOptionDialog
+    public class InsertHtmlButton : IHTMLEditorButton
     {
-        #region Ctor
+        private readonly string html;
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="TextFileExporterOptionDialog" /> class.
-        /// </summary>
-        public TextFileExporterOptionDialog()
+        public InsertHtmlButton(string html)
         {
-            InitializeComponent();
+            this.html = html;
         }
 
-        #endregion
+        #region IHTMLEditorButton Members
 
-        #region Public Properties
-
-        /// <summary>
-        ///     Gets the export options.
-        /// </summary>
-        /// <value>
-        ///     The export options.
-        /// </value>
-        public object Options
+        public void IconClicked(HTMLEditorButtonArgs doc)
         {
-            get { return cbEncoding.SelectedItem; }
+            // Use the DOM objects to manipulate the HTML document to insert HTML.
+            // 'insertHTML' command in execCommand interface is not supported.
+            IHTMLDocument2 d2 = doc.Document.DomDocument as IHTMLDocument2;
+            if (d2 != null)
+            {
+                var range = d2.selection.createRange() as IHTMLTxtRange;
+                if (range != null)
+                {
+                    range.pasteHTML(this.html);
+                }
+            }
         }
 
-        #endregion
-
-        #region Private Event Handlers
-
-        private void TextFileExporterOptionDialog_Load(object sender, EventArgs e)
+        public Image IconImage
         {
-            var encodingInforArray = Encoding.GetEncodings().OrderBy(p => p.DisplayName).ToList();
-            cbEncoding.Items.Clear();
-            cbEncoding.DisplayMember = "DisplayName";
-            cbEncoding.ValueMember = "Name";
-            cbEncoding.DataSource = encodingInforArray;
-            cbEncoding.SelectedItem = encodingInforArray.First(enc => enc.CodePage == Encoding.UTF8.CodePage);
+            get { return Resources.page_white_world; }
+        }
+
+        public string IconName
+        {
+            get { return "Insert html"; }
+        }
+
+        public string IconTooltip
+        {
+            get { return Resources.InsertHtmlToolTip; }
+        }
+
+        public string CommandIdentifier
+        {
+            get { return ""; }
         }
 
         #endregion

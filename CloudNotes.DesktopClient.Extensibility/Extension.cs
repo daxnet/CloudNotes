@@ -83,7 +83,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <value>
         /// The identifier of the extension.
         /// </value>
-        /// <exception cref="System.ExtensionException">The extension was not decorated with ExtensionAttribute attribute.</exception>
+        /// <exception cref="ExtensionException">The extension was not decorated with ExtensionAttribute attribute.</exception>
         public Guid ID
         {
             get
@@ -100,7 +100,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <value>
         /// The name of the extension.
         /// </value>
-        /// <exception cref="System.ExtensionException">The extension was not decorated with ExtensionAttribute attribute.</exception>
+        /// <exception cref="ExtensionException">The extension was not decorated with ExtensionAttribute attribute.</exception>
         public string Name
         {
             get

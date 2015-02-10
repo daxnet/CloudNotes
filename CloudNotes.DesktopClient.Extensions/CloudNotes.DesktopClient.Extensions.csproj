@@ -50,15 +50,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CustomSetting.cs" />
-    <Compile Include="CustomSettingControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomSettingControl.Designer.cs">
-      <DependentUpon>CustomSettingControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomSettingProvider.cs" />
-    <Compile Include="CustomToolExtension.cs" />
     <Compile Include="Exporters\HtmlExporter.cs" />
     <Compile Include="Exporters\TextFileExporter.cs" />
     <Compile Include="Exporters\TextFileExporterOptionDialog.cs">
@@ -110,9 +101,6 @@
     <None Include="CloudNotesKey.snk" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CustomSettingControl.resx">
-      <DependentUpon>CustomSettingControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Exporters\TextFileExporterOptionDialog.resx">
       <DependentUpon>TextFileExporterOptionDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,7 +128,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\world_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_world.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

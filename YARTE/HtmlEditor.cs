@@ -162,10 +162,10 @@ namespace YARTE.UI
             editcontrolsToolStrip.Items.Add(divider);
         }
 
-        public void ExecuteButtonFunction<T>()
+        public void ExecuteButtonFunction<T>(params object[] arguments)
             where T : IHTMLEditorButton
         {
-            var button = (IHTMLEditorButton)Activator.CreateInstance(typeof(T));
+            var button = (IHTMLEditorButton)Activator.CreateInstance(typeof(T), arguments);
             var args = new HTMLEditorButtonArgs { Document = this._doc, Editor = this };
             button.IconClicked(args);
         }

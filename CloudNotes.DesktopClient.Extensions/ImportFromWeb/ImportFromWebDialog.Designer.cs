@@ -36,6 +36,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.slblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,12 +91,21 @@
             this.errorProvider.SetIconPadding(this.progressBar, ((int)(resources.GetObject("progressBar.IconPadding"))));
             this.progressBar.Name = "progressBar";
             // 
+            // slblStatus
+            // 
+            resources.ApplyResources(this.slblStatus, "slblStatus");
+            this.errorProvider.SetError(this.slblStatus, resources.GetString("slblStatus.Error"));
+            this.errorProvider.SetIconAlignment(this.slblStatus, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("slblStatus.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.slblStatus, ((int)(resources.GetObject("slblStatus.IconPadding"))));
+            this.slblStatus.Name = "slblStatus";
+            // 
             // ImportFromWebDialog
             // 
             this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
+            this.Controls.Add(this.slblStatus);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -121,5 +131,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label slblStatus;
     }
 }

@@ -35,6 +35,7 @@ namespace CloudNotes.DesktopClient.Controls
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Drawing.Imaging;
+    using System.Runtime.InteropServices;
     using System.Windows.Forms;
 
     /// <summary>
@@ -47,6 +48,10 @@ namespace CloudNotes.DesktopClient.Controls
         private const int WM_PRINTCLIENT = 792;
 
         private const int PRF_CLIENT = 4;
+
+        private const int WM_HSCROLL = 0x114;
+
+        //private const int WM_MOUSEWHEEL = 0x20A;
         #endregion
 
         #region Private Fields
@@ -83,7 +88,7 @@ namespace CloudNotes.DesktopClient.Controls
             if (Environment.OSVersion.Version.Major < 6)
                 SetStyle(ControlStyles.UserPaint, true);
 
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
         }
         #endregion
 
@@ -322,7 +327,7 @@ namespace CloudNotes.DesktopClient.Controls
                 if (ShowPlusMinus && e.Node.Nodes.Count > 0)
                 {
                     // Use the VisualStyles renderer to use the proper OS-defined glyphs
-                    Rectangle expandRect = new Rectangle((e.Node.Level * this.Indent) + 1,
+                    Rectangle expandRect = new Rectangle(e.Bounds.X - 36, // + (e.Node.Level * this.Indent) + 1,
                         (e.Bounds.Top + e.Bounds.Bottom) / 2 - 7, 16, 16);
 
                     //VisualStyleElement element = (e.Node.IsExpanded)
@@ -338,7 +343,7 @@ namespace CloudNotes.DesktopClient.Controls
                 {
                     var imageList = e.Node.TreeView.ImageList;
                     var normalTextImageRegion = new Rectangle(
-                        (e.Node.Level * this.Indent) + 18,
+                        e.Bounds.X -20, // + (e.Node.Level * this.Indent) + 18,
                         e.Bounds.Y + ((this.itemHeight - imageList.ImageSize.Height)/2),
                         imageList.ImageSize.Width,
                         imageList.ImageSize.Height);
@@ -462,6 +467,18 @@ namespace CloudNotes.DesktopClient.Controls
             base.OnPaint(e);
         }
 
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            var scrollPos = this.GetTreeViewScrollPos();
+            if (scrollPos.X != 0 && scrollPos.Y == 0)
+            {
+                this.BeginUpdate();
+                this.Invalidate();
+                this.EndUpdate();
+            }
+            base.OnMouseWheel(e);
+        }
+
         /// <summary>
         /// Releases the unmanaged resources used by the <see cref="T:System.Windows.Forms.TreeView" /> and optionally releases the managed resources.
         /// </summary>
@@ -475,14 +492,34 @@ namespace CloudNotes.DesktopClient.Controls
             base.Dispose(disposing);
         }
 
+
         protected override void WndProc(ref Message m)
         {
-
+            if (m.Msg == WM_HSCROLL)
+            {
+                this.BeginUpdate();
+                this.Invalidate();
+                this.EndUpdate();
+            }
             base.WndProc(ref m);
         }
         #endregion
 
+        [DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+        public static extern int GetScrollPos(int hWnd, int nBar);
+
+        private const int SB_HORZ = 0x0;
+        private const int SB_VERT = 0x1;
+
+        private Point GetTreeViewScrollPos()
+        {
+            return new Point(
+                GetScrollPos((int)this.Handle, SB_HORZ),
+                GetScrollPos((int)this.Handle, SB_VERT));
+        }
+
         #region Nested Classes
+
         /// <summary>
         /// Represents the item that will be held by the node in the <see cref="TreeViewEx"/> control.
         /// </summary>

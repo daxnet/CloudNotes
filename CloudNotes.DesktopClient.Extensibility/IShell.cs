@@ -48,6 +48,9 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// Returns the <see cref="Task"/> object on which the note importing is being executed.
         /// </summary>
         /// <param name="note">The note that is going to be imported.</param>
+        /// <param name="rethrow">Specifies whether the exceptions related to the application should be thrown
+        /// to the upper level.
+        /// </param>
         /// <returns>
         /// The <see cref="Task"/> object which executes the importing of the specified <see cref="Note"/>.
         /// </returns>
@@ -75,5 +78,19 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// The title of all the existing notes.
         /// </value>
         IEnumerable<string> ExistingNotesTitle { get; }
+
+        /// <summary>
+        /// Inserts the HTML to the currently opened document.
+        /// </summary>
+        /// <param name="html">The HTML to be inserted.</param>
+        void InsertHtml(string html);
+
+        /// <summary>
+        /// Gets a <see cref="System.Boolean"/> value which indicating whether the current shell has an active document.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if the current shell has an active document; otherwise, <c>false</c>.
+        /// </value>
+        bool HasActiveDocument { get; }
     }
 }

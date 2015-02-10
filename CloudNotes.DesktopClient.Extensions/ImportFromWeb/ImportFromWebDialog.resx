@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>480, 102</value>
+    <value>480, 98</value>
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -131,6 +131,9 @@
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtLink.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;slblStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
@@ -160,7 +163,7 @@
     <value>3</value>
   </data>
   <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 23</value>
+    <value>278, 10</value>
   </data>
   <data name="&gt;&gt;txtLink.Name" xml:space="preserve">
     <value>txtLink</value>
@@ -168,11 +171,14 @@
   <data name="txtLink.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="slblStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
+  </data>
+  <data name="&gt;&gt;txtLink.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="progressBar.Error" xml:space="preserve">
     <value />
@@ -186,6 +192,9 @@
   <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;slblStatus.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="lblLink.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -195,20 +204,26 @@
   <data name="txtLink.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="slblStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="&gt;&gt;txtLink.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 66</value>
+    <value>16, 79</value>
   </data>
   <data name="txtLink.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="slblStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;progressBar.Parent" xml:space="preserve">
     <value>$this</value>
@@ -217,13 +232,13 @@
     <value>Top, Right</value>
   </data>
   <data name="lblLink.Text" xml:space="preserve">
-    <value>Link:</value>
+    <value>Please input the web page address:</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
-    <value>progressBar</value>
+  <data name="btnCancel.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;txtLink.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -240,6 +255,12 @@
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>381, 66</value>
   </data>
+  <data name="&gt;&gt;btnOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="slblStatus.Error" xml:space="preserve">
+    <value />
+  </data>
   <data name="lblLink.Error" xml:space="preserve">
     <value />
   </data>
@@ -249,11 +270,20 @@
   <data name="lblLink.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="slblStatus.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="lblLink.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;slblStatus.Name" xml:space="preserve">
+    <value>slblStatus</value>
+  </data>
+  <data name="&gt;&gt;slblStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnOK.Text" xml:space="preserve">
     <value>&amp;OK</value>
@@ -261,23 +291,26 @@
   <data name="progressBar.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Import Note from Web</value>
+  <data name="slblStatus.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="progressBar.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="&gt;&gt;txtLink.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="slblStatus.Text" xml:space="preserve">
+    <value>slblStatus</value>
   </data>
-  <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="lblLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 18</value>
+  </data>
+  <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
+    <value>progressBar</value>
   </data>
   <data name="&gt;&gt;lblLink.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnOK.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="txtLink.Size" type="System.Drawing.Size, System.Drawing">
     <value>441, 23</value>
@@ -285,14 +318,17 @@
   <data name="btnCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
-  <data name="btnCancel.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Import Note from Web</value>
+  </data>
+  <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="lblLink.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 18</value>
+  <data name="slblStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 61</value>
   </data>
   <data name="&gt;&gt;lblLink.Parent" xml:space="preserve">
     <value>$this</value>
@@ -304,7 +340,7 @@
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 15</value>
+    <value>191, 15</value>
   </data>
   <data name="txtLink.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 36</value>
@@ -316,7 +352,7 @@
     <value>0</value>
   </data>
   <data name="&gt;&gt;lblLink.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -325,4 +325,7 @@
   <data name="Importing" xml:space="preserve">
     <value>正在导入...</value>
   </data>
+  <data name="NewNotePrompt" xml:space="preserve">
+    <value>请输入新笔记的标题。</value>
+  </data>
 </root>

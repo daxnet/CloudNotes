@@ -553,10 +553,14 @@ namespace CloudNotes.DesktopClient
                 this,
                 async () =>
                 {
-                    var newNoteForm = new FrmNewNote(this.ExistingNotesTitle);
+                    var newNoteForm = new TextInputBox(Resources.NewNotePrompt, new Tuple<Func<string, bool>, string>[]
+                        {
+                            new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
+                            new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains, Resources.TitleExists)
+                        });
                     if (newNoteForm.ShowDialog() == DialogResult.OK)
                     {
-                        var title = newNoteForm.NoteTitle;
+                        var title = newNoteForm.InputText;
                         var note =
                             new Note
                             {
@@ -1148,10 +1152,10 @@ namespace CloudNotes.DesktopClient
         {
             get
             {
-                if (this.workspace == null)
+                if (!this.HasActiveDocument)
+                {
                     return null;
-                if (this.htmlEditor.Enabled == false)
-                    return null;
+                }
 
                 var content = this.htmlEditor.Html;
                 return new Note
@@ -1176,6 +1180,18 @@ namespace CloudNotes.DesktopClient
         public IEnumerable<string> ExistingNotesTitle
         {
             get { return this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text).Concat(this.trashNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text)); }
+        }
+
+
+        public void InsertHtml(string html)
+        {
+            this.htmlEditor.ExecuteButtonFunction<InsertHtmlButton>(html);
+        }
+
+
+        public bool HasActiveDocument
+        {
+            get { return this.workspace != null && this.htmlEditor.Enabled; }
         }
     }
 }
