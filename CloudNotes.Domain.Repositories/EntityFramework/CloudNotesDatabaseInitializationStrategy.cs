@@ -150,9 +150,9 @@ namespace CloudNotes.Domain.Repositories.EntityFramework
             var proxyUser = new User
             {
                 DateRegistered = DateTime.UtcNow,
-                UserName = Constants.ProxyUserName,
-                Email = Constants.ProxyUserEmail,
-                Password = Crypto.ComputeHash(Constants.ProxyUserPassword, Constants.ProxyUserName),
+                UserName = Crypto.ProxyUserName,
+                Email = Crypto.ProxyUserEmail,
+                Password = Crypto.ComputeHash(Crypto.ProxyUserPassword, Crypto.ProxyUserName),
                 Locked = true,
                 Roles = new List<Role> {accountManagerRole, packageManagerRole}
             };

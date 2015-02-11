@@ -33,25 +33,6 @@ namespace CloudNotes.Infrastructure
     /// </summary>
     public static class Constants
     {
-        #region Constants for Infrastructure
-
-        /// <summary>
-        ///     The User Name of the Proxy account.
-        /// </summary>
-        public const string ProxyUserName = "proxy";
-
-        /// <summary>
-        ///     The Password of the Proxy account.
-        /// </summary>
-        public const string ProxyUserPassword = "proxy";
-
-        /// <summary>
-        ///     The Email Address of the Administrator account.
-        /// </summary>
-        public const string ProxyUserEmail = "proxy@cloudnotes.com";
-
-        #endregion
-
         #region Constants for Application
 
         /// <summary>

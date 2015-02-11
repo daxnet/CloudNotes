@@ -102,8 +102,8 @@ namespace CloudNotes.DesktopClient
                         new ServiceProxy(
                             new ClientCredential
                             {
-                                UserName = Constants.ProxyUserName,
-                                Password = Constants.ProxyUserPassword,
+                                UserName = Crypto.ProxyUserName,
+                                Password = Crypto.ProxyUserPassword,
                                 ServerUri = txtServer.Text.Trim()
                             }))
                 {
