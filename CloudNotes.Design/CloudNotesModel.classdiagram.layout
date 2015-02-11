@@ -90,7 +90,7 @@
         <classShapeMoniker Id="dc10c636-748b-49f4-ad33-cf0bd232125b" />
       </nodes>
     </generalizationConnector>
-    <associationConnector edgePoints="[(5.75 : 4.99430842230717); (5 : 4.99430842230717)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="*">
+    <associationConnector edgePoints="[(5.75 : 4.99430842230717); (5 : 4.99430842230717)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="*">
       <associationMoniker Id="d76c471f-162f-46e4-93b7-d3cb5f2b2e43" />
       <relativeChildShapes />
       <nodes>
@@ -114,7 +114,7 @@
         <classShapeMoniker Id="dc10c636-748b-49f4-ad33-cf0bd232125b" />
       </nodes>
     </generalizationConnector>
-    <generalizationConnector edgePoints="[(8 : 6.69484307001619); (0.635416666666667 : 6.69484307001619); (0.635416666666667 : 2.10919315070264); (1.625 : 2.10919315070264)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110">
+    <generalizationConnector edgePoints="[(8 : 6.87415994080337); (0.635416666666667 : 6.87415994080337); (0.635416666666667 : 2.10919315070264); (1.625 : 2.10919315070264)]" manuallyRouted="true" fixedFrom="Caller" fixedTo="Algorithm" customColor="113, 111, 110">
       <generalizationMoniker Id="ad6559e2-6f0a-46a7-81d2-988ee508c0f9" />
       <relativeChildShapes />
       <nodes>
