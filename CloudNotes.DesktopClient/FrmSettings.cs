@@ -112,12 +112,12 @@ namespace CloudNotes.DesktopClient
                 if (grpToolExtension.Items.Count > 0)
                 {
                     grpToolExtension.Items[0].Selected = true;
-                    this.BindExtension((Guid)grpToolExtension.Items[0].Tag);
+                    this.BindExtension((Guid) grpToolExtension.Items[0].Tag);
                 }
                 else if (grpExportExtension.Items.Count > 0)
                 {
                     grpExportExtension.Items[0].Selected = true;
-                    this.BindExtension((Guid)grpExportExtension.Items[0].Tag);
+                    this.BindExtension((Guid) grpExportExtension.Items[0].Tag);
                 }
             }
             else

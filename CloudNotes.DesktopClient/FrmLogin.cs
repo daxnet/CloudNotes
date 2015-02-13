@@ -1,4 +1,32 @@
-﻿namespace CloudNotes.DesktopClient
+﻿//  =======================================================================================================
+// 
+//     ,uEZGZX  LG                             Eu       iJ       vi                                              
+//    BB7.  .:  uM                             8F       0BN      Bq             S:                               
+//   @X         LO    rJLYi    :     i    iYLL XJ       Xu7@     Mu    7LjL;   rBOii   7LJ7    .vYUi             
+//  ,@          LG  7Br...SB  vB     B   B1...7BL       0S i@,   OU  :@7. ,u@   @u.. :@:  ;B  LB. ::             
+//  v@          LO  B      Z0 i@     @  BU     @Y       qq  .@L  Oj  @      5@  Oi   @.    MB U@                 
+//  .@          JZ :@      :@ rB     B  @      5U       Eq    @0 Xj ,B      .B  Br  ,B:rv777i  :0ZU              
+//   @M         LO  @      Mk :@    .@  BL     @J       EZ     GZML  @      XM  B;   @            Y@             
+//    ZBFi::vu  1B  ;B7..:qO   BS..iGB   BJ..:vB2       BM      rBj  :@7,.:5B   qM.. i@r..i5. ir. UB             
+//      iuU1vi   ,    ;LLv,     iYvi ,    ;LLr  .       .,       .     rvY7:     rLi   7LLr,  ,uvv:  
+// 
+// 
+//  Copyright 2014-2015 daxnet
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//      http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//  =======================================================================================================
+
+namespace CloudNotes.DesktopClient
 {
     using System;
     using System.Linq;
@@ -6,13 +34,12 @@
     using System.Net.Http;
     using System.Text;
     using System.Windows.Forms;
-    using DESecurity;
-    using Extensibility;
+    using CloudNotes.DesktopClient.Extensibility;
+    using CloudNotes.DesktopClient.Profiles;
+    using CloudNotes.DesktopClient.Properties;
+    using CloudNotes.DesktopClient.Settings;
+    using CloudNotes.DESecurity;
     using Newtonsoft.Json;
-    using Profiles;
-    using Properties;
-    using Settings;
-using System.Threading.Tasks;
 
     public partial class FrmLogin : Form
     {
@@ -21,8 +48,6 @@ using System.Threading.Tasks;
         private readonly string fileName;
 
         private readonly DesktopClientSettings settings;
-
-        private ClientCredential credential;
 
         private readonly Crypto crypto = Crypto.CreateDefaultCrypto();
 
@@ -41,13 +66,7 @@ using System.Threading.Tasks;
             this.settings = settings;
         }
 
-        public ClientCredential Credential
-        {
-            get
-            {
-                return credential;
-            }
-        }
+        public ClientCredential Credential { get; private set; }
 
         private void BindUserProfile(UserProfile userProfile)
         {
@@ -76,7 +95,10 @@ using System.Threading.Tasks;
                 {
                     profile.UserProfiles.Remove(delUserProfile);
                     var selectedUserProfile = profile.UserProfiles.FirstOrDefault();
-                    if (selectedUserProfile != null) selectedUserProfile.IsSelected = true;
+                    if (selectedUserProfile != null)
+                    {
+                        selectedUserProfile.IsSelected = true;
+                    }
                     Profile.Save(fileName, profile);
                     this.RefreshUserProfileList();
                 }
@@ -88,7 +110,6 @@ using System.Threading.Tasks;
             this.RefreshUserProfileList();
 
             this.RefreshServerProfileList();
-
         }
 
         private void RefreshServerProfileList()
@@ -155,7 +176,7 @@ using System.Threading.Tasks;
                 return;
             }
 
-            credential = new ClientCredential
+            Credential = new ClientCredential
             {
                 Password = txtPassword.Text,
                 ServerUri = cbServer.Text.Trim(),
@@ -164,18 +185,18 @@ using System.Threading.Tasks;
 
             // reset the IsSelected property for users
             profile.UserProfiles.ForEach(up => up.IsSelected = false);
-            var userProfile = profile.UserProfiles.FirstOrDefault(p => p.UserName == credential.UserName);
-            var encryptedPassword = crypto.Encrypt(credential.Password);
-            if (userProfile==null)
+            var userProfile = profile.UserProfiles.FirstOrDefault(p => p.UserName == Credential.UserName);
+            var encryptedPassword = crypto.Encrypt(Credential.Password);
+            if (userProfile == null)
             {
                 userProfile = new UserProfile
-                                  {
-                                      AutoLogin = chkAutomaticLogin.Checked,
-                                      IsSelected = true,
-                                      Password = encryptedPassword,
-                                      RememberPassword = chkRememberPassword.Checked,
-                                      UserName = credential.UserName
-                                  };
+                {
+                    AutoLogin = chkAutomaticLogin.Checked,
+                    IsSelected = true,
+                    Password = encryptedPassword,
+                    RememberPassword = chkRememberPassword.Checked,
+                    UserName = Credential.UserName
+                };
                 profile.UserProfiles.Add(userProfile);
             }
             else
@@ -184,14 +205,14 @@ using System.Threading.Tasks;
                 userProfile.IsSelected = true;
                 userProfile.Password = encryptedPassword;
                 userProfile.RememberPassword = chkRememberPassword.Checked;
-                userProfile.UserName = credential.UserName;
+                userProfile.UserName = Credential.UserName;
             }
             // reset the IsSelected property for servers
             profile.ServerProfiles.ForEach(sp => sp.IsSelected = false);
-            var serverProfile = profile.ServerProfiles.FirstOrDefault(p => p.Uri == credential.ServerUri);
+            var serverProfile = profile.ServerProfiles.FirstOrDefault(p => p.Uri == Credential.ServerUri);
             if (serverProfile == null)
             {
-                serverProfile = new ServerProfile(credential.ServerUri) { IsSelected = true };
+                serverProfile = new ServerProfile(Credential.ServerUri) {IsSelected = true};
                 profile.ServerProfiles.Add(serverProfile);
             }
             else
@@ -207,16 +228,19 @@ using System.Threading.Tasks;
                 cbServer.Enabled = false;
                 btnOK.Enabled = false;
                 this.Cursor = Cursors.WaitCursor;
-                using (var proxy = new ServiceProxy(credential))
+                using (var proxy = new ServiceProxy(Credential))
                 {
                     var result =
                         proxy.PostAsJsonAsync(
                             "api/users/authenticate",
                             new
-                                {
-                                    credential.UserName,
-                                    EncodedPassword = Convert.ToBase64String(Encoding.ASCII.GetBytes(Crypto.ComputeHash(credential.Password, credential.UserName)))
-                                }).Result;
+                            {
+                                Credential.UserName,
+                                EncodedPassword =
+                                    Convert.ToBase64String(
+                                        Encoding.ASCII.GetBytes(Crypto.ComputeHash(Credential.Password,
+                                            Credential.UserName)))
+                            }).Result;
                     switch (result.StatusCode)
                     {
                         case HttpStatusCode.OK:

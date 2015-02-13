@@ -1,41 +1,33 @@
-﻿// =======================================================================================================
-//
-//    ,uEZGZX  LG                             Eu       iJ       vi                                              
-//   BB7.  .:  uM                             8F       0BN      Bq             S:                               
-//  @X         LO    rJLYi    :     i    iYLL XJ       Xu7@     Mu    7LjL;   rBOii   7LJ7    .vYUi             
-// ,@          LG  7Br...SB  vB     B   B1...7BL       0S i@,   OU  :@7. ,u@   @u.. :@:  ;B  LB. ::             
-// v@          LO  B      Z0 i@     @  BU     @Y       qq  .@L  Oj  @      5@  Oi   @.    MB U@                 
-// .@          JZ :@      :@ rB     B  @      5U       Eq    @0 Xj ,B      .B  Br  ,B:rv777i  :0ZU              
-//  @M         LO  @      Mk :@    .@  BL     @J       EZ     GZML  @      XM  B;   @            Y@             
-//   ZBFi::vu  1B  ;B7..:qO   BS..iGB   BJ..:vB2       BM      rBj  :@7,.:5B   qM.. i@r..i5. ir. UB             
-//     iuU1vi   ,    ;LLv,     iYvi ,    ;LLr  .       .,       .     rvY7:     rLi   7LLr,  ,uvv:  
-//
-//
-// Copyright 2014-2015 daxnet
+﻿//  =======================================================================================================
 // 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+//     ,uEZGZX  LG                             Eu       iJ       vi                                              
+//    BB7.  .:  uM                             8F       0BN      Bq             S:                               
+//   @X         LO    rJLYi    :     i    iYLL XJ       Xu7@     Mu    7LjL;   rBOii   7LJ7    .vYUi             
+//  ,@          LG  7Br...SB  vB     B   B1...7BL       0S i@,   OU  :@7. ,u@   @u.. :@:  ;B  LB. ::             
+//  v@          LO  B      Z0 i@     @  BU     @Y       qq  .@L  Oj  @      5@  Oi   @.    MB U@                 
+//  .@          JZ :@      :@ rB     B  @      5U       Eq    @0 Xj ,B      .B  Br  ,B:rv777i  :0ZU              
+//   @M         LO  @      Mk :@    .@  BL     @J       EZ     GZML  @      XM  B;   @            Y@             
+//    ZBFi::vu  1B  ;B7..:qO   BS..iGB   BJ..:vB2       BM      rBj  :@7,.:5B   qM.. i@r..i5. ir. UB             
+//      iuU1vi   ,    ;LLv,     iYvi ,    ;LLr  .       .,       .     rvY7:     rLi   7LLr,  ,uvv:  
 // 
-//     http://www.apache.org/licenses/LICENSE-2.0
 // 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-// =======================================================================================================
+//  Copyright 2014-2015 daxnet
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//      http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//  =======================================================================================================
 
 namespace CloudNotes.DesktopClient
 {
-    using CloudNotes.DesktopClient.Extensibility.Exceptions;
-    using Controls;
-    using DESecurity;
-    using Extensibility;
-    using Extensibility.Data;
-    using Infrastructure;
-    using Properties;
-    using Settings;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -46,11 +38,19 @@ namespace CloudNotes.DesktopClient
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
+    using CloudNotes.DesktopClient.Controls;
+    using CloudNotes.DesktopClient.Extensibility;
+    using CloudNotes.DesktopClient.Extensibility.Data;
+    using CloudNotes.DesktopClient.Extensibility.Exceptions;
+    using CloudNotes.DesktopClient.Properties;
+    using CloudNotes.DesktopClient.Settings;
+    using CloudNotes.DESecurity;
+    using CloudNotes.Infrastructure;
     using YARTE.Buttons;
     using YARTE.UI.Buttons;
 
     /// <summary>
-    /// Represents the main form for CloudNotes desktop client.
+    ///     Represents the main form for CloudNotes desktop client.
     /// </summary>
     public sealed partial class FrmMain : Form, IShell
     {
@@ -97,12 +97,8 @@ namespace CloudNotes.DesktopClient
             this.notesNode = this.tvNotes.Nodes.Add("NotesRoot", Resources.NotesNodeTitle, 0, 0);
             this.trashNode = this.tvNotes.Nodes.Add("TrashRoot", Resources.TrashNodeTitle, 1, 1);
 
-            Application.Idle += (s, e) =>
-            {
-                this.slblStatus.Text = Resources.Ready;
-            };
+            Application.Idle += (s, e) => { this.slblStatus.Text = Resources.Ready; };
         }
-
 
         #region Private Methods
 
@@ -128,11 +124,11 @@ namespace CloudNotes.DesktopClient
         private void InitializeExtensions()
         {
             Func<ToolStripMenuItem> createExtensionsToolMenuItem = () =>
-                {
-                    var extensionsTool = (ToolStripMenuItem)mnuTools.DropDownItems.Add(Resources.ExtensionsMenuItemName);
-                    extensionsTool.Image = Resources.plugin;
-                    return extensionsTool;
-                };
+            {
+                var extensionsTool = (ToolStripMenuItem) mnuTools.DropDownItems.Add(Resources.ExtensionsMenuItemName);
+                extensionsTool.Image = Resources.plugin;
+                return extensionsTool;
+            };
 
             // Initialize tool extensions
             var toolExtensions = this.extensionManager.ToolExtensions.ToList();
@@ -163,19 +159,17 @@ namespace CloudNotes.DesktopClient
                 {
                     parentTool = mnuTools;
                 }
-                
-                foreach(var toolExtension in toolExtensions)
+
+                foreach (var toolExtension in toolExtensions)
                 {
-                    var extensionToolStrip = (ToolStripMenuItem)parentTool.DropDownItems.Add(toolExtension.ToolName);
+                    var extensionToolStrip = (ToolStripMenuItem) parentTool.DropDownItems.Add(toolExtension.ToolName);
                     extensionToolStrip.Image = toolExtension.ToolIcon;
                     extensionToolStrip.ToolTipText = toolExtension.ToolTip;
                     extensionToolStrip.ShowShortcutKeys = true;
-                    extensionToolStrip.ShortcutKeys = (Keys)toolExtension.Shortcut;
+                    extensionToolStrip.ShortcutKeys = (Keys) toolExtension.Shortcut;
                     extensionToolStrip.Tag = toolExtension.ID;
-                    extensionToolStrip.Click += (s, e) =>
-                    {
-                        SafeExecutionContext.Execute(this, () => toolExtension.Execute(this));
-                    };
+                    extensionToolStrip.Click +=
+                        (s, e) => { SafeExecutionContext.Execute(this, () => toolExtension.Execute(this)); };
                 }
             }
 
@@ -188,56 +182,59 @@ namespace CloudNotes.DesktopClient
                 this.mnuSaveAs = new ToolStripMenuItem(Resources.SaveAsMenuText);
                 this.mnuSaveAs.ShortcutKeys = Keys.Control | Keys.Alt | Keys.S;
                 this.mnuSaveAs.Click += (s, e) =>
+                {
+                    SafeExecutionContext.Execute(this, () =>
                     {
-                        SafeExecutionContext.Execute(this, () =>
+                        var exportExtensionArray = this.extensionManager.ExportExtensions.ToArray();
+                        var filters = new StringBuilder();
+                        for (var i = 0; i < exportExtensionArray.Length; i++)
+                        {
+                            filters.AppendFormat("{0}|{1}|", exportExtensionArray[i].FileExtensionDescription,
+                                exportExtensionArray[i].FileExtension);
+                        }
+                        var saveFileDialog = new SaveFileDialog()
+                        {
+                            Title = Resources.SaveAsDialogTitle,
+                            AddExtension = true,
+                            FileName = this.Note == null ? string.Empty : this.Note.Title,
+                            Filter = filters.ToString().Trim('|'),
+                            OverwritePrompt = true,
+                            InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                        };
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            var exportExtension = exportExtensionArray[saveFileDialog.FilterIndex - 1];
+                            exportExtension.SetFileName(saveFileDialog.FileName);
+                            try
                             {
-                                var exportExtensionArray = this.extensionManager.ExportExtensions.ToArray();
-                                var filters = new StringBuilder();
-                                for (var i=0;i<exportExtensionArray.Length;i++)
-                                {
-                                    filters.AppendFormat("{0}|{1}|", exportExtensionArray[i].FileExtensionDescription, exportExtensionArray[i].FileExtension);
-                                }
-                                var saveFileDialog = new SaveFileDialog()
-                                {
-                                    Title = Resources.SaveAsDialogTitle,
-                                    AddExtension = true,
-                                    FileName = this.Note == null ? string.Empty : this.Note.Title,
-                                    Filter = filters.ToString().Trim('|'),
-                                    OverwritePrompt = true,
-                                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-                                };
-                                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                                {
-                                    var exportExtension = exportExtensionArray[saveFileDialog.FilterIndex - 1];
-                                    exportExtension.SetFileName(saveFileDialog.FileName);
-                                    try
-                                    {
-                                        exportExtension.Execute(this);
-                                        MessageBox.Show(Resources.SaveAsSuccessful, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                    catch(ExportCancelledException)
-                                    {
-                                        MessageBox.Show(Resources.SaveAsCancelled, Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    }
-                                }
-                            });
-                    };
+                                exportExtension.Execute(this);
+                                MessageBox.Show(Resources.SaveAsSuccessful, Text, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                            }
+                            catch (ExportCancelledException)
+                            {
+                                MessageBox.Show(Resources.SaveAsCancelled, Text, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                            }
+                        }
+                    });
+                };
                 this.mnuFile.DropDownItems.Insert(++idx, mnuSaveAs);
             }
         }
 
         /// <summary>
-        /// Creates the Data Access Proxy for use by the Desktop Client.
+        ///     Creates the Data Access Proxy for use by the Desktop Client.
         /// </summary>
-        /// <returns>The <see cref="DataAccessProxy"/> instance.</returns>
+        /// <returns>The <see cref="DataAccessProxy" /> instance.</returns>
         private DataAccessProxy CreateDataAccessProxy()
         {
             return new WebApiDataAccessProxy(this.credential);
         }
 
         /// <summary>
-        /// Corrects the current node selection in the notes tree view, before the current node is going
-        /// to be removed.
+        ///     Corrects the current node selection in the notes tree view, before the current node is going
+        ///     to be removed.
         /// </summary>
         /// <param name="currentNode">The current node that is going to be removed.</param>
         private async Task CorrectNodeSelectionAsync(TreeNode currentNode)
@@ -254,7 +251,7 @@ namespace CloudNotes.DesktopClient
                 this.htmlEditor.Enabled = false;
                 this.htmlEditor.Html = string.Empty;
                 this.mnuPrint.Enabled = false;
-                if (this.mnuSaveAs!=null)
+                if (this.mnuSaveAs != null)
                 {
                     this.mnuSaveAs.Enabled = false;
                 }
@@ -285,7 +282,6 @@ namespace CloudNotes.DesktopClient
 
         private void UpdateSettings()
         {
-
         }
 
         private TreeNode FindNoteNode(Guid noteId)
@@ -312,23 +308,32 @@ namespace CloudNotes.DesktopClient
             if (treeNode != null && treeNode.Tag != null)
             {
                 var item = treeNode.Tag as TreeViewEx.TreeNodeExItem;
-                if (item != null) return item;
+                if (item != null)
+                {
+                    return item;
+                }
             }
             throw new InvalidOperationException();
         }
 
         /// <summary>
-        /// Determines whether the note data contained within the specified tree node has already
-        /// been marked as deleted.
+        ///     Determines whether the note data contained within the specified tree node has already
+        ///     been marked as deleted.
         /// </summary>
         /// <param name="node">The tree node that contains the note data.</param>
         /// <returns>True if the note was marked as deleted. Otherwise false.</returns>
         private static bool IsMarkedAsDeletedNoteNode(TreeNode node)
         {
-            if (node.Tag == null) return false;
+            if (node.Tag == null)
+            {
+                return false;
+            }
             var note = GetItem(node).Data;
-            if (note == null || note.DeletedFlag == null) return false;
-            return (int)note.DeletedFlag == (int)DeleteFlag.MarkDeleted;
+            if (note == null || note.DeletedFlag == null)
+            {
+                return false;
+            }
+            return (int) note.DeletedFlag == (int) DeleteFlag.MarkDeleted;
         }
 
         private async Task LoadNotesAsync()
@@ -337,7 +342,7 @@ namespace CloudNotes.DesktopClient
             this.lblDatePublished.Text = string.Empty;
             this.htmlEditor.Html = string.Empty;
             this.htmlEditor.Enabled = false;
-            if (this.mnuSaveAs!=null)
+            if (this.mnuSaveAs != null)
             {
                 this.mnuSaveAs.Enabled = false;
             }
@@ -402,7 +407,6 @@ namespace CloudNotes.DesktopClient
             {
                 this.ClearWorkspace();
             }
-
         }
 
         private void ClearWorkspace()
@@ -445,7 +449,7 @@ namespace CloudNotes.DesktopClient
             var currentNoteDescription = string.Empty;
             Image currentNoteThumbnailImage = null;
 
-            string currentNoteContent = this.crypto.Encrypt("<p />");
+            var currentNoteContent = this.crypto.Encrypt("<p />");
             if (!string.IsNullOrEmpty(this.workspace.Content))
             {
                 var content = HtmlUtilities.ReplaceFileSystemImages(this.workspace.Content);
@@ -537,7 +541,10 @@ namespace CloudNotes.DesktopClient
                         p =>
                         {
                             var note = GetItem(p).Data;
-                            if (this.workspace.ID == note.ID) this.tvNotes.SelectedNode = p;
+                            if (this.workspace.ID == note.ID)
+                            {
+                                this.tvNotes.SelectedNode = p;
+                            }
                         });
                 }
             }
@@ -554,10 +561,10 @@ namespace CloudNotes.DesktopClient
                 async () =>
                 {
                     var newNoteForm = new TextInputBox(Resources.NewNotePrompt, new Tuple<Func<string, bool>, string>[]
-                        {
-                            new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
-                            new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains, Resources.TitleExists)
-                        });
+                    {
+                        new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
+                        new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains, Resources.TitleExists)
+                    });
                     if (newNoteForm.ShowDialog() == DialogResult.OK)
                     {
                         var title = newNoteForm.InputText;
@@ -623,7 +630,7 @@ namespace CloudNotes.DesktopClient
 
                         this.tvNotes.AddItem(this.trashNode.Nodes, item);
 
-                        note.DeletedFlag = (int)DeleteFlag.MarkDeleted;
+                        note.DeletedFlag = (int) DeleteFlag.MarkDeleted;
 
                         this.ResortNodes(this.trashNode);
                         if (this.trashNode.Nodes.Count > 0)
@@ -779,7 +786,7 @@ namespace CloudNotes.DesktopClient
                 this,
                 async () =>
                 {
-                    bool canceled = false;
+                    var canceled = false;
                     var localCredential = LoginProvider.Login(delegate { canceled = true; }, this.settings, true);
                     if (!canceled && localCredential != null)
                     {
@@ -841,8 +848,14 @@ namespace CloudNotes.DesktopClient
             var treeNode = this.tvNotes.SelectedNode;
             if (treeNode != null)
             {
-                if (IsMarkedAsDeletedNoteNode(treeNode)) await this.DoDeleteAsync();
-                else await this.DoMarkDeleteAsync();
+                if (IsMarkedAsDeletedNoteNode(treeNode))
+                {
+                    await this.DoDeleteAsync();
+                }
+                else
+                {
+                    await this.DoMarkDeleteAsync();
+                }
             }
         }
 
@@ -933,7 +946,7 @@ namespace CloudNotes.DesktopClient
                     this.lblDatePublished.Text = string.Empty;
                     this.htmlEditor.Html = string.Empty;
                     this.htmlEditor.Enabled = false;
-                    if (this.mnuSaveAs!=null)
+                    if (this.mnuSaveAs != null)
                     {
                         this.mnuSaveAs.Enabled = false;
                     }
@@ -987,7 +1000,10 @@ namespace CloudNotes.DesktopClient
                     this.Close();
                 }
             }
-            else e.Cancel = false;
+            else
+            {
+                e.Cancel = false;
+            }
         }
 
         private void tvNotes_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -1055,7 +1071,10 @@ namespace CloudNotes.DesktopClient
                     async () =>
                     {
                         var title = e.Label;
-                        if (string.IsNullOrEmpty(title)) return;
+                        if (string.IsNullOrEmpty(title))
+                        {
+                            return;
+                        }
                         this.slblStatus.Text = Resources.Renaming;
                         this.sp.Visible = true;
                         if (this.notesNode.Nodes.Cast<TreeNode>().Any(n => n != e.Node && n.Text == title))
@@ -1119,27 +1138,27 @@ namespace CloudNotes.DesktopClient
             Type[] exceptionTypes = null;
             if (rethrow)
             {
-                exceptionTypes = new[] { typeof(NoteAlreadyExistsException) };
+                exceptionTypes = new[] {typeof (NoteAlreadyExistsException)};
             }
             await SafeExecutionContext.ExecuteAsync(this, async () =>
+            {
+                var existingNoteTitles = this.ExistingNotesTitle;
+                if (existingNoteTitles.Contains(note.Title))
                 {
-                    var existingNoteTitles = this.ExistingNotesTitle;
-                    if (existingNoteTitles.Contains(note.Title))
-                    {
-                        throw new NoteAlreadyExistsException(Resources.TitleExists);
-                    }
+                    throw new NoteAlreadyExistsException(Resources.TitleExists);
+                }
 
-                    var canceled = await this.SaveWorkspaceAsync();
-                    if (!canceled)
-                    {
-                        this.ClearWorkspace();
-                        note.Content = string.IsNullOrEmpty(note.Content) ? string.Empty : crypto.Encrypt(note.Content);
-                        this.workspace = new Workspace(note);
-                        this.workspace.PropertyChanged += this.workspace_PropertyChanged;
-                        await this.SaveWorkspaceSlientlyAsync();
-                        await this.LoadNotesAsync();
-                    }
-                },
+                var canceled = await this.SaveWorkspaceAsync();
+                if (!canceled)
+                {
+                    this.ClearWorkspace();
+                    note.Content = string.IsNullOrEmpty(note.Content) ? string.Empty : crypto.Encrypt(note.Content);
+                    this.workspace = new Workspace(note);
+                    this.workspace.PropertyChanged += this.workspace_PropertyChanged;
+                    await this.SaveWorkspaceSlientlyAsync();
+                    await this.LoadNotesAsync();
+                }
+            },
                 () =>
                 {
                     this.slblStatus.Text = Resources.Importing;
@@ -1179,7 +1198,13 @@ namespace CloudNotes.DesktopClient
 
         public IEnumerable<string> ExistingNotesTitle
         {
-            get { return this.notesNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text).Concat(this.trashNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text)); }
+            get
+            {
+                return
+                    this.notesNode.Nodes.Cast<TreeNode>()
+                        .Select(tn => tn.Text)
+                        .Concat(this.trashNode.Nodes.Cast<TreeNode>().Select(tn => tn.Text));
+            }
         }
 
 

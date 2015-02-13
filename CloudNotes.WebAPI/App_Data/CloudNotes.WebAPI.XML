@@ -6,17 +6,16 @@
     <members>
         <member name="T:CloudNotes.WebAPI.ApworksConfig">
             <summary>
-            
             </summary>
         </member>
         <member name="T:CloudNotes.WebAPI.AutoMapperConfig">
             <summary>
-            Represents the configuration to the AutoMapper framework.
+                Represents the configuration to the AutoMapper framework.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.AutoMapperConfig.Initialize">
             <summary>
-            Initializes this instance.
+                Initializes this instance.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
@@ -498,89 +497,89 @@
         </member>
         <member name="T:CloudNotes.WebAPI.Controllers.HomeController">
             <summary>
-            Represents the Home Controller
+                Represents the Home Controller
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.HomeController.Index">
             <summary>
-            Indexes this instance.
+                Indexes this instance.
             </summary>
             <returns>The <see cref="T:System.Web.Mvc.ActionResult"/> value.</returns>
         </member>
         <member name="T:CloudNotes.WebAPI.Controllers.NotesController">
             <summary>
-            Represents the controller that provides Notes APIs.
+                Represents the controller that provides Notes APIs.
             </summary>
         </member>
         <member name="T:CloudNotes.WebAPI.Controllers.WebApiController">
             <summary>
-            Represents the base class for Web API controllers.
+                Represents the base class for Web API controllers.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.#ctor(Apworks.Repositories.IRepositoryContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.WebApiController"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.WebApiController"/> class.
             </summary>
             <param name="repositoryContext">The repository context.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.RequireExistance``1(``0,Apworks.Repositories.IRepository{``0},System.Boolean)">
             <summary>
-            Checks if the given aggregate root is exist in the repository.
+                Checks if the given aggregate root is exist in the repository.
             </summary>
             <typeparam name="T">The type of the aggregate root to be checked.</typeparam>
             <param name="against">The aggregate root object to be checked.</param>
             <param name="repository">The repository for the aggregate root.</param>
             <param name="requiresItExists">The checking logic switcher.</param>
             <exception cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException">
-            Throws when the <paramref name="requiresItExists"/> is set to <c>false</c> but the aggregate root exists.
+                Throws when the <paramref name="requiresItExists"/> is set to <c>false</c> but the aggregate root exists.
             </exception>
             <exception>
-            Throws when the
+                Throws when the
                 <cref>CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException</cref>
                 <paramref name="requiresItExists"/> is set to <c>true</c> but the aggregate root does not exist.
             </exception>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.RequireExistance``1(System.Guid,Apworks.Repositories.IRepository{``0},System.Boolean)">
             <summary>
-            Checks if the given aggregate root is exist in the repository.
+                Checks if the given aggregate root is exist in the repository.
             </summary>
             <typeparam name="T">The type of the aggregate root.</typeparam>
             <param name="id">The identifier of the aggregate root.</param>
             <param name="repository">The repository for the aggregate root.</param>
             <param name="requiresItExists">The checking logic switcher.</param>
             <exception>
-            Throws when the
+                Throws when the
                 <cref>CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException</cref>
-                <paramref name="requiresItExists"/> is set to <c>false</c> but the aggregate root exists.
+                <paramref name="requiresItExists" /> is set to <c>false</c> but the aggregate root exists.
             </exception>
             <exception>
-            Throws when the
+                Throws when the
                 <cref>CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException</cref>
-                <paramref name="requiresItExists"/> is set to <c>true</c> but the aggregate root does not exist.
+                <paramref name="requiresItExists" /> is set to <c>true</c> but the aggregate root does not exist.
             </exception>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.RequireExistance``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},Apworks.Repositories.IRepository{``0},System.Boolean)">
             <summary>
-            Checks if the given aggregate root is exist in the repository.
+                Checks if the given aggregate root is exist in the repository.
             </summary>
             <typeparam name="T">The type of the aggregate root.</typeparam>
             <param name="checking">The lambda expression which identifies the checking logic.</param>
             <param name="repository">The repository for the aggregate root.</param>
             <param name="requiresItExists">The checking logic switcher.</param>
             <exception>
-            Throws when the
+                Throws when the
                 <cref>CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException</cref>
-                <paramref name="requiresItExists"/> is set to <c>false</c> but the aggregate root exists.
+                <paramref name="requiresItExists" /> is set to <c>false</c> but the aggregate root exists.
             </exception>
             <exception>
-            Throws when the
+                Throws when the
                 <cref>CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException</cref>
-                <paramref name="requiresItExists"/> is set to <c>true</c> but the aggregate root does not exist.
+                <paramref name="requiresItExists" /> is set to <c>true</c> but the aggregate root does not exist.
             </exception>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.GetByCriteria``2(Apworks.Repositories.IRepository{``0},CloudNotes.ViewModels.QueryCriteria)">
             <summary>
-            Gets the by criteria.
+                Gets the by criteria.
             </summary>
             <typeparam name="TAggregateRoot">The type of the aggregate root.</typeparam>
             <typeparam name="TViewModel">The type of the view model.</typeparam>
@@ -588,11 +587,14 @@
             <param name="criteria">The criteria.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">repository</exception>
-            <exception cref="T:System.InvalidOperationException">Cannot perform a paging query: The paging query requires the sorting but neither SortPredicate nor SortOrder was specified.</exception>
+            <exception cref="T:System.InvalidOperationException">
+                Cannot perform a paging query: The paging query requires the sorting
+                but neither SortPredicate nor SortOrder was specified.
+            </exception>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.GetPagedResultByCriteria``2(Apworks.Repositories.IRepository{``0},System.Int32,System.Int32,System.String,Apworks.Storage.SortOrder,System.String,System.Object[])">
             <summary>
-            Gets the paged result by criteria.
+                Gets the paged result by criteria.
             </summary>
             <typeparam name="TAggregateRoot">The type of the aggregate root.</typeparam>
             <typeparam name="TViewModel">The type of the view model.</typeparam>
@@ -605,67 +607,74 @@
             <param name="expressionArgs">The expression arguments.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">
-            repository
-            or
-            sortingField
+                repository
+                or
+                sortingField
             </exception>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.WebApiController.Dispose(System.Boolean)">
             <summary>
-            Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
+                Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
             </summary>
-            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+            <param name="disposing">
+                true to release both managed and unmanaged resources; false to release only unmanaged
+                resources.
+            </param>
         </member>
         <member name="P:CloudNotes.WebAPI.Controllers.WebApiController.RepositoryContext">
             <summary>
-            Gets the repository context.
+                Gets the repository context.
             </summary>
             <value>
-            The repository context.
+                The repository context.
             </value>
         </member>
         <member name="P:CloudNotes.WebAPI.Controllers.WebApiController.CurrentLoginUser">
             <summary>
-            Gets the current login user.
+                Gets the current login user.
             </summary>
             <value>
-            The current login user.
+                The current login user.
             </value>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.#ctor(Apworks.Repositories.IRepositoryContext,Apworks.Repositories.IRepository{CloudNotes.Domain.Model.Note})">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.NotesController"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.NotesController"/> class.
             </summary>
             <param name="repositoryContext">The repository context.</param>
             <param name="noteRepository">The note repository.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.CreateNote(CloudNotes.ViewModels.CreateNoteViewModel)">
             <summary>
-            Creates a note based on the given model.
+                Creates a note based on the given model.
             </summary>
-            <param name="viewModel">The model which contains the information of the note that is going
-            to be created.</param>
+            <param name="viewModel">
+                The model which contains the information of the note that is going
+                to be created.
+            </param>
             <returns>HTTP 200 with the newly created note ID.</returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.UpdateNote(CloudNotes.ViewModels.UpdateNoteViewModel)">
             <summary>
-            Updates a note based on the given update model.
+                Updates a note based on the given update model.
             </summary>
-            <param name="viewModel">The model which contains the information of the note that is going
-            to be updated.</param>
+            <param name="viewModel">
+                The model which contains the information of the note that is going
+                to be updated.
+            </param>
             <returns>HTTP 200.</returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.MarkDelete(System.Guid)">
             <summary>
-            Marks the specified note as deleted, so that the note will be shown in
-            user's trash bin.
+                Marks the specified note as deleted, so that the note will be shown in
+                user's trash bin.
             </summary>
             <param name="id">The ID of the note that is going to be marked as deleted.</param>
             <returns>HTTP 200.</returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.DeleteNote(System.Guid)">
             <summary>
-            Deletes the note by using the given note ID.
+                Deletes the note by using the given note ID.
             </summary>
             <param name="id">The identifier of the note to be deleted.</param>
             <returns>HTTP 200.</returns>
@@ -673,20 +682,20 @@
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.EmptyTrash">
             <summary>
-            Empties the trash bin for the currently login user.
+                Empties the trash bin for the currently login user.
             </summary>
             <returns>HTTP 200.</returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.RestoreNote(System.Guid)">
             <summary>
-            Restores a note from the trash bin.
+                Restores a note from the trash bin.
             </summary>
             <param name="id">The ID of the note to be restored.</param>
             <returns>HTTP 200.</returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.GetNoteList(System.Int32,System.Int32)">
             <summary>
-            Gets a list of notes for currently login user with pagination enabled.
+                Gets a list of notes for currently login user with pagination enabled.
             </summary>
             <param name="pageNumber">The page number.</param>
             <param name="pageSize">The number of notes per page.</param>
@@ -694,83 +703,85 @@
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.GetNoteByID(System.Guid)">
             <summary>
-            Gets the note with the specified ID.
+                Gets the note with the specified ID.
             </summary>
             <param name="id">The ID of the note to be retrieved.</param>
             <returns></returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.NotesController.GetNoteList">
             <summary>
-            Gets all the notes for the currently login user.
+                Gets all the notes for the currently login user.
             </summary>
             <returns>HTTP 200, with a list of notes.</returns>
         </member>
         <member name="T:CloudNotes.WebAPI.Controllers.PackageController">
             <summary>
-            Represents the controller that provides the client package management APIs.
+                Represents the controller that provides the client package management APIs.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.PackageController.#ctor(Apworks.Repositories.IRepositoryContext,Apworks.Repositories.IRepository{CloudNotes.Domain.Model.ClientPackage})">
             <summary>
-            Initializes a new instance of <c>PackageController</c> class.
+                Initializes a new instance of <c>PackageController</c> class.
             </summary>
             <param name="repositoryContext">The instance of <see cref="T:Apworks.Repositories.IRepositoryContext"/></param>
             <param name="repository">The instance of client package repository.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.PackageController.GetLatestPackage(System.String)">
             <summary>
-            Gets the latest package information based on the given client type.
+                Gets the latest package information based on the given client type.
             </summary>
-            <param name="clientType">The type of the client application. Currently
-            it only supports DesktopClient.</param>
+            <param name="clientType">
+                The type of the client application. Currently
+                it only supports DesktopClient.
+            </param>
             <returns>HTTP 200 with package information if success.</returns>
         </member>
         <member name="T:CloudNotes.WebAPI.Controllers.PingController">
             <summary>
-            Represents the Ping controller.
+                Represents the Ping controller.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.PingController.#ctor(Apworks.Repositories.IRepositoryContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.PingController"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.PingController"/> class.
             </summary>
             <param name="repositoryContext">The repository context.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.PingController.Ping">
             <summary>
-            Pings the server instance.
+                Pings the server instance.
             </summary>
             <returns>A data structure that contains the server and user information.</returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.PingController.Echo(System.String)">
             <summary>
-            Echoes the specified text.
+                Echoes the specified text.
             </summary>
             <param name="text">The text.</param>
             <returns></returns>
         </member>
         <member name="T:CloudNotes.WebAPI.Controllers.UsersController">
             <summary>
-            Represents the API controller that manages CloudNotes users.
+                Represents the API controller that manages CloudNotes users.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.UsersController.#ctor(Apworks.Repositories.IRepositoryContext,Apworks.Repositories.IRepository{CloudNotes.Domain.Model.User})">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.UsersController"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Controllers.UsersController"/> class.
             </summary>
             <param name="repositoryContext">The repository context.</param>
             <param name="userRepository">The user repository.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.UsersController.CreateUser(CloudNotes.ViewModels.CreateUserViewModel)">
             <summary>
-            Creates the user.
+                Creates the user.
             </summary>
             <param name="viewModel">The view model which contains the user information.</param>
             <returns>The Http status with the created user ID.</returns>
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.UsersController.Authenticate(CloudNotes.ViewModels.AuthenticationViewModel)">
             <summary>
-            Authenticates the specified user.
+                Authenticates the specified user.
             </summary>
             <param name="viewModel">The view model which contains the username and password to be authenticated.</param>
             <returns></returns>
@@ -783,7 +794,7 @@
         </member>
         <member name="M:CloudNotes.WebAPI.Controllers.UsersController.ChangePassword(CloudNotes.ViewModels.ChangePasswordViewModel)">
             <summary>
-            Changes the password.
+                Changes the password.
             </summary>
             <param name="viewModel">The view model.</param>
             <returns></returns>
@@ -795,251 +806,284 @@
         </member>
         <member name="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException">
             <summary>
-            
             </summary>
         </member>
         <member name="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException">
             <summary>
-            Represents the error occurred when the application is going to add a new
-            entity to its repository but the entity has already been existed.
+                Represents the error occurred when the application is going to add a new
+                entity to its repository but the entity has already been existed.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
             </summary>
             <param name="message">A message that describes the error.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityAlreadyExistsException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
             </summary>
             <param name="message">A message that describes the error.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EmailAlreadyExistsException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException">
             <summary>
-            Represents the error occurred when the application is going to modify or delete an existing
-            entity from its repository but the entity doesn't exist.
+                Represents the error occurred when the application is going to modify or delete an existing
+                entity from its repository but the entity doesn't exist.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
             </summary>
             <param name="message">A message that describes the error.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.EntityDoesNotExistException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
             </summary>
             <param name="message">A message that describes the error.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InsufficientPriviledgeException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
             </summary>
             <param name="message">A message that describes the error.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.InvalidPasswordException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException">
             <summary>
-            
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
             </summary>
             <param name="message">A message that describes the error.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserAlreadyExistsException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
             </summary>
             <param name="userName">Name of the user.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserDoesNotExistException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
             </summary>
             <param name="message">A message that describes the error.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
-            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch block that handles the inner exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the
+                <paramref name="innerException"/> parameter is not a null reference, the current exception is raised in a catch
+                block that handles the inner exception.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Exceptions.UserLockedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Exceptions.UserLockedException"/> class.
             </summary>
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
         <member name="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute">
             <summary>
-            Represents the authorization filter attribute used by current Web API application.
+                Represents the authorization filter attribute used by current Web API application.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute"/> class.
             </summary>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute"/> class.
+                Initializes a new instance of the <see cref="T:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute"/> class.
             </summary>
             <param name="privilege">The privilege.</param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
             <summary>
-            Calls when a process requests authorization.
+                Calls when a process requests authorization.
             </summary>
-            <param name="actionContext">The action context, which encapsulates information for using <see cref="T:System.Web.Http.Filters.AuthorizationFilterAttribute" />.</param>
+            <param name="actionContext">
+                The action context, which encapsulates information for using
+                <see cref="T:System.Web.Http.Filters.AuthorizationFilterAttribute" />.
+            </param>
         </member>
         <member name="M:CloudNotes.WebAPI.Models.Filters.WebApiAuthorizationAttribute.TryAuthorizeUser(System.String,System.String,System.Web.Http.Controllers.HttpActionContext,CloudNotes.Domain.Model.User@,System.Collections.Generic.List{System.String}@)">
             <summary>
-            Tries the authorize user.
+                Tries the authorize user.
             </summary>
             <param name="username">The username.</param>
             <param name="password">The password.</param>

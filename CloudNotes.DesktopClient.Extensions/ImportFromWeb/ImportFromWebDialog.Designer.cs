@@ -43,25 +43,16 @@
             // lblLink
             // 
             resources.ApplyResources(this.lblLink, "lblLink");
-            this.errorProvider.SetError(this.lblLink, resources.GetString("lblLink.Error"));
-            this.errorProvider.SetIconAlignment(this.lblLink, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("lblLink.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.lblLink, ((int)(resources.GetObject("lblLink.IconPadding"))));
             this.lblLink.Name = "lblLink";
             // 
             // txtLink
             // 
             resources.ApplyResources(this.txtLink, "txtLink");
-            this.errorProvider.SetError(this.txtLink, resources.GetString("txtLink.Error"));
-            this.errorProvider.SetIconAlignment(this.txtLink, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtLink.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.txtLink, ((int)(resources.GetObject("txtLink.IconPadding"))));
             this.txtLink.Name = "txtLink";
             // 
             // btnOK
             // 
             resources.ApplyResources(this.btnOK, "btnOK");
-            this.errorProvider.SetError(this.btnOK, resources.GetString("btnOK.Error"));
-            this.errorProvider.SetIconAlignment(this.btnOK, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnOK.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.btnOK, ((int)(resources.GetObject("btnOK.IconPadding"))));
             this.btnOK.Name = "btnOK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -70,9 +61,6 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.errorProvider.SetError(this.btnCancel, resources.GetString("btnCancel.Error"));
-            this.errorProvider.SetIconAlignment(this.btnCancel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnCancel.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.btnCancel, ((int)(resources.GetObject("btnCancel.IconPadding"))));
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -81,22 +69,15 @@
             // 
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
-            resources.ApplyResources(this.errorProvider, "errorProvider");
             // 
             // progressBar
             // 
             resources.ApplyResources(this.progressBar, "progressBar");
-            this.errorProvider.SetError(this.progressBar, resources.GetString("progressBar.Error"));
-            this.errorProvider.SetIconAlignment(this.progressBar, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("progressBar.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.progressBar, ((int)(resources.GetObject("progressBar.IconPadding"))));
             this.progressBar.Name = "progressBar";
             // 
             // slblStatus
             // 
             resources.ApplyResources(this.slblStatus, "slblStatus");
-            this.errorProvider.SetError(this.slblStatus, resources.GetString("slblStatus.Error"));
-            this.errorProvider.SetIconAlignment(this.slblStatus, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("slblStatus.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.slblStatus, ((int)(resources.GetObject("slblStatus.IconPadding"))));
             this.slblStatus.Name = "slblStatus";
             // 
             // ImportFromWebDialog

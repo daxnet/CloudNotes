@@ -1,7 +1,38 @@
-﻿
+﻿//  =======================================================================================================
+// 
+//     ,uEZGZX  LG                             Eu       iJ       vi                                              
+//    BB7.  .:  uM                             8F       0BN      Bq             S:                               
+//   @X         LO    rJLYi    :     i    iYLL XJ       Xu7@     Mu    7LjL;   rBOii   7LJ7    .vYUi             
+//  ,@          LG  7Br...SB  vB     B   B1...7BL       0S i@,   OU  :@7. ,u@   @u.. :@:  ;B  LB. ::             
+//  v@          LO  B      Z0 i@     @  BU     @Y       qq  .@L  Oj  @      5@  Oi   @.    MB U@                 
+//  .@          JZ :@      :@ rB     B  @      5U       Eq    @0 Xj ,B      .B  Br  ,B:rv777i  :0ZU              
+//   @M         LO  @      Mk :@    .@  BL     @J       EZ     GZML  @      XM  B;   @            Y@             
+//    ZBFi::vu  1B  ;B7..:qO   BS..iGB   BJ..:vB2       BM      rBj  :@7,.:5B   qM.. i@r..i5. ir. UB             
+//      iuU1vi   ,    ;LLv,     iYvi ,    ;LLr  .       .,       .     rvY7:     rLi   7LLr,  ,uvv:  
+// 
+// 
+//  Copyright 2014-2015 daxnet
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//      http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//  =======================================================================================================
+
 
 namespace CloudNotes.WebAPI.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Web.Http;
+    using System.Web.Http.OData;
     using Apworks;
     using Apworks.Repositories;
     using Apworks.Specifications;
@@ -13,13 +44,9 @@ namespace CloudNotes.WebAPI.Controllers
     using CloudNotes.WebAPI.Models.Exceptions;
     using CloudNotes.WebAPI.Models.Filters;
     using CloudNotes.WebAPI.Properties;
-    using System;
-    using System.Linq;
-    using System.Web.Http;
-    using System.Web.Http.OData;
 
     /// <summary>
-    /// Represents the controller that provides Notes APIs.
+    ///     Represents the controller that provides Notes APIs.
     /// </summary>
     [RoutePrefix("api")]
     [WebApiLogging]
@@ -34,7 +61,7 @@ namespace CloudNotes.WebAPI.Controllers
         #region Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotesController"/> class.
+        ///     Initializes a new instance of the <see cref="NotesController" /> class.
         /// </summary>
         /// <param name="repositoryContext">The repository context.</param>
         /// <param name="noteRepository">The note repository.</param>
@@ -50,10 +77,12 @@ namespace CloudNotes.WebAPI.Controllers
         #region Public APIs
 
         /// <summary>
-        /// Creates a note based on the given model.
+        ///     Creates a note based on the given model.
         /// </summary>
-        /// <param name="viewModel">The model which contains the information of the note that is going
-        /// to be created.</param>
+        /// <param name="viewModel">
+        ///     The model which contains the information of the note that is going
+        ///     to be created.
+        /// </param>
         /// <returns>HTTP 200 with the newly created note ID.</returns>
         [WebApiAuthorization]
         [Route("notes/create")]
@@ -68,10 +97,12 @@ namespace CloudNotes.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Updates a note based on the given update model.
+        ///     Updates a note based on the given update model.
         /// </summary>
-        /// <param name="viewModel">The model which contains the information of the note that is going
-        /// to be updated.</param>
+        /// <param name="viewModel">
+        ///     The model which contains the information of the note that is going
+        ///     to be updated.
+        /// </param>
         /// <returns>HTTP 200.</returns>
         [WebApiAuthorization]
         [Route("notes/update")]
@@ -79,15 +110,18 @@ namespace CloudNotes.WebAPI.Controllers
         public IHttpActionResult UpdateNote([FromBody] UpdateNoteViewModel viewModel)
         {
             var note = this.noteRepository.GetByKey(viewModel.ID);
-            if (note != null) note = Mapper.Map(viewModel, note);
+            if (note != null)
+            {
+                note = Mapper.Map(viewModel, note);
+            }
             this.noteRepository.Update(note);
             this.RepositoryContext.Commit();
             return this.Ok();
         }
 
         /// <summary>
-        /// Marks the specified note as deleted, so that the note will be shown in
-        /// user's trash bin.
+        ///     Marks the specified note as deleted, so that the note will be shown in
+        ///     user's trash bin.
         /// </summary>
         /// <param name="id">The ID of the note that is going to be marked as deleted.</param>
         /// <returns>HTTP 200.</returns>
@@ -99,7 +133,9 @@ namespace CloudNotes.WebAPI.Controllers
             this.RequireExistance(n => n.ID == id, this.noteRepository);
             var note = this.noteRepository.GetByKey(id);
             if (note.User != this.CurrentLoginUser)
+            {
                 throw new InsufficientPriviledgeException(Resources.InsufficientPriviledgeError);
+            }
             note.Deleted = DeleteFlag.MarkDeleted;
             this.noteRepository.Update(note);
             this.RepositoryContext.Commit();
@@ -107,7 +143,7 @@ namespace CloudNotes.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Deletes the note by using the given note ID.
+        ///     Deletes the note by using the given note ID.
         /// </summary>
         /// <param name="id">The identifier of the note to be deleted.</param>
         /// <returns>HTTP 200.</returns>
@@ -120,7 +156,9 @@ namespace CloudNotes.WebAPI.Controllers
             this.RequireExistance(n => n.ID == id, this.noteRepository);
             var note = this.noteRepository.GetByKey(id);
             if (note.User != this.CurrentLoginUser)
+            {
                 throw new InsufficientPriviledgeException(Resources.InsufficientPriviledgeError);
+            }
             note.Deleted = DeleteFlag.Deleted;
             this.noteRepository.Update(note);
             this.RepositoryContext.Commit();
@@ -128,7 +166,7 @@ namespace CloudNotes.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Empties the trash bin for the currently login user.
+        ///     Empties the trash bin for the currently login user.
         /// </summary>
         /// <returns>HTTP 200.</returns>
         [WebApiAuthorization]
@@ -149,7 +187,7 @@ namespace CloudNotes.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Restores a note from the trash bin.
+        ///     Restores a note from the trash bin.
         /// </summary>
         /// <param name="id">The ID of the note to be restored.</param>
         /// <returns>HTTP 200.</returns>
@@ -161,7 +199,9 @@ namespace CloudNotes.WebAPI.Controllers
             this.RequireExistance(n => n.ID == id && n.Deleted == DeleteFlag.MarkDeleted, this.noteRepository);
             var note = this.noteRepository.GetByKey(id);
             if (note.User != this.CurrentLoginUser)
+            {
                 throw new InsufficientPriviledgeException(Resources.InsufficientPriviledgeError);
+            }
             note.Deleted = DeleteFlag.None;
             this.noteRepository.Update(note);
             this.RepositoryContext.Commit();
@@ -169,7 +209,7 @@ namespace CloudNotes.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Gets a list of notes for currently login user with pagination enabled.
+        ///     Gets a list of notes for currently login user with pagination enabled.
         /// </summary>
         /// <param name="pageNumber">The page number.</param>
         /// <param name="pageSize">The number of notes per page.</param>
@@ -189,7 +229,7 @@ namespace CloudNotes.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Gets the note with the specified ID.
+        ///     Gets the note with the specified ID.
         /// </summary>
         /// <param name="id">The ID of the note to be retrieved.</param>
         /// <returns></returns>
@@ -204,12 +244,14 @@ namespace CloudNotes.WebAPI.Controllers
                 this.noteRepository);
             var note = this.noteRepository.GetByKey(id);
             if (note.User != this.CurrentLoginUser)
+            {
                 throw new InsufficientPriviledgeException(Resources.InsufficientPriviledgeError);
+            }
             return Mapper.Map<Note, NoteViewModel>(note);
         }
 
         /// <summary>
-        /// Gets all the notes for the currently login user.
+        ///     Gets all the notes for the currently login user.
         /// </summary>
         /// <returns>HTTP 200, with a list of notes.</returns>
         [WebApiAuthorization]

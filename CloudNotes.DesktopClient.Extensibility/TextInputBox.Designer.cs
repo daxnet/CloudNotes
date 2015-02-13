@@ -43,37 +43,25 @@
             // txtInput
             // 
             resources.ApplyResources(this.txtInput, "txtInput");
-            this.errorProvider.SetError(this.txtInput, resources.GetString("txtInput.Error"));
-            this.errorProvider.SetIconAlignment(this.txtInput, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtInput.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.txtInput, ((int)(resources.GetObject("txtInput.IconPadding"))));
             this.txtInput.Name = "txtInput";
             this.txtInput.Enter += new System.EventHandler(this.txtInput_Enter);
             // 
             // pictureBox
             // 
-            resources.ApplyResources(this.pictureBox, "pictureBox");
-            this.errorProvider.SetError(this.pictureBox, resources.GetString("pictureBox.Error"));
-            this.errorProvider.SetIconAlignment(this.pictureBox, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("pictureBox.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.pictureBox, ((int)(resources.GetObject("pictureBox.IconPadding"))));
             this.pictureBox.Image = global::CloudNotes.DesktopClient.Extensibility.Properties.Resources.Wordpad_icon;
+            resources.ApplyResources(this.pictureBox, "pictureBox");
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.TabStop = false;
             // 
             // lblPrompt
             // 
             resources.ApplyResources(this.lblPrompt, "lblPrompt");
-            this.errorProvider.SetError(this.lblPrompt, resources.GetString("lblPrompt.Error"));
-            this.errorProvider.SetIconAlignment(this.lblPrompt, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("lblPrompt.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.lblPrompt, ((int)(resources.GetObject("lblPrompt.IconPadding"))));
             this.lblPrompt.Name = "lblPrompt";
             // 
             // btnOK
             // 
             resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.errorProvider.SetError(this.btnOK, resources.GetString("btnOK.Error"));
-            this.errorProvider.SetIconAlignment(this.btnOK, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnOK.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.btnOK, ((int)(resources.GetObject("btnOK.IconPadding"))));
             this.btnOK.Name = "btnOK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -82,9 +70,6 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.errorProvider.SetError(this.btnCancel, resources.GetString("btnCancel.Error"));
-            this.errorProvider.SetIconAlignment(this.btnCancel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnCancel.IconAlignment"))));
-            this.errorProvider.SetIconPadding(this.btnCancel, ((int)(resources.GetObject("btnCancel.IconPadding"))));
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -92,7 +77,6 @@
             // 
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.errorProvider.ContainerControl = this;
-            resources.ApplyResources(this.errorProvider, "errorProvider");
             // 
             // TextInputBox
             // 
