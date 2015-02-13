@@ -26,7 +26,6 @@
 //  limitations under the License.
 //  =======================================================================================================
 
-
 namespace CloudNotes.DesktopClient
 {
     using System;
@@ -72,6 +71,7 @@ namespace CloudNotes.DesktopClient
             numMaxExtensionsLoaded.Value = this.settings.General.MaximumExtensionsLoadedValue;
             chkOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
             numMaxExtensionsLoaded.Enabled = chkShowExtensionInMenuGroup.Checked;
+            lblOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
         }
 
         private void InitializeExtensions()
@@ -108,16 +108,16 @@ namespace CloudNotes.DesktopClient
                     }
                     lvExtensions.Items.Add(lvi);
                 }
-
+                lvExtensions.Sort();
                 if (grpToolExtension.Items.Count > 0)
                 {
                     grpToolExtension.Items[0].Selected = true;
-                    this.BindExtension((Guid) grpToolExtension.Items[0].Tag);
+                    this.BindExtension((Guid)grpToolExtension.Items[0].Tag);
                 }
                 else if (grpExportExtension.Items.Count > 0)
                 {
                     grpExportExtension.Items[0].Selected = true;
-                    this.BindExtension((Guid) grpExportExtension.Items[0].Tag);
+                    this.BindExtension((Guid)grpExportExtension.Items[0].Tag);
                 }
             }
             else
@@ -205,6 +205,7 @@ namespace CloudNotes.DesktopClient
         {
             chkOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
             numMaxExtensionsLoaded.Enabled = chkShowExtensionInMenuGroup.Checked;
+            lblOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
         }
     }
 }

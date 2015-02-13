@@ -42,7 +42,7 @@
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.groupBoxLocalization = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblOnlyShowWhenMoreThan = new System.Windows.Forms.Label();
             this.numMaxExtensionsLoaded = new System.Windows.Forms.NumericUpDown();
             this.chkOnlyShowWhenMoreThan = new System.Windows.Forms.CheckBox();
             this.chkShowExtensionInMenuGroup = new System.Windows.Forms.CheckBox();
@@ -147,7 +147,7 @@
             // 
             resources.ApplyResources(this.groupBoxLocalization, "groupBoxLocalization");
             this.groupBoxLocalization.Controls.Add(this.label3);
-            this.groupBoxLocalization.Controls.Add(this.label2);
+            this.groupBoxLocalization.Controls.Add(this.lblOnlyShowWhenMoreThan);
             this.groupBoxLocalization.Controls.Add(this.numMaxExtensionsLoaded);
             this.groupBoxLocalization.Controls.Add(this.chkOnlyShowWhenMoreThan);
             this.groupBoxLocalization.Controls.Add(this.chkShowExtensionInMenuGroup);
@@ -162,11 +162,11 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // label2
+            // lblOnlyShowWhenMoreThan
             // 
-            this.label2.Image = global::CloudNotes.DesktopClient.Properties.Resources.exclam;
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            this.lblOnlyShowWhenMoreThan.Image = global::CloudNotes.DesktopClient.Properties.Resources.exclam;
+            resources.ApplyResources(this.lblOnlyShowWhenMoreThan, "lblOnlyShowWhenMoreThan");
+            this.lblOnlyShowWhenMoreThan.Name = "lblOnlyShowWhenMoreThan";
             // 
             // numMaxExtensionsLoaded
             // 
@@ -269,7 +269,7 @@
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkShowExtensionInMenuGroup;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblOnlyShowWhenMoreThan;
         private System.Windows.Forms.NumericUpDown numMaxExtensionsLoaded;
         private System.Windows.Forms.CheckBox chkOnlyShowWhenMoreThan;
         private System.Windows.Forms.Label label3;

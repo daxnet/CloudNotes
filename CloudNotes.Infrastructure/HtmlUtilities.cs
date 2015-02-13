@@ -175,14 +175,16 @@ namespace CloudNotes.Infrastructure
         ///     Replaces the images that refers to a images on the web in HTML with the embedded Base64 image data asynchronously.
         /// </summary>
         /// <param name="html">The HTML from which the images should be processed.</param>
-        /// <param name="host">
+        /// <param name="baseUri">
         ///     The host name of the remote server, with the Uri schema and port number, on which the image would
         ///     exist.
         /// </param>
+        /// <param name="parentUri">The parent Uri.</param>
         /// <param name="token">The <see cref="CancellationToken" /> object which accepts a task cancel signal.</param>
         /// <param name="reportProgress">The action which reports the processing progress.</param>
         /// <returns>The HTML in which the images have been translated to the embedded Base64 image data.</returns>
-        public static async Task<string> ReplaceWebImagesAsync(string html, string host, CancellationToken token,
+        public static async Task<string> ReplaceWebImagesAsync(string html, string baseUri, string parentUri,
+            CancellationToken token,
             Action<int, int> reportProgress = null)
         {
             var matches = Regex.Matches(
@@ -209,9 +211,23 @@ namespace CloudNotes.Infrastructure
                     try
                     {
                         var fileName = Path.GetTempFileName();
-                        if (!string.IsNullOrEmpty(host) && !Uri.IsWellFormedUriString(src, UriKind.Absolute))
+                        if (!Uri.IsWellFormedUriString(src, UriKind.Absolute))
                         {
-                            src = string.Format("{0}/{1}", host, src);
+                            if (src.StartsWith("/"))
+                            {
+                                if (!string.IsNullOrEmpty(baseUri))
+                                {
+                                    src = string.Format("{0}/{1}", baseUri.TrimEnd('/'), src.TrimStart('/'));
+                                }
+                            }
+                            else
+                            {
+                                if (!string.IsNullOrEmpty(parentUri))
+                                {
+                                    src = string.Format("{0}{1}", parentUri.EndsWith("/") ? parentUri : parentUri + "/",
+                                        src);
+                                }
+                            }
                         }
                         await webClient.DownloadFileTaskAsync(new Uri(src), fileName);
                         Image.FromFile(fileName); // tries to resolve the image.

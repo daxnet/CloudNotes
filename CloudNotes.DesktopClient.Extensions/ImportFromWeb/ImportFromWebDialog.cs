@@ -88,13 +88,21 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
                 return;
             }
             string baseUri;
+            StringBuilder stringBuilder;
             try
             {
                 var uri = new Uri(txtLink.Text);
                 baseUri = string.Format("{0}://{1}", uri.Scheme, uri.DnsSafeHost);
-                if ((uri.Scheme == Uri.UriSchemeHttps && uri.Port != 443) || (uri.Scheme == Uri.UriSchemeHttp && uri.Port != 80))
+                if ((uri.Scheme == Uri.UriSchemeHttps && uri.Port != 443) ||
+                    (uri.Scheme == Uri.UriSchemeHttp && uri.Port != 80))
                 {
                     baseUri = string.Format("{0}:{1}", baseUri, uri.Port);
+                }
+                stringBuilder = new StringBuilder(baseUri);
+                for (int i = 0; i < uri.Segments.Length - 1; i++)
+                {
+                    var segment = uri.Segments[i];
+                    stringBuilder.Append(segment);
                 }
             }
             catch
@@ -131,6 +139,7 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
                         this.HtmlContent =
                             await
                                 HtmlUtilities.ReplaceWebImagesAsync(this.HtmlContent, baseUri,
+                                    stringBuilder.ToString(),
                                     this.cancellationTokenSource.Token,
                                     (a, b) =>
                                     {

@@ -139,7 +139,7 @@
     <value>0, 0</value>
   </data>
   <data name="lvExtensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 388</value>
+    <value>237, 390</value>
   </data>
   <metadata name="ilExtensions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>229, 17</value>
@@ -181,7 +181,7 @@
     <value>0, 0</value>
   </data>
   <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>404, 388</value>
+    <value>387, 390</value>
   </data>
   <data name="pnlSettings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -211,7 +211,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 388</value>
+    <value>628, 390</value>
   </data>
   <data name="splitContainer.SplitterDistance" type="System.Int32, mscorlib">
     <value>237</value>
@@ -315,31 +315,31 @@
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label2.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="lblOnlyShowWhenMoreThan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
     <value>435, 87</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 19</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblOnlyShowWhenMoreThan.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
+  <data name="lblOnlyShowWhenMoreThan.Text" xml:space="preserve">
     <value>extensions loaded.</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;lblOnlyShowWhenMoreThan.Name" xml:space="preserve">
+    <value>lblOnlyShowWhenMoreThan</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblOnlyShowWhenMoreThan.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblOnlyShowWhenMoreThan.Parent" xml:space="preserve">
     <value>groupBoxLocalization</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblOnlyShowWhenMoreThan.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="numMaxExtensionsLoaded.Location" type="System.Drawing.Point, System.Drawing">
@@ -532,7 +532,7 @@
     <value>4, 24</value>
   </data>
   <data name="tpExtensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 388</value>
+    <value>628, 390</value>
   </data>
   <data name="tpExtensions.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -560,7 +560,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACO
-        CQAAAk1TRnQBSQFMAgEBAgEAAfQBAAH0AQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CQAAAk1TRnQBSQFMAgEBAgEAARQBAQEUAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
