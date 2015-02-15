@@ -62,7 +62,7 @@
             this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSourceCodeRepository = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCloudNotesTech = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuReleaseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -349,7 +349,7 @@
             // 
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSourceCodeRepository,
-            this.mnuCloudNotesTech,
+            this.mnuReleaseHistory,
             this.toolStripMenuItem7,
             this.mnuAbout});
             this.mnuHelp.Name = "mnuHelp";
@@ -362,12 +362,11 @@
             resources.ApplyResources(this.mnuSourceCodeRepository, "mnuSourceCodeRepository");
             this.mnuSourceCodeRepository.Click += new System.EventHandler(this.Action_SourceCodeRepository);
             // 
-            // mnuCloudNotesTech
+            // mnuReleaseHistory
             // 
-            this.mnuCloudNotesTech.Image = global::CloudNotes.DesktopClient.Properties.Resources.world;
-            this.mnuCloudNotesTech.Name = "mnuCloudNotesTech";
-            resources.ApplyResources(this.mnuCloudNotesTech, "mnuCloudNotesTech");
-            this.mnuCloudNotesTech.Click += new System.EventHandler(this.Action_CloudNotesTech);
+            this.mnuReleaseHistory.Name = "mnuReleaseHistory";
+            resources.ApplyResources(this.mnuReleaseHistory, "mnuReleaseHistory");
+            this.mnuReleaseHistory.Click += new System.EventHandler(this.Action_ReleaseHistory);
             // 
             // toolStripMenuItem7
             // 
@@ -692,7 +691,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuPrint;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem mnuCloudNotesTech;
+        private System.Windows.Forms.ToolStripMenuItem mnuReleaseHistory;
         private System.Windows.Forms.ToolStripStatusLabel slblUpdateAvailable;
         private System.Windows.Forms.ToolStripMenuItem mnuSourceCodeRepository;
         private Controls.TreeViewEx tvNotes;

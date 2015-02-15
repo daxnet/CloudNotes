@@ -70,17 +70,19 @@
             // 
             // splitContainer.Panel1
             // 
+            resources.ApplyResources(this.splitContainer.Panel1, "splitContainer.Panel1");
             this.splitContainer.Panel1.Controls.Add(this.lvExtensions);
             // 
             // splitContainer.Panel2
             // 
+            resources.ApplyResources(this.splitContainer.Panel2, "splitContainer.Panel2");
             this.splitContainer.Panel2.Controls.Add(this.pnlSettings);
             // 
             // lvExtensions
             // 
+            resources.ApplyResources(this.lvExtensions, "lvExtensions");
             this.lvExtensions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colExtension});
-            resources.ApplyResources(this.lvExtensions, "lvExtensions");
             this.lvExtensions.FullRowSelect = true;
             this.lvExtensions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvExtensions.HideSelection = false;
@@ -138,8 +140,8 @@
             // 
             // tpGeneral
             // 
-            this.tpGeneral.Controls.Add(this.groupBoxLocalization);
             resources.ApplyResources(this.tpGeneral, "tpGeneral");
+            this.tpGeneral.Controls.Add(this.groupBoxLocalization);
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.UseVisualStyleBackColor = true;
             // 
@@ -158,14 +160,14 @@
             // 
             // label3
             // 
-            this.label3.Image = global::CloudNotes.DesktopClient.Properties.Resources.exclam;
             resources.ApplyResources(this.label3, "label3");
+            this.label3.Image = global::CloudNotes.DesktopClient.Properties.Resources.exclam;
             this.label3.Name = "label3";
             // 
             // lblOnlyShowWhenMoreThan
             // 
-            this.lblOnlyShowWhenMoreThan.Image = global::CloudNotes.DesktopClient.Properties.Resources.exclam;
             resources.ApplyResources(this.lblOnlyShowWhenMoreThan, "lblOnlyShowWhenMoreThan");
+            this.lblOnlyShowWhenMoreThan.Image = global::CloudNotes.DesktopClient.Properties.Resources.exclam;
             this.lblOnlyShowWhenMoreThan.Name = "lblOnlyShowWhenMoreThan";
             // 
             // numMaxExtensionsLoaded
@@ -194,9 +196,9 @@
             // 
             // cbLanguage
             // 
+            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLanguage.FormattingEnabled = true;
-            resources.ApplyResources(this.cbLanguage, "cbLanguage");
             this.cbLanguage.Name = "cbLanguage";
             // 
             // label1
@@ -206,8 +208,8 @@
             // 
             // tpExtensions
             // 
-            this.tpExtensions.Controls.Add(this.splitContainer);
             resources.ApplyResources(this.tpExtensions, "tpExtensions");
+            this.tpExtensions.Controls.Add(this.splitContainer);
             this.tpExtensions.Name = "tpExtensions";
             this.tpExtensions.UseVisualStyleBackColor = true;
             // 

@@ -430,7 +430,7 @@ namespace CloudNotes.DesktopClient
             this.lblTitle.Text = this.workspace.Title;
             var datePublished = this.workspace.DatePublished;
             this.lblDatePublished.Text = datePublished.ToLocalTime()
-                .ToString("G", new CultureInfo(this.settings.General.Language));
+                .ToString("F", new CultureInfo(this.settings.General.Language));
             this.htmlEditor.Html = this.workspace.Content;
             this.htmlEditor.Enabled = true;
             this.tbtnSave.Enabled = false;
@@ -926,9 +926,9 @@ namespace CloudNotes.DesktopClient
             SafeExecutionContext.Execute(this, () => new FrmAbout(this.extensionManager).ShowDialog());
         }
 
-        private void Action_CloudNotesTech(object sender, EventArgs e)
+        private void Action_ReleaseHistory(object sender, EventArgs e)
         {
-            "http://daxnetsvr.cloudapp.net/schen/cloudnotes".Navigate();
+            "http://cloudnotes.cloudapp.net/webapi/Home/Release".Navigate();
         }
 
         private void Action_SourceCodeRepository(object sender, EventArgs e)

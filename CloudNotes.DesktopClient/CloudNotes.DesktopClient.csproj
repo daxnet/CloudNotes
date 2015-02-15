@@ -130,12 +130,6 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNewNote.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmNewNote.Designer.cs">
-      <DependentUpon>FrmNewNote.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,12 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.zh-CN.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmNewNote.resx">
-      <DependentUpon>FrmNewNote.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmNewNote.zh-CN.resx">
-      <DependentUpon>FrmNewNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>

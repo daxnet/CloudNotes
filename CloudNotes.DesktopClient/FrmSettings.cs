@@ -89,12 +89,18 @@ namespace CloudNotes.DesktopClient
                 ilExtensions.Images.Add("plugin.png", Resources.plugin);
 
                 pnlSettings.Controls.Clear();
+                var firstExtensionId =
+                    extensionManager.AllExtensions.OrderBy(p => p.Value.DisplayName.Trim('.')).First().Key;
                 // Create the Tool Extensions items.
                 foreach (var kvp in extensionManager.AllExtensions)
                 {
                     var extension = kvp.Value;
-                    var lvi = new ListViewItem(extension.DisplayName.Trim('.'));
+                    var itemText = extension.DisplayName.Trim('.');
+
+                    var lvi = new ListViewItem(itemText);
+                    lvi.Name = extension.ID.ToString();
                     lvi.Tag = extension.ID;
+
                     if (extension.Kind == typeof (ToolExtension))
                     {
                         lvi.Group = grpToolExtension;
@@ -111,13 +117,15 @@ namespace CloudNotes.DesktopClient
                 lvExtensions.Sort();
                 if (grpToolExtension.Items.Count > 0)
                 {
-                    grpToolExtension.Items[0].Selected = true;
-                    this.BindExtension((Guid) grpToolExtension.Items[0].Tag);
+                    var selectedItem = grpToolExtension.Items.Find(firstExtensionId.ToString(), false).First();
+                    selectedItem.Selected = true;
+                    this.BindExtension((Guid) selectedItem.Tag);
                 }
                 else if (grpExportExtension.Items.Count > 0)
                 {
-                    grpExportExtension.Items[0].Selected = true;
-                    this.BindExtension((Guid) grpExportExtension.Items[0].Tag);
+                    var selectedItem = grpExportExtension.Items.Find(firstExtensionId.ToString(), false).First();
+                    selectedItem.Selected = true;
+                    this.BindExtension((Guid) selectedItem.Tag);
                 }
             }
             else

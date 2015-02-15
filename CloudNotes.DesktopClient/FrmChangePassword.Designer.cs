@@ -45,33 +45,51 @@
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
+            this.errorProvider.SetError(this.label1, resources.GetString("label1.Error"));
+            this.errorProvider.SetIconAlignment(this.label1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label1.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.label1, ((int)(resources.GetObject("label1.IconPadding"))));
             this.label1.Name = "label1";
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
+            this.errorProvider.SetError(this.label2, resources.GetString("label2.Error"));
+            this.errorProvider.SetIconAlignment(this.label2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label2.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.label2, ((int)(resources.GetObject("label2.IconPadding"))));
             this.label2.Name = "label2";
             // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
+            this.errorProvider.SetError(this.label3, resources.GetString("label3.Error"));
+            this.errorProvider.SetIconAlignment(this.label3, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label3.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.label3, ((int)(resources.GetObject("label3.IconPadding"))));
             this.label3.Name = "label3";
             // 
             // txtOldPassword
             // 
             resources.ApplyResources(this.txtOldPassword, "txtOldPassword");
+            this.errorProvider.SetError(this.txtOldPassword, resources.GetString("txtOldPassword.Error"));
+            this.errorProvider.SetIconAlignment(this.txtOldPassword, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtOldPassword.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.txtOldPassword, ((int)(resources.GetObject("txtOldPassword.IconPadding"))));
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.UseSystemPasswordChar = true;
             // 
             // txtNewPassword
             // 
             resources.ApplyResources(this.txtNewPassword, "txtNewPassword");
+            this.errorProvider.SetError(this.txtNewPassword, resources.GetString("txtNewPassword.Error"));
+            this.errorProvider.SetIconAlignment(this.txtNewPassword, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtNewPassword.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.txtNewPassword, ((int)(resources.GetObject("txtNewPassword.IconPadding"))));
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // txtConfirmPassword
             // 
             resources.ApplyResources(this.txtConfirmPassword, "txtConfirmPassword");
+            this.errorProvider.SetError(this.txtConfirmPassword, resources.GetString("txtConfirmPassword.Error"));
+            this.errorProvider.SetIconAlignment(this.txtConfirmPassword, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtConfirmPassword.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.txtConfirmPassword, ((int)(resources.GetObject("txtConfirmPassword.IconPadding"))));
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
@@ -79,6 +97,9 @@
             // 
             resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.errorProvider.SetError(this.btnOK, resources.GetString("btnOK.Error"));
+            this.errorProvider.SetIconAlignment(this.btnOK, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnOK.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.btnOK, ((int)(resources.GetObject("btnOK.IconPadding"))));
             this.btnOK.Name = "btnOK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -87,6 +108,9 @@
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.errorProvider.SetError(this.btnCancel, resources.GetString("btnCancel.Error"));
+            this.errorProvider.SetIconAlignment(this.btnCancel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnCancel.IconAlignment"))));
+            this.errorProvider.SetIconPadding(this.btnCancel, ((int)(resources.GetObject("btnCancel.IconPadding"))));
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -94,6 +118,7 @@
             // 
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
+            resources.ApplyResources(this.errorProvider, "errorProvider");
             // 
             // FrmChangePassword
             // 
