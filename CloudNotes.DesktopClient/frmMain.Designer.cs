@@ -79,6 +79,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.slblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.slblUpdateAvailable = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblPseudoAlignRight = new System.Windows.Forms.ToolStripStatusLabel();
             this.sp = new System.Windows.Forms.ToolStripProgressBar();
             this.tabImageList = new System.Windows.Forms.ImageList(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
@@ -465,6 +466,7 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.slblStatus,
             this.slblUpdateAvailable,
+            this.lblPseudoAlignRight,
             this.sp});
             resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
@@ -481,6 +483,12 @@
             this.slblUpdateAvailable.Name = "slblUpdateAvailable";
             resources.ApplyResources(this.slblUpdateAvailable, "slblUpdateAvailable");
             this.slblUpdateAvailable.Click += new System.EventHandler(this.slblUpdateAvailable_Click);
+            // 
+            // lblPseudoAlignRight
+            // 
+            this.lblPseudoAlignRight.Name = "lblPseudoAlignRight";
+            resources.ApplyResources(this.lblPseudoAlignRight, "lblPseudoAlignRight");
+            this.lblPseudoAlignRight.Spring = true;
             // 
             // sp
             // 
@@ -695,6 +703,7 @@
         private System.Windows.Forms.ToolStripStatusLabel slblUpdateAvailable;
         private System.Windows.Forms.ToolStripMenuItem mnuSourceCodeRepository;
         private Controls.TreeViewEx tvNotes;
+        private System.Windows.Forms.ToolStripStatusLabel lblPseudoAlignRight;
     }
 }
 

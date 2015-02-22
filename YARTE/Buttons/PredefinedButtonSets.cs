@@ -20,6 +20,7 @@ namespace YARTE.UI.Buttons
             editor.AddToolbarItem(new UnlinkButton());
             editor.AddToolbarDivider();
             editor.AddToolbarItem(new InsertLinkedImageButton());
+            editor.AddToolbarItem(new InsertOnlineImageButton());
             editor.AddToolbarDivider();
             editor.AddToolbarItem(new OrderedListButton());
             editor.AddToolbarItem(new UnorderedListButton());

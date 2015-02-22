@@ -33,11 +33,11 @@ namespace YARTE.Buttons
     using YARTE.Properties;
     using YARTE.UI.Buttons;
 
-    public class InsertHtmlButton : IHTMLEditorButton
+    public class InsertHtmlWithParameterButton : IHTMLEditorButton
     {
         private readonly string html;
 
-        public InsertHtmlButton(string html)
+        public InsertHtmlWithParameterButton(string html)
         {
             this.html = html;
         }

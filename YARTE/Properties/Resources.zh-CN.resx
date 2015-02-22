@@ -364,4 +364,16 @@
   <data name="InsertHtmlToolTip" xml:space="preserve">
     <value>插入HTML代码</value>
   </data>
+  <data name="InsertOnlineImageToolTip" xml:space="preserve">
+    <value>插入在线图片</value>
+  </data>
+  <data name="DownloadImageFailed" xml:space="preserve">
+    <value>下载图片失败，有可能是图片不存在。</value>
+  </data>
+  <data name="InvalidImageURI" xml:space="preserve">
+    <value>图片地址格式不正确。</value>
+  </data>
+  <data name="NoImage" xml:space="preserve">
+    <value>没有可以使用的图片，请确保已经输入了图片地址，并且图片地址格式是正确的。</value>
+  </data>
 </root>

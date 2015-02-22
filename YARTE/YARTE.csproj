@@ -62,6 +62,7 @@
     <Compile Include="Buttons\IHTMLEditorButton.cs" />
     <Compile Include="Buttons\InsertHtmlButton.cs" />
     <Compile Include="Buttons\InsertLinkedImageButton.cs" />
+    <Compile Include="Buttons\InsertOnlineImageButton.cs" />
     <Compile Include="Buttons\ItalicButton.cs" />
     <Compile Include="Buttons\JustifyCenterButton.cs" />
     <Compile Include="Buttons\JustifyLeftButton.cs" />
@@ -74,6 +75,12 @@
     <Compile Include="Buttons\UnlinkButton.cs" />
     <Compile Include="Buttons\UnorderedListButton.cs" />
     <Compile Include="Buttons\ViewHtmlButton.cs" />
+    <Compile Include="FrmInsertOnlineImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInsertOnlineImage.Designer.cs">
+      <DependentUpon>FrmInsertOnlineImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmViewHtml.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +107,12 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmInsertOnlineImage.resx">
+      <DependentUpon>FrmInsertOnlineImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInsertOnlineImage.zh-CN.resx">
+      <DependentUpon>FrmInsertOnlineImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmViewHtml.resx">
       <DependentUpon>FrmViewHtml.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +337,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\page_white_world.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_from_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Progress.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

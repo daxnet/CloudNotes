@@ -29,54 +29,84 @@
 namespace YARTE.Buttons
 {
     using System.Drawing;
-    using mshtml;
+    using System.Windows.Forms;
     using YARTE.Properties;
     using YARTE.UI.Buttons;
 
-    public class InsertHtmlButton : IHTMLEditorButton
+    /// <summary>
+    ///     Represents the tool button that inserts an online image to the current cursor
+    ///     position of the document.
+    /// </summary>
+    public sealed class InsertOnlineImageButton : IHTMLEditorButton
     {
-        private readonly string html;
+        #region Private Constatns
 
-        public InsertHtmlButton(string html)
-        {
-            this.html = html;
-        }
+        private const string EmbeddedImageHtmlTagPattern = "<img src=\"data:image/png;base64,{0}\" alt=\"{1}\" />";
 
-        #region IHTMLEditorButton Members
+        #endregion
 
+        #region Public Methods 
+
+        /// <summary>
+        ///     Invoked once the Insert Online Image button has been clicked.
+        /// </summary>
+        /// <param name="doc"><see cref="HTMLEditorButtonArgs" /> instance that contains the context information.</param>
         public void IconClicked(HTMLEditorButtonArgs doc)
         {
-            // Use the DOM objects to manipulate the HTML document to insert HTML.
-            // 'insertHTML' command in execCommand interface is not supported.
-            IHTMLDocument2 d2 = doc.Document.DomDocument as IHTMLDocument2;
-            if (d2 != null)
+            var dialog = new FrmInsertOnlineImage();
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                var range = d2.selection.createRange() as IHTMLTxtRange;
-                if (range != null)
-                {
-                    range.pasteHTML(this.html);
-                }
+                var tag = string.Format(EmbeddedImageHtmlTagPattern, dialog.ImageBase64, dialog.Alt);
+                var insertHtmlButton = new InsertHtmlButton(tag);
+                insertHtmlButton.IconClicked(doc);
             }
         }
 
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        ///     Gets the icon image.
+        /// </summary>
+        /// <value>
+        ///     The icon image.
+        /// </value>
         public Image IconImage
         {
-            get { return Resources.page_white_world; }
+            get { return Resources.image_from_web; }
         }
 
+        /// <summary>
+        ///     Gets the name of the icon.
+        /// </summary>
+        /// <value>
+        ///     The name of the icon.
+        /// </value>
         public string IconName
         {
-            get { return "Insert html"; }
+            get { return "Insert Online Image"; }
         }
 
+        /// <summary>
+        ///     Gets the icon tooltip.
+        /// </summary>
+        /// <value>
+        ///     The icon tooltip.
+        /// </value>
         public string IconTooltip
         {
-            get { return Resources.InsertHtmlToolTip; }
+            get { return Resources.InsertOnlineImageToolTip; }
         }
 
+        /// <summary>
+        ///     This is the string that will be used to poll the text area to determine if the cursor
+        ///     is in a given area (say, 'Bold') and show the corresponding button as selected
+        ///     Leave blank if there is no command or you have no idea what to put here
+        /// </summary>
         public string CommandIdentifier
         {
-            get { return ""; }
+            get { return "InsertOnlineImage"; }
         }
 
         #endregion
