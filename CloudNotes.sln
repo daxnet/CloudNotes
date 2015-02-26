@@ -39,6 +39,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AEB38455-3C0A-4FCE-BCE1-EB7F7BA6EDEB}"
 	ProjectSection(SolutionItems) = preProject
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
+		BuildTargets\WebApplications\Microsoft.WebApplication.targets = BuildTargets\WebApplications\Microsoft.WebApplication.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesktopClient", "DesktopClient", "{2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}"
