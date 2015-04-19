@@ -26,50 +26,52 @@
 //  limitations under the License.
 //  =======================================================================================================
 
-namespace CloudNotes.Domain.Repositories.EntityFramework
+namespace CloudNotes.DesktopClient.Extensibility.Data.Synchronization
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.ModelConfiguration;
-    using CloudNotes.Domain.Model;
+    using System;
+    using Apworks.Storage;
 
     /// <summary>
-    ///     Represents the entity configuration for <see cref="Note" /> entity.
+    /// Represents the mapping resolver for the local Sqlite storage.
     /// </summary>
-    public class NoteEntityConfiguration : EntityTypeConfiguration<Note>
+    internal sealed class MappingResolver : IStorageMappingResolver
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="NoteEntityConfiguration" /> class.
+        /// Checks if the given property is mapped to an auto-generated identity field.
         /// </summary>
-        public NoteEntityConfiguration()
+        /// <typeparam name="T">The type of the object to be resolved.</typeparam>
+        /// <param name="propertyName">The property name.</param>
+        /// <returns>
+        /// True if the field is mapped to an auto-generated identity, otherwise false.
+        /// </returns>
+        public bool IsAutoIdentityField<T>(string propertyName) where T : class, new()
         {
-            ToTable("Notes");
-            HasKey(x => x.ID);
-            Property(x => x.ID)
-                .IsRequired()
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.Content)
-                .IsMaxLength()
-                .IsRequired()
-                .IsUnicode();
-            Property(x => x.DateLastModified)
-                .IsOptional();
-            Property(x => x.DatePublished)
-                .IsRequired();
-            Property(x => x.Title)
-                .HasMaxLength(128)
-                .IsRequired()
-                .IsUnicode();
-            Property(x => x.Weather);
-            Property(x => x.Description)
-                .IsMaxLength()
-                .IsUnicode()
-                .IsOptional();
-            Property(x => x.ThumbnailBase64)
-                .IsMaxLength()
-                .IsUnicode()
-                .IsOptional();
-            Property(x => x.Revision)
-                .IsOptional();
+            return string.Compare(propertyName, "ID", StringComparison.InvariantCultureIgnoreCase) == 0;
+        }
+
+        /// <summary>
+        /// Resolves the field name by using the given type and property name.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be resolved.</typeparam>
+        /// <param name="propertyName">The property name.</param>
+        /// <returns>
+        /// The field name.
+        /// </returns>
+        public string ResolveFieldName<T>(string propertyName) where T : class, new()
+        {
+            return propertyName;
+        }
+
+        /// <summary>
+        /// Resolves the table name by using the given type.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be resolved.</typeparam>
+        /// <returns>
+        /// The table name.
+        /// </returns>
+        public string ResolveTableName<T>() where T : class, new()
+        {
+            return typeof (T).Name;
         }
     }
 }

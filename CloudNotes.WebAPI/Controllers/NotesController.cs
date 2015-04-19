@@ -26,7 +26,6 @@
 //  limitations under the License.
 //  =======================================================================================================
 
-
 namespace CloudNotes.WebAPI.Controllers
 {
     using System;
@@ -264,14 +263,20 @@ namespace CloudNotes.WebAPI.Controllers
                 this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID))
                     .Project()
                     .To<NoteItemViewModel>();
-            //var notes =
-            //    this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID));
-            //var list = new List<NoteItemViewModel>();
-            //foreach (var note in notes)
-            //{
-            //    list.Add(Mapper.Map<Note, NoteItemViewModel>(note));
-            //}
-            //return list.AsQueryable();
+        }
+
+        /// <summary>
+        ///     Gets the revisions of all the notes for the current login user.
+        /// </summary>
+        /// <returns>A list of objects that contains the note ID and revision data.</returns>
+        [WebApiAuthorization]
+        [Route("notes/revisions")]
+        [HttpGet]
+        public IHttpActionResult GetRevisions()
+        {
+            return this.Ok(
+                this.noteRepository.FindAll(Specification<Note>.Eval(note => note.User.ID == this.CurrentLoginUser.ID))
+                    .Select(note => new {note.ID, note.Revision}));
         }
 
         #endregion

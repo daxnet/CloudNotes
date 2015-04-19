@@ -26,50 +26,40 @@
 //  limitations under the License.
 //  =======================================================================================================
 
-namespace CloudNotes.Domain.Repositories.EntityFramework
+namespace CloudNotes.DesktopClient.Extensibility.Data.Sqlite
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.ModelConfiguration;
-    using CloudNotes.Domain.Model;
+    using Apworks.Storage;
+    using Apworks.Storage.Builders;
 
     /// <summary>
-    ///     Represents the entity configuration for <see cref="Note" /> entity.
+    /// Represents the Where Clause Builder for Sqlite database.
     /// </summary>
-    public class NoteEntityConfiguration : EntityTypeConfiguration<Note>
+    /// <typeparam name="TDataObject">The type of the data object.</typeparam>
+    internal sealed class SqliteWhereClauseBuilder<TDataObject> : WhereClauseBuilder<TDataObject>
+        where TDataObject : class, new()
     {
+        #region Ctor
         /// <summary>
-        ///     Initializes a new instance of the <see cref="NoteEntityConfiguration" /> class.
+        /// Initializes a new instance of the <see cref="SqliteWhereClauseBuilder{TDataObject}"/> class.
         /// </summary>
-        public NoteEntityConfiguration()
+        /// <param name="mappingResolver">The mapping resolver.</param>
+        public SqliteWhereClauseBuilder(IStorageMappingResolver mappingResolver)
+            : base(mappingResolver)
         {
-            ToTable("Notes");
-            HasKey(x => x.ID);
-            Property(x => x.ID)
-                .IsRequired()
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.Content)
-                .IsMaxLength()
-                .IsRequired()
-                .IsUnicode();
-            Property(x => x.DateLastModified)
-                .IsOptional();
-            Property(x => x.DatePublished)
-                .IsRequired();
-            Property(x => x.Title)
-                .HasMaxLength(128)
-                .IsRequired()
-                .IsUnicode();
-            Property(x => x.Weather);
-            Property(x => x.Description)
-                .IsMaxLength()
-                .IsUnicode()
-                .IsOptional();
-            Property(x => x.ThumbnailBase64)
-                .IsMaxLength()
-                .IsUnicode()
-                .IsOptional();
-            Property(x => x.Revision)
-                .IsOptional();
         }
+        #endregion
+
+        #region Protected Properties
+        /// <summary>
+        /// Gets the parameter character.
+        /// </summary>
+        /// <value>
+        /// The parameter character.
+        /// </value>
+        protected override char ParameterChar
+        {
+            get { return '@'; }
+        }
+        #endregion
     }
 }

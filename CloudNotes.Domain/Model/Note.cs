@@ -61,6 +61,12 @@ namespace CloudNotes.Domain.Model
 			set;
 		}
 
+		public virtual int Revision
+		{
+			get;
+			set;
+		}
+
 		public virtual User User
 		{
 			get;

@@ -714,6 +714,12 @@
             </summary>
             <returns>HTTP 200, with a list of notes.</returns>
         </member>
+        <member name="M:CloudNotes.WebAPI.Controllers.NotesController.GetRevisions">
+            <summary>
+                Gets the revisions of all the notes for the current login user.
+            </summary>
+            <returns>A list of objects that contains the note ID and revision data.</returns>
+        </member>
         <member name="T:CloudNotes.WebAPI.Controllers.PackageController">
             <summary>
                 Represents the controller that provides the client package management APIs.

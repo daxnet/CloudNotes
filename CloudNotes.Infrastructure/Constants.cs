@@ -63,6 +63,11 @@ namespace CloudNotes.Infrastructure
         public const string PackageServerSettingKey = "cloudnotes:PackageServer";
 
         /// <summary>
+        ///     The key of the setting that represents the local storage information.
+        /// </summary>
+        public const string LocalStorageSettingKey = "cloudnotes:LocalStorage";
+
+        /// <summary>
         ///     The name of the Desktop Client settings file.
         /// </summary>
         public const string DesktopClientSettingsFile = "settings.json";

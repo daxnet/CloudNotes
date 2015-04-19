@@ -1466,6 +1466,81 @@
                 LastKnownLocation="CloudNotes.Design.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="b734dbbd-ad29-4595-9c0a-b5c08480d72d"
+            name="Revision"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1620ece4-4578-407d-95e0-1d4b18d344df"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48f51536-70e2-4df9-9574-9cf176df5179">
+                    <propertyInstance
+                      Id="4d8847b8-49e5-4517-9d9b-60e8d2f78d75"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="844f9ce2-8863-44f3-808a-c5957062ab5e">
+                    <propertyInstance
+                      Id="58a787c6-2cd5-4b14-9ad6-5bba31673b68"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8696ce09-06e2-42ad-b48d-9a6b83cfae26">
+                    <propertyInstance
+                      Id="8a2aceab-109c-44af-81c2-911910240081"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30f03f49-f971-4b3f-9e8f-fc7dcce91f10">
+                    <propertyInstance
+                      Id="a1b8f97b-611d-4f9a-8ca0-24176accb7e3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="96b48dbf-fa87-44c2-917f-e50f8709bd17">
+                    <propertyInstance
+                      Id="9dc95972-d15a-4324-8a21-5154c056ed64"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07e85bad-976d-4a89-bb58-16a13658ccbd">
+                    <propertyInstance
+                      Id="17f52ec8-5dd0-4f06-830c-761256775157"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8cc7f4ff-8e21-49aa-b5cf-514ec16e9570">
+                    <propertyInstance
+                      Id="be4c2e2d-d926-4ef4-a30b-99933c717dc5"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="CloudNotes.Design.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -2910,6 +2985,11 @@
           </property>
         </ownedAttributesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="cafc7f57-34f2-4a85-bec5-881282fccbd3"
+        name="int" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

@@ -69,7 +69,8 @@ namespace CloudNotes.WebAPI
                     {
                         var html = crypto.Decrypt(viewModel.Content);
                         return HtmlUtilities.ExtractThumbnailBase64(html);
-                    }));
+                    }))
+                .ForMember(note => note.Revision, opt => opt.UseValue(0));
 
             Mapper.CreateMap<UpdateNoteViewModel, Note>()
                 .ForMember(note => note.ID, opt => opt.Ignore())

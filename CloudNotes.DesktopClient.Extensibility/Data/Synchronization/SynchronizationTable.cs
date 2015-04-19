@@ -26,50 +26,24 @@
 //  limitations under the License.
 //  =======================================================================================================
 
-namespace CloudNotes.Domain.Repositories.EntityFramework
+namespace CloudNotes.DesktopClient.Extensibility.Data.Synchronization
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.ModelConfiguration;
-    using CloudNotes.Domain.Model;
-
-    /// <summary>
-    ///     Represents the entity configuration for <see cref="Note" /> entity.
-    /// </summary>
-    public class NoteEntityConfiguration : EntityTypeConfiguration<Note>
+    public class SynchronizationTable
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="NoteEntityConfiguration" /> class.
-        /// </summary>
-        public NoteEntityConfiguration()
-        {
-            ToTable("Notes");
-            HasKey(x => x.ID);
-            Property(x => x.ID)
-                .IsRequired()
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.Content)
-                .IsMaxLength()
-                .IsRequired()
-                .IsUnicode();
-            Property(x => x.DateLastModified)
-                .IsOptional();
-            Property(x => x.DatePublished)
-                .IsRequired();
-            Property(x => x.Title)
-                .HasMaxLength(128)
-                .IsRequired()
-                .IsUnicode();
-            Property(x => x.Weather);
-            Property(x => x.Description)
-                .IsMaxLength()
-                .IsUnicode()
-                .IsOptional();
-            Property(x => x.ThumbnailBase64)
-                .IsMaxLength()
-                .IsUnicode()
-                .IsOptional();
-            Property(x => x.Revision)
-                .IsOptional();
-        }
+        public int ID { get; set; }
+
+        public string ServerURL { get; set; }
+
+        public string UserName { get; set; }
+
+        public string NoteID { get; set; }
+
+        public string NoteTitle { get; set; }
+
+        public string NoteContent { get; set; }
+
+        public int NoteRevision { get; set; }
+
+        public int NoteDeleted { get; set; }
     }
 }
