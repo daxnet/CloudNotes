@@ -144,6 +144,9 @@
   <data name="ImportFromWebInputTitlePrompt" xml:space="preserve">
     <value>从网页下载的HTML中提取的文档标题为空，或者具有该标题的笔记已经存在，请重新为导入的笔记指定一个新的标题。</value>
   </data>
+  <data name="ImportFromWebInputTitleText" xml:space="preserve">
+    <value>重复的笔记标题</value>
+  </data>
   <data name="LinkEmpty" xml:space="preserve">
     <value>网页链接地址不能为空。</value>
   </data>

@@ -55,7 +55,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -95,6 +97,12 @@
     </Compile>
     <Compile Include="FrmUpdatePackage.Designer.cs">
       <DependentUpon>FrmUpdatePackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Installation\Installer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Installation\Installer.Designer.cs">
+      <DependentUpon>Installer.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.zh-CN.Designer.cs">
       <DependentUpon>Resources.zh-CN.resx</DependentUpon>

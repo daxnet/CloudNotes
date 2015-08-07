@@ -38,6 +38,8 @@ namespace CloudNotes.DesktopClient.Extensibility
     public partial class TextInputBox : Form
     {
         #region Private Fields
+
+        private readonly string title;
         private readonly string prompt;
         private readonly string initValue;
         private readonly List<Tuple<Func<string, bool>, string>> validations = new List<Tuple<Func<string, bool>, string>>();
@@ -59,8 +61,8 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <param name="prompt">The prompt message to be shown on the text input dialog box.</param>
         /// <param name="validations">The validation collection which contains the delegates for the validation methods,
         /// and also the error message to be shown when the validation fails.</param>
-        public TextInputBox(string prompt, IEnumerable<Tuple<Func<string, bool>, string>> validations = null)
-            : this(prompt, null, validations)
+        public TextInputBox(string title, string prompt, IEnumerable<Tuple<Func<string, bool>, string>> validations = null)
+            : this(title, prompt, null, validations)
         {
             
         }
@@ -72,9 +74,10 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <param name="initValue">The initial value to be shown on the text input dialog box.</param>
         /// <param name="validations">The validation collection which contains the delegates for the validation methods,
         /// and also the error message to be shown when the validation fails.</param>
-        public TextInputBox(string prompt, string initValue, IEnumerable<Tuple<Func<string, bool>, string>> validations = null)
+        public TextInputBox(string title, string prompt, string initValue, IEnumerable<Tuple<Func<string, bool>, string>> validations = null)
             : this()
         {
+            this.title = title;
             this.prompt = prompt;
             this.initValue = initValue;
             if (validations != null)
@@ -123,6 +126,7 @@ namespace CloudNotes.DesktopClient.Extensibility
 
         private void TextInputBox_Load(object sender, EventArgs e)
         {
+            this.Text = this.title;
             this.lblPrompt.Text = this.prompt;
             this.txtInput.Text = this.initValue;
             this.txtInput.Focus();

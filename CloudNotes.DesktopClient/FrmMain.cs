@@ -407,6 +407,12 @@ namespace CloudNotes.DesktopClient
             {
                 this.ClearWorkspace();
             }
+
+            if (this.trashNode.Nodes.Count > 0)
+            {
+                this.mnuEmptyTrash.Enabled = true;
+                this.cmnuEmptyTrash.Enabled = true;
+            }
         }
 
         private void ClearWorkspace()
@@ -560,11 +566,13 @@ namespace CloudNotes.DesktopClient
                 this,
                 async () =>
                 {
-                    var newNoteForm = new TextInputBox(Resources.NewNotePrompt, new Tuple<Func<string, bool>, string>[]
-                    {
-                        new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
-                        new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains, Resources.TitleExists)
-                    });
+                    var newNoteForm = new TextInputBox(Resources.NewNoteTitleText,
+                        Resources.NewNotePrompt, new[]
+                        {
+                            new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
+                            new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains,
+                                Resources.TitleExists)
+                        });
                     if (newNoteForm.ShowDialog() == DialogResult.OK)
                     {
                         var title = newNoteForm.InputText;
@@ -633,11 +641,7 @@ namespace CloudNotes.DesktopClient
                         note.DeletedFlag = (int) DeleteFlag.MarkDeleted;
 
                         this.ResortNodes(this.trashNode);
-                        if (this.trashNode.Nodes.Count > 0)
-                        {
-                            this.mnuEmptyTrash.Enabled = true;
-                            this.cmnuEmptyTrash.Enabled = true;
-                        }
+                        
                         this.mnuEmptyTrash.Enabled = true;
                         this.cmnuEmptyTrash.Enabled = true;
                     }
@@ -745,6 +749,7 @@ namespace CloudNotes.DesktopClient
                         }
 
                         this.trashNode.Nodes.Clear();
+                        
                         if (this.notesNode.Nodes.Count > 0)
                         {
                             var firstNode = this.notesNode.Nodes[0];
@@ -763,6 +768,9 @@ namespace CloudNotes.DesktopClient
                                 this.mnuSaveAs.Enabled = false;
                             }
                         }
+
+                        this.mnuEmptyTrash.Enabled = false;
+                        this.cmnuEmptyTrash.Enabled = false;
                     }
                 },
                 null,

@@ -46,21 +46,33 @@ namespace CloudNotes.DesktopClient
             var crypto = Crypto.CreateDefaultCrypto();
             Profile profile;
             var profileFile = Directories.GetFullName(Constants.ProfileFileName);
-            if (File.Exists(profileFile))
+            var profileDirectory = Path.GetDirectoryName(profileFile);
+            if (string.IsNullOrEmpty(profileDirectory))
+                throw new InvalidOperationException("The directory name is invalid (empty).");
+            if (!Directory.Exists(profileDirectory))
             {
-                try
+                Directory.CreateDirectory(profileDirectory);
+                profile = new Profile();
+            }
+            else
+            {
+                if (File.Exists(profileFile))
                 {
-                    profile = Profile.Load(profileFile);
+                    try
+                    {
+                        profile = Profile.Load(profileFile);
+                    }
+                    catch
+                    {
+                        profile = new Profile();
+                    }
                 }
-                catch
+                else
                 {
                     profile = new Profile();
                 }
             }
-            else
-            {
-                profile = new Profile();
-            }
+            
             ClientCredential credential = null;
             var selectedUserProfile = profile.UserProfiles.FirstOrDefault(p => p.IsSelected);
             var selectedServerProfile = profile.ServerProfiles.FirstOrDefault(p => p.IsSelected);

@@ -154,6 +154,9 @@
   <data name="ImportFromWebInputTitlePrompt" xml:space="preserve">
     <value>The title extracted from the downloaded HTML is either duplicated with the existing one, or empty. Please specify another title for the importing note.</value>
   </data>
+  <data name="ImportFromWebInputTitleText" xml:space="preserve">
+    <value>Duplicated Note Title</value>
+  </data>
   <data name="LinkEmpty" xml:space="preserve">
     <value>The link cannot be empty.</value>
   </data>

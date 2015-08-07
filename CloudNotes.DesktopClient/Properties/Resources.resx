@@ -328,4 +328,7 @@
   <data name="NewNotePrompt" xml:space="preserve">
     <value>Please enter the title of the new note.</value>
   </data>
+  <data name="NewNoteTitleText" xml:space="preserve">
+    <value>Create a New Note</value>
+  </data>
 </root>

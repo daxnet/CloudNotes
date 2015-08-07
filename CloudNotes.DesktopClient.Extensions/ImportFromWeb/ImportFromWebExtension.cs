@@ -72,7 +72,8 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
                     var title = HtmlUtilities.ExtractTitle(dialog.HtmlContent);
                     if (string.IsNullOrEmpty(title) || shell.ExistingNotesTitle.Contains(title))
                     {
-                        var titleInputDialog = new TextInputBox(Resources.ImportFromWebInputTitlePrompt, title,
+                        var titleInputDialog = new TextInputBox(Resources.ImportFromWebInputTitleText,
+                            Resources.ImportFromWebInputTitlePrompt, title,
                             new[]
                             {
                                 new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty,
