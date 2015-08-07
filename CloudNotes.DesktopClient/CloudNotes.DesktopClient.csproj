@@ -48,9 +48,6 @@
     <AssemblyOriginatorKeyFile>CloudNotesKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CloudNotes.DESecurity">
-      <HintPath>..\References\CloudNotes.DESecurity.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -228,6 +225,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CloudNotes.DESecurity\CloudNotes.DESecurity.csproj">
+      <Project>{bd197844-4531-42dd-b8cd-112171f3526f}</Project>
+      <Name>CloudNotes.DESecurity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CloudNotes.DesktopClient.Extensibility\CloudNotes.DesktopClient.Extensibility.csproj">
       <Project>{6c248049-642b-453c-8a67-f8b2e9fc25b9}</Project>
       <Name>CloudNotes.DesktopClient.Extensibility</Name>

@@ -49,9 +49,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CloudNotes.DESecurity">
-      <HintPath>..\References\CloudNotes.DESecurity.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -86,10 +83,6 @@
     <Compile Include="Data\DataAccessProxy.cs" />
     <Compile Include="Data\DeleteFlag.cs" />
     <Compile Include="Data\Note.cs" />
-    <Compile Include="Data\Sqlite\SqliteStorage.cs" />
-    <Compile Include="Data\Sqlite\SqliteWhereClauseBuilder.cs" />
-    <Compile Include="Data\Synchronization\SynchronizationTable.cs" />
-    <Compile Include="Data\Synchronization\MappingResolver.cs" />
     <Compile Include="Data\WebApiDataAccessProxy.cs" />
     <Compile Include="Directories.cs" />
     <Compile Include="Exceptions\ExportCancelledException.cs" />
@@ -162,6 +155,10 @@
     <None Include="Resources\plugin.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CloudNotes.DESecurity\CloudNotes.DESecurity.csproj">
+      <Project>{bd197844-4531-42dd-b8cd-112171f3526f}</Project>
+      <Name>CloudNotes.DESecurity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CloudNotes.Infrastructure\CloudNotes.Infrastructure.csproj">
       <Project>{b2ce984b-141e-4c7a-af2a-51a7aeda8a00}</Project>
       <Name>CloudNotes.Infrastructure</Name>

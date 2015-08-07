@@ -73,9 +73,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CloudNotes.DESecurity">
-      <HintPath>..\References\CloudNotes.DESecurity.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -342,6 +339,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CloudNotes.DESecurity\CloudNotes.DESecurity.csproj">
+      <Project>{bd197844-4531-42dd-b8cd-112171f3526f}</Project>
+      <Name>CloudNotes.DESecurity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CloudNotes.Domain.Repositories\CloudNotes.Domain.Repositories.csproj">
       <Project>{9b1df026-7809-4e81-af2b-78aab8ff2c03}</Project>
       <Name>CloudNotes.Domain.Repositories</Name>

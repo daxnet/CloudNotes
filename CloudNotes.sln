@@ -48,6 +48,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DesktopClient.Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DesktopClient.Extensions", "CloudNotes.DesktopClient.Extensions\CloudNotes.DesktopClient.Extensions.csproj", "{47C18012-140D-4908-9D39-266ACB092DC8}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CloudNotes.DesktopClient.Setup", "CloudNotes.DesktopClient.Setup\CloudNotes.DesktopClient.Setup.vdproj", "{1D1C64CD-D7D9-4E53-857E-661D952DD9A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{C1679415-96D3-410A-B1A8-2E1A279268D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DESecurity", "CloudNotes.DESecurity\CloudNotes.DESecurity.csproj", "{BD197844-4531-42DD-B8CD-112171F3526F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +153,20 @@ Global
 		{47C18012-140D-4908-9D39-266ACB092DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47C18012-140D-4908-9D39-266ACB092DC8}.ReleaseWithoutUnitTest|Any CPU.ActiveCfg = Release|Any CPU
 		{47C18012-140D-4908-9D39-266ACB092DC8}.ReleaseWithoutUnitTest|Any CPU.Build.0 = Release|Any CPU
+		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5}.Debug|Any CPU.ActiveCfg = Debug
+		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5}.DebugWithoutUnitTest|Any CPU.ActiveCfg = Debug
+		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5}.Release|Any CPU.ActiveCfg = Release
+		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5}.Release|Any CPU.Build.0 = Release
+		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5}.ReleaseWithoutUnitTest|Any CPU.ActiveCfg = Release
+		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5}.ReleaseWithoutUnitTest|Any CPU.Build.0 = Release
+		{BD197844-4531-42DD-B8CD-112171F3526F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD197844-4531-42DD-B8CD-112171F3526F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD197844-4531-42DD-B8CD-112171F3526F}.DebugWithoutUnitTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD197844-4531-42DD-B8CD-112171F3526F}.DebugWithoutUnitTest|Any CPU.Build.0 = Debug|Any CPU
+		{BD197844-4531-42DD-B8CD-112171F3526F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD197844-4531-42DD-B8CD-112171F3526F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD197844-4531-42DD-B8CD-112171F3526F}.ReleaseWithoutUnitTest|Any CPU.ActiveCfg = Release|Any CPU
+		{BD197844-4531-42DD-B8CD-112171F3526F}.ReleaseWithoutUnitTest|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,5 +177,7 @@ Global
 		{2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A} = {4F533DE9-CA4F-46E4-8DD0-181097803B4E}
 		{6C248049-642B-453C-8A67-F8B2E9FC25B9} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
 		{47C18012-140D-4908-9D39-266ACB092DC8} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
+		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
+		{BD197844-4531-42DD-B8CD-112171F3526F} = {C1679415-96D3-410A-B1A8-2E1A279268D2}
 	EndGlobalSection
 EndGlobal
