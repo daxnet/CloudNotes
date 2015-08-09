@@ -32,7 +32,8 @@ namespace CloudNotes.DesktopClient
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows.Forms;
-    using CloudNotes.DesktopClient.Extensibility;
+    using CloudNotes.DesktopClient.Extensibility.Extensions;
+    using CloudNotes.DesktopClient.Extensibility.Styling;
     using CloudNotes.DesktopClient.Settings;
     using Microsoft.VisualBasic.ApplicationServices;
 
@@ -58,10 +59,11 @@ namespace CloudNotes.DesktopClient
             // You have args here in e.CommandLine.
 
             // You custom code which should be run on other instances
-            if (MainForm != null && MainForm is FrmMain)
+            var mainForm = MainForm as FrmMain;
+            if (mainForm != null)
             {
-                (MainForm as FrmMain).WindowState = FormWindowState.Normal;
-                (MainForm as FrmMain).Show();
+                mainForm.WindowState = FormWindowState.Normal;
+                mainForm.Show();
             }
         }
 
@@ -71,6 +73,8 @@ namespace CloudNotes.DesktopClient
         protected override void OnCreateMainForm()
         {
             var extensionManager = new ExtensionManager();
+            var styleManager = new StyleManager();
+
             var settings = DesktopClientSettings.ReadSettings();
             var loadExtensionTask = Task.Factory.StartNew(() =>
             {
@@ -79,16 +83,16 @@ namespace CloudNotes.DesktopClient
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(settings.General.Language);
                 extensionManager.Load();
             });
-
+            var loadStyleTask = Task.Factory.StartNew(() => styleManager.Load());
 
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(settings.General.Language);
 
             var credential = LoginProvider.Login(Application.Exit, settings);
             if (credential != null)
             {
-                Task.WaitAll(loadExtensionTask);
+                Task.WaitAll(loadExtensionTask, loadStyleTask);
                 // Instantiate your main application form
-                this.MainForm = new FrmMain(credential, settings, extensionManager);
+                this.MainForm = new FrmMain(credential, settings, extensionManager, styleManager);
             }
         }
     }

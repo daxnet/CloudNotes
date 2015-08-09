@@ -48,10 +48,18 @@
     <AssemblyOriginatorKeyFile>CloudNotesKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Apworks, Version=2.5.5662.37915, Culture=neutral, PublicKeyToken=8dd847f02992a80e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Apworks.2.5.5662.37915\lib\net451\Apworks.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Core.3.3.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -92,6 +100,12 @@
       <SubType>component</SubType>
     </Compile>
     <Compile Include="DesktopClientService.cs" />
+    <Compile Include="FrmCreateNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateNote.Designer.cs">
+      <DependentUpon>FrmCreateNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUpdatePackage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +123,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Settings\ComposingSettings.cs" />
     <Compile Include="Settings\DesktopClientSettings.cs" />
     <Compile Include="Settings\GeneralSettings.cs" />
     <Compile Include="FrmAbout.cs">
@@ -181,6 +196,12 @@
     <EmbeddedResource Include="FrmChangePassword.zh-CN.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateNote.resx">
+      <DependentUpon>FrmCreateNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateNote.zh-CN.resx">
+      <DependentUpon>FrmCreateNote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +272,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\Wordpad-icon.png" />
     <None Include="Resources\plugin.png" />
     <None Include="Resources\Expanded.png" />
     <None Include="Resources\Collapsed.png" />

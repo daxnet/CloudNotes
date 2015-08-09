@@ -12,6 +12,8 @@ namespace YARTE.UI.Buttons
         {
             editor.AddToolbarItem(new BoldButton());
             editor.AddToolbarItem(new ItalicButton());
+            editor.AddToolbarItem(new UnderlineButton());
+            editor.AddToolbarItem(new StrikeThroughButton());
             editor.AddStyleSelector();
             editor.AddFontSizeSelector(Enumerable.Range(1, 7));
             editor.AddFontSelector(_webSafeFonts);

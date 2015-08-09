@@ -26,41 +26,32 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensibility
+namespace CloudNotes.DesktopClient.Extensibility.Extensions
 {
-    using System;
+    using System.Windows.Forms;
 
     /// <summary>
-    /// Represents the class that carries the event data when the extension is being loading or has
-    /// been loaded.
+    /// Represents that the implemented classes are export option dialogs.
     /// </summary>
-    internal sealed class ExtensionLoadEventArgs : EventArgs
+    public interface IExportOptionDialog
     {
-        #region Ctor
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtensionLoadEventArgs"/> class.
+        /// Shows the export option dialog.
         /// </summary>
-        public ExtensionLoadEventArgs() { }
-
+        /// <returns>The <see cref="DialogResult"/> value which represents the result of the dialog.</returns>
+        DialogResult ShowDialog();
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtensionLoadEventArgs"/> class.
+        /// Shows the export option dialog.
         /// </summary>
-        /// <param name="extensionName">Name of the extension.</param>
-        public ExtensionLoadEventArgs(string extensionName)
-        {
-            this.ExtensionName = extensionName;
-        }
-        #endregion
-
-        #region Public Properties
+        /// <param name="owner">The owner of the dialog.</param>
+        /// <returns>The <see cref="DialogResult"/> value which represents the result of the dialog.</returns>
+        DialogResult ShowDialog(IWin32Window owner);
         /// <summary>
-        /// Gets or sets the name of the extension.
+        /// Gets the export options.
         /// </summary>
         /// <value>
-        /// The name of the extension.
+        /// The export options.
         /// </value>
-        public string ExtensionName { get; set; }
-        #endregion
-
+        object Options { get; }
     }
 }

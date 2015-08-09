@@ -26,78 +26,41 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensibility
+namespace CloudNotes.DesktopClient.Extensibility.Extensions
 {
     using System;
 
     /// <summary>
-    /// Represents that the decorated classes are CloudNotes Desktop Client extensions.
+    /// Represents the class that carries the event data when the extension is being loading or has
+    /// been loaded.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple=false, Inherited=false)]
-    public sealed class ExtensionAttribute : Attribute
+    internal sealed class ExtensionLoadEventArgs : EventArgs
     {
         #region Ctor
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtensionAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ExtensionLoadEventArgs"/> class.
         /// </summary>
-        /// <param name="id">The identifier of the extension.</param>
-        /// <param name="name">The name of the extension.</param>
-        public ExtensionAttribute(string id, string name)
-        {
-            this.ID = new Guid(id);
-            this.Name = name;
-        }
+        public ExtensionLoadEventArgs() { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtensionAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ExtensionLoadEventArgs"/> class.
         /// </summary>
-        /// <param name="id">The identifier of the extension.</param>
-        /// <param name="name">The name of the extension.</param>
-        /// <param name="settingProviderType">Type of the extension setting provider.</param>
-        public ExtensionAttribute(string id, string name, Type settingProviderType)
-            : this(id, name)
+        /// <param name="extensionName">Name of the extension.</param>
+        public ExtensionLoadEventArgs(string extensionName)
         {
-            this.SettingProviderType = settingProviderType;
+            this.ExtensionName = extensionName;
         }
         #endregion
 
         #region Public Properties
-        /// <summary>
-        /// Gets or sets the identifier of the extension.
-        /// </summary>
-        /// <value>
-        /// The identifier of the extension.
-        /// </value>
-        public Guid ID { get; set; }
-
         /// <summary>
         /// Gets or sets the name of the extension.
         /// </summary>
         /// <value>
         /// The name of the extension.
         /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of the extension setting provider.
-        /// </summary>
-        /// <value>
-        /// The type of the extension setting provider.
-        /// </value>
-        public Type SettingProviderType { get; set; }
+        public string ExtensionName { get; set; }
         #endregion
 
-        #region Public Methods
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
-        {
-            return this.ID.ToString();
-        }
-        #endregion
     }
 }

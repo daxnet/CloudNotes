@@ -385,4 +385,7 @@
   <data name="NoImage" xml:space="preserve">
     <value>No image can be used, please specify the image URI and make sure the URI is valid.</value>
   </data>
+  <data name="StrikeThroughToolTip" xml:space="preserve">
+    <value>Strike Through</value>
+  </data>
 </root>

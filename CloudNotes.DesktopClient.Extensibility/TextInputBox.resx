@@ -123,10 +123,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 66</value>
+    <value>12, 71</value>
   </data>
   <data name="txtInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>459, 22</value>
+    <value>459, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtInput.TabIndex" type="System.Int32, mscorlib">
@@ -145,10 +145,10 @@
     <value>4</value>
   </data>
   <data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 12</value>
+    <value>11, 13</value>
   </data>
   <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>48, 51</value>
   </data>
   <data name="pictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -169,10 +169,10 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="lblPrompt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 12</value>
+    <value>65, 13</value>
   </data>
   <data name="lblPrompt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>406, 48</value>
+    <value>406, 51</value>
   </data>
   <data name="lblPrompt.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -199,10 +199,10 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 94</value>
+    <value>315, 101</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>75, 25</value>
   </data>
   <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -226,10 +226,10 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>396, 94</value>
+    <value>396, 101</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>75, 25</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -256,13 +256,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 14</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>493, 126</value>
+    <value>493, 135</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt</value>
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -33,6 +33,7 @@ namespace CloudNotes.DesktopClient.Extensions.Exporters
     using System.Text;
     using System.Windows.Forms;
     using CloudNotes.DesktopClient.Extensibility;
+    using CloudNotes.DesktopClient.Extensibility.Extensions;
 
     /// <summary>
     ///     Represents the option dialog for the Text File Export extension.

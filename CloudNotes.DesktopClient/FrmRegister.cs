@@ -39,7 +39,7 @@ namespace CloudNotes.DesktopClient
     using CloudNotes.Infrastructure;
     using Newtonsoft.Json;
 
-    public partial class FrmRegister : Form
+    internal sealed partial class FrmRegister : Form
     {
         private readonly string defaultServerUri;
 

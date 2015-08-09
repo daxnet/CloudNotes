@@ -33,7 +33,7 @@ namespace CloudNotes.DesktopClient
     using System.Threading;
     using System.Windows.Forms;
 
-    public partial class FrmUpdatePackage : Form
+    internal sealed partial class FrmUpdatePackage : Form
     {
         private readonly dynamic packageInformation;
 

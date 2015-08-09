@@ -32,6 +32,7 @@ namespace CloudNotes.DesktopClient.Extensions.Exporters
     using System.Text;
     using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Extensibility.Data;
+    using CloudNotes.DesktopClient.Extensibility.Extensions;
     using CloudNotes.DesktopClient.Extensions.Properties;
     using CloudNotes.Infrastructure;
 

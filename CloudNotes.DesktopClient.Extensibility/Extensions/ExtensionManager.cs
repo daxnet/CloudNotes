@@ -26,109 +26,109 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensibility
+namespace CloudNotes.DesktopClient.Extensibility.Extensions
 {
-    using CloudNotes.DesktopClient.Extensibility.Properties;
-    using System.Drawing;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
     using System.Windows.Forms;
+    using CloudNotes.Infrastructure;
 
     /// <summary>
-    /// Represents that the derived classes are the extensions that will be registered
-    /// as a tool in CloudNotes Desktop Client.
+    /// Represents the Extension Manager that registers and manages the extensions.
     /// </summary>
-    public abstract class ToolExtension : Extension
+    internal sealed class ExtensionManager : ExternalResourceManager<Extension>
     {
-        #region Private Fields
-        private readonly string toolName;
-        #endregion
 
         #region Ctor
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolExtension"/> class.
+        /// Initializes a new instance of the <see cref="ExtensionManager"/> class.
         /// </summary>
-        /// <param name="toolName">Name of the tool.</param>
-        public ToolExtension(string toolName)
+        /// <param name="path">The path which contains the extension assemblies.</param>
+        public ExtensionManager(string path)
+            : base(path, Constants.ExtensionFileSearchPattern)
         {
-            this.toolName = toolName;
+            
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExtensionManager"/> class.
+        /// </summary>
+        public ExtensionManager()
+            : this(Path.Combine(Application.StartupPath, Constants.ExtensionFolderName))
+        {
+
         }
         #endregion
 
         #region Public Properties
         /// <summary>
-        /// Gets the name of the tool.
+        /// Gets all the tool extensions.
         /// </summary>
         /// <value>
-        /// The name of the tool.
+        /// The tool extensions.
         /// </value>
-        public string ToolName
-        {
-            get { return this.toolName; }
-        }
-
-        /// <summary>
-        /// Gets the tool icon that will appear on the menu or toolbar.
-        /// </summary>
-        /// <value>
-        /// The tool icon.
-        /// </value>
-        public virtual Image ToolIcon
+        public IEnumerable<ToolExtension> ToolExtensions
         {
             get
             {
-                return Resources.Plugin;
+                return this.Resources.Values.Where(p => p.GetType().IsSubclassOf(typeof(ToolExtension))).Select(p => (ToolExtension)p);
             }
         }
 
         /// <summary>
-        /// Gets the tool tip.
+        /// Gets all the export extensions.
         /// </summary>
         /// <value>
-        /// The tool tip.
+        /// The export extensions.
         /// </value>
-        public virtual string ToolTip
+        public IEnumerable<ExportExtension> ExportExtensions
         {
             get
             {
-                return null;
+                return this.Resources.Values.Where(p => p.GetType().IsSubclassOf(typeof(ExportExtension))).Select(p => (ExportExtension)p);
             }
         }
 
         /// <summary>
-        /// Gets the shortcut.
+        /// Gets all of the registered extensions.
         /// </summary>
         /// <value>
-        /// The shortcut.
+        /// All extensions.
         /// </value>
-        public virtual Shortcut Shortcut
+        public IEnumerable<KeyValuePair<Guid, Extension>> AllExtensions
         {
             get
             {
-                return Shortcut.None;
+                return this.Resources;
             }
         }
+
         #endregion
 
-        #region Public Methods 
-        /// <summary>
-        /// Gets the display name of the extension.
-        /// </summary>
-        /// <value>
-        /// The display name of the extension.
-        /// </value>
-        public override string DisplayName
+        protected override IEnumerable<Extension> LoadResources(string fileName)
         {
-            get { return this.ToolName; }
+            var assembly = Assembly.LoadFrom(fileName);
+            var result = new List<Extension>();
+            foreach (var type in assembly.GetExportedTypes())
+            {
+                if (type.IsDefined(typeof (ExtensionAttribute)) &&
+                    type.IsSubclassOf(typeof (Extension)))
+                {
+                    try
+                    {
+                        var extensionLoaded = (Extension) Activator.CreateInstance(type);
+                        this.OnResourceLoaded(extensionLoaded);
+                        result.Add(extensionLoaded);
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+            return result;
         }
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
-        {
-            return this.toolName;
-        }
-        #endregion
     }
 }

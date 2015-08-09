@@ -34,11 +34,11 @@ namespace CloudNotes.DesktopClient
     using System.Threading;
     using System.Windows.Forms;
     using CloudNotes.DesktopClient.Controls;
-    using CloudNotes.DesktopClient.Extensibility;
+    using CloudNotes.DesktopClient.Extensibility.Extensions;
     using CloudNotes.DesktopClient.Properties;
     using CloudNotes.Infrastructure;
 
-    public partial class FrmAbout : Form
+    internal sealed partial class FrmAbout : Form
     {
         private readonly ExtensionManager extensionManager;
 
@@ -68,7 +68,7 @@ namespace CloudNotes.DesktopClient
                         "Assembly.png"));
             }
 
-            if (this.extensionManager.HasExtension)
+            if (this.extensionManager.HasResource)
             {
                 this.lstExtensions.Visible = true;
                 this.lstExtensions.Groups.Clear();

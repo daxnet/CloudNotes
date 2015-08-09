@@ -34,6 +34,7 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
     using System.Windows.Forms;
     using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Extensibility.Data;
+    using CloudNotes.DesktopClient.Extensibility.Extensions;
     using CloudNotes.DesktopClient.Extensions.Properties;
     using CloudNotes.Infrastructure;
 

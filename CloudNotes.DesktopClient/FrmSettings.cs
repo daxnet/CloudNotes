@@ -30,14 +30,16 @@ namespace CloudNotes.DesktopClient
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Windows.Forms;
     using CloudNotes.DesktopClient.Controls;
-    using CloudNotes.DesktopClient.Extensibility;
+    using CloudNotes.DesktopClient.Extensibility.Extensions;
+    using CloudNotes.DesktopClient.Extensibility.Styling;
     using CloudNotes.DesktopClient.Properties;
     using CloudNotes.DesktopClient.Settings;
 
-    public partial class FrmSettings : Form
+    internal sealed partial class FrmSettings : Form
     {
         private readonly SortedDictionary<string, string> SupportedLanguages = new SortedDictionary<string, string>()
         {
@@ -47,13 +49,15 @@ namespace CloudNotes.DesktopClient
 
         private readonly DesktopClientSettings settings;
         private readonly ExtensionManager extensionManager;
+        private readonly StyleManager styleManager;
         private readonly Dictionary<Guid, IExtensionSetting> cachedSettings = new Dictionary<Guid, IExtensionSetting>();
 
-        internal FrmSettings(DesktopClientSettings settings, ExtensionManager extensionManager)
+        internal FrmSettings(DesktopClientSettings settings, ExtensionManager extensionManager, StyleManager styleManager)
         {
             InitializeComponent();
             this.settings = settings;
             this.extensionManager = extensionManager;
+            this.styleManager = styleManager;
         }
 
         private void InitializeControls()
@@ -76,7 +80,7 @@ namespace CloudNotes.DesktopClient
 
         private void InitializeExtensions()
         {
-            if (this.extensionManager.HasExtension)
+            if (this.extensionManager.HasResource)
             {
                 splitContainer.Visible = true;
                 lvExtensions.Groups.Clear();
@@ -160,11 +164,48 @@ namespace CloudNotes.DesktopClient
             }
         }
 
+        private void InitializeStyles()
+        {
+            if (this.styleManager.HasResource)
+            {
+                foreach (var styleKvp in this.styleManager.Styles)
+                {
+                    cbDefaultStyle.Items.Add(styleKvp.Value);
+                }
+                if (this.settings.Composing.DefaultStyleId != Guid.Empty &&
+                    this.styleManager.Styles.Any(p => p.Key == this.settings.Composing.DefaultStyleId))
+                {
+                    cbDefaultStyle.SelectedItem = this.styleManager.Styles.First(p => p.Key == this.settings.Composing.DefaultStyleId).Value;
+                }
+            }
+        }
+
+        private void BindStyle(Style style)
+        {
+            if (style != null)
+            {
+                txtStyleAuthor.Text = style.Author;
+                txtStyleCreationDate.Text = style.CreationDate.ToString("D",
+                    new CultureInfo(this.settings.General.Language));
+                txtStyleDescription.Text = style.Description;
+                
+                wbStylePreview.DocumentText = Resources.HtmlPreviewTemplate.Replace("$style$", style.Content);
+            }
+            else
+            {
+                txtStyleAuthor.Text = string.Empty;
+                txtStyleCreationDate.Text = string.Empty;
+                txtStyleDescription.Text = string.Empty;
+                wbStylePreview.DocumentText = string.Empty;
+            }
+        }
+
         private void FrmSettings_Load(object sender, EventArgs e)
         {
             this.InitializeControls();
             this.InitializeSettings();
             this.InitializeExtensions();
+            this.InitializeStyles();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -183,6 +224,8 @@ namespace CloudNotes.DesktopClient
             settings.General.ShowUnderExtensionsMenu = chkShowExtensionInMenuGroup.Checked;
             settings.General.OnlyShowForMaximumExtensionsLoaded = chkOnlyShowWhenMoreThan.Checked;
             settings.General.MaximumExtensionsLoadedValue = Convert.ToInt32(numMaxExtensionsLoaded.Value);
+
+            settings.Composing.DefaultStyleId = cbDefaultStyle.SelectedItem != null ? ((Style) cbDefaultStyle.SelectedItem).ID : Guid.Empty;
             DesktopClientSettings.WriteSettings(settings);
         }
 
@@ -214,6 +257,11 @@ namespace CloudNotes.DesktopClient
             chkOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
             numMaxExtensionsLoaded.Enabled = chkShowExtensionInMenuGroup.Checked;
             lblOnlyShowWhenMoreThan.Enabled = chkShowExtensionInMenuGroup.Checked;
+        }
+
+        private void cbDefaultStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.BindStyle((Style)cbDefaultStyle.SelectedItem);
         }
     }
 }

@@ -71,6 +71,7 @@
     <Compile Include="Buttons\OrderedListButton.cs" />
     <Compile Include="Buttons\PredefinedButtonSets.cs" />
     <Compile Include="Buttons\PrintButton.cs" />
+    <Compile Include="Buttons\StrikeThroughButton.cs" />
     <Compile Include="Buttons\UnderlineButton.cs" />
     <Compile Include="Buttons\UnlinkButton.cs" />
     <Compile Include="Buttons\UnorderedListButton.cs" />

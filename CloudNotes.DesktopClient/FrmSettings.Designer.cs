@@ -48,6 +48,18 @@
             this.chkShowExtensionInMenuGroup = new System.Windows.Forms.CheckBox();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tpComposing = new System.Windows.Forms.TabPage();
+            this.grpStylePreview = new System.Windows.Forms.GroupBox();
+            this.pnlStylePreview = new System.Windows.Forms.Panel();
+            this.wbStylePreview = new System.Windows.Forms.WebBrowser();
+            this.txtStyleDescription = new System.Windows.Forms.TextBox();
+            this.txtStyleCreationDate = new System.Windows.Forms.TextBox();
+            this.txtStyleAuthor = new System.Windows.Forms.TextBox();
+            this.lblStyleDescription = new System.Windows.Forms.Label();
+            this.lblStyleCreationDate = new System.Windows.Forms.Label();
+            this.lblStyleAuthor = new System.Windows.Forms.Label();
+            this.cbDefaultStyle = new System.Windows.Forms.ComboBox();
+            this.lblDefaultStyle = new System.Windows.Forms.Label();
             this.tpExtensions = new System.Windows.Forms.TabPage();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.label4 = new System.Windows.Forms.Label();
@@ -59,6 +71,9 @@
             this.tpGeneral.SuspendLayout();
             this.groupBoxLocalization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxExtensionsLoaded)).BeginInit();
+            this.tpComposing.SuspendLayout();
+            this.grpStylePreview.SuspendLayout();
+            this.pnlStylePreview.SuspendLayout();
             this.tpExtensions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,6 +148,7 @@
             // 
             resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tpGeneral);
+            this.tabControl.Controls.Add(this.tpComposing);
             this.tabControl.Controls.Add(this.tpExtensions);
             this.tabControl.ImageList = this.imageList;
             this.tabControl.Name = "tabControl";
@@ -206,6 +222,90 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // tpComposing
+            // 
+            resources.ApplyResources(this.tpComposing, "tpComposing");
+            this.tpComposing.Controls.Add(this.grpStylePreview);
+            this.tpComposing.Controls.Add(this.cbDefaultStyle);
+            this.tpComposing.Controls.Add(this.lblDefaultStyle);
+            this.tpComposing.Name = "tpComposing";
+            this.tpComposing.UseVisualStyleBackColor = true;
+            // 
+            // grpStylePreview
+            // 
+            resources.ApplyResources(this.grpStylePreview, "grpStylePreview");
+            this.grpStylePreview.Controls.Add(this.pnlStylePreview);
+            this.grpStylePreview.Controls.Add(this.txtStyleDescription);
+            this.grpStylePreview.Controls.Add(this.txtStyleCreationDate);
+            this.grpStylePreview.Controls.Add(this.txtStyleAuthor);
+            this.grpStylePreview.Controls.Add(this.lblStyleDescription);
+            this.grpStylePreview.Controls.Add(this.lblStyleCreationDate);
+            this.grpStylePreview.Controls.Add(this.lblStyleAuthor);
+            this.grpStylePreview.Name = "grpStylePreview";
+            this.grpStylePreview.TabStop = false;
+            // 
+            // pnlStylePreview
+            // 
+            resources.ApplyResources(this.pnlStylePreview, "pnlStylePreview");
+            this.pnlStylePreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlStylePreview.Controls.Add(this.wbStylePreview);
+            this.pnlStylePreview.Name = "pnlStylePreview";
+            // 
+            // wbStylePreview
+            // 
+            resources.ApplyResources(this.wbStylePreview, "wbStylePreview");
+            this.wbStylePreview.AllowWebBrowserDrop = false;
+            this.wbStylePreview.IsWebBrowserContextMenuEnabled = false;
+            this.wbStylePreview.Name = "wbStylePreview";
+            this.wbStylePreview.ScriptErrorsSuppressed = true;
+            this.wbStylePreview.WebBrowserShortcutsEnabled = false;
+            // 
+            // txtStyleDescription
+            // 
+            resources.ApplyResources(this.txtStyleDescription, "txtStyleDescription");
+            this.txtStyleDescription.Name = "txtStyleDescription";
+            this.txtStyleDescription.ReadOnly = true;
+            // 
+            // txtStyleCreationDate
+            // 
+            resources.ApplyResources(this.txtStyleCreationDate, "txtStyleCreationDate");
+            this.txtStyleCreationDate.Name = "txtStyleCreationDate";
+            this.txtStyleCreationDate.ReadOnly = true;
+            // 
+            // txtStyleAuthor
+            // 
+            resources.ApplyResources(this.txtStyleAuthor, "txtStyleAuthor");
+            this.txtStyleAuthor.Name = "txtStyleAuthor";
+            this.txtStyleAuthor.ReadOnly = true;
+            // 
+            // lblStyleDescription
+            // 
+            resources.ApplyResources(this.lblStyleDescription, "lblStyleDescription");
+            this.lblStyleDescription.Name = "lblStyleDescription";
+            // 
+            // lblStyleCreationDate
+            // 
+            resources.ApplyResources(this.lblStyleCreationDate, "lblStyleCreationDate");
+            this.lblStyleCreationDate.Name = "lblStyleCreationDate";
+            // 
+            // lblStyleAuthor
+            // 
+            resources.ApplyResources(this.lblStyleAuthor, "lblStyleAuthor");
+            this.lblStyleAuthor.Name = "lblStyleAuthor";
+            // 
+            // cbDefaultStyle
+            // 
+            resources.ApplyResources(this.cbDefaultStyle, "cbDefaultStyle");
+            this.cbDefaultStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDefaultStyle.FormattingEnabled = true;
+            this.cbDefaultStyle.Name = "cbDefaultStyle";
+            this.cbDefaultStyle.SelectedIndexChanged += new System.EventHandler(this.cbDefaultStyle_SelectedIndexChanged);
+            // 
+            // lblDefaultStyle
+            // 
+            resources.ApplyResources(this.lblDefaultStyle, "lblDefaultStyle");
+            this.lblDefaultStyle.Name = "lblDefaultStyle";
+            // 
             // tpExtensions
             // 
             resources.ApplyResources(this.tpExtensions, "tpExtensions");
@@ -218,7 +318,8 @@
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "cog.png");
-            this.imageList.Images.SetKeyName(1, "plugin.png");
+            this.imageList.Images.SetKeyName(1, "page_white_edit.png");
+            this.imageList.Images.SetKeyName(2, "plugin.png");
             // 
             // label4
             // 
@@ -248,6 +349,11 @@
             this.groupBoxLocalization.ResumeLayout(false);
             this.groupBoxLocalization.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxExtensionsLoaded)).EndInit();
+            this.tpComposing.ResumeLayout(false);
+            this.tpComposing.PerformLayout();
+            this.grpStylePreview.ResumeLayout(false);
+            this.grpStylePreview.PerformLayout();
+            this.pnlStylePreview.ResumeLayout(false);
             this.tpExtensions.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -276,5 +382,17 @@
         private System.Windows.Forms.CheckBox chkOnlyShowWhenMoreThan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tpComposing;
+        private System.Windows.Forms.Label lblDefaultStyle;
+        private System.Windows.Forms.ComboBox cbDefaultStyle;
+        private System.Windows.Forms.GroupBox grpStylePreview;
+        private System.Windows.Forms.Label lblStyleDescription;
+        private System.Windows.Forms.Label lblStyleCreationDate;
+        private System.Windows.Forms.Label lblStyleAuthor;
+        private System.Windows.Forms.TextBox txtStyleAuthor;
+        private System.Windows.Forms.TextBox txtStyleDescription;
+        private System.Windows.Forms.TextBox txtStyleCreationDate;
+        private System.Windows.Forms.Panel pnlStylePreview;
+        private System.Windows.Forms.WebBrowser wbStylePreview;
     }
 }

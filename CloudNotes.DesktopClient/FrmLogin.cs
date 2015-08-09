@@ -41,7 +41,7 @@ namespace CloudNotes.DesktopClient
     using CloudNotes.DESecurity;
     using Newtonsoft.Json;
 
-    public partial class FrmLogin : Form
+    internal sealed partial class FrmLogin : Form
     {
         private readonly Profile profile;
 

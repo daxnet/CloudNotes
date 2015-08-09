@@ -37,7 +37,7 @@ namespace CloudNotes.DesktopClient
     using CloudNotes.DesktopClient.Properties;
     using CloudNotes.DESecurity;
 
-    public partial class FrmChangePassword : Form
+    internal sealed partial class FrmChangePassword : Form
     {
         private readonly ClientCredential clientCredential;
         private string oldPassword;

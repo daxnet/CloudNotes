@@ -331,4 +331,54 @@
   <data name="NewNoteTitleText" xml:space="preserve">
     <value>新建笔记</value>
   </data>
+  <data name="HtmlPreviewTemplate" xml:space="preserve">
+    <value>&lt;html&gt;
+	&lt;head&gt;
+		&lt;style&gt;
+			$style$
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;标题 1&lt;/h1&gt;
+		&lt;h2&gt;标题 2&lt;/h2&gt;
+		&lt;h3&gt;标题 3&lt;/h3&gt;
+		&lt;h4&gt;标题 4&lt;/h4&gt;
+		&lt;h5&gt;标题 5&lt;/h5&gt;
+		&lt;h6&gt;标题 6&lt;/h6&gt;
+		&lt;p&gt;段落&lt;/p&gt;
+		编号列表
+		&lt;ol&gt;
+			&lt;li&gt;项目 1&lt;/li&gt;
+			&lt;li&gt;项目 2&lt;/li&gt;
+			&lt;li&gt;项目 3&lt;/li&gt;
+		&lt;/ol&gt;
+		项目符号列表
+		&lt;ul&gt;
+			&lt;li&gt;项目 1&lt;/li&gt;
+			&lt;li&gt;项目 2&lt;/li&gt;
+			&lt;li&gt;项目 3&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;strong&gt;粗体&lt;/strong&gt; &lt;br /&gt;
+		&lt;em&gt;斜体&lt;/em&gt; &lt;br /&gt;
+		&lt;u&gt;下划线&lt;/u&gt; &lt;br /&gt;
+		&lt;strike&gt;删除线&lt;/strike&gt; &lt;br /&gt;
+		&lt;a href="#"&gt;超级链接&lt;/a&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="Wordpad_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Wordpad-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HtmlEmptyTemplate" xml:space="preserve">
+    <value>&lt;html&gt;
+	&lt;head&gt;
+		&lt;style&gt;
+			$style$
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
 </root>

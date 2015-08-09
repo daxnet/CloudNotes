@@ -250,6 +250,62 @@ namespace CloudNotes.DesktopClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;html&gt;
+        ///	&lt;head&gt;
+        ///		&lt;style&gt;
+        ///			$style$
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt;.
+        /// </summary>
+        internal static string HtmlEmptyTemplate {
+            get {
+                return ResourceManager.GetString("HtmlEmptyTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;html&gt;
+        ///	&lt;head&gt;
+        ///		&lt;style&gt;
+        ///			$style$
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Heading 1&lt;/h1&gt;
+        ///		&lt;h2&gt;Heading 2&lt;/h2&gt;
+        ///		&lt;h3&gt;Heading 3&lt;/h3&gt;
+        ///		&lt;h4&gt;Heading 4&lt;/h4&gt;
+        ///		&lt;h5&gt;Heading 5&lt;/h5&gt;
+        ///		&lt;h6&gt;Heading 6&lt;/h6&gt;
+        ///		&lt;p&gt;Paragraph&lt;/p&gt;
+        ///		Ordered List
+        ///		&lt;ol&gt;
+        ///			&lt;li&gt;Item 1&lt;/li&gt;
+        ///			&lt;li&gt;Item 2&lt;/li&gt;
+        ///			&lt;li&gt;Item 3&lt;/li&gt;
+        ///		&lt;/ol&gt;
+        ///		Unordered List
+        ///		&lt;ul&gt;
+        ///			&lt;li&gt;Item 1&lt;/li&gt;
+        ///			&lt;li&gt;Item 2&lt;/li&gt;
+        ///			&lt;li&gt;Item 3&lt;/li&gt;
+        ///		&lt;/ul&gt;
+        ///		&lt;strong&gt;Bold&lt;/strong&gt; &lt;br /&gt;
+        ///		&lt;em&gt;Italic&lt;/em&gt; &lt;br /&gt;
+        ///		&lt;u&gt;Underline&lt;/u&gt; &lt;br /&gt;
+        ///		&lt;strike&gt;Strike [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HtmlPreviewTemplate {
+            get {
+                return ResourceManager.GetString("HtmlPreviewTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Importing....
         /// </summary>
         internal static string Importing {
@@ -728,6 +784,16 @@ namespace CloudNotes.DesktopClient.Properties {
         internal static string UserNameRequired {
             get {
                 return ResourceManager.GetString("UserNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wordpad_icon {
+            get {
+                object obj = ResourceManager.GetObject("Wordpad_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

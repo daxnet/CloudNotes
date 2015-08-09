@@ -26,12 +26,12 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensibility
+namespace CloudNotes.DesktopClient.Extensibility.Extensions
 {
-    using Newtonsoft.Json;
     using System;
     using System.IO;
     using System.Windows.Forms;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Represents that the derived classes are Extension Setting Providers.

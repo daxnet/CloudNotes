@@ -376,4 +376,7 @@
   <data name="NoImage" xml:space="preserve">
     <value>没有可以使用的图片，请确保已经输入了图片地址，并且图片地址格式是正确的。</value>
   </data>
+  <data name="StrikeThroughToolTip" xml:space="preserve">
+    <value>删除线</value>
+  </data>
 </root>

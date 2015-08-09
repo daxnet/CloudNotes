@@ -26,11 +26,11 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensibility
+namespace CloudNotes.DesktopClient.Extensibility.Extensions
 {
+    using System.Windows.Forms;
     using CloudNotes.DesktopClient.Extensibility.Data;
     using CloudNotes.DesktopClient.Extensibility.Exceptions;
-    using System.Windows.Forms;
 
     /// <summary>
     /// Represents that the derived classes are the extensions that are responsible for exporting

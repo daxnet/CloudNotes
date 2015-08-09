@@ -74,7 +74,7 @@ namespace CloudNotes.Tests
 
             if (findAction != null) mockRepository.Setup(x => x.Find(It.IsAny<ISpecification<T>>())).Returns(findAction);
 
-            if (getByKeyResult != null) mockRepository.Setup(x => x.GetByKey(It.IsAny<object>())).Returns(getByKeyResult);
+            if (getByKeyResult != null) mockRepository.Setup(x => x.GetByKey(It.IsAny<Guid>())).Returns(getByKeyResult);
 
             if (removeAction != null) mockRepository.Setup(x => x.Remove(It.IsAny<T>())).Callback(removeAction);
 

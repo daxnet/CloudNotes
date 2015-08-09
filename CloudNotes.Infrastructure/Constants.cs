@@ -87,6 +87,16 @@ namespace CloudNotes.Infrastructure
         /// </summary>
         public const string ExtensionFileSearchPattern = "*.dll";
 
+        /// <summary>
+        /// The name of the folder for storing the styles.
+        /// </summary>
+        public const string StyleFolderName = "Styles";
+
+        /// <summary>
+        /// The style file search pattern.
+        /// </summary>
+        public const string StyleFileSearchPattern = "*.style";
+
         #endregion
     }
 }

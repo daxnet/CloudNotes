@@ -26,16 +26,17 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensibility
+namespace CloudNotes.DesktopClient.Extensibility.Extensions
 {
+    using System;
+    using Apworks;
     using CloudNotes.DesktopClient.Extensibility.Exceptions;
     using CloudNotes.DesktopClient.Extensibility.Properties;
-    using System;
 
     /// <summary>
     /// Represents the base class for CloudNotes Desktop Client extensions.
     /// </summary>
-    public abstract class Extension
+    public abstract class Extension : IEntity
     {
         #region Private Fields
         private ExtensionSettingProvider settingProvider;
@@ -91,6 +92,10 @@ namespace CloudNotes.DesktopClient.Extensibility
                 if (this.ExtensionAttribute != null)
                     return this.ExtensionAttribute.ID;
                 throw new ExtensionException(Resources.ExtensionNotDecoratedWithExtensionAttribute);
+            }
+            set
+            {
+                // No setter operation is applicable to the current Extension instance.
             }
         }
 

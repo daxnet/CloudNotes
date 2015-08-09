@@ -331,4 +331,54 @@
   <data name="NewNoteTitleText" xml:space="preserve">
     <value>Create a New Note</value>
   </data>
+  <data name="HtmlPreviewTemplate" xml:space="preserve">
+    <value>&lt;html&gt;
+	&lt;head&gt;
+		&lt;style&gt;
+			$style$
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Heading 1&lt;/h1&gt;
+		&lt;h2&gt;Heading 2&lt;/h2&gt;
+		&lt;h3&gt;Heading 3&lt;/h3&gt;
+		&lt;h4&gt;Heading 4&lt;/h4&gt;
+		&lt;h5&gt;Heading 5&lt;/h5&gt;
+		&lt;h6&gt;Heading 6&lt;/h6&gt;
+		&lt;p&gt;Paragraph&lt;/p&gt;
+		Ordered List
+		&lt;ol&gt;
+			&lt;li&gt;Item 1&lt;/li&gt;
+			&lt;li&gt;Item 2&lt;/li&gt;
+			&lt;li&gt;Item 3&lt;/li&gt;
+		&lt;/ol&gt;
+		Unordered List
+		&lt;ul&gt;
+			&lt;li&gt;Item 1&lt;/li&gt;
+			&lt;li&gt;Item 2&lt;/li&gt;
+			&lt;li&gt;Item 3&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;strong&gt;Bold&lt;/strong&gt; &lt;br /&gt;
+		&lt;em&gt;Italic&lt;/em&gt; &lt;br /&gt;
+		&lt;u&gt;Underline&lt;/u&gt; &lt;br /&gt;
+		&lt;strike&gt;StrikeThrough&lt;/strike&gt; &lt;br /&gt;
+		&lt;a href="#"&gt;Hyperlink&lt;/a&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="Wordpad_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Wordpad-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HtmlEmptyTemplate" xml:space="preserve">
+    <value>&lt;html&gt;
+	&lt;head&gt;
+		&lt;style&gt;
+			$style$
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
 </root>

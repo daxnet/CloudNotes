@@ -42,6 +42,8 @@ namespace CloudNotes.DesktopClient
     using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Extensibility.Data;
     using CloudNotes.DesktopClient.Extensibility.Exceptions;
+    using CloudNotes.DesktopClient.Extensibility.Extensions;
+    using CloudNotes.DesktopClient.Extensibility.Styling;
     using CloudNotes.DesktopClient.Properties;
     using CloudNotes.DesktopClient.Settings;
     using CloudNotes.DESecurity;
@@ -52,8 +54,10 @@ namespace CloudNotes.DesktopClient
     /// <summary>
     ///     Represents the main form for CloudNotes desktop client.
     /// </summary>
-    public sealed partial class FrmMain : Form, IShell
+    internal sealed partial class FrmMain : Form, IShell
     {
+        private static readonly string EmptyContent = string.Empty;
+
         private readonly ClientCredential credential;
 
         private readonly Crypto crypto = Crypto.CreateDefaultCrypto();
@@ -74,15 +78,19 @@ namespace CloudNotes.DesktopClient
 
         private readonly ExtensionManager extensionManager;
 
+        private readonly StyleManager styleManager;
+
         private CheckUpdateResult checkUpdateResult;
 
-        internal FrmMain(ClientCredential credential, DesktopClientSettings settings, ExtensionManager extensionManager)
+        internal FrmMain(ClientCredential credential, DesktopClientSettings settings, ExtensionManager extensionManager, StyleManager styleManager)
         {
             this.credential = credential;
 
             this.settings = settings;
 
             this.extensionManager = extensionManager;
+
+            this.styleManager = styleManager;
 
             this.InitializeComponent();
 
@@ -91,6 +99,14 @@ namespace CloudNotes.DesktopClient
             this.InitializeExtensions();
 
             this.Text = string.Format("CloudNotes - {0}@{1}", credential.UserName, credential.ServerUri);
+
+            // Fix the main form size
+            var currentScreen = Screen.FromControl(this);
+            this.Width = Convert.ToInt32(currentScreen.Bounds.Width * 0.75F);
+            this.Height = Convert.ToInt32(currentScreen.Bounds.Height * 0.75F);
+            this.Location = new Point(currentScreen.Bounds.X + (currentScreen.Bounds.Width - this.Width)/2,
+                currentScreen.Bounds.Y + (currentScreen.Bounds.Height - this.Height)/2);
+            this.splitContainer.SplitterDistance = Convert.ToInt32(this.Width*0.25F);
 
             this.notifyIcon.Text = string.Format("CloudNotes - {0}", credential.UserName);
 
@@ -249,7 +265,7 @@ namespace CloudNotes.DesktopClient
                 this.lblTitle.Text = string.Empty;
                 this.lblDatePublished.Text = string.Empty;
                 this.htmlEditor.Enabled = false;
-                this.htmlEditor.Html = string.Empty;
+                this.htmlEditor.Html = EmptyContent;
                 this.mnuPrint.Enabled = false;
                 if (this.mnuSaveAs != null)
                 {
@@ -340,7 +356,7 @@ namespace CloudNotes.DesktopClient
         {
             this.lblTitle.Text = string.Empty;
             this.lblDatePublished.Text = string.Empty;
-            this.htmlEditor.Html = string.Empty;
+            this.htmlEditor.Html = EmptyContent;
             this.htmlEditor.Enabled = false;
             if (this.mnuSaveAs != null)
             {
@@ -566,22 +582,30 @@ namespace CloudNotes.DesktopClient
                 this,
                 async () =>
                 {
-                    var newNoteForm = new TextInputBox(Resources.NewNoteTitleText,
-                        Resources.NewNotePrompt, new[]
-                        {
-                            new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
-                            new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains,
-                                Resources.TitleExists)
-                        });
+                    //var newNoteForm = new TextInputBox(Resources.NewNoteTitleText,
+                    //    Resources.NewNotePrompt, new[]
+                    //    {
+                    //        new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
+                    //        new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains,
+                    //            Resources.TitleExists)
+                    //    });
+
+                    var newNoteForm = new FrmCreateNote(Resources.NewNotePrompt, this.styleManager, this.settings, new[]
+                    {
+                        new Tuple<Func<string, bool>, string>(string.IsNullOrEmpty, Resources.TitleRequired),
+                        new Tuple<Func<string, bool>, string>(this.ExistingNotesTitle.Contains,
+                            Resources.TitleExists)
+                    });
+
                     if (newNoteForm.ShowDialog() == DialogResult.OK)
                     {
-                        var title = newNoteForm.InputText;
+                        var title = newNoteForm.SelectedTitle;
                         var note =
                             new Note
                             {
                                 ID = Guid.Empty,
                                 Title = title,
-                                Content = string.Empty,
+                                Content = newNoteForm.SelectedEmptyHtml,
                                 DatePublished = DateTime.UtcNow
                             };
                         await this.ImportNote(note);
@@ -762,7 +786,7 @@ namespace CloudNotes.DesktopClient
                             this.lblTitle.Text = string.Empty;
                             this.lblDatePublished.Text = string.Empty;
                             this.htmlEditor.Enabled = false;
-                            this.htmlEditor.Html = string.Empty;
+                            this.htmlEditor.Html = EmptyContent;
                             if (this.mnuSaveAs != null)
                             {
                                 this.mnuSaveAs.Enabled = false;
@@ -911,7 +935,7 @@ namespace CloudNotes.DesktopClient
                 this,
                 () =>
                 {
-                    var settingsForm = new FrmSettings(this.settings, this.extensionManager);
+                    var settingsForm = new FrmSettings(this.settings, this.extensionManager, this.styleManager);
                     if (settingsForm.ShowDialog() == DialogResult.OK)
                     {
                         this.UpdateSettings();
@@ -952,7 +976,7 @@ namespace CloudNotes.DesktopClient
                 {
                     this.lblTitle.Text = string.Empty;
                     this.lblDatePublished.Text = string.Empty;
-                    this.htmlEditor.Html = string.Empty;
+                    this.htmlEditor.Html = EmptyContent;
                     this.htmlEditor.Enabled = false;
                     if (this.mnuSaveAs != null)
                     {

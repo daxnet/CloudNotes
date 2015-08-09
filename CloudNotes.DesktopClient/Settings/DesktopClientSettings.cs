@@ -28,6 +28,7 @@
 
 namespace CloudNotes.DesktopClient.Settings
 {
+    using System;
     using System.Configuration;
     using System.IO;
     using System.Threading;
@@ -49,6 +50,8 @@ namespace CloudNotes.DesktopClient.Settings
             Default.General.ShowUnderExtensionsMenu = false;
             Default.General.OnlyShowForMaximumExtensionsLoaded = false;
             Default.General.MaximumExtensionsLoadedValue = 0;
+            Default.Composing = new ComposingSettings();
+            Default.Composing.DefaultStyleId = Guid.Empty;
             Default.PackageServer = ConfigurationManager.AppSettings[Constants.PackageServerSettingKey];
         }
 
@@ -65,6 +68,21 @@ namespace CloudNotes.DesktopClient.Settings
                 return Default.General;
             }
             set { general = value; }
+        }
+
+        private ComposingSettings composing;
+
+        public ComposingSettings Composing
+        {
+            get
+            {
+                if (composing != null)
+                {
+                    return composing;
+                }
+                return Default.Composing;
+            }
+            set { composing = value; }
         }
 
         private string packageServer;

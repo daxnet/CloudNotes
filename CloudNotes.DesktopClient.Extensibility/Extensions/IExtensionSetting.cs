@@ -26,32 +26,17 @@
 // limitations under the License.
 // =======================================================================================================
 
-namespace CloudNotes.DesktopClient.Extensibility
+
+
+namespace CloudNotes.DesktopClient.Extensibility.Extensions
 {
-    using System.Windows.Forms;
 
     /// <summary>
-    /// Represents that the implemented classes are export option dialogs.
+    /// Represents that the implemented classes are the extension settings that
+    /// carries the setting data of the extensions.
     /// </summary>
-    public interface IExportOptionDialog
+    public interface IExtensionSetting
     {
-        /// <summary>
-        /// Shows the export option dialog.
-        /// </summary>
-        /// <returns>The <see cref="DialogResult"/> value which represents the result of the dialog.</returns>
-        DialogResult ShowDialog();
-        /// <summary>
-        /// Shows the export option dialog.
-        /// </summary>
-        /// <param name="owner">The owner of the dialog.</param>
-        /// <returns>The <see cref="DialogResult"/> value which represents the result of the dialog.</returns>
-        DialogResult ShowDialog(IWin32Window owner);
-        /// <summary>
-        /// Gets the export options.
-        /// </summary>
-        /// <value>
-        /// The export options.
-        /// </value>
-        object Options { get; }
     }
 }
+
