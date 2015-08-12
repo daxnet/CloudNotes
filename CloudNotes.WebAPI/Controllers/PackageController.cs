@@ -85,7 +85,7 @@ namespace CloudNotes.WebAPI.Controllers
             var package =
                 this.repository.FindAll(
                     Specification<ClientPackage>.Eval(cp => cp.ClientType == clientType),
-                    sort => sort.PublishedBy,
+                    sort => sort.DatePublished,
                     SortOrder.Descending).FirstOrDefault();
             if (package == null)
             {

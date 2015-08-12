@@ -58,6 +58,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <summary>
         /// Initializes a new instance of the <see cref="TextInputBox"/> class.
         /// </summary>
+        /// <param name="title">The title of the text input dialog.</param>
         /// <param name="prompt">The prompt message to be shown on the text input dialog box.</param>
         /// <param name="validations">The validation collection which contains the delegates for the validation methods,
         /// and also the error message to be shown when the validation fails.</param>
@@ -70,6 +71,7 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <summary>
         /// Initializes a new instance of the <see cref="TextInputBox"/> class.
         /// </summary>
+        /// <param name="title">The title of the text input dialog.</param>
         /// <param name="prompt">The prompt message to be shown on the text input dialog box.</param>
         /// <param name="initValue">The initial value to be shown on the text input dialog box.</param>
         /// <param name="validations">The validation collection which contains the delegates for the validation methods,
