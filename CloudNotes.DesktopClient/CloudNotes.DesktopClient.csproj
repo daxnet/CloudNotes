@@ -249,6 +249,15 @@
     </Compile>
     <None Include="CloudNotesKey.snk" />
     <None Include="packages.config" />
+    <None Include="Styles\default.style">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\LeatherPaper.style">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\MsWord.style">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
