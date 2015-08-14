@@ -38,7 +38,7 @@ namespace CloudNotes.DesktopClient
     using CloudNotes.DESecurity;
     using CloudNotes.Infrastructure;
 
-    public static class LoginProvider
+    internal static class LoginProvider
     {
         public static ClientCredential Login(Action cancelCallback, DesktopClientSettings settings,
             bool alwaysShowDialog = false)

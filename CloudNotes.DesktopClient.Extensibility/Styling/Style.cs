@@ -6,7 +6,7 @@
     /// <summary>
     /// Represents the style of the letter paper.
     /// </summary>
-    public class Style : IEntity
+    internal class Style : IEntity
     {
         /// <summary>
         /// Gets or sets the identifier of the style.

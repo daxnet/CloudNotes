@@ -36,7 +36,7 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
     /// Represents that the inherited classes are data access proxies that
     /// can provide the data source to the desktop client.
     /// </summary>
-    public abstract class DataAccessProxy : IDisposable
+    internal abstract class DataAccessProxy : IDisposable
     {
         #region Private Fields
         private readonly ClientCredential credential;

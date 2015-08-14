@@ -29,15 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewHtml));
-            this.txtHtml = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.htmlSourceEditor1 = new YARTE.HtmlSourceEditor();
             this.SuspendLayout();
-            // 
-            // txtHtml
-            // 
-            resources.ApplyResources(this.txtHtml, "txtHtml");
-            this.txtHtml.Name = "txtHtml";
-            this.txtHtml.ReadOnly = true;
             // 
             // btnOK
             // 
@@ -46,23 +41,30 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // elementHost1
+            // 
+            resources.ApplyResources(this.elementHost1, "elementHost1");
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Child = this.htmlSourceEditor1;
+            // 
             // FrmViewHtml
             // 
             this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.txtHtml);
             this.Name = "FrmViewHtml";
+            this.ShowInTaskbar = false;
             this.Shown += new System.EventHandler(this.FrmViewHtml_Shown);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtHtml;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private HtmlSourceEditor htmlSourceEditor1;
     }
 }

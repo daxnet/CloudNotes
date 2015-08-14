@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="YARTE.HtmlSourceEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Grid>
+        <avalonEdit:TextEditor
+        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        Name="avalonTextEditor"
+        FontFamily="Consolas"
+        IsReadOnly="True"
+        ShowLineNumbers="True"
+        SyntaxHighlighting="HTML"
+        FontSize="10pt"/>
+    </Grid>
+</UserControl>

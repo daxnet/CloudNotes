@@ -32,7 +32,7 @@ namespace CloudNotes.DesktopClient.Extensibility
     /// <summary>
     /// Represents the client credentials.
     /// </summary>
-    public sealed class ClientCredential
+    internal sealed class ClientCredential
     {
         /// <summary>
         /// Gets or sets the name of the user.
