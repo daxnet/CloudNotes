@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace CloudNotes.DesktopClient.Extensions.Blog
 {
+    using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Extensions.Blog.MetaWeblogSharp;
 
     public partial class FrmBlogPublish : Form
@@ -33,16 +34,23 @@ namespace CloudNotes.DesktopClient.Extensions.Blog
 
         private async void FrmBlogPublish_Shown(object sender, EventArgs e)
         {
-            var blogs = await blogClient.GetUsersBlogsAsync();
-            
-            if (blogs.Count > 0)
+            try
             {
-                foreach (var blog in blogs)
+                var categories = await this.blogClient.GetCategoriesAsync();
+                if (categories.Count > 0)
                 {
-                    cbBlogs.Items.Add(blog.BlogName);
+                    foreach (var category in categories)
+                    {
+                        var listViewItem = lstCategories.Items.Add(category.Title);
+                        listViewItem.Tag = category;
+                    }
                 }
-                cbBlogs.SelectedIndex = 0;
             }
+            catch (Exception ex)
+            {
+                FrmExceptionDialog.ShowException(ex);
+            }
+            
         }
 
 

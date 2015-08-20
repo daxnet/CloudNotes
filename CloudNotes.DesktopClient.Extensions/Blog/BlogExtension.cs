@@ -40,6 +40,11 @@ namespace CloudNotes.DesktopClient.Extensions.Blog
             get { return "Sunny Chen"; }
         }
 
+        public override Shortcut Shortcut
+        {
+            get { return Shortcut.CtrlShiftP; }
+        }
+
         public override string Description
         {
             get { return "Publish the current note to the blog which has been pre-configured in Desktop Client settings."; }
