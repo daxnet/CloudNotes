@@ -9,7 +9,7 @@
         xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
         Name="avalonTextEditor"
         FontFamily="Consolas"
-        IsReadOnly="True"
+        IsReadOnly="False"
         ShowLineNumbers="True"
         SyntaxHighlighting="HTML"
         FontSize="10pt"/>

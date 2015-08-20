@@ -28,7 +28,6 @@
 
 namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
 {
-    using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Extensibility.Extensions;
 
     /// <summary>

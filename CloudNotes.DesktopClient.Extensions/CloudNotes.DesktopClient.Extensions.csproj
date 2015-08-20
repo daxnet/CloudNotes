@@ -58,6 +58,51 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Blog\BlogExtension.cs" />
+    <Compile Include="Blog\BlogSetting.cs" />
+    <Compile Include="Blog\BlogSettingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Blog\BlogSettingControl.Designer.cs">
+      <DependentUpon>BlogSettingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blog\BlogSettingProvider.cs" />
+    <Compile Include="Blog\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Blog\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blog\FrmBlogPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Blog\FrmBlogPublish.Designer.cs">
+      <DependentUpon>FrmBlogPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\Array.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\Base64Data.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\BooleanValue.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\DateTimeValue.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\DoubleValue.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\Fault.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\IntegerValue.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\MethodCall.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\MethodResponse.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\ParameterList.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\Service.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\StringValue.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\Struct.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\Value.cs" />
+    <Compile Include="Blog\MetaWeblogSharp.XmlRPC\XmlRPCException.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\BlogConnectionInfo.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\BlogInfo.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\CategoryInfo.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\Client.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\MediaObjectInfo.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\MetaWeblogException.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\PostInfo.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\UserInfo.cs" />
+    <Compile Include="Blog\MetaWeblogSharp\XmlExtensions.cs" />
     <Compile Include="Exporters\HtmlExporter.cs" />
     <Compile Include="Exporters\TextFileExporter.cs" />
     <Compile Include="Exporters\TextFileExporterOptionDialog.cs">
@@ -109,6 +154,15 @@
     <None Include="CloudNotesKey.snk" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Blog\BlogSettingControl.resx">
+      <DependentUpon>BlogSettingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Blog\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Blog\FrmBlogPublish.resx">
+      <DependentUpon>FrmBlogPublish.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Exporters\TextFileExporterOptionDialog.resx">
       <DependentUpon>TextFileExporterOptionDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\page_white_world.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blog_16px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -37,7 +37,7 @@ namespace CloudNotes.DesktopClient.Extensibility
     /// Represents the application execution context within which
     /// the exception will be handled.
     /// </summary>
-    internal static class SafeExecutionContext
+    public static class SafeExecutionContext
     {
         #region Public Static Methods
         /// <summary>

@@ -61,6 +61,16 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlogIcon {
+            get {
+                object obj = ResourceManager.GetObject("BlogIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Downloading the web page....
         /// </summary>
         internal static string DownloadingWebPage {

@@ -32,14 +32,15 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.htmlSourceEditor1 = new YARTE.HtmlSourceEditor();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             resources.ApplyResources(this.btnOK, "btnOK");
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Name = "btnOK";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // elementHost1
             // 
@@ -47,11 +48,19 @@
             this.elementHost1.Name = "elementHost1";
             this.elementHost1.Child = this.htmlSourceEditor1;
             // 
+            // btnCancel
+            // 
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // FrmViewHtml
             // 
             this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.btnOK);
             this.Name = "FrmViewHtml";
@@ -66,5 +75,6 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
         private HtmlSourceEditor htmlSourceEditor1;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

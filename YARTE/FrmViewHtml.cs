@@ -24,17 +24,17 @@ namespace YARTE
             this.html = html;
         }
 
+        internal string Html
+        {
+            get { return (this.elementHost1.Child as HtmlSourceEditor).avalonTextEditor.Text; }
+        }
+
         private void FrmViewHtml_Shown(object sender, EventArgs e)
         {
             //txtHtml.Text = this.html;
             //txtHtml.SelectionStart = 0;
             //txtHtml.SelectionLength = 0;
             (this.elementHost1.Child as HtmlSourceEditor).avalonTextEditor.Text = this.html;
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

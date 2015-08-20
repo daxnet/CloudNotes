@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace YARTE.Buttons
+﻿namespace YARTE.Buttons
 {
+    using System.Drawing;
+    using System.Windows.Forms;
     using YARTE.Properties;
     using YARTE.UI.Buttons;
 
@@ -14,10 +11,14 @@ namespace YARTE.Buttons
 
         public void IconClicked(HTMLEditorButtonArgs doc)
         {
-            new FrmViewHtml(doc.Editor.Html).ShowDialog();
+            var frm = new FrmViewHtml(doc.Editor.Html);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                doc.Editor.SetHtml(frm.Html);
+            }
         }
 
-        public System.Drawing.Image IconImage
+        public Image IconImage
         {
             get
             {

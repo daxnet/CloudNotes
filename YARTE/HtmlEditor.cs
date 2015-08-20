@@ -281,18 +281,27 @@ namespace YARTE.UI
             }
             set
             {
-                if (textWebBrowser.Document != null)
+                if (SetHtml(value))
                 {
-                    // updating this way avoids an alert box
-                    var doc = textWebBrowser.Document.DomDocument as IHTMLDocument2;
-                    if (doc != null)
-                    {
-                        doc.write(value);
-                        doc.close();
-                    }
                     this.originalText = textWebBrowser.DocumentText;
                 }
             }
+        }
+
+        internal bool SetHtml(string html)
+        {
+            if (textWebBrowser.Document != null)
+            {
+                // updating this way avoids an alert box
+                var doc = textWebBrowser.Document.DomDocument as IHTMLDocument2;
+                if (doc != null)
+                {
+                    doc.write(html);
+                    doc.close();
+                    return true;
+                }
+            }
+            return false;
         }
 
         public string InsertTextAtCursor

@@ -39,6 +39,7 @@ namespace CloudNotes.Infrastructure
     using System.Threading;
     using System.Threading.Tasks;
     using System.Web;
+    using HtmlAgilityPack;
 
     /// <summary>
     ///     Represents the static class that provides the utility methods for manipulating the HTML texts.
@@ -301,6 +302,28 @@ namespace CloudNotes.Infrastructure
             return html;
         }
 
+        public static string Tidy(string html, string path = "//body")
+        {
+            var doc = new HtmlDocument();
+            doc.OptionFixNestedTags = true;
+            // If you wish it to be xhtml like (does not suffice to 
+            // enforce w3c xhtml validity).
+            doc.OptionOutputAsXml = true;
+            
+            doc.LoadHtml(HtmlEntity.DeEntitize(html));
+
+            var body = doc.DocumentNode.SelectSingleNode(path);
+            var cleanedHtml = (body != null) ?
+                body.InnerHtml : doc.DocumentNode.InnerHtml;
+            cleanedHtml = RemoveTag(cleanedHtml, "<!--", "-->");
+            cleanedHtml = RemoveTag(cleanedHtml, "<script", "</script>");
+            cleanedHtml = RemoveTag(cleanedHtml, "<style", "</style>");
+            cleanedHtml = RemoveTag(cleanedHtml, "<form", "/>");
+            cleanedHtml = RemoveTag(cleanedHtml, "<input", "/>");
+            cleanedHtml = RemoveTag(cleanedHtml, "<form", "</form>");
+            
+            return cleanedHtml.Trim();
+        }
         #endregion
     }
 }
