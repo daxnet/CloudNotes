@@ -143,38 +143,38 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABE
-        CAAAAk1TRnQBSQFMAgEBAgEAATwBBQE8AQUBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
-        AwABEAMAAQEBAAEgBgABEF4AA1UBtQOMAf8DiQH/A4UB/wOBAf8DWQH/A1QB/wNQAf8DTAH/A0gB/wNV
-        AbXUAAORAf8DowH/A7cB/wOxAf8DqgH/A6MB/wOcAf8DlQH/A48B/wNXAf8DRQH/kAABKgGjAeoB/wEj
-        AZ4B6AH/ARsBmgHnAf8BEgGVAeYB/wEAAYwB4gH/AQABjAHiAf8BAAGNAeQB/wEAAYkB4wH/AQABgwHj
-        Af8BAAGBAeEB/wEAAVoB4AH/AQABVgHfAf8UAAORAf8DvwH/A7kB/wOkAf8DvAH/A6UB/wOIAf8DqgH/
-        A5AB/wOKAf8DRgH/kAABMgGnAesB/wG2AeYB+QH/AZUB0QHxAf8BKAGnAegB/wE3Aa8B6wH/AVoBwgHu
-        Af8BuwHuAfsB/wG6Ae4B+QH/AbcB7QH5Af8BswHtAfkB/wGyAe0B+QH/AQABWgHiAf8UAAOTAf8DwQH/
-        A7oB/wOkAf8DvQH/A6UB/wOJAf8DqgH/A5EB/wOLAf8DRgH/kAABOgGrAesB/wG0AeMB+AH/AQ8BnwHm
-        Af8BGAGrAekB/wGoAekB+AH/ASsBugHrAf8BNwHWAfMB/wEtAdQB8wH/ASUB0gHyAf8BHwHRAfIB/wG0
-        Ae0B+QH/AQABgQHjAf8UAAOVAf8DwwH/A70B/wOkAf8DvgH/A6cB/wOLAf8DqgH/A5IB/wOMAf8DRwH/
-        kAABOgGsAewB/wEyAa0B6wH/ASQBrwHrAf8BrAHpAfkB/wGtAeoB+gH/ATMBuwHrAf8BPwHZAfQB/wE3
-        AdYB8wH/AS0B1AHzAf8BJgHSAfMB/wG3Ae0B+QH/AQABhQHkAf8UAAOVAf8DxQH/A70B/wOkAf8DwAH/
-        A6kB/wOMAf8DqgH/A5MB/wONAf8DSAH/kAABOwGtAesB/wGDAcMB8AH/AdMB8wH8Af8B0QHzAfwB/wGy
-        Ae0B+gH/ATgBvAHtAf8BSQHaAfQB/wE/AdkB9AH/ATcB1gHzAf8BLgHUAfMB/wG6Ae4B+wH/AQABigHl
-        Af8UAAOXAf8DxgH/A8AB/wOkAf8DwQH/A6oB/wONAf8DqgH/A5UB/wOOAf8DSAH/kAABTgG2Ae4B/wGe
-        AdEB9AH/AVUBygHwAf8BTwHHAfAB/wFLAcYB8AH/AT0BvgHtAf8BUwHdAfUB/wFJAdsB9AH/AUEB2QH0
-        Af8BOAHWAfMB/wG+Ae8B+wH/AQABjwHoAf8UAAOYAf8DyAH/A8EB/wOkAf8DwgH/A6wB/wOOAf8DqgH/
-        A5UB/wOQAf8DSQH/kAABVgG5AfAB/wHbAfYB/AH/AZwB5wH4Af8BlQHlAfgB/wGPAeMB9wH/AYYB4QH3
-        Af8BWwHfAfUB/wFTAd0B9QH/AUoB2wH0Af8BQQHZAfQB/wHAAfAB+wH/AQkBlAHpAf8UAAOZAf8DyQH/
-        A8MB/wOkAf8DxAH/A60B/wOPAf8DqgH/A5cB/wORAf8DSgH/kAABjAHFAfQB/wHdAfcB/QH/AaIB6AH4
-        Af8BnQHnAfgB/wGVAeUB+AH/AY8B4wH3Af8BhwHhAfcB/wFcAd8B9gH/AVQB3QH1Af8BSgHbAfQB/wHE
-        AfAB+wH/ARQBmAHqAf8UAAOaAf8DywH/A6kB/wOkAf8DxQH/A5cB/wORAf8DqgH/A5gB/wOSAf8DSgH/
+        CAAAAk1TRnQBSQFMAgEBAgEAAUwBBQFMAQUBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AwABEAMAAQEBAAEgBgABEF4AA1UBtQOMAf8DiQH/A4UB/wOBAf8DVwH/A1IB/wNOAf8DSgH/A0YB/wNV
+        AbXUAAORAf8DowH/A7cB/wOxAf8DqgH/A6MB/wOcAf8DlQH/A48B/wNVAf8DQwH/kAABKAGjAeoB/wEh
+        AZ4B6AH/ARkBmgHnAf8BEAGVAeYB/wEAAYwB4gH/AQABjAHiAf8BAAGNAeQB/wEAAYkB4wH/AQABgwHj
+        Af8BAAGBAeEB/wEAAVgB4AH/AQABVAHfAf8UAAORAf8DvwH/A7kB/wOkAf8DvAH/A6UB/wOIAf8DqgH/
+        A5AB/wOKAf8DRAH/kAABMAGnAesB/wG2AeYB+QH/AZUB0QHxAf8BJgGnAegB/wE1Aa8B6wH/AVgBwgHu
+        Af8BuwHuAfsB/wG6Ae4B+QH/AbcB7QH5Af8BswHtAfkB/wGyAe0B+QH/AQABWAHiAf8UAAOTAf8DwQH/
+        A7oB/wOkAf8DvQH/A6UB/wOJAf8DqgH/A5EB/wOLAf8DRAH/kAABOAGrAesB/wG0AeMB+AH/AQ0BnwHm
+        Af8BFgGrAekB/wGoAekB+AH/ASkBugHrAf8BNQHWAfMB/wErAdQB8wH/ASMB0gHyAf8BHQHRAfIB/wG0
+        Ae0B+QH/AQABgQHjAf8UAAOVAf8DwwH/A70B/wOkAf8DvgH/A6cB/wOLAf8DqgH/A5IB/wOMAf8DRQH/
+        kAABOAGsAewB/wEwAa0B6wH/ASIBrwHrAf8BrAHpAfkB/wGtAeoB+gH/ATEBuwHrAf8BPQHZAfQB/wE1
+        AdYB8wH/ASsB1AHzAf8BJAHSAfMB/wG3Ae0B+QH/AQABhQHkAf8UAAOVAf8DxQH/A70B/wOkAf8DwAH/
+        A6kB/wOMAf8DqgH/A5MB/wONAf8DRgH/kAABOQGtAesB/wGDAcMB8AH/AdMB8wH8Af8B0QHzAfwB/wGy
+        Ae0B+gH/ATYBvAHtAf8BRwHaAfQB/wE9AdkB9AH/ATUB1gHzAf8BLAHUAfMB/wG6Ae4B+wH/AQABigHl
+        Af8UAAOXAf8DxgH/A8AB/wOkAf8DwQH/A6oB/wONAf8DqgH/A5UB/wOOAf8DRgH/kAABTAG2Ae4B/wGe
+        AdEB9AH/AVMBygHwAf8BTQHHAfAB/wFJAcYB8AH/ATsBvgHtAf8BUQHdAfUB/wFHAdsB9AH/AT8B2QH0
+        Af8BNgHWAfMB/wG+Ae8B+wH/AQABjwHoAf8UAAOYAf8DyAH/A8EB/wOkAf8DwgH/A6wB/wOOAf8DqgH/
+        A5UB/wOQAf8DRwH/kAABVAG5AfAB/wHbAfYB/AH/AZwB5wH4Af8BlQHlAfgB/wGPAeMB9wH/AYYB4QH3
+        Af8BWQHfAfUB/wFRAd0B9QH/AUgB2wH0Af8BPwHZAfQB/wHAAfAB+wH/AQcBlAHpAf8UAAOZAf8DyQH/
+        A8MB/wOkAf8DxAH/A60B/wOPAf8DqgH/A5cB/wORAf8DSAH/kAABjAHFAfQB/wHdAfcB/QH/AaIB6AH4
+        Af8BnQHnAfgB/wGVAeUB+AH/AY8B4wH3Af8BhwHhAfcB/wFaAd8B9gH/AVIB3QH1Af8BSAHbAfQB/wHE
+        AfAB+wH/ARIBmAHqAf8UAAOaAf8DywH/A6kB/wOkAf8DxQH/A5cB/wORAf8DqgH/A5gB/wOSAf8DSAH/
         kAABkwHIAfUB/wHhAfcB/QH/AaoB6gH5Af8BowHoAfkB/wGdAecB+AH/AZYB5QH4Af8BkAHjAfcB/wGI
-        AeEB9wH/AYAB3wH2Af8BVAHdAfUB/wHIAfEB+wH/AR0BngHrAf8UAAOHAf8DrwH/A6kB/wOkAf8DngH/
-        A5gB/wORAf8DiwH/A4UB/wOBAf8DQAH/kAABlwHMAfYB/wH5Af0C/wHwAfsB/gH/AfAB+wH+Af8B8AH8
-        Af4B/wHuAfsB/QH/Ae8B+wH9Af8B7wH7Af0B/wHwAfsB/QH/AfAB+wH9Af8B9wH9Af4B/wEnAaMB7QH/
-        EAADnwH/A5wB/wOZAf8DlQH/A5AB/wOLAf8DhQH/A4EB/wNZAf8DVAH/A1AB/wNMAf8DSQH/jAABsgHc
+        AeEB9wH/AYAB3wH2Af8BUgHdAfUB/wHIAfEB+wH/ARsBngHrAf8UAAOHAf8DrwH/A6kB/wOkAf8DngH/
+        A5gB/wORAf8DiwH/A4UB/wOBAf8DPgH/kAABlwHMAfYB/wH5Af0C/wHwAfsB/gH/AfAB+wH+Af8B8AH8
+        Af4B/wHuAfsB/QH/Ae8B+wH9Af8B7wH7Af0B/wHwAfsB/QH/AfAB+wH9Af8B9wH9Af4B/wElAaMB7QH/
+        EAADnwH/A5wB/wOZAf8DlQH/A5AB/wOLAf8DhQH/A4EB/wNXAf8DUgH/A04B/wNKAf8DRwH/jAABsgHc
         Af0B/wH6Af4C/wH6Af4C/wH6Af4C/wH6Af4C/wH6Af4C/wH6Af0B/gH/AfoB/QL/AfoB/gL/AfoB/gL/
-        AfoB/QL/ATABqAHuAf8QAAOgAf8D1QH/A9AB/wPJAf8DwgH/A7sB/wOzAf8DqwH/A6QB/wOcAf8DlQH/
-        A48B/wNKAf+MAAG2Ad8B/gH/AaIB0gH6Af8BnAHRAfkB/wGXAc0B+AH/AZIBygH3Af8BjAHGAfYB/wGF
-        AcIB9QH/AVsBvwH0Af8BUwG6AfQB/wFLAbYB8QH/AUIBsgHwAf8BOgGtAfAB/xQAA50B/wOaAf8DlgH/
-        A5IB/wONAf8DiQH/A4MB/wNbAf8DVgH/A1IB/wNOAf/gAANAAf8DiQH/BAADiQH/A0AB//AAA4kB/wNA
+        AfoB/QL/AS4BqAHuAf8QAAOgAf8D1QH/A9AB/wPJAf8DwgH/A7sB/wOzAf8DqwH/A6QB/wOcAf8DlQH/
+        A48B/wNIAf+MAAG2Ad8B/gH/AaIB0gH6Af8BnAHRAfkB/wGXAc0B+AH/AZIBygH3Af8BjAHGAfYB/wGF
+        AcIB9QH/AVkBvwH0Af8BUQG6AfQB/wFJAbYB8QH/AUABsgHwAf8BOAGtAfAB/xQAA50B/wOaAf8DlgH/
+        A5IB/wONAf8DiQH/A4MB/wNZAf8DVAH/A1AB/wNMAf/gAAM+Af8DiQH/BAADiQH/Az4B//AAA4kB/wM+
         Af8DiQH/mAABQgFNAT4HAAE+AwABKAMAAUADAAEQAwABAQEAAQEFAAGAFwAD/wEAAv8B4AEDBAAC/wHg
         AQMEAAHAAQMB4AEDBAABwAEDAeABAwQAAcABAwHgAQMEAAHAAQMB4AEDBAABwAEDAeABAwQAAcABAwHg
         AQMEAAHAAQMB4AEDBAABwAEDAeABAwQAAcABAwHgAQMEAAHAAQMBwAEBBAABwAEDAcABAQQAAcABAwHg
@@ -200,7 +200,7 @@
     <value>tvNotes</value>
   </data>
   <data name="&gt;&gt;tvNotes.Type" xml:space="preserve">
-    <value>CloudNotes.DesktopClient.Controls.TreeViewEx, CloudNotes, Version=1.0.5697.26704, Culture=neutral, PublicKeyToken=6e43efd394eedab7</value>
+    <value>CloudNotes.DesktopClient.Controls.TreeViewEx, CloudNotes, Version=1.0.5702.36686, Culture=neutral, PublicKeyToken=6e43efd394eedab7</value>
   </data>
   <data name="&gt;&gt;tvNotes.Parent" xml:space="preserve">
     <value>pnlLeft</value>
@@ -251,7 +251,7 @@
     <value>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
 &lt;HTML&gt;&lt;HEAD&gt;
 &lt;META content="text/html; charset=unicode" http-equiv=Content-Type&gt;
-&lt;META name=GENERATOR content="MSHTML 11.00.10240.16412"&gt;&lt;/HEAD&gt;
+&lt;META name=GENERATOR content="MSHTML 11.00.9600.17842"&gt;&lt;/HEAD&gt;
 &lt;BODY&gt;&lt;/BODY&gt;&lt;/HTML&gt;
 </value>
   </data>
@@ -268,7 +268,7 @@
     <value>htmlEditor</value>
   </data>
   <data name="&gt;&gt;htmlEditor.Type" xml:space="preserve">
-    <value>YARTE.UI.HtmlEditor, YARTE, Version=1.0.5697.26704, Culture=neutral, PublicKeyToken=6e43efd394eedab7</value>
+    <value>YARTE.UI.HtmlEditor, YARTE, Version=1.0.5702.36686, Culture=neutral, PublicKeyToken=6e43efd394eedab7</value>
   </data>
   <data name="&gt;&gt;htmlEditor.Parent" xml:space="preserve">
     <value>splitContainer.Panel2</value>
@@ -692,7 +692,7 @@
     <value>Settings...</value>
   </data>
   <data name="mnuTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="mnuTools.Text" xml:space="preserve">
     <value>&amp;Tools</value>
@@ -997,7 +997,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAA
-        BgAAAk1TRnQBSQFMAgEBAgEAAUwBBgFMAQYBEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        BgAAAk1TRnQBSQFMAgEBAgEAAVwBBgFcAQYBEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABEAMAAQEBAAEYBgABDCEAAUkCRwFJAkcBSQJHAUkCRwFJAkcBSQJHAUkCRw8AAUkCRwFiAl+QAAFJ
         AkcBSQJHAUkCRwPbCQABkAKOAUkCRwFJAkcBSQJHCQABSQJHAUkCRwHIAZABcAHIAZABcIcAAUkCRwFJ
         AkcBTwJNAUkBtAFCAUkBtAFCDwABSQJHAUkCRwFJAkcJAAHaAb8BrgYAAcgBkAFwAcgBkAFwfgAD+QFJ
@@ -5153,13 +5153,13 @@
     <value>288, 54</value>
   </metadata>
   <data name="cmnuEmptyTrash.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="cmnuEmptyTrash.Text" xml:space="preserve">
     <value>Empty Trash...</value>
   </data>
   <data name="ctxMnuTrashNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 26</value>
+    <value>150, 26</value>
   </data>
   <data name="&gt;&gt;ctxMnuTrashNode.Name" xml:space="preserve">
     <value>ctxMnuTrashNode</value>
@@ -5168,7 +5168,7 @@
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="ctxMnuNoteNode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>439, 41</value>
+    <value>742, 17</value>
   </metadata>
   <data name="cmnuDelete.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Del</value>
@@ -5212,6 +5212,9 @@
   <data name="&gt;&gt;ctxMnuNoteNode.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <metadata name="tmReadyStatusReset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>440, 54</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -9575,6 +9578,12 @@
   </data>
   <data name="&gt;&gt;cmnuRestore.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tmReadyStatusReset.Name" xml:space="preserve">
+    <value>tmReadyStatusReset</value>
+  </data>
+  <data name="&gt;&gt;tmReadyStatusReset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMain</value>

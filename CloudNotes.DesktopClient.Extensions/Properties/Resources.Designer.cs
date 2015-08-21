@@ -61,6 +61,33 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot connect to the blog service..
+        /// </summary>
+        internal static string BlogExtensionCannotConnectToBlogService {
+            get {
+                return ResourceManager.GetString("BlogExtensionCannotConnectToBlogService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publish current note to the web log..
+        /// </summary>
+        internal static string BlogExtensionDescription {
+            get {
+                return ResourceManager.GetString("BlogExtensionDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publish to Blog....
+        /// </summary>
+        internal static string BlogExtensionToolName {
+            get {
+                return ResourceManager.GetString("BlogExtensionToolName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap BlogIcon {
@@ -76,6 +103,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         internal static string DownloadingWebPage {
             get {
                 return ResourceManager.GetString("DownloadingWebPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -191,6 +227,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The link cannot be empty..
         /// </summary>
         internal static string LinkEmpty {
@@ -209,11 +254,47 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sunny Chen.
+        /// </summary>
+        internal static string ManufactureName {
+            get {
+                return ResourceManager.GetString("ManufactureName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Processing images....
         /// </summary>
         internal static string ProcessingImages {
             get {
                 return ResourceManager.GetString("ProcessingImages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publish succeeded!.
+        /// </summary>
+        internal static string PublishSucceeded {
+            get {
+                return ResourceManager.GetString("PublishSucceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test connection failed..
+        /// </summary>
+        internal static string TestConnectionFailed {
+            get {
+                return ResourceManager.GetString("TestConnectionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test connection succeeded..
+        /// </summary>
+        internal static string TestConnectionSucceeded {
+            get {
+                return ResourceManager.GetString("TestConnectionSucceeded", resourceCulture);
             }
         }
         

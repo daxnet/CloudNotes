@@ -113,7 +113,9 @@ namespace CloudNotes.DesktopClient
             this.notesNode = this.tvNotes.Nodes.Add("NotesRoot", Resources.NotesNodeTitle, 0, 0);
             this.trashNode = this.tvNotes.Nodes.Add("TrashRoot", Resources.TrashNodeTitle, 1, 1);
 
-            Application.Idle += (s, e) => { this.slblStatus.Text = Resources.Ready; };
+            this.slblStatus.Text = Resources.Ready;
+
+            // Application.Idle += (s, e) => { this.slblStatus.Text = Resources.Ready; };
         }
 
         #region Private Methods
@@ -1249,6 +1251,17 @@ namespace CloudNotes.DesktopClient
         public bool HasActiveDocument
         {
             get { return this.workspace != null && this.htmlEditor.Enabled; }
+        }
+
+        public string StatusText
+        {
+            get { return this.slblStatus.Text; }
+            set { this.slblStatus.Text = value; }
+        }
+
+        private void tmReadyStatusReset_Tick(object sender, EventArgs e)
+        {
+            this.slblStatus.Text = Resources.Ready;
         }
     }
 }

@@ -120,6 +120,9 @@
   <data name="tpComposing.Text" xml:space="preserve">
     <value>Composing</value>
   </data>
+  <data name="&gt;&gt;tpGeneral.Name" xml:space="preserve">
+    <value>tpGeneral</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 22</value>
@@ -128,14 +131,15 @@
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="grpStylePreview.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="cbLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>81, 22</value>
   </data>
   <data name="&gt;&gt;txtStyleAuthor.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="&gt;&gt;cbDefaultStyle.Parent" xml:space="preserve">
     <value>tpComposing</value>
@@ -146,45 +150,44 @@
   <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="&gt;&gt;txtStyleDescription.Name" xml:space="preserve">
-    <value>txtStyleDescription</value>
-  </data>
-  <data name="tpGeneral.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblDefaultStyle.Parent" xml:space="preserve">
-    <value>tpComposing</value>
+  <data name="lblStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 15</value>
   </data>
   <data name="&gt;&gt;tpExtensions.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="pnlSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 39</value>
+  </data>
+  <data name="btnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="&gt;&gt;tpGeneral.Parent" xml:space="preserve">
     <value>tabControl</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="&gt;&gt;lblExtensionName.Name" xml:space="preserve">
+    <value>lblExtensionName</value>
+  </data>
   <data name="tpGeneral.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="txtStyleCreationDate.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 487</value>
+  <data name="chkOnlyShowWhenMoreThan.Text" xml:space="preserve">
+    <value>Only show under Tools -&gt; Extensions menu when more than</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 23</value>
+  <data name="&gt;&gt;txtStyleDescription.Name" xml:space="preserve">
+    <value>txtStyleDescription</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="tpComposing.ImageIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;lvExtensions.Name" xml:space="preserve">
-    <value>lvExtensions</value>
+  <data name="&gt;&gt;txtStyleCreationDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbDefaultStyle.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -195,47 +198,53 @@
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="splitContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;tpGeneral.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;wbStylePreview.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="lvExtensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 439</value>
+  <data name="splitContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 439</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>groupBoxLocalization</value>
   </data>
-  <data name="pnlStylePreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 203</value>
+  <data name="lblExtensionName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;chkOnlyShowWhenMoreThan.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;lblStyleDescription.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 15</value>
   </data>
-  <data name="grpStylePreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>678, 225</value>
+  <data name="lblExtensionName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>473, 39</value>
+  </data>
+  <data name="tpComposing.ImageIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
   </data>
   <data name="&gt;&gt;lblStyleCreationDate.Name" xml:space="preserve">
     <value>lblStyleCreationDate</value>
   </data>
-  <data name="tpComposing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
-  </data>
   <data name="&gt;&gt;txtStyleAuthor.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;ilExtensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblStyleCreationDate.Text" xml:space="preserve">
-    <value>Creation Date:</value>
+  <data name="colExtension.Width" type="System.Int32, mscorlib">
+    <value>222</value>
   </data>
   <data name="tpExtensions.Size" type="System.Drawing.Size, System.Drawing">
     <value>714, 439</value>
@@ -243,11 +252,14 @@
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>722, 467</value>
   </data>
-  <data name="txtStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 16</value>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="&gt;&gt;numMaxExtensionsLoaded.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblExtensionName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Settings</value>
@@ -267,11 +279,8 @@
   <data name="&gt;&gt;groupBoxLocalization.Name" xml:space="preserve">
     <value>groupBoxLocalization</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lblOnlyShowWhenMoreThan.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>578, 485</value>
@@ -281,9 +290,6 @@
   </data>
   <data name="pnlStylePreview.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;lblStyleDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -297,8 +303,8 @@
   <data name="chkOnlyShowWhenMoreThan.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="pnlStylePreview.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
@@ -343,6 +349,9 @@
   <data name="&gt;&gt;groupBoxLocalization.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;txtStyleDescription.Parent" xml:space="preserve">
+    <value>grpStylePreview</value>
+  </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
@@ -355,8 +364,8 @@
   <data name="&gt;&gt;splitContainer.Name" xml:space="preserve">
     <value>splitContainer</value>
   </data>
-  <data name="&gt;&gt;ilExtensions.Name" xml:space="preserve">
-    <value>ilExtensions</value>
+  <data name="groupBoxLocalization.Size" type="System.Drawing.Size, System.Drawing">
+    <value>672, 116</value>
   </data>
   <data name="&gt;&gt;pnlStylePreview.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -364,44 +373,53 @@
   <data name="&gt;&gt;tpGeneral.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;chkOnlyShowWhenMoreThan.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;imageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblStyleAuthor.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="tpExtensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ilExtensions.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
   </data>
   <data name="lblOnlyShowWhenMoreThan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="tpGeneral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
+  <data name="colExtension.Text" xml:space="preserve">
+    <value>Extension Name</value>
   </data>
-  <data name="&gt;&gt;btnOK.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lvExtensions.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tpComposing.Name" xml:space="preserve">
+    <value>tpComposing</value>
   </data>
   <data name="txtStyleAuthor.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 23</value>
   </data>
   <data name="pnlSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="lblExtensionName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;chkShowExtensionInMenuGroup.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;lblStyleAuthor.Name" xml:space="preserve">
-    <value>lblStyleAuthor</value>
-  </data>
-  <data name="&gt;&gt;chkShowExtensionInMenuGroup.Parent" xml:space="preserve">
-    <value>groupBoxLocalization</value>
+  <data name="&gt;&gt;tpComposing.Parent" xml:space="preserve">
+    <value>tabControl</value>
   </data>
   <data name="groupBoxLocalization.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="chkOnlyShowWhenMoreThan.Text" xml:space="preserve">
-    <value>Only show under Tools -&gt; Extensions menu when more than</value>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblDefaultStyle.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -409,11 +427,17 @@
   <data name="&gt;&gt;numMaxExtensionsLoaded.Name" xml:space="preserve">
     <value>numMaxExtensionsLoaded</value>
   </data>
+  <data name="lvExtensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 439</value>
+  </data>
   <data name="&gt;&gt;txtStyleCreationDate.Name" xml:space="preserve">
     <value>txtStyleCreationDate</value>
   </data>
   <data name="&gt;&gt;cbLanguage.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
   </data>
   <data name="lblOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 19</value>
@@ -424,56 +448,50 @@
   <data name="&gt;&gt;pnlSettings.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pnlStylePreview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 16</value>
+  <data name="&gt;&gt;chkOnlyShowWhenMoreThan.Parent" xml:space="preserve">
+    <value>groupBoxLocalization</value>
   </data>
   <data name="cbLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Settings with excalmatory mark will only take effect after restarting the Desktop Client.</value>
-  </data>
-  <data name="&gt;&gt;tpComposing.Name" xml:space="preserve">
-    <value>tpComposing</value>
+  <data name="tpExtensions.Text" xml:space="preserve">
+    <value>Extensions</value>
   </data>
   <data name="chkShowExtensionInMenuGroup.Size" type="System.Drawing.Size, System.Drawing">
     <value>369, 29</value>
   </data>
-  <data name="&gt;&gt;tpExtensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ilExtensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
+  <data name="lblExtensionName.Text" xml:space="preserve">
+    <value>ExtensionName</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 25</value>
+  <data name="&gt;&gt;splitContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpComposing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
   </data>
   <data name="lblDefaultStyle.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 15</value>
   </data>
-  <data name="&gt;&gt;splitContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtStyleCreationDate.Parent" xml:space="preserve">
+    <value>grpStylePreview</value>
   </data>
   <data name="wbStylePreview.Size" type="System.Drawing.Size, System.Drawing">
     <value>348, 199</value>
   </data>
-  <data name="&gt;&gt;tpComposing.Parent" xml:space="preserve">
-    <value>tabControl</value>
+  <data name="txtStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 23</value>
   </data>
   <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;cbDefaultStyle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmSettings</value>
   </data>
-  <data name="&gt;&gt;imageList.Name" xml:space="preserve">
-    <value>imageList</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>481, 19</value>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tpExtensions.Parent" xml:space="preserve">
     <value>tabControl</value>
@@ -481,17 +499,11 @@
   <data name="&gt;&gt;lvExtensions.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grpStylePreview.Parent" xml:space="preserve">
-    <value>tpComposing</value>
-  </data>
   <data name="chkShowExtensionInMenuGroup.Text" xml:space="preserve">
     <value>Show extension menu items under Tools -&gt; Extensions menu.</value>
   </data>
   <data name="wbStylePreview.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
-  </data>
-  <data name="&gt;&gt;cbDefaultStyle.Name" xml:space="preserve">
-    <value>cbDefaultStyle</value>
   </data>
   <data name="chkOnlyShowWhenMoreThan.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -505,20 +517,20 @@
   <data name="&gt;&gt;grpStylePreview.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>473, 439</value>
+  <data name="lblOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>435, 87</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;chkShowExtensionInMenuGroup.Name" xml:space="preserve">
-    <value>chkShowExtensionInMenuGroup</value>
+  <data name="lblExtensionName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;lvExtensions.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="grpStylePreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>678, 225</value>
   </data>
-  <data name="&gt;&gt;splitContainer.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;lblStyleAuthor.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="wbStylePreview.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -532,6 +544,9 @@
   <data name="&gt;&gt;btnOK.Name" xml:space="preserve">
     <value>btnOK</value>
   </data>
+  <data name="txtStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 16</value>
+  </data>
   <data name="cbLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -541,20 +556,14 @@
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;txtStyleCreationDate.Parent" xml:space="preserve">
-    <value>grpStylePreview</value>
-  </data>
   <data name="&gt;&gt;pnlSettings.Name" xml:space="preserve">
     <value>pnlSettings</value>
   </data>
   <data name="&gt;&gt;groupBoxLocalization.Parent" xml:space="preserve">
     <value>tpGeneral</value>
   </data>
-  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="&gt;&gt;fontDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FontDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainer.Panel2.Name" xml:space="preserve">
+    <value>splitContainer.Panel2</value>
   </data>
   <data name="cbDefaultStyle.Size" type="System.Drawing.Size, System.Drawing">
     <value>599, 23</value>
@@ -574,17 +583,20 @@
   <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="tpGeneral.Text" xml:space="preserve">
-    <value>General</value>
+  <data name="&gt;&gt;lvExtensions.Name" xml:space="preserve">
+    <value>lvExtensions</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
-  <data name="&gt;&gt;splitContainer.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;cbDefaultStyle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblStyleAuthor.Text" xml:space="preserve">
     <value>Author:</value>
+  </data>
+  <data name="&gt;&gt;numMaxExtensionsLoaded.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblOnlyShowWhenMoreThan.Parent" xml:space="preserve">
     <value>groupBoxLocalization</value>
@@ -595,14 +607,20 @@
   <data name="&gt;&gt;splitContainer.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="&gt;&gt;lblStyleDescription.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="cbDefaultStyle.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="lblStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 19</value>
+  </data>
   <data name="pnlSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="tpGeneral.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;wbStylePreview.Type" xml:space="preserve">
     <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -613,26 +631,26 @@
   <data name="lblStyleDescription.Text" xml:space="preserve">
     <value>Description:</value>
   </data>
-  <data name="&gt;&gt;txtStyleCreationDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;fontDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FontDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="splitContainer.SplitterDistance" type="System.Int32, mscorlib">
     <value>237</value>
   </data>
-  <data name="cbDefaultStyle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="&gt;&gt;lblDefaultStyle.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtStyleDescription.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
+  <data name="lblExtensionName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tpComposing.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;colExtension.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Language:</value>
   </data>
   <data name="&gt;&gt;tpExtensions.Name" xml:space="preserve">
     <value>tpExtensions</value>
@@ -643,17 +661,23 @@
   <data name="btnOK.Text" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
-  <data name="txtStyleDescription.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 487</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalization.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="grpStylePreview.Text" xml:space="preserve">
     <value>Style Preview</value>
   </data>
+  <data name="lblStyleAuthor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;wbStylePreview.Name" xml:space="preserve">
     <value>wbStylePreview</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 23</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -661,47 +685,62 @@
   <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblStyleCreationDate.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBoxLocalization.Text" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="tpGeneral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 439</value>
   </data>
   <data name="&gt;&gt;cbLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblStyleAuthor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;colExtension.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tpExtensions.ImageIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;splitContainer.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;pnlSettings.Parent" xml:space="preserve">
+    <value>splitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;lblOnlyShowWhenMoreThan.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numMaxExtensionsLoaded.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="grpStylePreview.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 41</value>
   </data>
-  <data name="splitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 439</value>
+  <data name="&gt;&gt;splitContainer.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer</value>
+  </data>
+  <data name="&gt;&gt;lblExtensionName.Parent" xml:space="preserve">
+    <value>splitContainer.Panel2</value>
   </data>
   <data name="wbStylePreview.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tpExtensions.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="txtStyleDescription.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="&gt;&gt;chkShowExtensionInMenuGroup.Name" xml:space="preserve">
+    <value>chkShowExtensionInMenuGroup</value>
   </data>
   <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
+  <data name="lblExtensionName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="&gt;&gt;lblStyleDescription.Parent" xml:space="preserve">
     <value>grpStylePreview</value>
   </data>
-  <data name="&gt;&gt;tpComposing.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
   </data>
-  <data name="colExtension.Width" type="System.Int32, mscorlib">
-    <value>222</value>
+  <data name="pnlStylePreview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 16</value>
   </data>
   <data name="&gt;&gt;splitContainer.Panel1.Name" xml:space="preserve">
     <value>splitContainer.Panel1</value>
@@ -709,17 +748,17 @@
   <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="lvExtensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;tpExtensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="&gt;&gt;btnOK.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;chkShowExtensionInMenuGroup.Parent" xml:space="preserve">
+    <value>groupBoxLocalization</value>
   </data>
-  <data name="&gt;&gt;pnlSettings.Parent" xml:space="preserve">
-    <value>splitContainer.Panel2</value>
+  <data name="&gt;&gt;lblExtensionName.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="lblStyleDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 15</value>
@@ -730,17 +769,20 @@
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>groupBoxLocalization</value>
   </data>
-  <data name="&gt;&gt;lblStyleCreationDate.Parent" xml:space="preserve">
-    <value>grpStylePreview</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="grpStylePreview.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="lblStyleAuthor.AutoSize" type="System.Boolean, mscorlib">
+  <data name="txtStyleDescription.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;lblDefaultStyle.Parent" xml:space="preserve">
+    <value>tpComposing</value>
+  </data>
+  <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>473, 400</value>
   </data>
   <data name="txtStyleDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -751,14 +793,11 @@
   <data name="&gt;&gt;btnOK.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tpComposing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tpGeneral.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;wbStylePreview.Parent" xml:space="preserve">
-    <value>pnlStylePreview</value>
-  </data>
-  <data name="lblStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 15</value>
+  <data name="lblStyleDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 77</value>
   </data>
   <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -766,14 +805,14 @@
   <data name="&gt;&gt;pnlStylePreview.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tpExtensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
+  <data name="lvExtensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="numMaxExtensionsLoaded.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;splitContainer.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="colExtension.Text" xml:space="preserve">
-    <value>Extension Name</value>
+  <data name="lvExtensions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="chkShowExtensionInMenuGroup.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
@@ -781,35 +820,32 @@
   <data name="lblDefaultStyle.Text" xml:space="preserve">
     <value>Default Style:</value>
   </data>
-  <data name="lblOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>435, 87</value>
+  <data name="&gt;&gt;tpComposing.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;lblStyleCreationDate.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;ilExtensions.Name" xml:space="preserve">
+    <value>ilExtensions</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 15</value>
+  <data name="&gt;&gt;lblStyleDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmSettings</value>
+  <data name="lblStyleDescription.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="lblStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 19</value>
+  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
   </data>
   <data name="lblStyleAuthor.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tpGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>714, 439</value>
-  </data>
   <data name="lblDefaultStyle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Language:</value>
+  <data name="&gt;&gt;lblStyleCreationDate.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="groupBoxLocalization.Size" type="System.Drawing.Size, System.Drawing">
-    <value>672, 116</value>
+  <data name="&gt;&gt;lblStyleAuthor.Name" xml:space="preserve">
+    <value>lblStyleAuthor</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -817,47 +853,47 @@
   <data name="&gt;&gt;lblOnlyShowWhenMoreThan.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tpComposing.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;groupBoxLocalization.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainer.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;lblStyleAuthor.Parent" xml:space="preserve">
     <value>grpStylePreview</value>
   </data>
-  <data name="&gt;&gt;numMaxExtensionsLoaded.Parent" xml:space="preserve">
-    <value>groupBoxLocalization</value>
+  <data name="txtStyleDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;pnlStylePreview.Name" xml:space="preserve">
-    <value>pnlStylePreview</value>
+  <data name="&gt;&gt;cbDefaultStyle.Name" xml:space="preserve">
+    <value>cbDefaultStyle</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainer.Parent" xml:space="preserve">
-    <value>tpExtensions</value>
+  <data name="&gt;&gt;pnlStylePreview.Name" xml:space="preserve">
+    <value>pnlStylePreview</value>
   </data>
   <data name="&gt;&gt;lblDefaultStyle.Name" xml:space="preserve">
     <value>lblDefaultStyle</value>
   </data>
-  <data name="ilExtensions.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
+  <data name="&gt;&gt;tpComposing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;numMaxExtensionsLoaded.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblStyleCreationDate.Text" xml:space="preserve">
+    <value>Creation Date:</value>
   </data>
-  <data name="&gt;&gt;splitContainer.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;chkOnlyShowWhenMoreThan.Parent" xml:space="preserve">
-    <value>groupBoxLocalization</value>
+  <data name="cbDefaultStyle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="lblOnlyShowWhenMoreThan.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="tpGeneral.ImageIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="cbDefaultStyle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 12</value>
+  </data>
+  <data name="tpGeneral.Text" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -867,7 +903,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADy
-        CgAAAk1TRnQBSQFMAgEBAwEAAXABAQF0AQEBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CgAAAk1TRnQBSQFMAgEBAwEAAYQBAQGMAQEBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -934,17 +970,14 @@
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtStyleAuthor.Parent" xml:space="preserve">
-    <value>grpStylePreview</value>
-  </data>
   <data name="txtStyleDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>94, 74</value>
   </data>
-  <data name="&gt;&gt;splitContainer.Panel2.Name" xml:space="preserve">
-    <value>splitContainer.Panel2</value>
+  <data name="tpExtensions.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="txtStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 23</value>
+  <data name="&gt;&gt;grpStylePreview.Parent" xml:space="preserve">
+    <value>tpComposing</value>
   </data>
   <data name="&gt;&gt;txtStyleCreationDate.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -952,35 +985,35 @@
   <data name="&gt;&gt;txtStyleDescription.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lblStyleDescription.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblStyleCreationDate.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="lblDefaultStyle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 15</value>
+  <data name="&gt;&gt;imageList.Name" xml:space="preserve">
+    <value>imageList</value>
   </data>
   <data name="tpComposing.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;wbStylePreview.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="pnlStylePreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 203</value>
   </data>
-  <data name="txtStyleDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;lblStyleCreationDate.Parent" xml:space="preserve">
+    <value>grpStylePreview</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;chkOnlyShowWhenMoreThan.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtStyleAuthor.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>659, 485</value>
+  <data name="lblDefaultStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 15</value>
   </data>
   <data name="lvExtensions.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="groupBoxLocalization.Text" xml:space="preserve">
-    <value>Appearance</value>
+  <data name="&gt;&gt;numMaxExtensionsLoaded.Parent" xml:space="preserve">
+    <value>groupBoxLocalization</value>
   </data>
   <data name="&gt;&gt;pnlSettings.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -988,8 +1021,8 @@
   <data name="lblOnlyShowWhenMoreThan.Text" xml:space="preserve">
     <value>extensions loaded.</value>
   </data>
-  <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;txtStyleAuthor.Parent" xml:space="preserve">
+    <value>grpStylePreview</value>
   </data>
   <data name="&gt;&gt;lblDefaultStyle.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -997,50 +1030,50 @@
   <data name="lblStyleAuthor.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 15</value>
   </data>
-  <data name="&gt;&gt;imageList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainer.Parent" xml:space="preserve">
+    <value>tpExtensions</value>
   </data>
-  <data name="cbDefaultStyle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 12</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>481, 19</value>
   </data>
-  <data name="lblStyleDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 77</value>
+  <data name="&gt;&gt;lblStyleAuthor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
     <value>tabControl</value>
   </data>
-  <data name="&gt;&gt;tpGeneral.Name" xml:space="preserve">
-    <value>tpGeneral</value>
-  </data>
-  <data name="tpExtensions.Text" xml:space="preserve">
-    <value>Extensions</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;wbStylePreview.Parent" xml:space="preserve">
+    <value>pnlStylePreview</value>
   </data>
   <data name="groupBoxLocalization.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 16</value>
   </data>
-  <data name="splitContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>659, 485</value>
   </data>
-  <data name="btnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 25</value>
+  </data>
+  <data name="tpGeneral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="grpStylePreview.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;txtStyleDescription.Parent" xml:space="preserve">
-    <value>grpStylePreview</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Settings with excalmatory mark will only take effect after restarting the Desktop Client.</value>
   </data>
   <data name="&gt;&gt;cbLanguage.Name" xml:space="preserve">
     <value>cbLanguage</value>
   </data>
-  <data name="chkOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 19</value>
+  <data name="pnlStylePreview.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="lvExtensions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="chkOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>346, 19</value>
   </data>
   <metadata name="fontDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

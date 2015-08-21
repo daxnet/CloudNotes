@@ -35,6 +35,7 @@
             this.colExtension = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ilExtensions = new System.Windows.Forms.ImageList(this.components);
             this.pnlSettings = new System.Windows.Forms.Panel();
+            this.lblExtensionName = new System.Windows.Forms.Label();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@
             // 
             resources.ApplyResources(this.splitContainer.Panel2, "splitContainer.Panel2");
             this.splitContainer.Panel2.Controls.Add(this.pnlSettings);
+            this.splitContainer.Panel2.Controls.Add(this.lblExtensionName);
             // 
             // lvExtensions
             // 
@@ -124,6 +126,11 @@
             resources.ApplyResources(this.pnlSettings, "pnlSettings");
             this.pnlSettings.Name = "pnlSettings";
             this.pnlSettings.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnlSettings_ControlRemoved);
+            // 
+            // lblExtensionName
+            // 
+            resources.ApplyResources(this.lblExtensionName, "lblExtensionName");
+            this.lblExtensionName.Name = "lblExtensionName";
             // 
             // fontDialog
             // 
@@ -371,7 +378,6 @@
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.ListView lvExtensions;
         private System.Windows.Forms.ColumnHeader colExtension;
-        private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.ImageList ilExtensions;
         private System.Windows.Forms.GroupBox groupBoxLocalization;
         private System.Windows.Forms.ComboBox cbLanguage;
@@ -394,5 +400,7 @@
         private System.Windows.Forms.TextBox txtStyleCreationDate;
         private System.Windows.Forms.Panel pnlStylePreview;
         private System.Windows.Forms.WebBrowser wbStylePreview;
+        private System.Windows.Forms.Panel pnlSettings;
+        private System.Windows.Forms.Label lblExtensionName;
     }
 }

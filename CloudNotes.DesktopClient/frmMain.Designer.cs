@@ -96,6 +96,7 @@
             this.cmnuPermanentDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuRename = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuRestore = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmReadyStatusReset = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -600,6 +601,12 @@
             resources.ApplyResources(this.cmnuRestore, "cmnuRestore");
             this.cmnuRestore.Click += new System.EventHandler(this.Action_Restore);
             // 
+            // tmReadyStatusReset
+            // 
+            this.tmReadyStatusReset.Enabled = true;
+            this.tmReadyStatusReset.Interval = 3500;
+            this.tmReadyStatusReset.Tick += new System.EventHandler(this.tmReadyStatusReset_Tick);
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -704,6 +711,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSourceCodeRepository;
         private Controls.TreeViewEx tvNotes;
         private System.Windows.Forms.ToolStripStatusLabel lblPseudoAlignRight;
+        private System.Windows.Forms.Timer tmReadyStatusReset;
     }
 }
 

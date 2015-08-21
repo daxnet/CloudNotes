@@ -250,6 +250,16 @@ namespace YARTE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap insert_source_code {
+            get {
+                object obj = ResourceManager.GetObject("insert_source_code", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap insertbutton {
             get {
                 object obj = ResourceManager.GetObject("insertbutton", resourceCulture);
@@ -380,6 +390,15 @@ namespace YARTE.Properties {
             get {
                 object obj = ResourceManager.GetObject("insertrule", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insert Source Code.
+        /// </summary>
+        internal static string InsertSourceCodeToolTip {
+            get {
+                return ResourceManager.GetString("InsertSourceCodeToolTip", resourceCulture);
             }
         }
         

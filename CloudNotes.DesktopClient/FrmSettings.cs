@@ -143,6 +143,7 @@ namespace CloudNotes.DesktopClient
         private void BindExtension(Guid extensionId)
         {
             var extension = this.extensionManager.GetByKey(extensionId);
+            lblExtensionName.Text = extension.DisplayName.Trim('.');
             pnlSettings.Controls.Clear();
             if (extension.SettingProvider == null)
             {

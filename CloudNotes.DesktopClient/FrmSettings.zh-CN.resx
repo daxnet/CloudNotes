@@ -129,7 +129,13 @@
     <value>251, 393</value>
   </data>
   <data name="pnlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>428, 393</value>
+    <value>428, 354</value>
+  </data>
+  <data name="lblExtensionName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>SimSun, 14.25pt, style=Bold</value>
+  </data>
+  <data name="lblExtensionName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>428, 39</value>
   </data>
   <data name="splitContainer.Size" type="System.Drawing.Size, System.Drawing">
     <value>683, 393</value>
@@ -162,66 +168,6 @@
   <data name="btnCancel.Text" xml:space="preserve">
     <value>取消(&amp;C)</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 23</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 22</value>
-  </data>
-  <data name="lblOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 87</value>
-  </data>
-  <data name="lblOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 19</value>
-  </data>
-  <data name="lblOnlyShowWhenMoreThan.Text" xml:space="preserve">
-    <value>时，才在“工具 -&gt; 扩展功能”菜单中显示</value>
-  </data>
-  <data name="numMaxExtensionsLoaded.Location" type="System.Drawing.Point, System.Drawing">
-    <value>204, 83</value>
-  </data>
-  <data name="numMaxExtensionsLoaded.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 21</value>
-  </data>
-  <data name="chkOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 86</value>
-  </data>
-  <data name="chkOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 16</value>
-  </data>
-  <data name="chkOnlyShowWhenMoreThan.Text" xml:space="preserve">
-    <value>仅当加载的扩展功能数大于</value>
-  </data>
-  <data name="chkShowExtensionInMenuGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 26</value>
-  </data>
-  <data name="chkShowExtensionInMenuGroup.Text" xml:space="preserve">
-    <value>在 “工具 -&gt; 扩展功能” 菜单中显示扩展功能</value>
-  </data>
-  <data name="cbLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 25</value>
-  </data>
-  <data name="cbLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="cbLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 20</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 28</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>语言：</value>
-  </data>
-  <data name="groupBoxLocalization.Size" type="System.Drawing.Size, System.Drawing">
-    <value>637, 113</value>
-  </data>
-  <data name="groupBoxLocalization.Text" xml:space="preserve">
-    <value>界面外观</value>
-  </data>
   <data name="tpGeneral.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
   </data>
@@ -236,72 +182,6 @@
   </data>
   <data name="tpGeneral.Text" xml:space="preserve">
     <value>通用</value>
-  </data>
-  <data name="wbStylePreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 199</value>
-  </data>
-  <data name="pnlStylePreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 203</value>
-  </data>
-  <data name="txtStyleDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 74</value>
-  </data>
-  <data name="txtStyleDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 145</value>
-  </data>
-  <data name="txtStyleCreationDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 45</value>
-  </data>
-  <data name="txtStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 21</value>
-  </data>
-  <data name="txtStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 16</value>
-  </data>
-  <data name="txtStyleAuthor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 21</value>
-  </data>
-  <data name="lblStyleDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 77</value>
-  </data>
-  <data name="lblStyleDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="lblStyleDescription.Text" xml:space="preserve">
-    <value>描述：</value>
-  </data>
-  <data name="lblStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
-  </data>
-  <data name="lblStyleCreationDate.Text" xml:space="preserve">
-    <value>创建日期：</value>
-  </data>
-  <data name="lblStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 19</value>
-  </data>
-  <data name="lblStyleAuthor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="lblStyleAuthor.Text" xml:space="preserve">
-    <value>作者：</value>
-  </data>
-  <data name="grpStylePreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 225</value>
-  </data>
-  <data name="grpStylePreview.Text" xml:space="preserve">
-    <value>样式预览</value>
-  </data>
-  <data name="cbDefaultStyle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 12</value>
-  </data>
-  <data name="cbDefaultStyle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>576, 20</value>
-  </data>
-  <data name="lblDefaultStyle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
-  </data>
-  <data name="lblDefaultStyle.Text" xml:space="preserve">
-    <value>默认样式：</value>
   </data>
   <data name="tpComposing.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
@@ -326,7 +206,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADy
-        CgAAAk1TRnQBSQFMAgEBAwEAAZABAAGQAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CgAAAk1TRnQBSQFMAgEBAwEAAZgBAAGYAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -383,6 +263,132 @@
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>691, 420</value>
+  </data>
+  <data name="groupBoxLocalization.Size" type="System.Drawing.Size, System.Drawing">
+    <value>637, 113</value>
+  </data>
+  <data name="groupBoxLocalization.Text" xml:space="preserve">
+    <value>界面外观</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 23</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 22</value>
+  </data>
+  <data name="lblOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 87</value>
+  </data>
+  <data name="lblOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 19</value>
+  </data>
+  <data name="lblOnlyShowWhenMoreThan.Text" xml:space="preserve">
+    <value>时，才在“工具 -&gt; 扩展功能”菜单中显示</value>
+  </data>
+  <data name="numMaxExtensionsLoaded.Location" type="System.Drawing.Point, System.Drawing">
+    <value>204, 83</value>
+  </data>
+  <data name="numMaxExtensionsLoaded.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 21</value>
+  </data>
+  <data name="chkOnlyShowWhenMoreThan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 86</value>
+  </data>
+  <data name="chkOnlyShowWhenMoreThan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 16</value>
+  </data>
+  <data name="chkOnlyShowWhenMoreThan.Text" xml:space="preserve">
+    <value>仅当加载的扩展功能数大于</value>
+  </data>
+  <data name="chkShowExtensionInMenuGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>291, 26</value>
+  </data>
+  <data name="chkShowExtensionInMenuGroup.Text" xml:space="preserve">
+    <value>在 “工具 -&gt; 扩展功能” 菜单中显示扩展功能</value>
+  </data>
+  <data name="cbLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 25</value>
+  </data>
+  <data name="cbLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="cbLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 20</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 28</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>语言：</value>
+  </data>
+  <data name="grpStylePreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>644, 225</value>
+  </data>
+  <data name="grpStylePreview.Text" xml:space="preserve">
+    <value>样式预览</value>
+  </data>
+  <data name="pnlStylePreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 203</value>
+  </data>
+  <data name="wbStylePreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>314, 199</value>
+  </data>
+  <data name="txtStyleDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 74</value>
+  </data>
+  <data name="txtStyleDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 145</value>
+  </data>
+  <data name="txtStyleCreationDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 45</value>
+  </data>
+  <data name="txtStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 21</value>
+  </data>
+  <data name="txtStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 16</value>
+  </data>
+  <data name="txtStyleAuthor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 21</value>
+  </data>
+  <data name="lblStyleDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 77</value>
+  </data>
+  <data name="lblStyleDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="lblStyleDescription.Text" xml:space="preserve">
+    <value>描述：</value>
+  </data>
+  <data name="lblStyleCreationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="lblStyleCreationDate.Text" xml:space="preserve">
+    <value>创建日期：</value>
+  </data>
+  <data name="lblStyleAuthor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 19</value>
+  </data>
+  <data name="lblStyleAuthor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="lblStyleAuthor.Text" xml:space="preserve">
+    <value>作者：</value>
+  </data>
+  <data name="cbDefaultStyle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 12</value>
+  </data>
+  <data name="cbDefaultStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>576, 20</value>
+  </data>
+  <data name="lblDefaultStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="lblDefaultStyle.Text" xml:space="preserve">
+    <value>默认样式：</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 439</value>

@@ -73,6 +73,7 @@
     <Compile Include="Buttons\InsertHtmlButton.cs" />
     <Compile Include="Buttons\InsertLinkedImageButton.cs" />
     <Compile Include="Buttons\InsertOnlineImageButton.cs" />
+    <Compile Include="Buttons\InsertSourceCodeButton.cs" />
     <Compile Include="Buttons\ItalicButton.cs" />
     <Compile Include="Buttons\JustifyCenterButton.cs" />
     <Compile Include="Buttons\JustifyLeftButton.cs" />
@@ -364,6 +365,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_csharp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -67,12 +67,7 @@
       <DependentUpon>BlogSettingControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Blog\BlogSettingProvider.cs" />
-    <Compile Include="Blog\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Blog\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Blog\BlogGateway.cs" />
     <Compile Include="Blog\FrmBlogPublish.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,10 +152,13 @@
     <EmbeddedResource Include="Blog\BlogSettingControl.resx">
       <DependentUpon>BlogSettingControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Blog\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Blog\BlogSettingControl.zh-CN.resx">
+      <DependentUpon>BlogSettingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Blog\FrmBlogPublish.resx">
+      <DependentUpon>FrmBlogPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Blog\FrmBlogPublish.zh-CN.resx">
       <DependentUpon>FrmBlogPublish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Exporters\TextFileExporterOptionDialog.resx">

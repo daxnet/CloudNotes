@@ -92,5 +92,13 @@ namespace CloudNotes.DesktopClient.Extensibility
         /// <c>true</c> if the current shell has an active document; otherwise, <c>false</c>.
         /// </value>
         bool HasActiveDocument { get; }
+
+        /// <summary>
+        /// Gets or sets the status text.
+        /// </summary>
+        /// <value>
+        /// The status text.
+        /// </value>
+        string StatusText { get; set; }
     }
 }

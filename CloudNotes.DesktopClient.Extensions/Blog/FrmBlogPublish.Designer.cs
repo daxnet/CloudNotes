@@ -32,8 +32,9 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lstCategories = new System.Windows.Forms.ListView();
-            this.label2 = new System.Windows.Forms.Label();
             this.colCategoryName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOK
@@ -59,15 +60,23 @@
             this.lstCategories.Name = "lstCategories";
             this.lstCategories.UseCompatibleStateImageBehavior = false;
             this.lstCategories.View = System.Windows.Forms.View.Details;
+            this.lstCategories.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstCategories_ItemChecked);
+            // 
+            // colCategoryName
+            // 
+            resources.ApplyResources(this.colCategoryName, "colCategoryName");
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // colCategoryName
+            // btnRefresh
             // 
-            resources.ApplyResources(this.colCategoryName, "colCategoryName");
+            resources.ApplyResources(this.btnRefresh, "btnRefresh");
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // FrmBlogPublish
             // 
@@ -75,6 +84,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstCategories);
             this.Controls.Add(this.btnCancel);
@@ -97,5 +107,6 @@
         private System.Windows.Forms.ListView lstCategories;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader colCategoryName;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

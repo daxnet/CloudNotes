@@ -2,10 +2,9 @@
 namespace CloudNotes.DesktopClient.Extensions.Blog
 {
     using System;
-    using System.Linq;
     using System.Windows.Forms;
     using CloudNotes.DesktopClient.Extensibility;
-    using CloudNotes.DesktopClient.Extensions.Blog.MetaWeblogSharp;
+    using CloudNotes.DesktopClient.Extensions.Properties;
 
     public partial class BlogSettingControl : UserControl
     {
@@ -18,19 +17,14 @@ namespace CloudNotes.DesktopClient.Extensions.Blog
         {
             await SafeExecutionContext.ExecuteAsync(this.ParentForm, async () =>
             {
-                var connectionInfo = new BlogConnectionInfo(string.Empty, txtMetaWeblogAddress.Text, string.Empty,
-                 txtUserName.Text, txtPassword.Text);
-                var client = new Client(connectionInfo);
-                var blog = (await client.GetUsersBlogsAsync()).FirstOrDefault();
-                if (blog != null)
+                var gateway = new BlogGateway(txtMetaWeblogAddress.Text, txtUserName.Text, txtPassword.Text);
+                if (await gateway.TestConnectionAsync())
                 {
-                    MessageBox.Show("Test connection succeeded.", "Information", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    MessageBox.Show(Resources.TestConnectionSucceeded, Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Unable to connect to blog service.", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                    MessageBox.Show(Resources.TestConnectionFailed, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             });
             

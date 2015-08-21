@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BlogExtensionDescription" xml:space="preserve">
+    <value>Publish current note to the web log.</value>
+  </data>
+  <data name="BlogExtensionToolName" xml:space="preserve">
+    <value>Publish to Blog...</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BlogIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blog_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,5 +183,26 @@
   </data>
   <data name="TextFileFilterDescription" xml:space="preserve">
     <value>Text Files (*.txt)</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="BlogExtensionCannotConnectToBlogService" xml:space="preserve">
+    <value>Cannot connect to the blog service.</value>
+  </data>
+  <data name="PublishSucceeded" xml:space="preserve">
+    <value>Publish succeeded!</value>
+  </data>
+  <data name="ManufactureName" xml:space="preserve">
+    <value>Sunny Chen</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="TestConnectionSucceeded" xml:space="preserve">
+    <value>Test connection succeeded.</value>
+  </data>
+  <data name="TestConnectionFailed" xml:space="preserve">
+    <value>Test connection failed.</value>
   </data>
 </root>

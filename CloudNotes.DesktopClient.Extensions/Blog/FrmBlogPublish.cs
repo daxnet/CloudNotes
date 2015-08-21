@@ -1,42 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CloudNotes.DesktopClient.Extensions.Blog
+﻿namespace CloudNotes.DesktopClient.Extensions.Blog
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
     using CloudNotes.DesktopClient.Extensibility;
     using CloudNotes.DesktopClient.Extensions.Blog.MetaWeblogSharp;
 
     public partial class FrmBlogPublish : Form
     {
-        private readonly BlogSetting setting;
-        private readonly Client blogClient;
+        private readonly BlogGateway gateway;
 
         private FrmBlogPublish()
         {
             InitializeComponent();
+            UpdateControlState();
         }
 
-        public FrmBlogPublish(BlogSetting setting)
+        public FrmBlogPublish(BlogGateway gateway)
             : this()
         {
-            this.setting = setting;
-            var connectionInfo = new BlogConnectionInfo(string.Empty, setting.MetaWeblogAddress, string.Empty,
-                 setting.UserName, setting.Password);
-            blogClient = new Client(connectionInfo);
+            this.gateway = gateway;
         }
 
-        private async void FrmBlogPublish_Shown(object sender, EventArgs e)
+        public IEnumerable<CategoryInfo> SelectedCategories
+        {
+            get { return from ListViewItem item in lstCategories.CheckedItems select item.Tag as CategoryInfo; }
+        }
+
+        private void UpdateControlState()
+        {
+            btnOK.Enabled = lstCategories.CheckedItems.Count > 0;
+        }
+
+        private async Task ListCategoriesAsync()
         {
             try
             {
-                var categories = await this.blogClient.GetCategoriesAsync();
+                lstCategories.Items.Clear();
+                var categories = await this.gateway.GetCategoriesAsync();
                 if (categories.Count > 0)
                 {
                     foreach (var category in categories)
@@ -45,14 +48,28 @@ namespace CloudNotes.DesktopClient.Extensions.Blog
                         listViewItem.Tag = category;
                     }
                 }
+                UpdateControlState();
             }
             catch (Exception ex)
             {
                 FrmExceptionDialog.ShowException(ex);
             }
-            
         }
 
+        private void lstCategories_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            UpdateControlState();
+        }
+
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            await ListCategoriesAsync();
+        }
+
+        private async void FrmBlogPublish_Shown(object sender, EventArgs e)
+        {
+            await ListCategoriesAsync();
+        }
 
     }
 }

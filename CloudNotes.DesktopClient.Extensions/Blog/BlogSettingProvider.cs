@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CloudNotes.DesktopClient.Extensions.Blog
+﻿namespace CloudNotes.DesktopClient.Extensions.Blog
 {
+    using System;
     using CloudNotes.DesktopClient.Extensibility.Extensions;
 
     public sealed class BlogSettingProvider : ExtensionSettingProvider
