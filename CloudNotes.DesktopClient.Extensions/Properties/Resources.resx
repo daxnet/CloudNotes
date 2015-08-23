@@ -205,4 +205,16 @@
   <data name="TestConnectionFailed" xml:space="preserve">
     <value>Test connection failed.</value>
   </data>
+  <data name="NoActiveNoteOpened" xml:space="preserve">
+    <value>No active note has been opened, operation cancelled.</value>
+  </data>
+  <data name="InsertSourceCodeDescription" xml:space="preserve">
+    <value>Insert a &lt;pre&gt; tag into the note HTML content, which will be rendered as syntax hightlighted source code snippet when Alexgorbatchev Syntax Highlighter plugin is enabled on the web page.</value>
+  </data>
+  <data name="InsertSourceCodeDisplayName" xml:space="preserve">
+    <value>Alexgovbatchev Syntax Highlighting...</value>
+  </data>
+  <data name="CSharp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSharpFile_SolutionExplorerNode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

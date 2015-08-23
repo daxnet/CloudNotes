@@ -230,6 +230,16 @@ namespace YARTE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap image_clipboard {
+            get {
+                object obj = ResourceManager.GetObject("image_clipboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image_from_web {
             get {
                 object obj = ResourceManager.GetObject("image_from_web", resourceCulture);
@@ -274,6 +284,15 @@ namespace YARTE.Properties {
             get {
                 object obj = ResourceManager.GetObject("insertcheckbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insert Image from Clipboard.
+        /// </summary>
+        internal static string InsertClipboardImageToolTip {
+            get {
+                return ResourceManager.GetString("InsertClipboardImageToolTip", resourceCulture);
             }
         }
         

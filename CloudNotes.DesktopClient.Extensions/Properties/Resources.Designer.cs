@@ -98,6 +98,16 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CSharp {
+            get {
+                object obj = ResourceManager.GetObject("CSharp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Downloading the web page....
         /// </summary>
         internal static string DownloadingWebPage {
@@ -236,6 +246,24 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Insert a &lt;pre&gt; tag into the note HTML content, which will be rendered as syntax hightlighted source code snippet when Alexgorbatchev Syntax Highlighter plugin is enabled on the web page..
+        /// </summary>
+        internal static string InsertSourceCodeDescription {
+            get {
+                return ResourceManager.GetString("InsertSourceCodeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alexgovbatchev Syntax Highlighting....
+        /// </summary>
+        internal static string InsertSourceCodeDisplayName {
+            get {
+                return ResourceManager.GetString("InsertSourceCodeDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The link cannot be empty..
         /// </summary>
         internal static string LinkEmpty {
@@ -259,6 +287,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         internal static string ManufactureName {
             get {
                 return ResourceManager.GetString("ManufactureName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No active note has been opened, operation cancelled..
+        /// </summary>
+        internal static string NoActiveNoteOpened {
+            get {
+                return ResourceManager.GetString("NoActiveNoteOpened", resourceCulture);
             }
         }
         

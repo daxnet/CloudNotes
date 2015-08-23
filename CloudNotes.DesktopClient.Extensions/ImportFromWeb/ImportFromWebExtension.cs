@@ -127,7 +127,7 @@ namespace CloudNotes.DesktopClient.Extensions.ImportFromWeb
         /// </value>
         public override string Manufacture
         {
-            get { return "daxnet"; }
+            get { return Resources.ManufactureName; }
         }
 
         /// <summary>

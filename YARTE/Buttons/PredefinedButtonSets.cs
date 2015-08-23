@@ -20,11 +20,14 @@ namespace YARTE.UI.Buttons
             editor.AddToolbarDivider();
             editor.AddToolbarItem(new LinkButton());
             editor.AddToolbarItem(new UnlinkButton());
+            editor.AddToolbarDivider();
             editor.AddToolbarItem(new InsertLinkedImageButton());
             editor.AddToolbarItem(new InsertOnlineImageButton());
+            editor.AddToolbarItem(new InsertClipboardImageButton());
+            editor.AddToolbarDivider();
             editor.AddToolbarItem(new OrderedListButton());
             editor.AddToolbarItem(new UnorderedListButton());
-            editor.AddToolbarItem(new InsertSourceCodeButton());
+            //editor.AddToolbarItem(new InsertSourceCodeButton());
             editor.AddToolbarDivider();
             editor.AddToolbarItem(new ForecolorButton());
             editor.AddToolbarDivider();

@@ -270,6 +270,30 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AACVWjcUklUwHpJVMR6SVTEek1UxHpNVMR6UVjIel1o3HpRYNB6TVTIeklUxHpJVMR6TVTEek1YxGpde
+        OwQAAAAAwJ2Iwde/sePZwLPj2cCy49nAsuPYwLLj1r+x49C4quPWva7j18Cy49fBs+PXwbPj2MGz48+0
+        pNmvgmhQAAAAANe/sf/n9/z/y+z2/8zt9v/L7fb/4/T5/+Hh4f+amZj/rKqr/9PT0v/l5OL/5ufo/+rr
+        6//w6eX/t452fgAAAADZwLL/y+32/5LW6P+U1+n/ktbp/8bn8P/h39//fYSU/0JbhP9qkrr/vsHA/9rW
+        0f/g4OD/8Onl/7eOdn4AAAAA2MCy/8zt9v+U1+n/ltfp/5TX6f/H6PD/5ePi/6m5zP9VjsT/XqTS/26c
+        w/+8vLn/3dfP/+7m4f+3j3d+AAAAANjAsv/M7fb/lNfp/5bX6f+U1+n/x+jw/+Pi4f/a3N3/oLzV/2+v
+        1/9jqdX/bp3D/76+uv/f0MH/tIpwfgAAAADZwLL/zO32/5PX6f+V1+n/k9fp/8bn8P/j4eH/3d3d/9vc
+        3f+fu9T/b6/Y/2Oq1f9xocb/wry1/7GFaH4AAAAA2MCy/9Lw+P+h3ez/o97s/6Le7P/N6/L/4+Lh/93e
+        3f/e3t3/3N3d/6G91f9wsNf/ZKvW/3eevP+ljHyBAAAAANjBs//k4/T/xsLj/8fD5P/Hw+T/zMXk/8vB
+        3//Kv97/ysDe/8vA3v/Ivt7/j6HV/2+m0f+MqLn/nZilxXFXoybZwrP/08no/6OMzP+ljs3/pY7N/6WO
+        zP+lj83/pY/N/6WPzf+lj83/pY/N/6OOzf+cmMP/p6Gw/4Zxr/lePKVu2MKz/9PJ6P+jjMv/pI7M/6SO
+        zP+kjsz/pI7M/6SOzP+kjs3/pI7M/6SOzP+kjsz/rJfP/6+fyv9/X6evWzepGNfBsv/r5vb/08np/9TK
+        6f/Uyun/1Mrp/9TK6f/Uyun/1Mrp/9TK6f/Uyun/1Mrp/9rR7f/q4ub/sId5fgAAAADAm4X/2cCw/9nB
+        sP/ZwLD/2cCv/9jAr//Yv67/2L+u/9e+rf/Xvq3/172s/9a8q//WvKv/0LOh/66AZH4AAAAAw5Jz/9qt
+        jf/arY3/2KqK/9Wmhv/So4L/0J9+/82be//Kl3f/x5Ny/8megv/Fmn//xZ2D/8eXd/+wfl9+AAAAAMKT
+        dPXcsJH/3LCR/9uuj//ZrI3/2KqL/9aoif/Vpof/06SE/9Ghgf/Xspn/1bGY/9i2n//OoYL/sH1edAAA
+        AACreFpssX9gj7F/YI+xf2CPsX9gj7KAYY+ygGGPsoBhj7GAYY+xgGGPsX9gj7J/YI+yf1+Rr31eh6Zz
+        VCoAAAAA//8AAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAAD
+        AAAAAwAAgAMAAA==
+</value>
+  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>

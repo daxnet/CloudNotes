@@ -172,15 +172,17 @@ namespace YARTE.UI
 
         private ToolStripItem CreateButton(IHTMLEditorButton toolbarItem)
         {
-            var toolStripButton = new ToolStripButton();
-            toolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton.Image = toolbarItem.IconImage;
-            toolStripButton.ImageScaling = ToolStripItemImageScaling.None;
-            toolStripButton.ImageTransparentColor = Color.Magenta;
-            toolStripButton.Name = toolbarItem.IconName;
-            toolStripButton.Size = new Size(25, 24);
-            toolStripButton.Text = toolbarItem.IconTooltip;
-            toolStripButton.MergeAction = MergeAction.Append;
+            var toolStripButton = new ToolStripButton
+            {
+                DisplayStyle = ToolStripItemDisplayStyle.Image,
+                Image = toolbarItem.IconImage,
+                ImageScaling = ToolStripItemImageScaling.None,
+                ImageTransparentColor = Color.Magenta,
+                Name = toolbarItem.IconName,
+                Size = new Size(25, 24),
+                Text = toolbarItem.IconTooltip,
+                MergeAction = MergeAction.Append
+            };
 
             var args = new HTMLEditorButtonArgs { Document = this._doc, Editor = this };
 
