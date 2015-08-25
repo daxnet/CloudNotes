@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInsertSourceCode));
             this.label1 = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtHightlightedLines = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpSourceCode = new System.Windows.Forms.GroupBox();
             this.txtSourceCode = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -41,8 +42,10 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lnk = new System.Windows.Forms.LinkLabel();
-            this.groupBox1.SuspendLayout();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.grpSourceCode.SuspendLayout();
             this.pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,12 +71,12 @@
             resources.ApplyResources(this.txtHightlightedLines, "txtHightlightedLines");
             this.txtHightlightedLines.Name = "txtHightlightedLines";
             // 
-            // groupBox1
+            // grpSourceCode
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.txtSourceCode);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            resources.ApplyResources(this.grpSourceCode, "grpSourceCode");
+            this.grpSourceCode.Controls.Add(this.txtSourceCode);
+            this.grpSourceCode.Name = "grpSourceCode";
+            this.grpSourceCode.TabStop = false;
             // 
             // txtSourceCode
             // 
@@ -86,6 +89,7 @@
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Name = "btnOK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -120,6 +124,11 @@
             this.lnk.TabStop = true;
             this.lnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_LinkClicked);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
             // FrmInsertSourceCode
             // 
             this.AcceptButton = this.btnOK;
@@ -130,17 +139,19 @@
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpSourceCode);
             this.Controls.Add(this.txtHightlightedLines);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbLanguage);
             this.Controls.Add(this.label1);
             this.Name = "FrmInsertSourceCode";
             this.ShowInTaskbar = false;
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Shown += new System.EventHandler(this.FrmInsertSourceCode_Shown);
+            this.grpSourceCode.ResumeLayout(false);
+            this.grpSourceCode.PerformLayout();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,7 +163,7 @@
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtHightlightedLines;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpSourceCode;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtSourceCode;
@@ -160,5 +171,6 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.LinkLabel lnk;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

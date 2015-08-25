@@ -117,6 +117,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please input the source code..
+        /// </summary>
+        internal static string EmptySourceCodeMsg {
+            get {
+                return ResourceManager.GetString("EmptySourceCodeMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string Error {
@@ -142,6 +151,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
             get {
                 object obj = ResourceManager.GetObject("ExportToTextImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlighted lines should be the comma separated numbers..
+        /// </summary>
+        internal static string HighlightedLinesFormatMsg {
+            get {
+                return ResourceManager.GetString("HighlightedLinesFormatMsg", resourceCulture);
             }
         }
         

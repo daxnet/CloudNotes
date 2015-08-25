@@ -1,6 +1,8 @@
 ﻿namespace CloudNotes.DesktopClient.Extensions.InsertSourceCode
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using System.Web;
     using System.Windows.Forms;
@@ -96,6 +98,33 @@
         private void lnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             "http://alexgorbatchev.com/SyntaxHighlighter/".Navigate();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            errorProvider.Clear();
+            if (!string.IsNullOrEmpty(txtHightlightedLines.Text))
+            {
+                var allValues = txtHightlightedLines.Text.Split(new [] {','}, StringSplitOptions.RemoveEmptyEntries);
+                int res;
+                if (allValues.Any(v => !int.TryParse(v, out res)))
+                {
+                    errorProvider.SetError(txtHightlightedLines, Resources.HighlightedLinesFormatMsg);
+                    this.DialogResult = DialogResult.None;
+                }
+            }
+
+            if (string.IsNullOrEmpty(txtSourceCode.Text))
+            {
+                errorProvider.SetError(grpSourceCode, Resources.EmptySourceCodeMsg);
+                this.DialogResult = DialogResult.None;
+            }
+
+        }
+
+        private void FrmInsertSourceCode_Shown(object sender, EventArgs e)
+        {
+            txtSourceCode.Focus();
         }
         
     }

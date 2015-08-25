@@ -33,5 +33,5 @@ using System.Reflection;
 [assembly: AssemblyProduct("CloudNotes")]
 [assembly: AssemblyCopyright("Copyright © 2014-2015 by daxnet")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyVersion("1.0.5702.36686")]
+[assembly: AssemblyVersion("1.0.5715.39966")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

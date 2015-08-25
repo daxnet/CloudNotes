@@ -129,8 +129,14 @@
   <data name="DownloadingWebPage" xml:space="preserve">
     <value>正在下载页面...</value>
   </data>
+  <data name="EmptySourceCodeMsg" xml:space="preserve">
+    <value>请输入需要插入的代码段。</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>错误</value>
+  </data>
+  <data name="HighlightedLinesFormatMsg" xml:space="preserve">
+    <value>请使用逗号分隔的整数来指定需要高亮的行号。</value>
   </data>
   <data name="HtmlExporterDescription" xml:space="preserve">
     <value>将笔记另存为HTML文档。</value>

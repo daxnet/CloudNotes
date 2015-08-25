@@ -154,7 +154,7 @@
     <value>115, 87</value>
   </data>
   <data name="cbLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>519, 23</value>
+    <value>439, 23</value>
   </data>
   <data name="cbLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -205,7 +205,7 @@
     <value>115, 116</value>
   </data>
   <data name="txtHightlightedLines.Size" type="System.Drawing.Size, System.Drawing">
-    <value>519, 23</value>
+    <value>439, 23</value>
   </data>
   <data name="txtHightlightedLines.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -222,11 +222,14 @@
   <data name="&gt;&gt;txtHightlightedLines.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="grpSourceCode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="txtSourceCode.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="txtSourceCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt</value>
   </data>
   <data name="txtSourceCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 19</value>
@@ -238,7 +241,7 @@
     <value>Both</value>
   </data>
   <data name="txtSourceCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 331</value>
+    <value>536, 331</value>
   </data>
   <data name="txtSourceCode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -253,40 +256,40 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtSourceCode.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>grpSourceCode</value>
   </data>
   <data name="&gt;&gt;txtSourceCode.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="grpSourceCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 145</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>622, 353</value>
+  <data name="grpSourceCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>542, 353</value>
   </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="grpSourceCode.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
+  <data name="grpSourceCode.Text" xml:space="preserve">
     <value>Source Code</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;grpSourceCode.Name" xml:space="preserve">
+    <value>grpSourceCode</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;grpSourceCode.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;grpSourceCode.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;grpSourceCode.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="btnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>481, 504</value>
+    <value>401, 504</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -313,7 +316,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>562, 504</value>
+    <value>482, 504</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -343,7 +346,7 @@
     <value>13, 31</value>
   </data>
   <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>622, 36</value>
+    <value>542, 36</value>
   </data>
   <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -400,7 +403,7 @@
     <value>0, 0</value>
   </data>
   <data name="pnlTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>649, 81</value>
+    <value>569, 81</value>
   </data>
   <data name="pnlTop.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -447,6 +450,9 @@
   <data name="&gt;&gt;lnk.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -454,7 +460,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>649, 539</value>
+    <value>569, 539</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -491,6 +497,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Insert Source Code</value>
+  </data>
+  <data name="&gt;&gt;errorProvider.Name" xml:space="preserve">
+    <value>errorProvider</value>
+  </data>
+  <data name="&gt;&gt;errorProvider.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmInsertSourceCode</value>
