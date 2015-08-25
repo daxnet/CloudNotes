@@ -391,4 +391,10 @@
   <data name="InsertClipboardImageToolTip" xml:space="preserve">
     <value>插入粘贴板图片</value>
   </data>
+  <data name="Information" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="NoImageInClipboard" xml:space="preserve">
+    <value>剪贴板中没有可用的图片。</value>
+  </data>
 </root>

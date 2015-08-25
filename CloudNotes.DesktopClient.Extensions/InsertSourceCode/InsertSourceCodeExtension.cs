@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CloudNotes.DesktopClient.Extensions.InsertSourceCode
+﻿namespace CloudNotes.DesktopClient.Extensions.InsertSourceCode
 {
     using System.Drawing;
     using System.Windows.Forms;
@@ -16,13 +10,13 @@ namespace CloudNotes.DesktopClient.Extensions.InsertSourceCode
     public sealed class InsertSourceCodeExtension : ToolExtension
     {
         public InsertSourceCodeExtension()
-            : base("Alexgovbatchev Syntax Highlighting...")
+            : base(Resources.InsertSourceCodeToolName)
         {
         }
 
         public override Image ToolIcon
         {
-            get { return Resources.CSharp; }
+            get { return Resources.CSharpCode; }
         }
 
         protected override void DoExecute(IShell shell)
@@ -31,10 +25,11 @@ namespace CloudNotes.DesktopClient.Extensions.InsertSourceCode
             {
                 SafeExecutionContext.Execute((Form)shell.Owner, () =>
                 {
-                    var insertCodeDialog = new FrmInsertSourceCode();
+                    var setting = this.SettingProvider.GetExtensionSetting<InsertSourceCodeSetting>();
+                    var insertCodeDialog = new FrmInsertSourceCode(setting);
                     if (insertCodeDialog.ShowDialog() == DialogResult.OK)
                     {
-                        
+                        shell.InsertHtml(insertCodeDialog.SourceCodeTag);
                     }
                 });
             }
@@ -54,7 +49,5 @@ namespace CloudNotes.DesktopClient.Extensions.InsertSourceCode
         {
             get { return Resources.InsertSourceCodeDescription; }
         }
-
-        
     }
 }

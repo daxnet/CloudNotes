@@ -400,4 +400,10 @@
   <data name="InsertClipboardImageToolTip" xml:space="preserve">
     <value>Insert Image from Clipboard</value>
   </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="NoImageInClipboard" xml:space="preserve">
+    <value>No image in clipboard.</value>
+  </data>
 </root>

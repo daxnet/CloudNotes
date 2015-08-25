@@ -115,7 +115,7 @@ namespace CloudNotes.DesktopClient.Extensions.Blog
 
         public override Image ToolIcon
         {
-            get { return Resources.BlogIcon; }
+            get { return Resources.blog_icon; }
         }
     }
 }

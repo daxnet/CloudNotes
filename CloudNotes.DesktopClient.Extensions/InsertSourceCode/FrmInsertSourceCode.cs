@@ -1,10 +1,15 @@
 ﻿namespace CloudNotes.DesktopClient.Extensions.InsertSourceCode
 {
     using System.Collections.Generic;
+    using System.Text;
+    using System.Web;
     using System.Windows.Forms;
+    using CloudNotes.DesktopClient.Extensions.Properties;
+    using CloudNotes.Infrastructure;
 
     public partial class FrmInsertSourceCode : Form
     {
+        private const string PreTagFormat = "<pre class=\"{0}\">{1}</pre>";
         private readonly List<CodeLanguage> codeLanguages = new List<CodeLanguage>
         {
             new CodeLanguage("csharp", "Visual C#"),
@@ -27,19 +32,71 @@
             new CodeLanguage("fsharp", "Visual F#")
         };
 
-        public FrmInsertSourceCode()
+        private readonly InsertSourceCodeSetting setting;
+
+        private FrmInsertSourceCode()
         {
             InitializeComponent();
+            this.Text = Resources.InsertSourceCodeToolName.Trim('.');
+            this.lblTitle.Text = this.Text;
+            this.lblDescription.Text = Resources.InsertSourceCodeDescription;
+        }
 
+        public FrmInsertSourceCode(InsertSourceCodeSetting setting)
+            :this()
+        {
             cbLanguage.Items.Clear();
             foreach (var codeLanguage in codeLanguages)
             {
                 cbLanguage.Items.Add(codeLanguage);
             }
             cbLanguage.SelectedIndex = 0;
+            this.setting = setting;
         }
 
-        
+        public string SourceCodeTag
+        {
+            get
+            {
+                var defaultSetting = InsertSourceCodeSetting.Default;
+                var classBuilder = new StringBuilder();
+                classBuilder.AppendFormat("brush: {0}; ", ((CodeLanguage) cbLanguage.SelectedItem).Name);
+                if (setting.AutoLinks != defaultSetting.AutoLinks)
+                {
+                    classBuilder.AppendFormat("auto-links: {0}; ", setting.AutoLinks);
+                }
+                if (setting.Collapse != defaultSetting.Collapse)
+                {
+                    classBuilder.AppendFormat("collapse: {0}; ", setting.Collapse);
+                }
+                if (setting.Gutter != defaultSetting.Gutter)
+                {
+                    classBuilder.AppendFormat("gutter: {0}; ", setting.Gutter);
+                }
+                if (setting.ShowToolbar != defaultSetting.ShowToolbar)
+                {
+                    classBuilder.AppendFormat("toolbar: {0}; ", setting.ShowToolbar);
+                }
+                if (setting.SmartTabs != defaultSetting.SmartTabs)
+                {
+                    classBuilder.AppendFormat("smart-tabs: {0}; ", setting.SmartTabs);
+                }
+                if (setting.TabSize != defaultSetting.TabSize)
+                {
+                    classBuilder.AppendFormat("tab-size: {0}; ", setting.TabSize);
+                }
+                if (!string.IsNullOrEmpty(txtHightlightedLines.Text))
+                {
+                    classBuilder.AppendFormat("highlight: [{0}]; ", txtHightlightedLines.Text);
+                }
+                return string.Format(PreTagFormat, classBuilder, HttpUtility.HtmlEncode(txtSourceCode.Text));
+            }
+        }
+
+        private void lnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            "http://alexgorbatchev.com/SyntaxHighlighter/".Navigate();
+        }
         
     }
 

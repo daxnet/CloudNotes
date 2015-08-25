@@ -117,91 +117,74 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BlogExtensionCannotConnectToBlog" xml:space="preserve">
-    <value>无法连接到博客服务。</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkAutoLinks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 15</value>
   </data>
-  <data name="BlogExtensionDescription" xml:space="preserve">
-    <value>将当前笔记发布到博客。</value>
+  <data name="chkAutoLinks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 16</value>
   </data>
-  <data name="BlogExtensionToolName" xml:space="preserve">
-    <value>发布到博客...</value>
+  <data name="chkAutoLinks.Text" xml:space="preserve">
+    <value>自动探测代码段中的超级链接。</value>
   </data>
-  <data name="DownloadingWebPage" xml:space="preserve">
-    <value>正在下载页面...</value>
+  <data name="chkCollapse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 36</value>
   </data>
-  <data name="Error" xml:space="preserve">
-    <value>错误</value>
+  <data name="chkCollapse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 16</value>
   </data>
-  <data name="HtmlExporterDescription" xml:space="preserve">
-    <value>将笔记另存为HTML文档。</value>
+  <data name="chkCollapse.Text" xml:space="preserve">
+    <value>默认将插入的代码段折叠显示。</value>
   </data>
-  <data name="HtmlExporterDisplayName" xml:space="preserve">
-    <value>另存为HTML文档</value>
+  <data name="chkGutter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 57</value>
   </data>
-  <data name="HtmlFileFilterDescription" xml:space="preserve">
-    <value>HTML文件（*.html）</value>
+  <data name="chkGutter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 16</value>
   </data>
-  <data name="ImportFromWeb" xml:space="preserve">
-    <value>从网页导入...</value>
+  <data name="chkGutter.Text" xml:space="preserve">
+    <value>在插入的代码段左边显示带有行号的标尺。</value>
   </data>
-  <data name="ImportFromWebDescription" xml:space="preserve">
-    <value>从网页下载HTML并将其导入为笔记。</value>
+  <data name="chkSmartTabs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 78</value>
   </data>
-  <data name="ImportFromWebDuplicatedTitleErrorMsg" xml:space="preserve">
-    <value>指定的标题与已有笔记的标题重复</value>
+  <data name="chkSmartTabs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 16</value>
   </data>
-  <data name="ImportFromWebEmptyTitleErrorMsg" xml:space="preserve">
-    <value>笔记标题不能为空。</value>
+  <data name="chkSmartTabs.Text" xml:space="preserve">
+    <value>启用智能缩进功能。</value>
   </data>
-  <data name="ImportFromWebInputTitlePrompt" xml:space="preserve">
-    <value>从网页下载的HTML中提取的文档标题为空，或者具有该标题的笔记已经存在，请重新为导入的笔记指定一个新的标题。</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 102</value>
   </data>
-  <data name="ImportFromWebInputTitleText" xml:space="preserve">
-    <value>重复的笔记标题</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
   </data>
-  <data name="Information" xml:space="preserve">
-    <value>信息</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>缩进量：</value>
   </data>
-  <data name="InsertSourceCodeDescription" xml:space="preserve">
-    <value>向笔记HTML中插入一个&lt;pre&gt;标记，使得装有Alexgorbatchev Syntax Highlighter插件的页面能够对代码段进行语法高亮显示。</value>
+  <data name="numTabSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 100</value>
   </data>
-  <data name="InsertSourceCodeDisplayName" xml:space="preserve">
-    <value>Alexgovbatchev 代码语法高亮...</value>
+  <data name="numTabSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 21</value>
   </data>
-  <data name="InsertSourceCodeToolName" xml:space="preserve">
-    <value>插入语法高亮代码...</value>
+  <data name="chkShowToolbar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 124</value>
   </data>
-  <data name="LinkEmpty" xml:space="preserve">
-    <value>网页链接地址不能为空。</value>
+  <data name="chkShowToolbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 16</value>
   </data>
-  <data name="LinkNotValid" xml:space="preserve">
-    <value>网页链接地址格式不正确。</value>
+  <data name="chkShowToolbar.Text" xml:space="preserve">
+    <value>显示工具栏。</value>
   </data>
-  <data name="ManufactureName" xml:space="preserve">
-    <value>陈晴阳</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
   </data>
-  <data name="NoActiveNoteOpened" xml:space="preserve">
-    <value>当前没有已打开的笔记，操作取消。</value>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>SimSun, 9pt</value>
   </data>
-  <data name="ProcessingImages" xml:space="preserve">
-    <value>正在处理图片...</value>
-  </data>
-  <data name="PublishSucceeded" xml:space="preserve">
-    <value>发布成功！</value>
-  </data>
-  <data name="TestConnectionFailed" xml:space="preserve">
-    <value>连接测试失败。</value>
-  </data>
-  <data name="TestConnectionSucceeded" xml:space="preserve">
-    <value>连接测试成功！</value>
-  </data>
-  <data name="TextFileExporterDescription" xml:space="preserve">
-    <value>将笔记另存为文本文件。</value>
-  </data>
-  <data name="TextFileExporterDisplayName" xml:space="preserve">
-    <value>另存为文本文件</value>
-  </data>
-  <data name="TextFileFilterDescription" xml:space="preserve">
-    <value>文本文件（*.txt）</value>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>534, 282</value>
   </data>
 </root>

@@ -180,6 +180,7 @@
             this.lstExtensions.HideSelection = false;
             this.lstExtensions.MultiSelect = false;
             this.lstExtensions.Name = "lstExtensions";
+            this.lstExtensions.ShowItemToolTips = true;
             this.lstExtensions.SmallImageList = this.ilExtensions;
             this.lstExtensions.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lstExtensions.UseCompatibleStateImageBehavior = false;

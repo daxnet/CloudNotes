@@ -61,6 +61,16 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blog_icon {
+            get {
+                object obj = ResourceManager.GetObject("blog_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot connect to the blog service..
         /// </summary>
         internal static string BlogExtensionCannotConnectToBlogService {
@@ -90,19 +100,9 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BlogIcon {
+        internal static System.Drawing.Bitmap CSharpCode {
             get {
-                object obj = ResourceManager.GetObject("BlogIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap CSharp {
-            get {
-                object obj = ResourceManager.GetObject("CSharp", resourceCulture);
+                object obj = ResourceManager.GetObject("CSharpCode", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -260,6 +260,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         internal static string InsertSourceCodeDisplayName {
             get {
                 return ResourceManager.GetString("InsertSourceCodeDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insert Syntax Highlighted Code....
+        /// </summary>
+        internal static string InsertSourceCodeToolName {
+            get {
+                return ResourceManager.GetString("InsertSourceCodeToolName", resourceCulture);
             }
         }
         

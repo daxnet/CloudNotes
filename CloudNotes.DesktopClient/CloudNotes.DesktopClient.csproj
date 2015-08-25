@@ -281,6 +281,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\2015-08-25 14_13_23-GitHub.png" />
     <None Include="Images\Wordpad-icon.png" />
     <None Include="Resources\plugin.png" />
     <None Include="Resources\Expanded.png" />

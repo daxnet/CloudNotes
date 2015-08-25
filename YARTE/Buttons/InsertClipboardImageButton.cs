@@ -25,6 +25,10 @@
                     insertHtmlButton.IconClicked(doc);
                 }
             }
+            else
+            {
+                MessageBox.Show(Resources.NoImageInClipboard, Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public Image IconImage

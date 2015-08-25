@@ -359,7 +359,7 @@
             // 
             // mnuSourceCodeRepository
             // 
-            this.mnuSourceCodeRepository.Image = global::CloudNotes.DesktopClient.Properties.Resources.page_white_csharp;
+            this.mnuSourceCodeRepository.Image = global::CloudNotes.DesktopClient.Properties.Resources._2015_08_25_14_13_23_GitHub;
             this.mnuSourceCodeRepository.Name = "mnuSourceCodeRepository";
             resources.ApplyResources(this.mnuSourceCodeRepository, "mnuSourceCodeRepository");
             this.mnuSourceCodeRepository.Click += new System.EventHandler(this.Action_SourceCodeRepository);

@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 7</value>
+    <value>47, 90</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 15</value>
@@ -144,17 +144,17 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="cbLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 7</value>
+    <value>115, 87</value>
   </data>
   <data name="cbLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 23</value>
+    <value>519, 23</value>
   </data>
   <data name="cbLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -169,13 +169,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbLanguage.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 40</value>
+    <value>9, 119</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 15</value>
@@ -196,16 +196,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="txtHightlightedLines.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="txtHightlightedLines.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 37</value>
+    <value>115, 116</value>
   </data>
   <data name="txtHightlightedLines.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 23</value>
+    <value>519, 23</value>
   </data>
   <data name="txtHightlightedLines.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -220,46 +220,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtHightlightedLines.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;txtSourceCode.Name" xml:space="preserve">
-    <value>txtSourceCode</value>
-  </data>
-  <data name="&gt;&gt;txtSourceCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtSourceCode.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;txtSourceCode.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 66</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>414, 362</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Source Code</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="txtSourceCode.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -274,7 +238,7 @@
     <value>Both</value>
   </data>
   <data name="txtSourceCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 340</value>
+    <value>616, 331</value>
   </data>
   <data name="txtSourceCode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -294,11 +258,35 @@
   <data name="&gt;&gt;txtSourceCode.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 145</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 353</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Source Code</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="btnOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 434</value>
+    <value>481, 504</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -319,13 +307,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 434</value>
+    <value>562, 504</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -346,6 +334,117 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 31</value>
+  </data>
+  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 36</value>
+  </data>
+  <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>lblDescription</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.Name" xml:space="preserve">
+    <value>lblDescription</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.Parent" xml:space="preserve">
+    <value>pnlTop</value>
+  </data>
+  <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 7</value>
+  </data>
+  <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 15</value>
+  </data>
+  <data name="lblTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>lblTitle</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
+    <value>lblTitle</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Parent" xml:space="preserve">
+    <value>pnlTop</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pnlTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="pnlTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>649, 81</value>
+  </data>
+  <data name="pnlTop.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pnlTop.Name" xml:space="preserve">
+    <value>pnlTop</value>
+  </data>
+  <data name="&gt;&gt;pnlTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlTop.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlTop.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lnk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="lnk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lnk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 508</value>
+  </data>
+  <data name="lnk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 15</value>
+  </data>
+  <data name="lnk.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lnk.Text" xml:space="preserve">
+    <value>Learn more about Alexgorbatchev syntaxhighlighter</value>
+  </data>
+  <data name="&gt;&gt;lnk.Name" xml:space="preserve">
+    <value>lnk</value>
+  </data>
+  <data name="&gt;&gt;lnk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lnk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lnk.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -355,10 +454,37 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>441, 469</value>
+    <value>649, 539</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8B////AQAAAB0AAAA1AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAA
+        ADMAAAAd////Af///wEAAAA1+fn59fz8/P38/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8
+        /P35+fnzAAAAM////wH///8BAAAAN/z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8
+        /P/8/Pz//Pz8/QAAADf///8B////AQAAADfx08j/8dPH//z8/P/8/Pz//Pz8//v7+//7+/v/+/v7//v7
+        +//7+/v/+/v7//z8/P8AAAA3////AdZ0RHnfnG7z5qZ9/+Shdf/jm23/6rys/+m6qv/fkmP/9+/s/9+R
+        cv/gmYL/+vr6//r6+v/8/Pz/AAAAN9yATHfqtJD/4aBz8/Th1//58+//5aqO/+Whd//z3NP/4JVm/+m5
+        qf/rw7b/35Fh//Xt6v/4+Pj//Pz8/wAAADfnp3vd67mW/69kPJX8/Pz//Pz8//z8/P/lqYv/5aF3/+Wl
+        e//koXj/451x/+OedP/fkWH/3Y1k//z8/P8AAAA36raQ/+u5k/+MUzFt/Pz8//z8/P/8/Pz//Pz8//Tf
+        1v/rwK//5qN6/+zGuP/ioIf/3pJn/+vLwP/58e7/AAAAN+u4kv/tu5j/nF85efz8/P/8/Pz//Pz8/+7H
+        s//y2c3/6rqk/+aqg//jooL/4qOI/+Sid//iqZf/7MS3/wAAADfjm2er7sKh/8aCUq/8/Pz//Pz8/+3E
+        qv/or4j/9+vl/+aqgv/ko3j/562H/+Ceev/hmGv/35Vp/+OhiP8AAAA34I5VM+qyie/tv53/7L6d/+u9
+        m//su5f/6rWR//v7+//4+Pj/79vS/+anf//p29X/3qaO/96Yb//8/Pz/AAAAN////wHailMjvnpJoeu6
+        lf/qupj/7cas//LbzP/39/f/9vb2//Ly8v/kp33/6rym//Tg1v/jn3T/9uji/wAAADf///8B////AQAA
+        ADf8/Pz/9/f3//n5+f/39/f/9/f3//Pz8//w8PD/6urq//z8/P/29vb/9PT0/5mZmZEAAAAh////Af//
+        /wEAAAA3+/v7/fT09P/19fX/9fX1//X19f/x8fH/7+/v/+np6f/8/Pz/5+fn/5WVlZEAAAAhAAAAA///
+        /wH///8BAAAAM/j4+PH7+/v9/Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz/+Pj4/5SUlJEAAAAhAAAAA///
+        /wH///8B////AQAAAB0AAAAzAAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAAhAAAAA///
+        /wH///8BAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
+        //8AAP//AAD//w==
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

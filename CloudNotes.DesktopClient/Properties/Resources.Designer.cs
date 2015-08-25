@@ -63,6 +63,16 @@ namespace CloudNotes.DesktopClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2015_08_25_14_13_23_GitHub {
+            get {
+                object obj = ResourceManager.GetObject("_2015_08_25_14_13_23_GitHub", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bin_empty {
             get {
                 object obj = ResourceManager.GetObject("bin_empty", resourceCulture);

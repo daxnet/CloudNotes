@@ -308,13 +308,16 @@ namespace CloudNotes.Infrastructure
             doc.OptionFixNestedTags = true;
             // If you wish it to be xhtml like (does not suffice to 
             // enforce w3c xhtml validity).
-            doc.OptionOutputAsXml = true;
+            doc.OptionOutputAsXml = false;
             
-            doc.LoadHtml(HtmlEntity.DeEntitize(html));
+            doc.LoadHtml(html);
 
             var body = doc.DocumentNode.SelectSingleNode(path);
-            var cleanedHtml = (body != null) ?
-                body.InnerHtml : doc.DocumentNode.InnerHtml;
+            var cleanedHtml = (body != null)
+                ? body.InnerHtml
+                : doc.DocumentNode.InnerHtml;
+
+            // cleanedHtml = HtmlEntity.DeEntitize(cleanedHtml);
             cleanedHtml = RemoveTag(cleanedHtml, "<!--", "-->");
             cleanedHtml = RemoveTag(cleanedHtml, "<script", "</script>");
             cleanedHtml = RemoveTag(cleanedHtml, "<style", "</style>");

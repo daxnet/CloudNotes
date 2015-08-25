@@ -37,7 +37,12 @@
             this.txtSourceCode = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lnk = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -89,12 +94,40 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.White;
+            this.pnlTop.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTop.Controls.Add(this.lblDescription);
+            this.pnlTop.Controls.Add(this.lblTitle);
+            resources.ApplyResources(this.pnlTop, "pnlTop");
+            this.pnlTop.Name = "pnlTop";
+            // 
+            // lblDescription
+            // 
+            resources.ApplyResources(this.lblDescription, "lblDescription");
+            this.lblDescription.Name = "lblDescription";
+            // 
+            // lblTitle
+            // 
+            resources.ApplyResources(this.lblTitle, "lblTitle");
+            this.lblTitle.Name = "lblTitle";
+            // 
+            // lnk
+            // 
+            resources.ApplyResources(this.lnk, "lnk");
+            this.lnk.Name = "lnk";
+            this.lnk.TabStop = true;
+            this.lnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_LinkClicked);
+            // 
             // FrmInsertSourceCode
             // 
             this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
+            this.Controls.Add(this.lnk);
+            this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox1);
@@ -103,8 +136,11 @@
             this.Controls.Add(this.cbLanguage);
             this.Controls.Add(this.label1);
             this.Name = "FrmInsertSourceCode";
+            this.ShowInTaskbar = false;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +156,9 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtSourceCode;
+        private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.LinkLabel lnk;
     }
 }
