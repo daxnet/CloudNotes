@@ -318,6 +318,15 @@ namespace CloudNotes.DesktopClient.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please configure your blog account in the Settings dialog..
+        /// </summary>
+        internal static string MissingBlogConfigurationMsg {
+            get {
+                return ResourceManager.GetString("MissingBlogConfigurationMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No active note has been opened, operation cancelled..
         /// </summary>
         internal static string NoActiveNoteOpened {

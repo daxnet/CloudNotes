@@ -226,4 +226,7 @@
   <data name="HighlightedLinesFormatMsg" xml:space="preserve">
     <value>Highlighted lines should be the comma separated numbers.</value>
   </data>
+  <data name="MissingBlogConfigurationMsg" xml:space="preserve">
+    <value>Please configure your blog account in the Settings dialog.</value>
+  </data>
 </root>

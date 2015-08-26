@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BlogSettingControl));
             this.label1 = new System.Windows.Forms.Label();
             this.txtMetaWeblogAddress = new System.Windows.Forms.TextBox();
@@ -36,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnTestConnection = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,6 +79,11 @@
             this.btnTestConnection.UseVisualStyleBackColor = true;
             this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
             // BlogSettingControl
             // 
             resources.ApplyResources(this, "$this");
@@ -88,6 +96,7 @@
             this.Controls.Add(this.txtMetaWeblogAddress);
             this.Controls.Add(this.label1);
             this.Name = "BlogSettingControl";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +111,6 @@
         private System.Windows.Forms.Label label3;
         internal System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnTestConnection;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

@@ -186,6 +186,9 @@
   <data name="ManufactureName" xml:space="preserve">
     <value>陈晴阳</value>
   </data>
+  <data name="MissingBlogConfigurationMsg" xml:space="preserve">
+    <value>博客设置不存在。请先至设置对话框中对博客账号进行设置。</value>
+  </data>
   <data name="NoActiveNoteOpened" xml:space="preserve">
     <value>当前没有已打开的笔记，操作取消。</value>
   </data>

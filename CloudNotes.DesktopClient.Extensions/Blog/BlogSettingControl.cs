@@ -42,6 +42,28 @@ namespace CloudNotes.DesktopClient.Extensions.Blog
 
         private async void btnTestConnection_Click(object sender, EventArgs e)
         {
+            bool hasError = false;
+            errorProvider.Clear();
+            if (string.IsNullOrEmpty(txtMetaWeblogAddress.Text))
+            {
+                errorProvider.SetError(txtMetaWeblogAddress, "Please input the MetaWeblog address.");
+                hasError = true;
+            }
+            if (string.IsNullOrEmpty(txtUserName.Text))
+            {
+                errorProvider.SetError(txtUserName, "Please input the user name.");
+                hasError = true;
+            }
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                errorProvider.SetError(txtPassword, "Please input the password.");
+                hasError = true;
+            }
+            if (hasError)
+            {
+                return;
+            }
+
             await SafeExecutionContext.ExecuteAsync(this.ParentForm, async () =>
             {
                 var gateway = new BlogGateway(txtMetaWeblogAddress.Text, txtUserName.Text, txtPassword.Text);

@@ -63,6 +63,14 @@ namespace CloudNotes.DesktopClient.Extensions.Blog
                 await SafeExecutionContext.ExecuteAsync((Form) shell.Owner, async () =>
                 {
                     var blogSetting = this.SettingProvider.GetExtensionSetting<BlogSetting>();
+                    if (string.IsNullOrEmpty(blogSetting.MetaWeblogAddress) ||
+                        string.IsNullOrEmpty(blogSetting.UserName) ||
+                        string.IsNullOrEmpty(blogSetting.Password))
+                    {
+                        MessageBox.Show(Resources.MissingBlogConfigurationMsg, Resources.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     var gateway = new BlogGateway(blogSetting.MetaWeblogAddress, blogSetting.UserName,
                         blogSetting.Password);
                     if (await gateway.TestConnectionAsync())
