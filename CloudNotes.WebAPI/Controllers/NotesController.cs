@@ -112,6 +112,7 @@ namespace CloudNotes.WebAPI.Controllers
             if (note != null)
             {
                 note = Mapper.Map(viewModel, note);
+                note.Revision++;
             }
             this.noteRepository.Update(note);
             this.RepositoryContext.Commit();

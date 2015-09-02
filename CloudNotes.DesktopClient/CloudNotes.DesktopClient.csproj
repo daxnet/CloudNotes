@@ -271,6 +271,10 @@
       <Project>{6c248049-642b-453c-8a67-f8b2e9fc25b9}</Project>
       <Name>CloudNotes.DesktopClient.Extensibility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CloudNotes.DesktopClient.Synchronization\CloudNotes.DesktopClient.Synchronization.csproj">
+      <Project>{0c6274cd-0e7e-4215-bfc9-fe7a6114362d}</Project>
+      <Name>CloudNotes.DesktopClient.Synchronization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CloudNotes.Infrastructure\CloudNotes.Infrastructure.csproj">
       <Project>{b2ce984b-141e-4c7a-af2a-51a7aeda8a00}</Project>
       <Name>CloudNotes.Infrastructure</Name>

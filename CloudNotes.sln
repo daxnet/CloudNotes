@@ -54,6 +54,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{C1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DESecurity", "CloudNotes.DESecurity\CloudNotes.DESecurity.csproj", "{BD197844-4531-42DD-B8CD-112171F3526F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudNotes.DesktopClient.Synchronization", "CloudNotes.DesktopClient.Synchronization\CloudNotes.DesktopClient.Synchronization.csproj", "{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,14 @@ Global
 		{BD197844-4531-42DD-B8CD-112171F3526F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD197844-4531-42DD-B8CD-112171F3526F}.ReleaseWithoutUnitTest|Any CPU.ActiveCfg = Release|Any CPU
 		{BD197844-4531-42DD-B8CD-112171F3526F}.ReleaseWithoutUnitTest|Any CPU.Build.0 = Release|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.DebugWithoutUnitTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.DebugWithoutUnitTest|Any CPU.Build.0 = Debug|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.ReleaseWithoutUnitTest|Any CPU.ActiveCfg = Release|Any CPU
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D}.ReleaseWithoutUnitTest|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -179,5 +189,6 @@ Global
 		{47C18012-140D-4908-9D39-266ACB092DC8} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
 		{1D1C64CD-D7D9-4E53-857E-661D952DD9A5} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
 		{BD197844-4531-42DD-B8CD-112171F3526F} = {C1679415-96D3-410A-B1A8-2E1A279268D2}
+		{0C6274CD-0E7E-4215-BFC9-FE7A6114362D} = {2B55666E-9D8C-4D2E-ACBD-D7CD7DE5812A}
 	EndGlobalSection
 EndGlobal

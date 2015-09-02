@@ -46,6 +46,7 @@ namespace CloudNotes.DesktopClient
     using CloudNotes.DesktopClient.Extensibility.Styling;
     using CloudNotes.DesktopClient.Properties;
     using CloudNotes.DesktopClient.Settings;
+    using CloudNotes.DesktopClient.Synchronization;
     using CloudNotes.DESecurity;
     using CloudNotes.Infrastructure;
     using YARTE.Buttons;
@@ -247,7 +248,8 @@ namespace CloudNotes.DesktopClient
         /// <returns>The <see cref="DataAccessProxy" /> instance.</returns>
         private DataAccessProxy CreateDataAccessProxy()
         {
-            return new WebApiDataAccessProxy(this.credential);
+             return new WebApiDataAccessProxy(this.credential);
+            //return new LocalStorageAccessProxy(this.credential);
         }
 
         /// <summary>
