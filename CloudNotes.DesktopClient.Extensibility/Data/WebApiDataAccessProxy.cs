@@ -105,7 +105,8 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
                     Description = this.crypto.Decrypt(note.Description.ToString()),
                     ThumbnailImageBase64 = base64ImageString,
                     DatePublished = (DateTime)note.DatePublished,
-                    DeletedFlag = (DeleteFlag)note.DeletedFlag
+                    DeletedFlag = (DeleteFlag)note.DeletedFlag,
+                    Revision = note.Revision ?? 0
                 });
             }
             return notes;

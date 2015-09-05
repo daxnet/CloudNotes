@@ -54,5 +54,7 @@ namespace CloudNotes.ViewModels
         public int DeletedFlag { get; set; }
 
         public string DeletedString { get; set; }
+
+        public int Revision { get; set; }
     }
 }

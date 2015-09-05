@@ -247,6 +247,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="CloudNotes.Cache.s3db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="CloudNotesKey.snk" />
     <None Include="packages.config" />
     <None Include="Styles\default.style">

@@ -42,6 +42,8 @@ namespace CloudNotes.ViewModels
 
         public DateTime? DateLastModified { get; set; }
 
+        public int Revision { get; set; }
+
         public string Weather { get; set; }
 
         public Guid UserID { get; set; }

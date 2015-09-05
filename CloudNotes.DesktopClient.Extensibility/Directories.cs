@@ -39,6 +39,14 @@ namespace CloudNotes.DesktopClient.Extensibility
 
         private const string CloudNotesDataFolder = "CloudNotes";
 
+        private const string LocalCacheFileName = "CloudNotes.Cache.s3db";
+
+        #endregion
+
+        #region Public Fields
+
+        public static readonly string LocalCacheFile = GetFullName(LocalCacheFileName);
+
         #endregion
 
         #region Public Methods

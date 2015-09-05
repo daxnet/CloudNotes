@@ -68,6 +68,14 @@ namespace CloudNotes.DesktopClient.Extensibility.Data
         /// </summary>
         public DeleteFlag? DeletedFlag { get; set; }
 
+        /// <summary>
+        /// Gets or sets the revision number of the note.
+        /// </summary>
+        /// <value>
+        /// The revision.
+        /// </value>
+        public int Revision { get; set; }
+
         #region Overrides of Object
 
         /// <summary>
